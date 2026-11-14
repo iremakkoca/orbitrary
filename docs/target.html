@@ -59,7 +59,7 @@
       $('#k-alt').textContent = 'Pick a place on the Moon or Mars. For each one we scored all ' + O.E_prime.toLocaleString('en') +
         ' land windows on Earth, with no shortcut, and show the ten closest Earth sites for each of five missions.';
       const ilkFoto = H.map(h => fotoUrl(h.kimlik)).find(Boolean);
-      if (ilkFoto) $('#kahraman').style.setProperty('--kahraman-foto', `url(${ilkFoto})`);
+      if (ilkFoto) $('#kahraman').style.setProperty('--kahraman-foto', `url(${new URL(ilkFoto, location.href).href})`);
       const grup = [
         ['Artemis', h => String(h.kimlik).startsWith('A3-'), T.uyari.artemis],
         ['Moon', h => h.cisim === 'ay' && !String(h.kimlik).startsWith('A3-'), 'Apollo landing sites and other lunar targets'],
@@ -88,7 +88,7 @@
       const L_ = await V.liste(id);
       document.title = `Orbitrary — ${h.ad}`;
       if (fotoUrl(id)) {
-        $('#kahraman').style.setProperty('--kahraman-foto', `url(${fotoUrl(id)})`);
+        $('#kahraman').style.setProperty('--kahraman-foto', `url(${new URL(fotoUrl(id), location.href).href})`);
         $('#kahraman').insertAdjacentHTML('beforeend', `<div class="foto-kredi">Photo: NASA · ${F[id].baslik} (${F[id].nasa_id})</div>`);
       }
       $('#k-ust').textContent = `${govdeAd(h.cisim)} · ${h.kimlik}${h.etiket ? ' · ' + h.etiket : ''}`;

@@ -27,7 +27,7 @@
 
   <section class="kahraman" id="kahraman">
     <div>
-      <div class="etiket">Validation · Mission preparation</div>
+      <div class="etiket">Validation</div>
       <h1 id="k-baslik">Analog sites</h1>
       <p id="k-alt"></p>
     </div>
@@ -38,12 +38,14 @@
     <p class="soluk" id="ozet-giris" style="max-width:860px;line-height:1.6;font-size:17px"></p>
     <div class="vurgu" id="vurgu"></div>
     <div class="ozet-serit" id="ozet"></div>
-    <div class="sekmeler" id="sekmeler">
-      <button data-t="validation">Validation analogs</button>
-      <button data-t="mission_prep">Mission-prep analogs</button>
-    </div>
-    <p class="soluk" id="sekme-giris" style="margin-bottom:20px;max-width:820px"></p>
+    <h2 style="margin:36px 0 6px;font-size:26px">The 8 NASA training sites, ranked by our method</h2>
+    <p class="soluk" style="margin-bottom:20px;max-width:860px">Each card shows what NASA did at the site, the target it trained for, and where the site lands among all Earth land for that target.</p>
     <div id="sekme-icerik"></div>
+    <div class="bolum-ayrac" id="baglam">
+      <h2 style="font-size:24px">Other NASA field-test sites</h2>
+      <p class="soluk" style="max-width:860px;line-height:1.6">Background only: places where NASA rehearses missions today. They are <b style="color:var(--text)">not scored</b> by our method and not used in the validation above; they are listed so you can see where real field tests happen, with sources.</p>
+      <div class="iki" style="margin-top:16px"><div class="harita" id="mp-harita" style="min-height:420px"></div><div id="mp-liste" style="max-height:420px;overflow:auto"></div></div>
+    </div>
   </main>
 
   <footer style="padding:30px 5vw;border-top:1px solid var(--line);display:flex;gap:18px;flex-wrap:wrap;align-items:center">
@@ -62,7 +64,7 @@
 
     $('#k-alt').textContent = 'Places on Earth where NASA trained astronauts and tested rovers for the Moon and Mars, and how our method ranks each of them against all Earth land.';
     const ilkFoto = Object.keys(F)[0];
-    if (ilkFoto) $('#kahraman').style.setProperty('--kahraman-foto', `url(img/analog/${ilkFoto}.jpg)`);
+    if (ilkFoto) $('#kahraman').style.setProperty('--kahraman-foto', `url(${new URL(`img/analog/${ilkFoto}.jpg`, location.href).href})`);
 
     // ---------- Doğrulama özeti: bütün sayılar ozet.json ve analog.json'dan ----------
     const v1 = O.V1 || {}, g = v1.gorev || {}, gen = v1.genel || {}, v2 = O.V2 || {}, v3 = O.V3 || {};
@@ -85,18 +87,10 @@
       <div class="kutu"><div class="etiket">Known vs random (V3)</div><div class="sayi mono" style="font-size:22px">AUC ${v3.AUC.toFixed(2)}</div><div class="alt">95% interval ${v3.GA95.map(x => x.toFixed(2)).join('–')}, p = ${v3.p.toFixed(3)}. Only ${v3.nA} known pairs exist, so the interval is wide.</div></div>
       <div class="kutu"><div class="etiket">Settings locked</div><div class="sayi" style="font-size:22px">before results</div><div class="alt">Weights, gates and thresholds were frozen before any validation number was seen.</div></div>`;
 
-    // ---------- Sekmeler ----------
-    const ciz = { validation, mission_prep: gorevHazirlik };
-    function sekme(t, kaydir = null) {
-      document.querySelectorAll('#sekmeler button').forEach(b => b.classList.toggle('secili', b.dataset.t === t));
-      $('#sekme-giris').textContent = T.analog.sekme[t].giris;
-      ciz[t]();
-      if (kaydir) setTimeout(() => { const el = document.getElementById(kaydir); if (el) el.scrollIntoView({ behavior: 'smooth' }); }, 400);
-    }
-    document.querySelectorAll('#sekmeler button').forEach(b => b.addEventListener('click', () => sekme(b.dataset.t)));
+    validation();
+    gorevHazirlik();
     const hash = decodeURIComponent(location.hash.slice(1));
-    const kayit = A.find(x => x.id === hash && x.tur !== 'candidate');
-    sekme(kayit ? kayit.tur : 'validation', kayit ? hash : null);
+    if (hash && document.getElementById(hash)) setTimeout(() => document.getElementById(hash).scrollIntoView({ behavior: 'smooth' }), 400);
 
     function gorselHtml(x) {
       const f = F[x.id];
@@ -139,8 +133,8 @@
             <h2 style="font-size:28px;margin:6px 0 10px">${x.ad}</h2>
             <p style="line-height:1.6">${x.nasa_ne_yapti || ''}</p>
             ${x.ciftler.map(c => ciftHtml(x, c)).join('')}
-            <div class="kaynaklar">Sources: ${linkler(x.kaynaklar)}</div>
           </div>
+          <div class="kaynaklar">Sources: ${linkler(x.kaynaklar)}</div>
         </article>`;
     }
     function ciftHtml(x, c) {
@@ -160,26 +154,22 @@
             <div class="etiket">Pair ${c.cift_no} · trained for</div>
             <h3 style="font-size:20px;margin:4px 0 8px"><a style="color:var(--text)" href="target.html?id=${encodeURIComponent(c.hedef_id)}&gorev=${r.gorev}">${hedefAd(c.hedef_id)}</a></h3>
             ${sonuc}
-            <a class="cta-analiz" style="margin-top:12px" href="target.html?id=${encodeURIComponent(c.hedef_id)}&gorev=${r.gorev}">See the full ${hedefAd(c.hedef_id)} analysis →</a>
+            <a class="cta-analiz" style="margin-top:12px" href="target.html?id=${encodeURIComponent(c.hedef_id)}&gorev=${r.gorev}">Full analysis →</a>
           </div>
         </div>`;
     }
 
     function gorevHazirlik() {
-      const kok = $('#sekme-icerik');
       const sahalar = A.filter(x => x.tur === 'mission_prep');
       const igne = sahalar.filter(x => x.harita_igne && x.enlem != null);
-      kok.innerHTML = `<div class="harita" id="mp-harita" style="min-height:420px;margin-bottom:24px"></div>` + sahalar.map(x => `
-        <article class="kart2" id="${x.id}" style="margin-bottom:18px;scroll-margin-top:90px">
-          <div class="etiket">Mission-prep analog${x.enlem != null && x.harita_igne ? ' · ' + V.koordYazi(x.enlem, x.boylam, 3) : ''}</div>
-          <h2>${x.ad}</h2>
-          ${x.kalite && T.analog.kalite[x.kalite] ? `<span class="rozet" title="${T.analog.kalite[x.kalite]}">Coordinates ${x.kalite} · ${T.analog.kalite[x.kalite]}</span>` : ''}
-          ${x.gelecek_hedef ? `<p class="soluk" style="margin-top:10px"><b>Relevant for:</b> ${x.gelecek_hedef}</p>` : ''}
-          <p style="margin-top:8px">${x.nasa_ne_yapti || ''}</p>
+      $('#mp-liste').innerHTML = sahalar.map(x => `
+        <details class="kart2" id="${x.id}" style="margin-bottom:10px;padding:14px 18px;scroll-margin-top:90px">
+          <summary style="cursor:pointer;font-weight:600">${x.ad}${x.gelecek_hedef ? `<span class="soluk" style="font-weight:400;font-size:13px"> · for ${x.gelecek_hedef}</span>` : ''}</summary>
+          <p style="margin-top:8px;font-size:14px;line-height:1.55">${x.nasa_ne_yapti || ''}</p>
           <div class="kaynaklar">Sources: ${linkler(x.kaynaklar)}</div>
-        </article>`).join('');
+        </details>`).join('');
       if (igne.length) V.uyduHaritasi($('#mp-harita'), igne[0].enlem, igne[0].boylam, { kare: false,
-        noktalar: igne.map(x => ({ lat: x.enlem, lon: x.boylam, etiket: x.ad, renk: '#5cc8ff', tikla: () => document.getElementById(x.id).scrollIntoView({ behavior: 'smooth' }) })) });
+        noktalar: igne.map(x => ({ lat: x.enlem, lon: x.boylam, etiket: x.ad, renk: '#5cc8ff', tikla: () => { const d = document.getElementById(x.id); d.open = true; d.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); } })) });
     }
   </script>
 </body>

@@ -189,27 +189,28 @@ export const KAROLAR = {
 };
 // Uydu haritası: yumuşak yaklaşma (flyTo), uzaklaşma sınırı, dünya dışına kaymaz,
 // sayfa kaydırılırken haritaya takılmaz (tekerlek yalnız haritaya tıklanınca açılır).
-export function uyduHaritasi(el, lat, lon, { zoom = 11, kare = true, noktalar = null, minZoom = null } = {}) {
+export function uyduHaritasi(el, lat, lon, { zoom = 11, kare = true, noktalar = null } = {}) {
   if (!window.L) { el.innerHTML = '<p class="soluk">Map library could not be loaded.</p>'; return null; }
-  if (el._harita) { el._harita.remove(); }
+  if (el._harita) { el._harita.remove(); el._harita = null; }
   const sinir = L.latLngBounds([[-85, -180], [85, 180]]);
   const tek = !noktalar;
-  const enAz = minZoom != null ? minZoom : (tek ? Math.max(3, zoom - 5) : 2);
-  const h = L.map(el, { zoomControl: true, attributionControl: true, minZoom: enAz, maxZoom: 17,
+  // Bütün haritalarda aynı hareket: 4 seviye uzaktan başlar, görünür olunca 2,2 sn'de yaklaşır.
+  const bas = tek ? Math.max(3, zoom - 4) : 2;
+  const h = L.map(el, { zoomControl: true, attributionControl: true, minZoom: tek ? bas : 2, maxZoom: 17,
     maxBounds: sinir, maxBoundsViscosity: 1.0, worldCopyJump: false, scrollWheelZoom: false,
-    zoomSnap: 0.25, zoomAnimation: true, fadeAnimation: true })
-    .setView([lat, lon], tek ? enAz : 2);
-  L.tileLayer(KAROLAR.url, { attribution: KAROLAR.atif, maxZoom: 17, maxNativeZoom: 17, noWrap: true, bounds: sinir }).addTo(h);
+    zoomSnap: 0.25, fadeAnimation: false }).setView([lat, lon], bas);
+  L.tileLayer(KAROLAR.url, { attribution: KAROLAR.atif, maxZoom: 17, maxNativeZoom: 17, noWrap: true, bounds: sinir, keepBuffer: 4 }).addTo(h);
   h.zoomControl.setPosition('bottomright');
-  h.on('click focus', () => h.scrollWheelZoom.enable());
-  h.on('mouseout blur', () => h.scrollWheelZoom.disable());
-  if (kare && tek) {   // 20 km × 20 km pencere: ±10 km (enlem 1° ≈ 111,32 km)
-    const dl = 10 / 111.32, dL = 10 / (111.32 * Math.max(0.05, Math.cos(lat * Math.PI / 180)));
-    L.rectangle([[lat - dl, lon - dL], [lat + dl, lon + dL]], { color: '#ffffff', weight: 2, dashArray: null, fill: false, opacity: 0.95 }).addTo(h);
-  }
+  h.on('click', () => h.scrollWheelZoom.enable());
+  h.on('mouseout', () => h.scrollWheelZoom.disable());
+  let hareket;
   if (tek) {
+    if (kare) {   // 20 km × 20 km pencere: ±10 km (enlem 1° ≈ 111,32 km)
+      const dl = 10 / 111.32, dL = 10 / (111.32 * Math.max(0.05, Math.cos(lat * Math.PI / 180)));
+      L.rectangle([[lat - dl, lon - dL], [lat + dl, lon + dL]], { color: '#ffffff', weight: 1.5, fill: false, opacity: 0.9 }).addTo(h);
+    }
     L.circleMarker([lat, lon], { radius: 5, color: '#ffffff', weight: 2, fillColor: '#5cc8ff', fillOpacity: 1 }).addTo(h);
-    setTimeout(() => h.flyTo([lat, lon], zoom, { duration: 1.6 }), 350);
+    hareket = () => h.flyTo([lat, lon], zoom, { duration: 2.2, easeLinearity: 0.2 });
   } else {
     const grup = [];
     noktalar.forEach(n => {
@@ -218,9 +219,12 @@ export function uyduHaritasi(el, lat, lon, { zoom = 11, kare = true, noktalar = 
       if (n.tikla) m.on('click', n.tikla);
       grup.push([n.lat, n.lon]);
     });
-    if (grup.length > 1) setTimeout(() => h.flyToBounds(grup, { padding: [40, 40], maxZoom: 6, duration: 1.4 }), 300);
-    else if (grup.length === 1) setTimeout(() => h.flyTo(grup[0], 8, { duration: 1.4 }), 300);
+    hareket = () => grup.length > 1 ? h.flyToBounds(grup, { padding: [40, 40], maxZoom: 5, duration: 2.2, easeLinearity: 0.2 })
+                                     : grup.length ? h.flyTo(grup[0], 8, { duration: 2.2 }) : null;
   }
+  // Harita ekrana girince bir kez başlar; kaydırırken yarıda başlamış animasyon görünmez
+  const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { io.disconnect(); setTimeout(() => { h.invalidateSize(); hareket && hareket(); }, 250); } }, { threshold: 0.35 });
+  io.observe(el);
   el._harita = h;
   setTimeout(() => h.invalidateSize(), 200);
   return h;

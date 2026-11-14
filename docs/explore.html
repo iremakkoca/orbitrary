@@ -267,8 +267,6 @@
           <li>Choose a mission</li>
           <li>Click any point on the globe, or pick a target below</li>
         </ol>
-        <div class="etiket" style="margin-top:18px">Targets on this world</div>
-        <div id="bolge-liste" class="bolge-liste"></div>
       </div>
 
       <!-- Nokta seçilince -->
@@ -287,6 +285,12 @@
           <div><span class="etiket">Mission</span><b id="ozet-gorev">Mobility test</b></div>
           <div><span class="etiket">Region</span><b id="ozet-bolge">—</b></div>
         </div>
+      </div>
+
+      <div class="blok">
+        <div class="etiket">Targets on this world</div>
+        <p class="soluk" style="font-size:12.5px;margin:4px 0 0">White rings on the globe. The Artemis regions and Shackleton all sit within a few degrees of the lunar south pole.</p>
+        <div id="bolge-liste" class="bolge-liste"></div>
       </div>
 
       <div class="blok">
@@ -775,7 +779,7 @@
       for (const h of hedefler) {
         const m = MESH[h.body === 'moon' ? 'ay' : 'mars']; if (!m) continue;
         const p = hedefVektor(h.lat, h.lon);
-        const r = new THREE.Mesh(new THREE.RingGeometry(0.012, 0.017, 32),
+        const r = new THREE.Mesh(new THREE.RingGeometry(0.0055, 0.0075, 32),
           new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.85, side: THREE.DoubleSide, toneMapped: false, depthWrite: false }));
         r.position.copy(p).multiplyScalar(1.004);
         r.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), p);
@@ -811,7 +815,7 @@
       document.getElementById('git-btn').disabled = true;   // SITE_V2_YAMA_3: sayı değişmedikçe Go soluk
       const bolge = enYakinHedef(lat, lon);
       document.getElementById('ozet-bolge').innerHTML = bolge
-        ? `${bolge.name}<br><a class="cta-analiz" style="margin-top:8px;font-size:13px;padding:7px 12px" href="target.html?id=${encodeURIComponent(bolge.id)}">Open the full ${bolge.name} analysis →</a>`
+        ? `${bolge.name}<br><a class="cta-analiz" style="margin-top:8px" href="target.html?id=${encodeURIComponent(bolge.id)}">Full analysis →</a>`
         : 'Uncharted site';
       document.getElementById('giris').hidden = true;
       document.getElementById('secim').hidden = false;
@@ -857,7 +861,7 @@
       let r;
       try { r = await V.sonuc(govde, lat, lon); } catch (e) { durumEl.textContent = 'Results could not be loaded.'; console.error(e); return; }
       if (!secilen || secilen.lat !== lat || secilen.lon !== lon) return;   // bu arada başka nokta seçildiyse bırak
-      const btnlar = document.querySelectorAll('#secim .liste-btn');
+      const btnlar = document.querySelectorAll('#panel .liste-btn');
       const yaz = (b, t) => { if (b) b.querySelector('span:nth-child(2)').textContent = t; };
       if (!r.hazir) {
         durumEl.textContent = `${GOK[govde].ad} results are still being computed. Please check back soon.`;

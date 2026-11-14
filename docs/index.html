@@ -244,6 +244,10 @@
     #kat-pencere h4 { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; margin: 20px 0 6px; font-weight: 500; }
     #kat-pencere p { line-height: 1.65; }
     .pencere-alt { display: flex; gap: 10px; margin-top: 28px; }
+    #topoloji { display: grid; grid-template-columns: 1fr 1.25fr; column-gap: 32px; align-items: start; }
+    #topoloji > * { grid-column: 1; }
+    #topoloji canvas { grid-column: 2; grid-row: 1 / span 6; max-width: 620px !important; margin: 0 !important; }
+    @media (max-width: 900px) { #topoloji { grid-template-columns: 1fr; } #topoloji canvas { grid-column: 1; grid-row: auto; } }
     .kp-izgara { display: grid; grid-template-columns: 1.05fr 1fr; gap: 30px; align-items: start; }
     .kp-foto { margin: 0; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: #070b14; position: sticky; top: 0; }
     .kp-foto img { width: 100%; height: 420px; object-fit: cover; display: block; }
