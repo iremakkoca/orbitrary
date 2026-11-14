@@ -11,3 +11,6 @@ _netrc
 *.token
 .env
 *.pyc
+site_yedek/
+site_v0_arsiv/
+site_v2/

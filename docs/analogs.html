@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<!-- Developed with assistance from Claude (Anthropic). -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="ai-assistance" content="Code developed with assistance from Claude (Anthropic). Data processing and method by the Orbitrary team.">
+  <title>Orbitrary — Analog sites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/analiz.css">
+</head>
+<body class="yildizli">
+  <header class="ust">
+    <a href="index.html" class="btn-link">← Home</a>
+    <a href="index.html" class="logo" aria-label="Orbitrary">ORBITR<span class="ters">A</span>RY</a>
+    <nav>
+      <a href="explore.html">Explore</a>
+      <a href="target.html">Targets</a>
+      <a href="analogs.html" class="aktif">Analog sites</a>
+      <a href="index.html#yontem">Method</a>
+    </nav>
+  </header>
+
+  <section class="kahraman" id="kahraman">
+    <div>
+      <div class="etiket">Validation · Mission preparation · New candidates</div>
+      <h1 id="k-baslik">Analog sites</h1>
+      <p id="k-alt"></p>
+    </div>
+  </section>
+
+  <main class="sayfa">
+    <h2 style="margin:38px 0 4px;font-size:24px">Does the method find NASA's own analogs?</h2>
+    <p class="soluk" id="ozet-giris" style="max-width:820px;line-height:1.55"></p>
+    <div class="ozet-serit" id="ozet"></div>
+    <div class="sekmeler" id="sekmeler">
+      <button data-t="validation">Validation analogs</button>
+      <button data-t="mission_prep">Mission-prep analogs</button>
+      <button data-t="candidate">Orbitrary new candidates</button>
+    </div>
+    <p class="soluk" id="sekme-giris" style="margin-bottom:20px;max-width:820px"></p>
+    <div id="sekme-icerik"></div>
+  </main>
+
+  <footer style="padding:30px 5vw;border-top:1px solid var(--line);display:flex;gap:18px;flex-wrap:wrap;align-items:center">
+    <a href="#" class="btn-link" onclick="scrollTo({top:0,behavior:'smooth'});return false">Back to top ↑</a>
+    <span class="soluk" style="font-size:13px">NASA Space Apps Challenge 2026 project. Not an official NASA website. Photos: NASA Image and Video Library (nasa_id under each photo). Every number on this page is read from the project's result files. Code developed with assistance from Claude (Anthropic).</span>
+  </footer>
+
+  <script type="module">
+    import * as V from './js/veri.js';
+    const $ = s => document.querySelector(s);
+    const [T, O, A, H, F] = await Promise.all([V.metin(), V.ozet(), V.analoglar(), V.hedefler(), V.fotolar()]);
+    const hedefAd = id => (H.find(h => h.kimlik === id) || {}).ad || id;
+    const linkler = arr => (arr || []).flatMap(x => String(x).split(';')).map(s => s.trim()).filter(Boolean)
+      .map(s => s.startsWith('http') ? `<a href="${s}" target="_blank" rel="noopener">${s.replace(/^https?:\/\//, '').slice(0, 70)}</a>` : s).join(' · ');
+
+    $('#k-alt').textContent = T.sayfa.analogs.giris;
+    const ilkFoto = Object.keys(F)[0];
+    if (ilkFoto) $('#kahraman').style.setProperty('--kahraman-foto', `url(img/analog/${ilkFoto}.jpg)`);
+
+    // ---------- Doğrulama özeti (ozet.json) ----------
+    const v1 = O.V1 || {}, g = v1.gorev || {}, gen = v1.genel || {}, v2 = O.V2 || {}, v3 = O.V3 || {};
+    $('#ozet-giris').textContent = `NASA trained astronauts and tested rovers at ${g.m} Earth site–target pairs. For each pair we score every land window on Earth (${O.E_prime.toLocaleString('en')} windows) against the target and ask where NASA's site ranks. ` +
+      (v1.iyi ? 'Known NASA training sites rank above chance.' : 'The result is shown as measured.');
+    $('#ozet').innerHTML = `
+      <div class="kutu"><div class="etiket">Median NASA site</div><div class="sayi">${V.yuzde(g.Pi_ortanca)}</div><div class="alt">of Earth's land windows score lower than the median NASA training site for its own mission (General mission: ${V.yuzde(gen.Pi_ortanca)}).</div></div>
+      <div class="kutu"><div class="etiket">Fisher test (V1)</div><div class="sayi mono">p = ${g.p != null ? g.p.toFixed(3) : '—'}</div><div class="alt">${g.m} pairs, each with its own mission; General mission p = ${gen.p != null ? gen.p.toFixed(3) : '—'}. ${g.kapidan_kalan} of ${g.m} pairs did not pass the mission gate and count as rank 0.</div></div>
+      <div class="kutu"><div class="etiket">Negative controls (V2)</div><div class="sayi mono">p = ${v2.p != null ? v2.p.toExponential(1) : '—'}</div><div class="alt">${v2.m} rainforest and farmland windows chosen before the run rank at the bottom, as they should.</div></div>
+      <div class="kutu"><div class="etiket">Known vs random (V3)</div><div class="sayi mono">AUC ${v3.AUC != null ? v3.AUC.toFixed(2) : '—'}</div><div class="alt">95% bootstrap interval ${v3.GA95 ? v3.GA95.map(x => x.toFixed(2)).join('–') : '—'}; one-sided p = ${v3.p != null ? v3.p.toFixed(3) : '—'}. Only ${v3.nA} known pairs, so the interval is wide.</div></div>`;
+
+    // ---------- Sekmeler ----------
+    const ciz = { validation, mission_prep: gorevHazirlik, candidate: adaylar };
+    function sekme(t, kaydir = null) {
+      document.querySelectorAll('#sekmeler button').forEach(b => b.classList.toggle('secili', b.dataset.t === t));
+      $('#sekme-giris').textContent = T.analog.sekme[t].giris;
+      ciz[t]();
+      if (kaydir) setTimeout(() => { const el = document.getElementById(kaydir); if (el) el.scrollIntoView({ behavior: 'smooth' }); }, 300);
+    }
+    document.querySelectorAll('#sekmeler button').forEach(b => b.addEventListener('click', () => sekme(b.dataset.t)));
+    const hash = decodeURIComponent(location.hash.slice(1));
+    const hedefKayit = A.find(x => x.id === hash);
+    sekme(hedefKayit ? hedefKayit.tur : 'validation', hedefKayit ? hash : null);
+
+    function fotoKutu(x) {
+      const f = F[x.id];
+      return f ? `<div class="saha-foto"><img src="img/analog/${x.id}.jpg" alt="${f.baslik}" loading="lazy"></div>
+                  <div class="foto-alt">${f.baslik} · NASA ${f.merkez || ''} · nasa_id ${f.nasa_id}</div>`
+               : `<div class="saha-foto"><div class="harita" data-lat="${x.enlem}" data-lon="${x.boylam}"></div></div>
+                  <div class="foto-alt">No NASA photograph of this site in the NASA Image Library; satellite view instead.</div>`;
+    }
+    function haritalariKur(kok) {
+      kok.querySelectorAll('.saha-foto .harita').forEach(el => V.uyduHaritasi(el, Number(el.dataset.lat), Number(el.dataset.lon), { zoom: 10 }));
+    }
+
+    function validation() {
+      const kok = $('#sekme-icerik');
+      const sahalar = A.filter(x => x.tur === 'validation');
+      kok.innerHTML = sahalar.map(x => `
+        <article class="saha-kart" id="${x.id}">
+          <div>${fotoKutu(x)}</div>
+          <div>
+            <div class="etiket">Validation analog · ${V.koordYazi(x.enlem, x.boylam, 3)}</div>
+            <h2 style="font-size:26px;margin:6px 0 10px">${x.ad}</h2>
+            <p style="line-height:1.6">${x.nasa_ne_yapti || ''}</p>
+            ${x.ciftler.map(c => ciftHtml(x, c)).join('')}
+            <div class="kaynaklar">Sources: ${linkler(x.kaynaklar)}</div>
+          </div>
+        </article>`).join('');
+      kok.querySelectorAll('svg.radar[data-s]').forEach(svg => V.radar(svg, JSON.parse(svg.dataset.s)));
+      haritalariKur(kok);
+    }
+    function ciftHtml(x, c) {
+      const r = c.sonuc;
+      if (!r) return '';
+      const gAd = T.gorev[r.gorev] ? T.gorev[r.gorev].ad : r.gorev;
+      const sonuc = r.kapidan_kaldi
+        ? `<span class="rozet rozet-kaldi">did not pass the ${gAd} gate</span>
+           <p class="soluk" style="font-size:13.5px;margin-top:6px">${T.kapi[r.gorev] ? T.kapi[r.gorev].metin : ''} Under the General mission (no gate) it scores higher than <b>${V.yuzde(r.Pi_genel)}</b> of Earth's land windows.</p>`
+        : `<div style="font-size:30px;font-weight:600">${V.yuzde(r.Pi, 1)}</div>
+           <p class="soluk" style="font-size:13.5px">of Earth's ${O.E_prime.toLocaleString('en')} land windows score lower than this site for ${hedefAd(c.hedef_id)} (${gAd}). General mission: ${V.yuzde(r.Pi_genel, 1)}.</p>`;
+      return `
+        <div class="cift">
+          <div><svg class="radar" data-s='${JSON.stringify(r.s)}'></svg>
+            <p class="soluk" style="font-size:12px">Topology is computed only for each target's top 30, so validation ranks use the other seven categories.</p></div>
+          <div>
+            <div class="etiket">Pair ${c.cift_no} · trained for</div>
+            <h3 style="font-size:18px;margin:4px 0 8px"><a href="target.html?id=${encodeURIComponent(c.hedef_id)}&gorev=${r.gorev}">${hedefAd(c.hedef_id)} →</a></h3>
+            ${sonuc}
+            <h3 style="font-size:14px;margin-top:14px">The method's own top 3 for this target and mission</h3>
+            <ol style="margin:6px 0 0 18px;font-size:14px;line-height:1.7">${(c.yontem_ilk3 || []).map(e => `<li class="mono">${V.koordYazi(e.enlem, e.boylam)} · score ${e.P.toFixed(3)}</li>`).join('')}</ol>
+          </div>
+        </div>`;
+    }
+
+    function gorevHazirlik() {
+      const kok = $('#sekme-icerik');
+      const sahalar = A.filter(x => x.tur === 'mission_prep');
+      const igne = sahalar.filter(x => x.harita_igne && x.enlem != null);
+      kok.innerHTML = `<div class="harita" id="mp-harita" style="min-height:380px;margin-bottom:24px"></div>` + sahalar.map(x => `
+        <article class="kart2" id="${x.id}" style="margin-bottom:18px;scroll-margin-top:90px">
+          <div class="etiket">Mission-prep analog${x.enlem != null && x.harita_igne ? ' · ' + V.koordYazi(x.enlem, x.boylam, 3) : ''}</div>
+          <h2>${x.ad}</h2>
+          ${x.kalite && T.analog.kalite[x.kalite] ? `<span class="rozet" title="${T.analog.kalite[x.kalite]}">Coordinates ${x.kalite} · ${T.analog.kalite[x.kalite]}</span>` : ''}
+          ${x.gelecek_hedef ? `<p class="soluk" style="margin-top:10px"><b>Relevant for:</b> ${x.gelecek_hedef}</p>` : ''}
+          <p style="margin-top:8px">${x.nasa_ne_yapti || ''}</p>
+          <div class="kaynaklar">Sources: ${linkler(x.kaynaklar)}</div>
+        </article>`).join('');
+      if (igne.length) V.uyduHaritasi($('#mp-harita'), igne[0].enlem, igne[0].boylam, { kare: false,
+        noktalar: igne.map(x => ({ lat: x.enlem, lon: x.boylam, etiket: x.ad, renk: '#ffd36b', tikla: () => document.getElementById(x.id).scrollIntoView({ behavior: 'smooth' }) })) });
+    }
+
+    async function adaylar() {
+      const kok = $('#sekme-icerik');
+      const tum = A.filter(x => x.tur === 'candidate');
+      const hedefIdler = [...new Set(tum.flatMap(x => x.hedef_id))];
+      kok.innerHTML = `<div class="not">${T.uyari.hipotez}</div>
+        <div style="display:flex;gap:12px;align-items:center;margin:18px 0">
+          <span class="etiket">Target</span>
+          <select id="aday-sec" style="background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-family:inherit">
+            <option value="">All targets (${tum.length} sites)</option>
+            ${hedefIdler.map(i => `<option value="${i}">${hedefAd(i)}</option>`).join('')}</select></div>
+        <div class="iki"><div class="kart2" style="padding:10px 12px;max-height:620px;overflow:auto">
+          <table class="tab"><thead><tr><th>Earth location</th><th>Matched target · mission · rank</th><th>Nearest documented analog</th></tr></thead><tbody id="aday-tb"></tbody></table></div>
+          <div class="harita" id="aday-harita" style="min-height:620px"></div></div>`;
+      const doldur = () => {
+        const s = $('#aday-sec').value;
+        const liste = tum.filter(x => !s || x.hedef_id.includes(s));
+        $('#aday-tb').innerHTML = liste.map(x => `<tr id="${x.id}">
+          <td class="mono">${V.koordYazi(x.enlem, x.boylam)}</td>
+          <td>${x.eslesmeler.filter(e => !s || e.hedef_id === s).map(e => `<a href="target.html?id=${encodeURIComponent(e.hedef_id)}&gorev=${e.gorev}">${hedefAd(e.hedef_id)}</a> · ${T.gorev[e.gorev].ad} · #${e.sira} (${e.P.toFixed(3)})`).join('<br>')}</td>
+          <td>${V.saha(x.en_yakin_bilinen.id)} · ${x.en_yakin_bilinen.km.toFixed(0)} km</td></tr>`).join('');
+        V.uyduHaritasi($('#aday-harita'), liste[0] ? liste[0].enlem : 0, liste[0] ? liste[0].boylam : 0, { kare: false,
+          noktalar: liste.map(x => ({ lat: x.enlem, lon: x.boylam, r: 5, renk: '#ff9f5c', etiket: x.eslesmeler.map(e => hedefAd(e.hedef_id)).join(', ') })) });
+      };
+      $('#aday-sec').addEventListener('change', doldur);
+      doldur();
+    }
+  </script>
+</body>
+</html>

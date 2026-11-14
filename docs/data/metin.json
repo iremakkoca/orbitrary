@@ -1,0 +1,234 @@
+{
+  "_bilgi": "Orbitrary docs/data/metin.json şablonu. Boş (\"\") alanları Emir doldurur (İngilizce). Dolu alanlar belgede sabit; değiştirilmez. Metinde sayı yazılmaz; sayılar {X} gibi yer tutucularla koddan gelir. sekil.*: sitede Validation (F8–F13) ve Data (F14) sayfalarındaki şekillerin başlık ve alt yazısı; makaledeki alt yazıyla aynı cümleler, sayısız ({X} yer tutucu).",
+  "kategori": {
+    "topografya": {
+      "ad": "Topography",
+      "aciklama": "Compares the slope, roughness and curvature of the ground at two scales, and how much its height varies."
+    },
+    "topoloji": {
+      "ad": "Topology",
+      "aciklama": "The shape of the terrain: how its hollows and high points are laid out, independent of size."
+    },
+    "jeoloji": {
+      "ad": "Geology",
+      "aciklama": "Which kinds of rock make up the area, from volcanic and plutonic to sedimentary, metamorphic and ice."
+    },
+    "mineraloji": {
+      "ad": "Mineralogy",
+      "aciklama": "How rich the surface is in dark, iron-bearing minerals, judged against the rest of its own world."
+    },
+    "termal": {
+      "ad": "Thermal",
+      "aciklama": "Compares thermal behaviour as each window's position within its own body's thermal data."
+    },
+    "su_buz": {
+      "ad": "Water/Ice",
+      "aciklama": "Signs of ground ice, ranked among icy places only. It tells how strong the signal is, not how much ice."
+    },
+    "toz": {
+      "ad": "Dust",
+      "aciklama": "Compares how much of the surface is covered by fine-grained material such as dust, regolith and fine soil."
+    },
+    "aydinlanma": {
+      "ad": "Illumination",
+      "aciklama": "How much sunlight the window gets over a year."
+    }
+  },
+  "gorev": {
+    "genel": {
+      "ad": "General",
+      "soru": "Which places on Earth are most like this site overall?"
+    },
+    "mobility": {
+      "ad": "Mobility test",
+      "soru": "Could rovers and astronauts on foot train on ground like this?"
+    },
+    "geology": {
+      "ad": "Geology",
+      "soru": "Could astronauts practise geology fieldwork for this site here?"
+    },
+    "ice": {
+      "ad": "Ice & resources",
+      "soru": "Can frozen-ground work be tested here?"
+    },
+    "astro": {
+      "ad": "Astrobiology",
+      "soru": "Could astrobiology instruments be tested somewhere this dry?"
+    }
+  },
+  "kapi": {
+    "mobility": {
+      "metin": "Nearly all of the window must be flatter than the steepest slope NASA allows astronauts to walk on during Artemis."
+    },
+    "ice": {
+      "metin": "Only for targets with signs of ice. Most of the Earth window must be continuous permafrost, ground that stays frozen year after year."
+    },
+    "astro": {
+      "metin": "Passes if the window is hyper-arid, which means its median aridity index falls in the driest class of the Global Aridity Index."
+    },
+    "geology": {
+      "metin": "Most of the window must be bare ground, not vegetation, snow or ice, and the target's main rock type must be present."
+    },
+    "durum": {
+      "passed": {
+        "ad": "passed",
+        "aciklama": "The window meets this mission's requirement."
+      },
+      "fallback": {
+        "ad": "passed with fallback threshold",
+        "aciklama": "Too few places on Earth met the main threshold, so a looser one was used."
+      },
+      "could_not_be_checked": {
+        "ad": "could not be checked",
+        "aciklama": "There is no data here to check this requirement, so the window was kept."
+      },
+      "not_applicable": {
+        "ad": "not applicable",
+        "aciklama": "This mission does not apply to this target, such as Ice on a dry target."
+      },
+      "failed": {
+        "ad": "failed",
+        "aciklama": "The window does not meet this mission's requirement, so it scores zero."
+      }
+    }
+  },
+  "okunus": {
+    "s": "More similar to the target than {X}% of random Earth windows in this category.",
+    "P": "The mission score, from 0 to 1, averages the category similarities with this mission's weights. It is zero if a requirement is not met.",
+    "ham_uzaklik": "The raw distance behind the percentile. Smaller means more similar, and unlike the percentile it shows how close the match really is.",
+    "kapsama": "{N} of 8 categories computed",
+    "sampiyon": "Category champion: the Earth window that matches the target best in this one category, among windows that meet the requirement."
+  },
+  "eksik_taraf": {
+    "hedef": "This category has no data for the target.",
+    "dunya": "This category has no data for this Earth window.",
+    "iki_taraf": "This category has no data for either the target or this Earth window."
+  },
+  "uyari": {
+    "no_data": "No data: this category could not be computed and is left out of the score, not counted as dissimilar.",
+    "toryum": "Lunar hydrogen is unreliable in this high-thorium region, so water/ice is not computed here.",
+    "kapsam_disi": "The target lies outside the coverage of this dataset, so the category is left out of the score.",
+    "coarse": "Coarse data: this layer is coarser than the analysis cell, so its values are regional, not local.",
+    "fast_mode": "Fast mode: precomputed with smaller reference sets. Use Target search for full results on listed targets.",
+    "kuru_hedef": "Dry target: no ice signal, so Ice & resources is not applicable and water/ice is left out.",
+    "yedek_esik": "Passed only with the fallback threshold, because too few Earth windows met the main threshold.",
+    "bolge_merkezi": "approximate centre (mean of candidate landing sites, Wueller et al. 2026)",
+    "feature_centre": "feature centre",
+    "artemis": "Artemis III candidate regions (Oct 2024) — first landing now planned as Artemis IV",
+    "hipotez": "These are ranked hypotheses for field testing, not confirmed analogs."
+  },
+  "analog": {
+    "sekme": {
+      "validation": {
+        "ad": "Validation analogs",
+        "giris": "Earth sites that NASA documented as analogs of specific lunar or martian sites, used to test the method."
+      },
+      "mission_prep": {
+        "ad": "Mission-prep analogs",
+        "giris": "Earth sites where NASA prepared crews and hardware for missions, each with its sources."
+      },
+      "candidate": {
+        "ad": "Orbitrary new candidates",
+        "giris": "Places proposed by Orbitrary far from every documented analog: hypotheses for field testing, not confirmed analogs."
+      }
+    },
+    "etiket": {
+      "known": {
+        "ad": "Known analog",
+        "aciklama": "Close to a site in our list of documented analogs. The label does not enter the score."
+      },
+      "near": {
+        "ad": "Near known analog",
+        "aciklama": "Near a documented analog site, but not at it. The label does not enter the score."
+      },
+      "new": {
+        "ad": "New candidate — field check suggested",
+        "aciklama": "Far from every documented analog site, so a field check is suggested. The label does not enter the score."
+      }
+    },
+    "kalite": {
+      "K1": "Coordinates taken from a scientific or official source.",
+      "K2": "Coordinates from a secondary source, such as a site sign or a travel website.",
+      "K3": "Coordinates could not be found or verified, so the site is not pinned on the map."
+    }
+  },
+  "teorem": {
+    "ozet": "If elevation errors stay below the safe error radius, the topography and topology similarities of this result cannot change.",
+    "eps1": "Safe error radius for topography: elevation errors smaller than this leave the topography similarity unchanged.",
+    "eps2": "Safe error radius for topology: a worst-case bound, usually very small; typical robustness is measured by the noise test."
+  },
+  "duyarlilik": {
+    "saglam": "The top three stay the same with equal weights and with a geometric mean, so the result is robust to these choices.",
+    "degisti": "The top three change with equal weights or with a geometric mean; both rankings are shown and the changes are marked."
+  },
+  "sayfa": {
+    "explore": {
+      "baslik": "Explore",
+      "giris": "Click anywhere on the Moon or Mars to see the three most similar places on Earth for a chosen mission. Results on this page are precomputed in fast mode; full results with category champions and robustness checks are in Target search."
+    },
+    "target": {
+      "baslik": "Target search",
+      "giris": "Choose a target, such as an Artemis candidate landing region, an Apollo landing site or a Mars landing site, and a mission. The ten best Earth analogs are shown with their gate status, category similarities, raw distances, category champions, safe error radii and a sensitivity check."
+    },
+    "analogs": {
+      "baslik": "Analog sites",
+      "giris": "Earth sites that NASA has documented as analogs, sites where NASA prepared missions, and new candidates proposed by Orbitrary. Every site is shown with its sources and coordinate quality; validation sites also show how our method ranks them."
+    },
+    "method": {
+      "baslik": "Method",
+      "giris": "Each Earth window is compared with the target in eight categories. Each distance is converted into a percentile against random Earth windows, a weighted mean gives the mission score, and feasibility gates exclude unusable ground. Every threshold comes from a published source or is a stated design parameter."
+    },
+    "validation": {
+      "baslik": "Validation",
+      "giris": "Ten tests check whether known NASA analogs rank high, whether clear non-analogs rank low, how stable the rankings are, and whether categories repeat the same information. All test parameters were fixed before the results were computed.",
+      "kotu_sonuc": "Every test is reported in the same format, whether its result is favourable or not."
+    },
+    "data": {
+      "baslik": "Data",
+      "giris": "All public datasets used, with their source, licence, coverage and reading notes. The coverage map shows how many of the eight categories can be computed at each location on the Moon and Mars."
+    },
+    "about": {
+      "baslik": "About",
+      "giris": "Orbitrary was built for the NASA Space Apps Challenge 2026 by a team from the Department of Mathematics, Yildiz Technical University. The code, the list of datasets and the research paper are openly available.",
+      "use_of_ai": "Code and text were written and edited with the assistance of Claude (Anthropic). The interpretation of the problem, the method, the thresholds and all decisions belong to the team. All outputs were verified with tests."
+    }
+  },
+  "altbilgi": "Developed with assistance from Claude (Anthropic).",
+  "sekil": {
+    "F8": {
+      "baslik": "Known analogs against random Earth windows (V1)",
+      "altyazi": "Rank statistic of each known NASA analog pair, for its mission score and for the General score. The dashed line marks the value expected for a random window; analogs that failed a gate are marked separately.",
+      "yazan": "Emir"
+    },
+    "F9": {
+      "baslik": "Known analogs versus random windows: ROC curve (V3)",
+      "altyazi": "ROC curve comparing the scores of known analogs with those of random Earth windows for the same targets; the area under the curve and its bootstrap confidence interval are shown in the panel.",
+      "yazan": "Emir"
+    },
+    "F10": {
+      "baslik": "Correlation between categories (V6)",
+      "altyazi": "Spearman rank correlation between the similarities of every pair of categories over random target and candidate pairs. Pairs above the double-counting threshold are marked.",
+      "yazan": "Emir"
+    },
+    "F11": {
+      "baslik": "Stability under elevation noise (V7)",
+      "altyazi": "Kendall's tau-b and top-3 Jaccard index between the noise-free ranking and rankings after random elevation noise at the DEM accuracy was added, over repeated trials, shown as box plots for each body.",
+      "yazan": "Emir"
+    },
+    "F12": {
+      "baslik": "",
+      "altyazi": "",
+      "yazan": "Sude"
+    },
+    "F13": {
+      "baslik": "",
+      "altyazi": "",
+      "yazan": "Sude"
+    },
+    "F14": {
+      "baslik": "",
+      "altyazi": "",
+      "yazan": "Sude"
+    }
+  }
+}

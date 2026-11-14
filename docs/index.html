@@ -331,6 +331,8 @@
       <a href="#veri">Data</a>
       <a href="#kimler">Who it's for</a>
       <a href="#ekip">Team</a>
+      <a href="target.html">Targets</a>
+      <a href="analogs.html">Analog sites</a>
       <a href="article.html">Article</a>
     </nav>
     <a href="explore.html" class="btn-link">Explore mode →</a>
@@ -352,6 +354,8 @@
     <a class="bag" href="#yontem">Under the hood <span>07</span></a>
     <a class="bag" href="#sinirlar">Limits <span>08</span></a>
     <a class="bag" href="#ekip">Team <span>09</span></a>
+    <a class="bag" href="target.html">Target analyses <span>→</span></a>
+    <a class="bag" href="analogs.html">Analog sites <span>→</span></a>
     <a class="bag" href="article.html">Read the article <span>↗</span></a>
     <a class="btn-link btn-ana" href="explore.html">Explore mode →</a>
     <p class="soluk alt-not">NASA Space Apps Challenge 2026 project. Not an official NASA website.</p>
@@ -574,9 +578,9 @@
       <div class="etiket reveal">Under the hood</div>
       <h2 class="reveal">Method, topology and validation</h2>
       <div class="kartlar">
-        <div class="kart reveal"><div class="no">METHOD</div><h3>How the score is built</h3><p class="soluk">Per-category similarities combined with mission weights into one absolute score.</p><div class="yer-tutucu">Main formula — coming soon</div></div>
+        <div class="kart reveal"><div class="no">METHOD</div><h3>How the score is built</h3><p class="soluk">Per-category similarities combined with mission weights into one absolute score.</p><div class="yer-tutucu" style="text-align:left;line-height:1.6"><b style="font-size:18px">P = Gate · Σ w·s / Σ w</b><br><span class="soluk">s = similarity in one category (share of reference Earth windows that are further from the target); w = mission weight; the sum runs over categories with data on both sides.</span><br><a class="btn-link" href="target.html" style="margin-top:10px;display:inline-block">See full target analyses →</a></div></div>
         <div class="kart reveal" id="topoloji"><div class="no">TOPOLOGY</div><h3>Reading a crater like rising water</h3><p class="soluk">Flood a landscape slowly: pits fill up and rings appear and vanish. When they are born and when they disappear describes the terrain's shape.</p><div class="yer-tutucu">See the animation below ↓</div></div>
-        <div class="kart reveal" id="dogrulama"><div class="no">VALIDATION</div><h3>Does it find known analogs?</h3><p class="soluk">We check whether well-studied analog sites rank high for the targets they are known to resemble.</p><div class="yer-tutucu">Results — coming soon</div></div>
+        <div class="kart reveal" id="dogrulama"><div class="no">VALIDATION</div><h3>Does it find known analogs?</h3><p class="soluk">We check whether well-studied analog sites rank high for the targets they are known to resemble.</p><div class="yer-tutucu" id="dogrulama-sonuc" style="text-align:left;line-height:1.6">Loading results…</div><a class="btn-link" href="analogs.html" style="margin-top:10px;display:inline-block">See every analog site →</a></div>
       </div>
       <!-- Site v2: topoloji animasyonu (11 Kasım Hücre 32'den; yönteme bağlı sayı içermez) -->
       <div class="kart reveal" style="margin-top:16px">
@@ -919,5 +923,16 @@
 
   <!-- 3D sahne: ayrı dosya -->
   <script type="module" src="js/scene-home.js"></script>
+  <script type="module">
+    // Site v2: doğrulama sayıları ozet.json'dan (elle sayı yok)
+    import * as V from './js/veri.js';
+    try {
+      const O = await V.ozet(), g = O.V1.gorev, v3 = O.V3;
+      document.getElementById('dogrulama-sonuc').innerHTML =
+        `<b style="font-size:18px">The median NASA training site scores higher than ${V.yuzde(g.Pi_ortanca)} of Earth's land windows.</b><br>` +
+        `<span class="soluk">${g.m} known site–target pairs, Fisher p = ${g.p.toFixed(3)}; ${g.kapidan_kalan} pairs did not pass the mission gate. ` +
+        `Known sites vs random windows: AUC ${v3.AUC.toFixed(2)} (95% interval ${v3.GA95.map(x => x.toFixed(2)).join('–')}).</span>`;
+    } catch (e) { console.warn('ozet.json yüklenemedi', e); }
+  </script>
 </body>
 </html>

@@ -193,6 +193,9 @@
     }
   }
   </script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="css/analiz.css">
 </head>
 
 <body>
@@ -213,7 +216,7 @@
     <!-- Görev butonları: 24×24'lük çizgi ikonlar, renkleri yazıyla aynı (currentColor) -->
     <div class="grup">
       <button class="gorev-btn" data-gorev="genel">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.5"/></svg>Overall
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.5"/></svg>General
       </button>
       <button class="gorev-btn" data-gorev="hareket">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="9" width="17" height="6" rx="1.5"/><circle cx="7.5" cy="17.5" r="2"/><circle cx="16.5" cy="17.5" r="2"/><path d="M15 9V5.5"/><rect x="13.5" y="3" width="4" height="2.5" rx="0.6"/></svg>Mobility test
@@ -308,7 +311,7 @@
     <h2 id="ck-baslik">Coming soon</h2>
     <p id="ck-alt">Select a point on the globe first.</p>
     <h3>1. Where the match score comes from</h3>
-    <p>A category-by-category breakdown (similarity, weight and points) will appear here once the results are connected. Coming soon.</p>
+    <div id="ck-tablo"><p class="soluk">Select a point on the globe first.</p></div>
     <h3>2. What each number means</h3>
     <ul>
       <li><b>Similarity (blue shape)</b> is a rank, not a percent of sameness: the share of reference Earth windows that are further from the selected spot than this site in that category.</li>
@@ -339,6 +342,7 @@
     import { gsap } from 'gsap';
     import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
     import { gokyuzuEkle } from './js/gokyuzu.js';
+    import * as V from './js/veri.js';
     gsap.registerPlugin(ScrollTrigger);
 
     // ============================================================
@@ -358,7 +362,7 @@
               kaynak: 'Imagery: USGS / NASA Viking MDIM 2.1 color mosaic' }
     };
     // Görev anahtarları Türkçe (JSON sözleşmesi), ekranda İngilizce adlar
-    const GOREV_AD = { genel: 'Overall', hareket: 'Mobility test', jeoloji: 'Geology', buz: 'Ice & resources', astrobiyoloji: 'Astrobiology' };
+    const GOREV_AD = { genel: 'General', hareket: 'Mobility test', jeoloji: 'Geology', buz: 'Ice & resources', astrobiyoloji: 'Astrobiology' };
     // 8 eksen: anahtarlar results.json ile aynı, adlar ekranda görünen
     const EKSEN_ANAHTAR = ['topografya', 'topoloji', 'jeoloji', 'mineraloji', 'termal', 'su_buz', 'toz', 'aydinlanma'];
     const EKSEN_AD = ['Topography', 'Topology', 'Geology', 'Mineralogy', 'Thermal', 'Water/Ice', 'Dust', 'Illumination'];
@@ -464,9 +468,9 @@
     const cekmece = document.getElementById('cekmece'), cekmeceArka = document.getElementById('cekmece-arka');
     function cekmeceAc(n) {
       document.getElementById('ck-ust').textContent = `#${n} · ${n === 1 ? 'Best match' : 'Match'} · ${GOREV_AD[gorev]}`;
-      document.getElementById('ck-baslik').textContent = 'Coming soon';
+      cekmeceDoldur(n);
       document.getElementById('ck-alt').textContent = secilen
-        ? `Earth analog for ${koordYazi(secilen.lat, secilen.lon)} on ${GOK[govde].ile}. Results are not connected yet.`
+        ? `Earth analog for ${koordYazi(secilen.lat, secilen.lon)} on ${GOK[govde].ile}.`
         : 'Select a point on the globe first.';
       document.getElementById('ck-kapi').textContent = KAPI_METNI[gorev] + (gorev === 'genel' ? '' : KAPI_NOT);
       cekmece.classList.add('acik'); cekmeceArka.classList.add('acik'); cekmece.setAttribute('aria-hidden', 'false');
@@ -769,12 +773,15 @@
       document.getElementById('giris-lon').value = lon.toFixed(4);
       document.getElementById('git-btn').disabled = true;   // SITE_V2_YAMA_3: sayı değişmedikçe Go soluk
       const bolge = enYakinHedef(lat, lon);
-      document.getElementById('ozet-bolge').textContent = bolge ? bolge.name : 'Uncharted site';
+      document.getElementById('ozet-bolge').innerHTML = bolge
+        ? `${bolge.name} · <a href="target.html?id=${encodeURIComponent(bolge.id)}" style="color:var(--accent)">Full analysis →</a>`
+        : 'Uncharted site';
       document.getElementById('giris').hidden = true;
       document.getElementById('secim').hidden = false;
       document.getElementById('panel-baslik').textContent = `${GOK[govde].ad} · selected site`;
       document.getElementById('ondalik').textContent = koordYazi(lat, lon);   // SITE_V2_YAMA_1: üst satır artık yazılabilir kutular
-      document.getElementById('durum').textContent = "Data for this site isn't ready yet.";
+      document.getElementById('durum').textContent = 'Loading results…';
+      sonucGoster();
       document.getElementById('asagi-btn').hidden = false;
       ozetleriGuncelle();
       if (!azHareket) gsap.fromTo('#secim .anim', { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.06, ease: 'power2.out' });
@@ -798,6 +805,106 @@
     // ============================================================
     // 11) MOON | MARS ve GÖREV BUTONLARI
     // ============================================================
+
+    // ============================================================
+    // SİTE v2 VERİ: tıklanan noktanın sonuçları (Katman B, fast mode) — js/veri.js, data/
+    // Hiçbir puan burada hesaplanmaz; sayılar halka dosyalarından okunur.
+    // ============================================================
+    let SON = null;   // seçili görevin 3 eşleşmesi (çekmece için)
+    V.izgaraTesti();
+    async function sonucGoster() {
+      if (!secilen) return;
+      const { lat, lon } = secilen;
+      const durumEl = document.getElementById('durum');
+      const T = await V.metin();
+      let r;
+      try { r = await V.sonuc(govde, lat, lon); } catch (e) { durumEl.textContent = 'Results could not be loaded.'; console.error(e); return; }
+      if (!secilen || secilen.lat !== lat || secilen.lon !== lon) return;   // bu arada başka nokta seçildiyse bırak
+      const btnlar = document.querySelectorAll('#secim .liste-btn');
+      const yaz = (b, t) => { if (b) b.querySelector('span:nth-child(2)').textContent = t; };
+      if (!r.hazir) {
+        durumEl.textContent = `${GOK[govde].ad} results are still being computed. Please check back soon.`;
+        SON = null; btnlar.forEach(b => yaz(b, '—')); V.radar(document.getElementById('radar'), null);
+        for (let n = 1; n <= 3; n++) await bolumDoldur(n, null, T);
+        return;
+      }
+      const g = V.SITE_GOREV[gorev], G = r.gorevler[g];
+      if (G.durum === 'not applicable' || !G.eslesme.length) {
+        durumEl.textContent = G.durum === 'not applicable' ? T.uyari.kuru_hedef : 'No Earth window passed this mission here.';
+        SON = null; btnlar.forEach(b => yaz(b, G.durum === 'not applicable' ? 'not applicable' : '—'));
+        V.radar(document.getElementById('radar'), null);
+        for (let n = 1; n <= 3; n++) await bolumDoldur(n, null, T);
+        return;
+      }
+      SON = G.eslesme;
+      durumEl.innerHTML = `<span class="etiket">Similarity profile of match #1</span><br><span style="font-size:13px">${T.uyari.fast_mode}</span>`;
+      V.radar(document.getElementById('radar'), SON[0].s);
+      for (let n = 1; n <= 3; n++) {
+        const e = SON[n - 1];
+        yaz(btnlar[n - 1], e ? `${koordYazi(e.earth.enlem, e.earth.boylam)} · ${e.P.toFixed(2)}` : '—');
+        await bolumDoldur(n, e, T, g);
+      }
+    }
+
+    async function bolumDoldur(n, e, T, g) {
+      const kok = document.querySelector(`#match-${n} .esles-ic`);
+      if (!e) {
+        kok.innerHTML = `<div class="esles-kart"><span class="sira-buyuk">#${n}</span><p class="soluk">No result for this point and mission.</p></div>`;
+        return;
+      }
+      const et = await V.analogEtiketi(e.earth.analog_km);
+      const gz = V.guclu_zayif(e.s);
+      const notlar = await V.eksikNotlari(e.eksik);
+      const kaps = e.s.filter(x => x != null).length;
+      kok.innerHTML = `
+        <div class="harita-kutu"><div class="harita"></div></div>
+        <div class="esles-kart">
+          <div class="esles-ust"><span class="sira-buyuk">#${n}</span>
+            <div><div class="etiket">${n === 1 ? 'Best match' : 'Match'} · Earth analog · ${V.GOREV_AD[g]}</div>
+            <div class="hedef-ozet soluk">For ${koordYazi(secilen.lat, secilen.lon)} on ${GOK[govde].ile}</div></div></div>
+          <h2 class="esles-ad">Earth site ${koordYazi(e.earth.enlem, e.earth.boylam)}</h2>
+          ${et ? `<span class="rozet rozet-${et.tur}" title="${et.aciklama}">${et.ad}${et.tur !== 'new' ? ' · ' + V.saha(e.earth.analog_id) : ''} · ${e.earth.analog_km.toFixed(0)} km to the nearest documented analog</span>` : ''}
+          <div class="puan-satir">
+            <div><div class="puan-sayi">${e.P.toFixed(2)}</div><div class="etiket">mission score (0–1)</div>
+              <button class="nasil-link" data-ac="${n}" style="margin-top:8px">How is this scored? →</button></div>
+            <div><div class="puan-sayi kucuk">${kaps} / 8</div><div class="etiket">categories compared</div></div>
+          </div>
+          <svg class="radar buyuk"></svg>
+          <div class="lejant"><span><i class="l-sim"></i>Similarity</span><span><i class="l-mis"></i>Mismatch</span><span><i class="l-yok"></i>No data</span></div>
+          <h3>Why it matches</h3><p>${gz.guclu.map(o => `<b>${V.KAT_AD[o.k]}</b> ${V.yuzde(o.x)}`).join(' · ')}</p>
+          <h3>Where the analogy breaks</h3><p>${gz.zayif.map(o => `<b>${V.KAT_AD[o.k]}</b> ${V.yuzde(o.x)}`).join(' · ')}</p>
+          <p class="soluk" style="font-size:12.5px"><b>How to read:</b> ${V.KAT_AD[gz.guclu[0].k]} ${Math.round(100 * gz.guclu[0].x)}% means ${T.okunus.s.replace('{X}', Math.round(100 * gz.guclu[0].x)).replace(/^./, c => c.toLowerCase()).replace(/\.$/, '')} (${V.KAT_AD[gz.guclu[0].k]}).</p>
+          ${notlar.map(t => `<div class="uyari">${UYARI_IKON}<span>${t}</span></div>`).join('')}
+          <button class="ac-ok" data-ac="${n}" aria-label="Open the full explanation for match #${n}">→</button>
+        </div>`;
+      V.radar(kok.querySelector('.radar'), e.s);
+      kok.querySelectorAll('[data-ac]').forEach(b => b.addEventListener('click', () => cekmeceAc(Number(b.dataset.ac))));
+      V.uyduHaritasi(kok.querySelector('.harita'), e.earth.enlem, e.earth.boylam, { zoom: 9 });
+    }
+
+    async function kapiEsik(g) {
+      const M = await V.meta(), k = M.ayar.kapi, d = V.deger;
+      if (g === 'mobility') return `Threshold: at least ${(100 * d(k.mobility.hucre_orani)).toFixed(0)}% of the window's land cells flatter than ${d(k.mobility.egim_der)}°.`;
+      if (g === 'ice') return `Threshold: mean permafrost ≥ ${d(k.buz.ana)} (fallback ${d(k.buz.yedek)}).`;
+      if (g === 'astro') return `Threshold: median aridity index < ${d(k.astro.ana)} (fallback ${d(k.astro.yedek)}).`;
+      if (g === 'geology') return `Threshold: median vegetation cover (Pv) < ${d(k.jeoloji.Pv_esigi)} and snow/ice < ${d(k.jeoloji.kar_buz_siniri)}.`;
+      return '';
+    }
+
+    async function cekmeceDoldur(n) {
+      const e = SON && SON[n - 1], kutu = document.getElementById('ck-tablo');
+      document.getElementById('ck-baslik').textContent = e ? `Earth site ${koordYazi(e.earth.enlem, e.earth.boylam)}` : 'No result yet';
+      if (!e) { kutu.innerHTML = '<p class="soluk">Select a point on the globe first.</p>'; return; }
+      const g = V.SITE_GOREV[gorev], w = await V.agirliklar(g), T = await V.metin();
+      const W = w.reduce((a, x, k) => a + (e.s[k] != null ? x : 0), 0);
+      kutu.innerHTML = `<table class="ck-tab"><tr><th>Category</th><th>Similarity</th><th>Weight</th><th>Points</th></tr>
+        ${e.s.map((x, k) => `<tr><td>${V.KAT_AD[k]}</td><td>${x == null ? 'no data' : V.yuzde(x)}</td><td>${w[k].toFixed(3)}</td><td>${x == null ? '—' : (w[k] * x / W).toFixed(3)}</td></tr>`).join('')}
+        <tr><td><b>Mission score</b></td><td></td><td></td><td><b>${e.P.toFixed(2)}</b></td></tr></table>
+        <p class="soluk" style="font-size:13px">Points = weight × similarity ÷ ${W.toFixed(3)} (the sum of the weights of the categories with data on both sides). Values are rounded.</p>`;
+      if (g !== 'genel' && T.kapi[g]) document.getElementById('ck-kapi').textContent = `${T.kapi[g].metin} ${await kapiEsik(g)}`;
+      else document.getElementById('ck-kapi').textContent = 'The General mission has no gate (not applicable).';
+    }
+
     const segment = document.querySelector('.segment');
     // Arayüzü ve "aktif gezegeni" değiştirir (kamera hareketi ayrı)
     function govdeSec(ad) {
@@ -892,6 +999,7 @@
         gorev = btn.dataset.gorev;
         document.querySelectorAll('[data-gorev]').forEach(b => b.classList.toggle('secili', b === btn));
         ozetleriGuncelle();
+        if (secilen) sonucGoster();
       });
     });
 
