@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<!-- Developed with assistance from Claude (Anthropic). -->
+<!-- SITE_V2_YAMA_2 -->
+<!-- SITE_V2_YAMA_3 -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="ai-assistance" content="Code developed with assistance from Claude (Anthropic). Data processing and method by the Orbitrary team.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orbitrary — Explore</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Ortak stil: renkler, butonlar, logo, MOON|MARS kapsülü -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Sadece keşif sayfasına özel stiller -->
+  <style>
+    /* Sayfa kaydırılabilir. scroll-snap: bölümlerin başına "yapışsın" (proximity = yakınsa).
+       --hdr: başlık şeridinin yüksekliği (JS ölçüyor) */
+    html { scroll-snap-type: y proximity; scroll-padding-top: var(--hdr, 64px); }
+
+    /* ===== ÜST ŞERİT (kaydırınca üstte sabit) ===== */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--line);
+      display: flex; flex-wrap: wrap; align-items: center;
+      gap: 10px 28px;
+      background: rgba(3, 5, 12, 0.92);
+      backdrop-filter: blur(8px);
+    }
+    header .logo { font-size: 20px; }
+    .grup { display: flex; gap: 6px; flex-wrap: wrap; }
+    .sag { margin-left: auto; }   /* ızgara düğmesini en sağa iter */
+    /* Görev butonlarında transform geçişi yok: GSAP'ın giriş animasyonuyla çakışıp yarıda kalıyordu */
+    .gorev-btn { transition: background 0.2s, border-color 0.2s, color 0.2s; }
+
+    /* ===== 1. BÖLÜM: 3D KEŞİF ===== */
+    /* Keşif bölümü bir ızgara: üst satırda sahne + panel, alt satırda ikisinin altından geçen şerit */
+    #kesif {
+      display: grid; grid-template-columns: 1fr 400px; grid-template-rows: minmax(0, 1fr) auto;
+      height: calc(100vh - var(--hdr, 64px)); scroll-snap-align: start;
+    }
+    #sahne {
+      position: relative; min-width: 0; min-height: 0;
+      background: radial-gradient(ellipse at 35% 40%, #0a1128 0%, #050816 45%, #010206 100%);
+    }
+    #sahne canvas { display: block; width: 100%; height: 100%; cursor: grab; }
+    #sahne canvas:active { cursor: grabbing; }
+    /* ALT ŞERİT: panelle aynı lacivert; solda görsel kaynağı, ortada kullanım ipucu, sağda aşağı inme butonu */
+    #alt-serit {
+      grid-column: 1 / -1;
+      display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px;
+      padding: 10px 20px; background: var(--panel); border-top: 1px solid var(--line);
+      font-size: 13px; color: var(--muted);
+    }
+    #kaynak { font-size: 12px; opacity: 0.85; }
+    #ipucu { text-align: center; white-space: nowrap; }
+    #asagi-btn { justify-self: end; font-size: 14px; padding: 6px 14px; }
+
+    /* ===== SAĞ PANEL ===== */
+    #panel {
+      min-height: 0;
+      background: var(--panel); border-left: 1px solid var(--line);
+      padding: 24px; overflow-y: auto;
+      display: flex; flex-direction: column; gap: 18px;
+    }
+    #panel h1 { font-size: 30px; font-weight: 600; line-height: 1.15; }
+    #panel .soluk { font-size: 14px; }
+    .adimlar { padding-left: 18px; color: var(--muted); font-size: 14px; line-height: 1.9; }
+    #koordinat { font-size: 30px; font-weight: 500; }
+    /* Site v2: elle koordinat girişi */
+    .koord-satir { display: flex; align-items: center; gap: 6px; margin: 6px 0 2px; }
+    .koord-satir input { width: 9ch; font: inherit; font-size: 20px; font-weight: 500; color: var(--text); background: #070b14;
+                         border: 1px solid var(--line); border-radius: 8px; padding: 3px 7px; }
+    .koord-satir .git { margin-left: 4px; padding: 6px 14px; font-size: 14px; background: var(--accent); color: #03050c; border-color: var(--accent); }
+    .koord-satir .git:disabled { background: transparent; color: var(--muted); border-color: var(--line); opacity: 0.45; cursor: default; }
+    .koord-ipucu { font-size: 12px; margin-top: 2px; }
+    .koord-satir input:hover { border-color: var(--line); }
+    .koord-satir input:focus { outline: none; border-color: var(--accent); background: #070b14; }
+    .koord-satir .ayr { font-size: 20px; color: var(--muted); }
+    .koord-satir .git { margin-left: 6px; padding: 5px 12px; font-size: 13px; }
+    #koord-hata { color: var(--mismatch); font-size: 12.5px; }
+    .koord-form { display: grid; grid-template-columns: 1fr 1fr auto; gap: 8px; align-items: end; }
+    .koord-form label { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--muted); letter-spacing: 0.06em; }
+    .koord-form input { width: 100%; font: inherit; font-size: 14px; color: var(--text); background: #070b14; border: 1px solid var(--line);
+                        border-radius: 10px; padding: 8px 10px; }
+    .koord-form input:focus { outline: none; border-color: var(--accent); }
+    .koord-form .hata { grid-column: 1 / -1; color: var(--mismatch); font-size: 12.5px; min-height: 0; }
+    /* Site v2: eşleşme kartının sağındaki ok ve sağdan açılan açıklama çekmecesi */
+    .esles-kart { position: relative; }
+    /* SITE_V2_YAMA_1 */
+    .ac-ok { position: absolute; right: 22px; top: 22px; width: 44px; height: 44px; padding: 0; border-radius: 50%;
+             display: grid; place-items: center; background: var(--panel); border: 1px solid var(--line); font-size: 18px; z-index: 2; }
+    .ac-ok:hover { border-color: var(--accent); color: var(--accent); }
+    .nasil-link { background: none; border: none; padding: 0; color: var(--accent); font: inherit; font-size: 14px; cursor: pointer; align-self: flex-start; }
+    .nasil-link:hover { text-decoration: underline; }
+    #cekmece-arka { position: fixed; inset: 0; z-index: 2400; background: rgba(1, 2, 6, 0.55); opacity: 0; pointer-events: none; transition: opacity 0.35s; }
+    #cekmece-arka.acik { opacity: 1; pointer-events: auto; }
+    #cekmece { position: fixed; top: 0; right: 0; bottom: 0; z-index: 2500; width: min(520px, 92vw); overflow-y: auto;
+               background: #0a0f19; border-left: 1px solid var(--line); padding: 26px 28px 40px;
+               transform: translateX(105%); transition: transform 0.45s cubic-bezier(.65, 0, .35, 1); }
+    #cekmece.acik { transform: translateX(0); }
+    #cekmece h2 { font-size: 26px; font-weight: 600; margin: 6px 40px 6px 0; line-height: 1.2; }
+    #cekmece h3 { font-size: 16px; font-weight: 600; margin: 26px 0 8px; }
+    #cekmece p, #cekmece li { color: var(--muted); font-size: 14px; line-height: 1.6; }
+    #cekmece b { color: var(--text); font-weight: 600; }
+    #cekmece ul { padding-left: 18px; display: flex; flex-direction: column; gap: 8px; }
+    #cekmece .kapat-x { position: absolute; top: 18px; right: 18px; width: 38px; height: 38px; padding: 0; border-radius: 50%; display: grid; place-items: center; }
+    .blok { border-top: 1px solid var(--line); padding-top: 16px; display: flex; flex-direction: column; gap: 10px; }
+    .ozet { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .ozet > div {
+      background: rgba(255,255,255,0.03); border: 1px solid var(--line); border-radius: 10px;
+      padding: 10px 12px; display: flex; flex-direction: column; gap: 4px;
+    }
+    .radar { width: 100%; height: auto; display: block; }
+    .liste { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .liste-btn { width: 100%; border-radius: 10px; padding: 10px 12px; text-align: left; }
+    .sira {
+      width: 26px; height: 26px; border-radius: 50%; flex: none; display: grid; place-items: center;
+      background: rgba(92,200,255,0.12); color: var(--accent); font-weight: 600; font-size: 13px;
+    }
+    .liste-btn .ok { margin-left: auto; color: var(--muted); }
+
+    /* ===== EŞLEŞME BÖLÜMLERİ (#1, #2, #3) ===== */
+    /* Alttaki bölümlerde minik yıldızlı koyu lacivert (desen css/style.css'te) */
+    .esles, footer { background-color: var(--bg); background-image: var(--yildiz-desen); background-size: var(--yildiz-boyut); }
+    #match-2 { background-color: #050a15; background-image: none; }
+    .esles {
+      min-height: calc(100vh - var(--hdr, 64px)); padding: 48px 5vw;
+      display: flex; align-items: center; scroll-snap-align: start; border-top: 1px solid var(--line);
+    }
+    .esles-ic { width: 100%; max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; }
+    .esles-ic.tek { grid-template-columns: 1fr; }
+    .harita-kutu {
+      border: 1px solid var(--line); border-radius: 18px; min-height: 460px;
+      display: grid; place-items: center; text-align: center;
+      background:
+        linear-gradient(rgba(92,200,255,0.05) 1px, transparent 1px) 0 0 / 40px 40px,
+        linear-gradient(90deg, rgba(92,200,255,0.05) 1px, transparent 1px) 0 0 / 40px 40px,
+        #070b14;
+    }
+    .esles-kart { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 12px; }
+    .esles-ust { display: flex; align-items: center; gap: 16px; }
+    .sira-buyuk { font-size: 54px; font-weight: 700; color: var(--accent); line-height: 1; }
+    .esles-ad { font-size: 28px; font-weight: 600; }
+    .esles-kart h3 { font-size: 15px; font-weight: 600; margin-top: 6px; }
+    .puan-satir { display: flex; gap: 32px; }
+    .puan-sayi { font-size: 34px; font-weight: 600; }
+    .puan-sayi.kucuk { font-size: 24px; color: var(--muted); }
+    .radar.buyuk { max-width: 440px; align-self: center; }
+    .lejant { display: flex; gap: 18px; justify-content: center; font-size: 13px; color: var(--muted); }
+    .lejant span { display: inline-flex; align-items: center; gap: 6px; }
+    .lejant i { width: 22px; height: 0; border-top: 2px solid; display: inline-block; }
+    .l-sim { border-color: var(--accent) !important; }
+    .l-mis { border-color: var(--mismatch) !important; border-top-style: dashed !important; }
+    .l-yok { border-color: #55607a !important; border-top-style: dotted !important; }
+    .uyari {
+      display: flex; gap: 10px; align-items: flex-start;
+      background: rgba(92, 200, 255, 0.05); border: 1px solid #22324a;
+      color: #9fb2c8; border-radius: 10px; padding: 10px 12px; font-size: 14px;
+    }
+    .uyari svg { width: 18px; height: 18px; flex: none; margin-top: 1px; }
+    .sampiyon-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .sampiyon { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 8px; min-height: 110px; }
+    h2.bolum-baslik { font-size: 32px; font-weight: 600; margin: 8px 0 6px; }
+
+    footer { padding: 32px 5vw; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    footer .soluk { margin-left: auto; font-size: 12px; }
+
+    /* ===== TELEFON / DAR EKRAN ===== */
+    @media (max-width: 900px) {
+      #kesif { grid-template-columns: 1fr; grid-template-rows: auto; height: auto; }
+      #sahne { height: 60vh; }
+      #panel { border-left: none; border-top: 1px solid var(--line); }
+      #alt-serit { grid-template-columns: 1fr; text-align: center; }
+      #asagi-btn { justify-self: center; }
+      .esles-ic { grid-template-columns: 1fr; }
+      .harita-kutu { min-height: 300px; }
+      .sampiyon-grid { grid-template-columns: repeat(2, 1fr); }
+      .sag { margin-left: 0; }
+    }
+  </style>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/",
+      "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/index.js",
+      "gsap/": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <!-- ===================== ÜST ŞERİT ===================== -->
+  <header>
+    <a href="index.html" class="btn-link">← Home</a>
+    <span class="logo" aria-label="Orbitrary">ORBITR<span class="ters">A</span>RY</span>
+
+    <!-- MOON | MARS kapsülü. data-secim: hangisi seçili (mavi hap buna göre kayar) -->
+    <div class="segment" data-secim="ay">
+      <span class="segment-kayan"></span>
+      <button data-govde="ay" class="secili">MOON</button>
+      <button data-govde="mars">MARS</button>
+    </div>
+
+    <span class="ayrac"></span>
+
+    <!-- Görev butonları: 24×24'lük çizgi ikonlar, renkleri yazıyla aynı (currentColor) -->
+    <div class="grup">
+      <button class="gorev-btn" data-gorev="genel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.5"/></svg>Overall
+      </button>
+      <button class="gorev-btn" data-gorev="hareket">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="9" width="17" height="6" rx="1.5"/><circle cx="7.5" cy="17.5" r="2"/><circle cx="16.5" cy="17.5" r="2"/><path d="M15 9V5.5"/><rect x="13.5" y="3" width="4" height="2.5" rx="0.6"/></svg>Mobility test
+      </button>
+      <button class="gorev-btn" data-gorev="jeoloji">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17 7 9l5-3 6 2 2 7-5 4H8z"/><path d="M12 6l-1 6-7 5M11 12l9 3M11 12l4 7"/></svg>Geology
+      </button>
+      <button class="gorev-btn" data-gorev="buz">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9"/><path d="M9.5 4.5 12 7l2.5-2.5M9.5 19.5 12 17l2.5 2.5"/></svg>Ice &amp; resources
+      </button>
+      <button class="gorev-btn" data-gorev="astrobiyoloji">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="6.5"/><circle cx="10.5" cy="11" r="2"/><circle cx="14.5" cy="14.2" r="0.9" fill="currentColor"/><path d="M12 5.5V3M18.5 12H21M12 18.5V21M5.5 12H3M16.6 7.4l1.8-1.8M7.4 16.6l-1.8 1.8"/></svg>Astrobiology
+      </button>
+    </div>
+
+    <div class="grup sag">
+      <button id="izgara-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c-3 3-3 14 0 17M12 3.5c3 3 3 14 0 17"/></svg>Grid
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== 1. BÖLÜM: KEŞİF ===================== -->
+  <section id="kesif">
+    <div id="sahne"></div>
+
+    <aside id="panel">
+      <!-- Nokta seçilmeden önce -->
+      <div id="giris">
+        <div class="etiket">Explore mode</div>
+        <h1 id="giris-baslik" style="margin:6px 0 10px">Explore the Moon</h1>
+        <p class="soluk">Pick a mission, then click anywhere on the surface. We'll show the site's coordinates and, once the data is ready, its closest analogs on Earth.</p>
+        <ol class="adimlar" style="margin-top:12px">
+          <li>Choose Moon or Mars</li>
+          <li>Choose a mission</li>
+          <li>Click any point on the globe</li>
+        </ol>
+      </div>
+
+      <!-- Nokta seçilince -->
+      <div id="secim" hidden>
+        <div class="etiket anim" id="panel-baslik">Moon · selected site</div>
+        <form id="koord-form" class="koord-satir anim" novalidate>
+          <input id="giris-lat" type="text" inputmode="decimal" aria-label="Latitude (north positive)" title="Latitude, °N (south is negative)">
+          <span class="ayr">,</span>
+          <input id="giris-lon" type="text" inputmode="decimal" aria-label="Longitude (east positive)" title="Longitude, °E (west is negative)">
+          <button type="submit" class="git" id="git-btn" disabled title="Go to the coordinates you typed">Go</button>
+        </form>
+        <div class="koord-ipucu soluk">Type new coordinates and press Go to jump to another point.</div>
+        <div class="hata" id="koord-hata"></div>
+        <div id="ondalik" class="mono anim"></div>
+        <div class="ozet anim" style="margin-top:12px">
+          <div><span class="etiket">Mission</span><b id="ozet-gorev">Mobility test</b></div>
+          <div><span class="etiket">Region</span><b id="ozet-bolge">—</b></div>
+        </div>
+      </div>
+
+      <div class="blok">
+        <div class="etiket">Similarity profile</div>
+        <svg id="radar" class="radar"></svg>
+        <div id="durum" class="soluk">Select any point to see its profile.</div>
+      </div>
+
+      <div class="blok">
+        <div class="etiket">Top Earth analogs</div>
+        <ol class="liste">
+          <li><button class="liste-btn" data-git="match-1"><span class="sira">1</span><span>Coming soon</span><span class="ok">↓</span></button></li>
+          <li><button class="liste-btn" data-git="match-2"><span class="sira">2</span><span>Coming soon</span><span class="ok">↓</span></button></li>
+          <li><button class="liste-btn" data-git="match-3"><span class="sira">3</span><span>Coming soon</span><span class="ok">↓</span></button></li>
+        </ol>
+      </div>
+
+      <span class="yakinda"><button disabled>Find Earth analog →</button></span>
+    </aside>
+
+    <!-- Alt şerit: sahnenin ve panelin altından boydan boya -->
+    <div id="alt-serit">
+      <div id="kaynak"></div>
+      <div id="ipucu">Drag: rotate · Scroll: zoom · Click: select a site</div>
+      <button id="asagi-btn" hidden>Top matches ↓</button>
+    </div>
+  </section>
+
+  <!-- ===================== 2–4. BÖLÜMLER: EŞLEŞMELER (JS dolduruyor) ===================== -->
+  <div id="eslesmeler"></div>
+
+  <!-- Site v2: sağdan açılan açıklama çekmecesi (kartlardaki → ve "How is this scored?") -->
+  <div id="cekmece-arka"></div>
+  <aside id="cekmece" aria-hidden="true">
+    <button class="kapat-x" id="cekmece-kapat" aria-label="Close">✕</button>
+    <div class="etiket" id="ck-ust">#1 · Best match</div>
+    <h2 id="ck-baslik">Coming soon</h2>
+    <p id="ck-alt">Select a point on the globe first.</p>
+    <h3>1. Where the match score comes from</h3>
+    <p>A category-by-category breakdown (similarity, weight and points) will appear here once the results are connected. Coming soon.</p>
+    <h3>2. What each number means</h3>
+    <ul>
+      <li><b>Similarity (blue shape)</b> is a rank, not a percent of sameness: the share of reference Earth windows that are further from the selected spot than this site in that category.</li>
+      <li><b>Mismatch (orange dashed line)</b> = 1 − similarity. It shows the same information from the other side.</li>
+      <li><b>Match score</b>: the weighted average of the category similarities. It is absolute: it is not stretched so that the best site gets 100%.</li>
+      <li><b>Categories compared</b>: categories with data on both sides. Missing ones are left out, not counted as zero, and the remaining weights are rescaled.</li>
+    </ul>
+    <h3>3. Mission requirement (gate)</h3>
+    <p id="ck-kapi"></p>
+  </aside>
+
+  <!-- SITE_V2_YAMA_1: Category champions bölümü kaldırıldı -->
+  <section class="esles" id="champions" hidden>
+    <div class="esles-ic tek">
+      <div class="sampiyon-grid" id="sampiyonlar"></div>
+    </div>
+  </section>
+
+  <footer>
+    <button id="yukari-btn">Back to top ↑</button>
+    <a href="index.html" class="btn-link">← Home</a>
+    <span class="soluk">Imagery: NASA / USGS (public domain) · Code developed with assistance from Claude (Anthropic)</span>
+  </footer>
+
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
+    import { gokyuzuEkle } from './js/gokyuzu.js';
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ============================================================
+    // 0) DURUM, METİNLER, AYARLAR
+    // ============================================================
+    // Adres çubuğundaki parametreler (ana sayfadaki arama ya da MOON|MARS'tan gelir):
+    //   ?body=mars  &lat=18.44&lon=77.45  &hedef=MARS_JEZERO  &gorev=jeoloji
+    const PARAM = new URLSearchParams(location.search);
+    let govde = PARAM.get('body') === 'mars' ? 'mars' : 'ay';
+    let gorev = ['genel', 'hareket', 'jeoloji', 'buz', 'astrobiyoloji'].includes(PARAM.get('gorev')) ? PARAM.get('gorev') : 'genel';
+    let secilen = null;   // seçilen nokta: { lat, lon } ya da null
+
+    const GOK = {
+      ay:   { ad: 'Moon', ile: 'the Moon', doku: 'textures/moon_color.jpg', zemin: '#6b6e74', tumsek: 3,
+              kaynak: 'Imagery: NASA SVS CGI Moon Kit (LRO/LROC)' },
+      mars: { ad: 'Mars', ile: 'Mars',     doku: 'textures/mars_color.jpg', zemin: '#9a4a2b', tumsek: 2,
+              kaynak: 'Imagery: USGS / NASA Viking MDIM 2.1 color mosaic' }
+    };
+    // Görev anahtarları Türkçe (JSON sözleşmesi), ekranda İngilizce adlar
+    const GOREV_AD = { genel: 'Overall', hareket: 'Mobility test', jeoloji: 'Geology', buz: 'Ice & resources', astrobiyoloji: 'Astrobiology' };
+    // 8 eksen: anahtarlar results.json ile aynı, adlar ekranda görünen
+    const EKSEN_ANAHTAR = ['topografya', 'topoloji', 'jeoloji', 'mineraloji', 'termal', 'su_buz', 'toz', 'aydinlanma'];
+    const EKSEN_AD = ['Topography', 'Topology', 'Geology', 'Mineralogy', 'Thermal', 'Water/Ice', 'Dust', 'Illumination'];
+
+    const IPUCU = 'Drag: rotate · Scroll: zoom · Click: select a site';
+    const ipucuKutusu = document.getElementById('ipucu');
+    const azHareket = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Koordinat yazısı: N/S = kuzey/güney, E/W = doğu/batı
+    const enlemYazi  = (lat, d) => `${Math.abs(lat).toFixed(d)}°${lat >= 0 ? 'N' : 'S'}`;
+    const boylamYazi = (lon, d) => `${Math.abs(lon).toFixed(d)}°${lon >= 0 ? 'E' : 'W'}`;
+
+    // Başlık şeridinin yüksekliğini ölç, CSS'e --hdr olarak ver
+    const hdr = document.querySelector('header');
+    const hdrAyarla = () => document.documentElement.style.setProperty('--hdr', hdr.offsetHeight + 'px');
+    new ResizeObserver(hdrAyarla).observe(hdr);
+    hdrAyarla();
+
+    // ============================================================
+    // 1) RADAR (8-gen) ÇİZİCİ
+    // ============================================================
+    // sim, mis: { topografya: 0.7, ..., mineraloji: null } (results.json'daki gibi).
+    // Veri yoksa iskelet çizilir. Bir eksen null ise o eksen gri-noktalı, çokgen o ekseni atlar (sıfıra çökmez).
+    // i'nci eksen açısı θᵢ = −π/2 + i·2π/8; v değerindeki nokta: (cx + R·v·cos θᵢ, cy + R·v·sin θᵢ)
+    function radarCiz(svg, sim = null, mis = null) {
+      const cx = 160, cy = 160, R = 110;
+      svg.setAttribute('viewBox', '-50 0 420 320');
+      const aci = i => -Math.PI / 2 + i * 2 * Math.PI / 8;
+      const P = (i, v) => `${cx + R * v * Math.cos(aci(i))},${cy + R * v * Math.sin(aci(i))}`;
+      let s = '';
+      for (let k = 1; k <= 4; k++) {
+        s += `<polygon points="${EKSEN_AD.map((_, i) => P(i, k / 4)).join(' ')}" fill="none" stroke="#243047" stroke-dasharray="3 4"/>`;
+      }
+      EKSEN_AD.forEach((ad, i) => {
+        const yok = sim && sim[EKSEN_ANAHTAR[i]] == null;
+        s += `<line x1="${cx}" y1="${cy}" x2="${cx + R * Math.cos(aci(i))}" y2="${cy + R * Math.sin(aci(i))}"
+                stroke="${yok ? '#55607a' : '#243047'}" ${yok ? 'stroke-dasharray="2 4"' : ''}/>`;
+        const lx = cx + (R + 30) * Math.cos(aci(i)), ly = cy + (R + 30) * Math.sin(aci(i)) + 4;
+        s += `<text x="${lx}" y="${ly}" text-anchor="middle" font-size="12.5" font-family="Space Grotesk, sans-serif"
+                fill="${yok ? '#55607a' : '#9aa7bb'}">${ad}${yok ? ' · no data' : ''}</text>`;
+      });
+      const cokgen = (veri, renk, dolu) => {
+        const pts = EKSEN_ANAHTAR.map((k, i) => veri[k] == null ? null : P(i, veri[k])).filter(Boolean);
+        return `<polygon points="${pts.join(' ')}" fill="${dolu ? renk : 'none'}" fill-opacity="0.22"
+                  stroke="${renk}" stroke-width="2" ${dolu ? '' : 'stroke-dasharray="6 5"'}/>`;
+      };
+      if (mis) s += cokgen(mis, '#ff9f5c', false);
+      if (sim) s += cokgen(sim, '#5cc8ff', true);
+      svg.innerHTML = s;
+    }
+    radarCiz(document.getElementById('radar'));
+
+    // ============================================================
+    // 2) EŞLEŞME BÖLÜMLERİ (#1, #2, #3) + ŞAMPİYONLAR
+    // ============================================================
+    const UYARI_IKON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg>`;
+
+    document.getElementById('eslesmeler').innerHTML = [1, 2, 3].map(n => `
+      <section class="esles" id="match-${n}">
+        <div class="esles-ic">
+          <div class="harita-kutu reveal">
+            <div><div class="etiket">Earth location map</div><p class="soluk" style="margin-top:6px">Satellite map — coming soon</p></div>
+          </div>
+          <div class="esles-kart reveal">
+            <div class="esles-ust">
+              <span class="sira-buyuk">#${n}</span>
+              <div>
+                <div class="etiket">${n === 1 ? 'Best match' : 'Match'} · Earth analog</div>
+                <div class="hedef-ozet soluk">Select a point on the globe first</div>
+              </div>
+            </div>
+            <h2 class="esles-ad">Coming soon</h2>
+            <div class="mono">—</div>
+            <div class="puan-satir">
+              <div><div class="puan-sayi">—%</div><div class="etiket">match</div>
+                <button class="nasil-link" data-ac="${n}" style="margin-top:8px">How is this scored? →</button></div>
+              <div><div class="puan-sayi kucuk">—%</div><div class="etiket">data coverage</div></div>
+            </div>
+            <svg class="radar buyuk"></svg>
+            <div class="lejant">
+              <span><i class="l-sim"></i>Similarity</span><span><i class="l-mis"></i>Mismatch</span><span><i class="l-yok"></i>No data</span>
+            </div>
+            <h3>Why it matches</h3><p class="soluk">Coming soon.</p>
+            <h3>Where the analogy breaks</h3><p class="soluk">Coming soon.</p>
+            <div class="uyari">${UYARI_IKON}<span>Notes for this site will appear here.</span></div>
+            <button class="ac-ok" data-ac="${n}" aria-label="Open the full explanation for match #${n}">→</button>
+          </div>
+        </div>
+      </section>`).join('');
+    document.querySelectorAll('#eslesmeler .radar').forEach(svg => radarCiz(svg));
+
+    // ---------- Site v2: açıklama çekmecesi ----------
+    // Kapı metinleri: yöntem v1.2 (veri tarafının 14 Kasım cevabı, C12). Durum adları belge 2.3.
+    const KAPI_METNI = {
+      genel: 'Overall has no gate: every Earth window can be compared (not applicable).',
+      hareket: 'Mobility test: nearly all of the Earth window must be flat enough for a rover to drive.',
+      jeoloji: 'Geology: the rock must be visible, so the Earth window must have little vegetation and little snow or ice.',
+      buz: 'Ice & resources: not applicable when the target is dry; otherwise the Earth window must be largely permafrost.',
+      astrobiyoloji: 'Astrobiology: the Earth window must be hyper-arid.'
+    };
+    // Kesin eşikler (ayar.json → kapi) sonuçlar bağlanınca bu metne eklenecek; burada elle sayı yazılmadı.
+    const KAPI_NOT = ' If too few Earth windows pass, a lower fallback threshold is used and the result is flagged. Exact thresholds will be shown with the results.';
+    const cekmece = document.getElementById('cekmece'), cekmeceArka = document.getElementById('cekmece-arka');
+    function cekmeceAc(n) {
+      document.getElementById('ck-ust').textContent = `#${n} · ${n === 1 ? 'Best match' : 'Match'} · ${GOREV_AD[gorev]}`;
+      document.getElementById('ck-baslik').textContent = 'Coming soon';
+      document.getElementById('ck-alt').textContent = secilen
+        ? `Earth analog for ${koordYazi(secilen.lat, secilen.lon)} on ${GOK[govde].ile}. Results are not connected yet.`
+        : 'Select a point on the globe first.';
+      document.getElementById('ck-kapi').textContent = KAPI_METNI[gorev] + (gorev === 'genel' ? '' : KAPI_NOT);
+      cekmece.classList.add('acik'); cekmeceArka.classList.add('acik'); cekmece.setAttribute('aria-hidden', 'false');
+    }
+    function cekmeceKapat() { cekmece.classList.remove('acik'); cekmeceArka.classList.remove('acik'); cekmece.setAttribute('aria-hidden', 'true'); }
+    document.querySelectorAll('[data-ac]').forEach(b => b.addEventListener('click', () => cekmeceAc(Number(b.dataset.ac))));
+    document.getElementById('cekmece-kapat').addEventListener('click', cekmeceKapat);
+    cekmeceArka.addEventListener('click', cekmeceKapat);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') cekmeceKapat(); });
+
+    document.getElementById('sampiyonlar').innerHTML = EKSEN_AD.map(ad =>
+      `<div class="sampiyon"><div class="etiket">${ad}</div><div style="font-weight:600">Coming soon</div><div class="soluk" style="font-size:13px">—</div></div>`
+    ).join('');
+
+    // ============================================================
+    // 3) RENDERER, SAHNE, KAMERA, KONTROLLER
+    // ============================================================
+    const kap = document.getElementById('sahne');
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setClearColor(0x000000, 0);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.15;
+    kap.appendChild(renderer.domElement);
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, 1, 0.01, 200);
+    camera.position.set(3.2, 0, 0);   // +x'ten bakış: ortada 0° boylam, sağda doğu
+    scene.add(camera);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;   // bırakınca yumuşakça yavaşlasın
+    controls.dampingFactor = 0.08;
+    controls.enablePan = false;      // gezegen hep ortada
+    controls.minDistance = 1.7;      // içine girilmesin (doku yüklenince zoomSiniri() yeniden hesaplar)
+    controls.maxDistance = 6;        // çok uzaklaşılmasın
+    controls.rotateSpeed = 0.6;
+
+    // YAKINLAŞMA SINIRI: doku bulanıklaşmadan önce dur.
+    // Ekvatordaki bir doku pikseli birim kürede 2π/W radyan genişliğinde. Kamera merkezden d uzakta ise
+    // yüzeye uzaklık (d − 1), o pikselin ekranda kapladığı açı ≈ (2π/W)/(d − 1).
+    // Bir ekran pikselinin açısı ≈ fov/H. Bir doku pikseli en fazla K ekran pikseline yayılsın istiyoruz:
+    //   (2π/W)/(d − 1) ≤ K · fov/H   →   d ≥ 1 + 2πH / (W · fov · K)
+    // K büyürse daha çok yaklaşılır ama görüntü yumuşar. 2.5 iyi bir denge.
+    // Her gezegenin doku genişliği (yüklenince gerçeğiyle güncellenir) ve sahnedeki merkezi.
+    // Kamera +x'ten bakıyor; ekranın SAĞI −z yönü. Mars'ı Ay'ın 40 birim sağına (−z) koyuyoruz:
+    // MOON → MARS geçişinde kamera sağa, MARS → MOON geçişinde sola uçar
+    const DOKU_GENISLIK = { ay: 2048, mars: 4096 };
+    const MERKEZ = { ay: new THREE.Vector3(0, 0, 0), mars: new THREE.Vector3(0, 0, -40) };
+    let ucusta = false;   // geçiş uçuşu sırasında zoom sınırı karışmasın
+
+    function zoomSiniri() {
+      const K = 2.5;
+      const fov = THREE.MathUtils.degToRad(camera.fov);
+      controls.minDistance = 1 + (2 * Math.PI * kap.clientHeight) / (DOKU_GENISLIK[govde] * fov * K);
+      if (ucusta) return;
+      const ofs = camera.position.clone().sub(controls.target);     // gezegen merkezinden kameraya
+      if (ofs.length() < controls.minDistance) camera.position.copy(controls.target).add(ofs.setLength(controls.minDistance));
+    }
+
+    function boyutla() {
+      const w = kap.clientWidth, h = kap.clientHeight;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      zoomSiniri();
+    }
+    new ResizeObserver(boyutla).observe(kap);
+    boyutla();
+
+    // ============================================================
+    // 4) IŞIK (kameraya bağlı, yandan gelen güneş)
+    // ============================================================
+    // l = normalize(−2.2, 0.9, 1.0), bakış yönüyle açı ≈ 67° → diskin sağ ~%30'u gece tarafı
+    const gunes = new THREE.DirectionalLight(0xfff3e6, 3.2);
+    gunes.position.set(-2.2, 0.9, 1.0);
+    camera.add(gunes);
+    // DirectionalLight, konumundan "target"ına doğru parlar. Hedef sabit kalırsa (Ay'ın merkezi),
+    // Mars'a bakarken ışık Mars'ın arkasından gelir ve Mars karanlık görünür. Bu yüzden hedefi
+    // animasyon döngüsünde her karede incelenen gezegenin merkezine taşıyoruz (bkz. 13. bölüm)
+    scene.add(gunes.target);
+    scene.add(new THREE.AmbientLight(0x8fa6ff, 0.04));
+
+    // ============================================================
+    // 5) GEZEGENLER: Ay ve Mars sahnede yan yana, ayrı yerlerde durur
+    // ============================================================
+    const yukleyici = new THREE.TextureLoader();
+    const MESH = {};
+    for (const ad of ['ay', 'mars']) {
+      const m = new THREE.Mesh(
+        new THREE.SphereGeometry(1, 128, 64),
+        new THREE.MeshStandardMaterial({ color: GOK[ad].zemin, roughness: 1, metalness: 0 })
+      );
+      m.position.copy(MERKEZ[ad]);
+      scene.add(m);
+      MESH[ad] = m;
+      yukleyici.load(GOK[ad].doku, t => {
+        t.colorSpace = THREE.SRGBColorSpace;
+        t.anisotropy = renderer.capabilities.getMaxAnisotropy();
+        m.material.map = t;
+        m.material.bumpMap = t;              // GEÇİCİ kabartma (gerçek yükseklik haritası gelecek)
+        m.material.bumpScale = GOK[ad].tumsek;
+        m.material.color.set(0xffffff);
+        m.material.needsUpdate = true;
+        DOKU_GENISLIK[ad] = t.image.width;   // Ay 4096 (ya da eski 2048), Mars 4096
+        if (ad === govde) { zoomSiniri(); ipucuKutusu.textContent = IPUCU; }
+      }, undefined, e => {
+        console.error('Texture failed to load:', GOK[ad].doku, e);
+        if (ad === govde) ipucuKutusu.textContent = 'Texture failed to load — F12 → Console';
+      });
+    }
+    let gezegen = MESH[govde];   // şu an incelenen gezegen (tıklama bunun üstünde aranır)
+    // İncelerken sadece aktif gezegen görünür; diğeri sadece uçuş sırasında belirir
+    for (const ad of ['ay', 'mars']) MESH[ad].visible = (ad === govde);
+
+    // Bir gezegeni saydamlığını değiştirerek gösterip gizler (0 = görünmez, 1 = tam görünür)
+    function saydamlik(m, deger, sure, gecikme = 0) {
+      m.material.transparent = true;
+      m.visible = true;
+      return gsap.to(m.material, {
+        opacity: deger, duration: sure, delay: gecikme, ease: 'power1.inOut',
+        onComplete: () => {
+          if (deger === 0) m.visible = false;
+          m.material.transparent = deger < 1;   // tam görünürken saydamlık kapalı (daha temiz çizim)
+        }
+      });
+    }
+    ipucuKutusu.textContent = 'Loading texture…';
+
+    // ============================================================
+    // 6) GÖKYÜZÜ (ortak dosya: js/gokyuzu.js)
+    // ============================================================
+    const gokyuzuGuncelle = gokyuzuEkle(scene, renderer);
+
+    // ============================================================
+    // 7) IZGARA KATMANI
+    // ============================================================
+    // Eşdikdörtgen ızgara:  x = (boylam + 180)/360 · W ,  y = (90 − enlem)/180 · H
+    function izgaraDokusu() {
+      const W = 2048, H = 1024;
+      const c = document.createElement('canvas');
+      c.width = W; c.height = H;
+      const g = c.getContext('2d');
+      const x = lon => (lon + 180) / 360 * W;
+      const y = lat => (90 - lat) / 180 * H;
+      g.strokeStyle = 'rgba(255,255,255,0.35)';
+      g.lineWidth = 2;
+      for (let lon = -180; lon <= 180; lon += 15) { g.beginPath(); g.moveTo(x(lon), 0); g.lineTo(x(lon), H); g.stroke(); }
+      for (let lat = -75; lat <= 75; lat += 15) { g.beginPath(); g.moveTo(0, y(lat)); g.lineTo(W, y(lat)); g.stroke(); }
+      g.lineWidth = 5;
+      g.strokeStyle = '#ff4d4d'; g.beginPath(); g.moveTo(0, y(0)); g.lineTo(W, y(0)); g.stroke();
+      g.strokeStyle = '#4dff88'; g.beginPath(); g.moveTo(x(0), 0); g.lineTo(x(0), H); g.stroke();
+      g.font = 'bold 24px sans-serif';
+      g.lineWidth = 4;
+      g.strokeStyle = 'rgba(0,0,0,0.7)';
+      g.fillStyle = '#ffffff';
+      const yaz = (s, px, py) => { g.strokeText(s, px, py); g.fillText(s, px, py); };
+      for (let lon = -180; lon < 180; lon += 30) yaz(lon === 0 ? '0°' : boylamYazi(lon, 0), x(lon) + 6, y(0) - 10);
+      for (let lat = -60; lat <= 60; lat += 30) if (lat !== 0) yaz(enlemYazi(lat, 0), x(0) + 8, y(lat) - 8);
+      const t = new THREE.CanvasTexture(c);
+      t.colorSpace = THREE.SRGBColorSpace;
+      t.anisotropy = renderer.capabilities.getMaxAnisotropy();
+      return t;
+    }
+    const izgara = new THREE.Mesh(
+      new THREE.SphereGeometry(1.003, 96, 48),
+      new THREE.MeshBasicMaterial({ map: izgaraDokusu(), transparent: true, depthWrite: false, toneMapped: false })
+    );
+    izgara.visible = false;
+    izgara.position.copy(MERKEZ[govde]);
+    scene.add(izgara);
+    const izgaraBtn = document.getElementById('izgara-btn');
+    izgaraBtn.addEventListener('click', () => {
+      izgara.visible = !izgara.visible;
+      izgaraBtn.classList.toggle('secili', izgara.visible);
+    });
+
+    // ============================================================
+    // 8) İŞARETÇİ
+    // ============================================================
+    const isaret = new THREE.Group();
+    const nokta = new THREE.Mesh(new THREE.SphereGeometry(0.01, 16, 16),
+      new THREE.MeshBasicMaterial({ color: 0x5cc8ff, toneMapped: false }));
+    const halka = new THREE.Mesh(new THREE.RingGeometry(0.022, 0.028, 48),
+      new THREE.MeshBasicMaterial({ color: 0x5cc8ff, transparent: true, side: THREE.DoubleSide, toneMapped: false }));
+    isaret.add(nokta, halka);
+    isaret.visible = false;
+    gezegen.add(isaret);
+    function isaretKoy(p) {
+      isaret.position.copy(p).multiplyScalar(1.006);
+      isaret.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), p);   // halkayı yüzeye yatır
+      isaret.visible = true;
+    }
+
+    // ============================================================
+    // 9) TIKLAMA → KOORDİNAT
+    // ============================================================
+    const raycaster = new THREE.Raycaster();
+    const fare = new THREE.Vector2();
+    let basX = 0, basY = 0, parmak = 0, cokluDokunma = false;
+
+    renderer.domElement.addEventListener('pointerdown', e => {
+      if (typeof donus !== 'undefined' && donus) donus.kill();   // Site v2: sürükleyince dönüş animasyonu durur
+      parmak++;
+      if (parmak > 1) { cokluDokunma = true; return; }
+      cokluDokunma = false;
+      basX = e.clientX; basY = e.clientY;
+    });
+    renderer.domElement.addEventListener('pointercancel', () => { parmak = Math.max(0, parmak - 1); });
+    renderer.domElement.addEventListener('pointerup', e => {
+      parmak = Math.max(0, parmak - 1);
+      if (cokluDokunma) return;
+      if (Math.hypot(e.clientX - basX, e.clientY - basY) >= 5) return;   // 5 px'ten fazla: sürükleme
+      const r = renderer.domElement.getBoundingClientRect();
+      fare.x = ((e.clientX - r.left) / r.width) * 2 - 1;
+      fare.y = -((e.clientY - r.top) / r.height) * 2 + 1;
+      raycaster.setFromCamera(fare, camera);
+      const vurus = raycaster.intersectObject(gezegen, false)[0];
+      if (!vurus) return;
+      // Birim vektör p'den: enlem = arcsin(y), boylam = atan2(−z, x)
+      const p = gezegen.worldToLocal(vurus.point.clone()).normalize();
+      const lat = THREE.MathUtils.radToDeg(Math.asin(p.y));
+      const lon = THREE.MathUtils.radToDeg(Math.atan2(-p.z, p.x));
+      isaretKoy(p);
+      noktaSecildi(lat, lon);
+      noktayaDon(p);
+    });
+
+    // ---------- Site v2: kamerayı seçilen noktanın tam karşısına döndür ----------
+    // Bakış yönü a (gezegen merkezinden kameraya) ile nokta yönü b arasındaki dönüş q; t ∈ [0,1] için q'nun
+    // küresel ara değeri (slerp) uygulanır, uzaklık korunur. 1,2 sn, power2.inOut. Azaltılmış harekette anında.
+    let donus = null;
+    function noktayaDon(p) {
+      if (ucusta) return;
+      const merkez = controls.target.clone();
+      const ofs0 = camera.position.clone().sub(merkez), r = ofs0.length();
+      const a = ofs0.clone().normalize(), b = p.clone().normalize();
+      const q = new THREE.Quaternion().setFromUnitVectors(a, b), bir = new THREE.Quaternion(), qt = new THREE.Quaternion();
+      if (donus) donus.kill();
+      if (azHareket) { camera.position.copy(merkez).addScaledVector(b, r); return; }
+      const durum = { t: 0 };
+      donus = gsap.to(durum, { t: 1, duration: 1.2, ease: 'power2.inOut',
+        onUpdate: () => { qt.slerpQuaternions(bir, q, durum.t); camera.position.copy(merkez).add(a.clone().applyQuaternion(qt).multiplyScalar(r)); } });
+    }
+
+    // ---------- Site v2: elle koordinat girişi ----------
+    const girisLat = document.getElementById('giris-lat'), girisLon = document.getElementById('giris-lon'), koordHata = document.getElementById('koord-hata');
+    const gitBtn = document.getElementById('git-btn');
+    const gitGuncelle = () => { gitBtn.disabled = !secilen || (girisLat.value.trim() === secilen.lat.toFixed(4) && girisLon.value.trim() === secilen.lon.toFixed(4)); };
+    [girisLat, girisLon].forEach(g => g.addEventListener('input', gitGuncelle));
+    document.getElementById('koord-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const lat = parseFloat(girisLat.value.replace(',', '.')), lon = parseFloat(girisLon.value.replace(',', '.'));
+      if (!Number.isFinite(lat) || !Number.isFinite(lon) || Math.abs(lat) > 90 || Math.abs(lon) > 180) {
+        koordHata.textContent = 'Latitude −90…90 and longitude −180…180 (south and west are negative).'; return;
+      }
+      koordHata.textContent = '';
+      const r = THREE.MathUtils.degToRad;
+      const p = new THREE.Vector3(Math.cos(r(lat)) * Math.cos(r(lon)), Math.sin(r(lat)), -Math.cos(r(lat)) * Math.sin(r(lon)));
+      isaretKoy(p);
+      noktaSecildi(lat, lon);
+      noktayaDon(p);
+    });
+
+    // ============================================================
+    // 10) PANEL ve BÖLÜMLERİ GÜNCELLEME
+    // ============================================================
+    const koordYazi = (lat, lon) => `${enlemYazi(lat, 2)}, ${boylamYazi(lon, 2)}`;
+
+    function ozetleriGuncelle() {
+      const metin = secilen
+        ? `For ${koordYazi(secilen.lat, secilen.lon)} on ${GOK[govde].ile} · ${GOREV_AD[gorev]}`
+        : 'Select a point on the globe first';
+      document.querySelectorAll('.hedef-ozet').forEach(el => el.textContent = metin);
+      document.getElementById('ozet-gorev').textContent = GOREV_AD[gorev];
+    }
+
+    // ---------- Hedef listesi ve "Region" ----------
+    // Tıklanan noktaya en yakın bilinen hedefi bul. Küre üzerinde iki nokta arasındaki açı (büyük çember):
+    //   cos d = sin φ₁ sin φ₂ + cos φ₁ cos φ₂ cos(λ₁ − λ₂)
+    // d < 3° ise o hedefin adını yaz, değilse "Uncharted site"
+    let hedefler = [];
+    const hedeflerHazir = fetch('data/targets.json').then(r => r.json()).then(v => { hedefler = v; }).catch(() => {});
+    function enYakinHedef(lat, lon) {
+      const r = THREE.MathUtils.degToRad;
+      const govdeAdi = govde === 'ay' ? 'moon' : 'mars';
+      let enIyi = null, enKucuk = Infinity;
+      for (const h of hedefler) {
+        if (h.body !== govdeAdi) continue;
+        const c = Math.sin(r(lat)) * Math.sin(r(h.lat)) + Math.cos(r(lat)) * Math.cos(r(h.lat)) * Math.cos(r(lon - h.lon));
+        const d = THREE.MathUtils.radToDeg(Math.acos(Math.min(1, Math.max(-1, c))));
+        if (d < enKucuk) { enKucuk = d; enIyi = h; }
+      }
+      return enKucuk < 3 ? enIyi : null;
+    }
+
+    function noktaSecildi(lat, lon) {
+      secilen = { lat, lon };
+      document.getElementById('giris-lat').value = lat.toFixed(4);   // Site v2: koordinat kutuları kendiliğinden dolar
+      document.getElementById('giris-lon').value = lon.toFixed(4);
+      document.getElementById('git-btn').disabled = true;   // SITE_V2_YAMA_3: sayı değişmedikçe Go soluk
+      const bolge = enYakinHedef(lat, lon);
+      document.getElementById('ozet-bolge').textContent = bolge ? bolge.name : 'Uncharted site';
+      document.getElementById('giris').hidden = true;
+      document.getElementById('secim').hidden = false;
+      document.getElementById('panel-baslik').textContent = `${GOK[govde].ad} · selected site`;
+      document.getElementById('ondalik').textContent = koordYazi(lat, lon);   // SITE_V2_YAMA_1: üst satır artık yazılabilir kutular
+      document.getElementById('durum').textContent = "Data for this site isn't ready yet.";
+      document.getElementById('asagi-btn').hidden = false;
+      ozetleriGuncelle();
+      if (!azHareket) gsap.fromTo('#secim .anim', { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.06, ease: 'power2.out' });
+    }
+
+    function paneliSifirla() {
+      secilen = null;
+      document.getElementById('giris').hidden = false;
+      document.getElementById('secim').hidden = true;
+      document.getElementById('giris-baslik').textContent = `Explore ${GOK[govde].ile}`;
+      document.getElementById('durum').textContent = 'Select any point to see its profile.';
+      document.getElementById('asagi-btn').hidden = true;
+      ozetleriGuncelle();
+    }
+
+    const git = id => document.getElementById(id).scrollIntoView({ behavior: azHareket ? 'auto' : 'smooth' });
+    document.getElementById('asagi-btn').addEventListener('click', () => git('match-1'));
+    document.querySelectorAll('[data-git]').forEach(b => b.addEventListener('click', () => git(b.dataset.git)));
+    document.getElementById('yukari-btn').addEventListener('click', () => git('kesif'));
+
+    // ============================================================
+    // 11) MOON | MARS ve GÖREV BUTONLARI
+    // ============================================================
+    const segment = document.querySelector('.segment');
+    // Arayüzü ve "aktif gezegeni" değiştirir (kamera hareketi ayrı)
+    function govdeSec(ad) {
+      govde = ad;
+      gezegen = MESH[ad];
+      segment.dataset.secim = ad;   // kapsüldeki mavi hapı kaydır
+      document.querySelectorAll('[data-govde]').forEach(b => b.classList.toggle('secili', b.dataset.govde === ad));
+      isaret.visible = false;
+      gezegen.add(isaret);                       // işaretçiyi yeni gezegene taşı
+      izgara.position.copy(MERKEZ[ad]);          // ızgarayı da
+      document.getElementById('kaynak').textContent = GOK[ad].kaynak;
+      paneliSifirla();
+      zoomSiniri();
+    }
+
+    const NORMAL_UZAKLIK = 3.2;    // gezegene normal bakış uzaklığı (merkezden)
+    const UZAK = 11;               // açılışta kameranın başladığı uzaklık
+    let gecis = null;
+
+    // Açılış için: kamerayı, gezegen merkezine uzaklığı r₀'dan hedefR'ye değişecek şekilde hareket ettir.
+    // r₀ tween BAŞLARKEN okunur.   r(t) = r₀ + (hedef − r₀)·t
+    function uzaklikTween(hedefR, sure, ease) {
+      const durum = { t: 0 };
+      let r0 = NORMAL_UZAKLIK;
+      return gsap.to(durum, {
+        t: 1, duration: sure, ease,
+        onStart: () => { r0 = camera.position.distanceTo(controls.target); },
+        onUpdate: () => {
+          const ofs = camera.position.clone().sub(controls.target).setLength(r0 + (hedefR - r0) * durum.t);
+          camera.position.copy(controls.target).add(ofs);
+        }
+      });
+    }
+
+    // MOON ↔ MARS UÇUŞU (ana sayfadaki gibi kübik Bézier):
+    //   B(t) = (1−t)³P0 + 3(1−t)²t·P1 + 3(1−t)t²·P2 + t³P3
+    //   P0 = kameranın şu anki yeri, P3 = yeni gezegene aynı açıdan, normal uzaklıktan bakan nokta
+    //   P1 = P0'dan geriye (zoom-out), P2 = P3'ten geriye (uzaktan yaklaş, zoom-in)
+    //   Yan yana durdukları için kamera ekranda sağa (Ay → Mars) ya da sola (Mars → Ay) kayar.
+    //   Kameranın baktığı nokta (controls.target) da eski merkezden yenisine smoothstep ile kayar.
+    function govdeGecis(ad) {
+      const cA = controls.target.clone(), cB = MERKEZ[ad].clone();
+      // Bakış yönü: şu anki yön, ama iki gezegeni birleştiren eksen boyunca olan bileşeni atılmış
+      // (yoksa kamera bir gezegenin içinden geçebilir). Geriye bir şey kalmazsa standart yön (+x)
+      const eksen = cB.clone().sub(cA).normalize();
+      const yon = camera.position.clone().sub(cA).normalize();
+      yon.addScaledVector(eksen, -yon.dot(eksen));
+      if (yon.lengthSq() < 0.01) yon.set(1, 0, 0);
+      yon.normalize();
+
+      const P0 = camera.position.clone();
+      const P3 = cB.clone().addScaledVector(yon, NORMAL_UZAKLIK);
+      const P1 = P0.clone().addScaledVector(yon, 6);   // önce 6 birim geri çekil
+      const P2 = P3.clone().addScaledVector(yon, 9);   // yeni gezegene 9 birim geriden yaklaş
+
+      const eskiMesh = MESH[govde], yeniMesh = MESH[ad];
+      govdeSec(ad);
+      if (azHareket) {
+        camera.position.copy(P3); controls.target.copy(cB);
+        eskiMesh.visible = false; yeniMesh.visible = true; return;
+      }
+      if (gecis) gecis.kill();
+      // Yeni gezegen uçuşun ilk yarısında belirir, eskisi son yarısında kaybolur (3 sn'lik uçuş)
+      yeniMesh.material.opacity = 0;
+      saydamlik(yeniMesh, 1, 1.2, 0.2);
+      saydamlik(eskiMesh, 0, 1.0, 1.6);
+      ucusta = true;
+      controls.enabled = false;                    // uçuş sırasında fareyle oynanmasın
+      controls.minDistance = 0; controls.maxDistance = 1000;
+      const durum = { t: 0 };
+      gecis = gsap.to(durum, {
+        t: 1, duration: 3.0, ease: 'power2.inOut',
+        onUpdate: () => {
+          const t = durum.t, u = 1 - t;
+          camera.position.set(0, 0, 0)
+            .addScaledVector(P0, u * u * u).addScaledVector(P1, 3 * u * u * t)
+            .addScaledVector(P2, 3 * u * t * t).addScaledVector(P3, t * t * t);
+          controls.target.lerpVectors(cA, cB, THREE.MathUtils.smoothstep(t, 0.2, 0.8));
+        },
+        onComplete: () => {
+          ucusta = false; controls.enabled = true; controls.maxDistance = 6;
+          zoomSiniri();
+        }
+      });
+    }
+
+    document.querySelectorAll('[data-govde]').forEach(btn => {
+      btn.addEventListener('click', () => { if (btn.dataset.govde !== govde) govdeGecis(btn.dataset.govde); });
+    });
+    document.querySelectorAll('[data-gorev]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        gorev = btn.dataset.gorev;
+        document.querySelectorAll('[data-gorev]').forEach(b => b.classList.toggle('secili', b === btn));
+        ozetleriGuncelle();
+      });
+    });
+
+    controls.target.copy(MERKEZ[govde]);   // kamera aktif gezegenin merkezine baksın
+    govdeSec(govde);   // başlangıç (ana sayfadan gelen seçim dahil)
+    document.querySelectorAll('[data-gorev]').forEach(b => b.classList.toggle('secili', b.dataset.gorev === gorev));
+    ozetleriGuncelle();
+
+    // Ana sayfadaki aramadan bir hedefle gelindiyse: o noktayı seç ve kamerayı ona çevir.
+    // Enlem φ, boylam λ'dan birim vektör (tıklamadaki formülün tersi):
+    //   x = cos φ cos λ,   y = sin φ,   z = −cos φ sin λ
+    if (PARAM.has('lat') && PARAM.has('lon')) {
+      const lat = parseFloat(PARAM.get('lat')), lon = parseFloat(PARAM.get('lon'));
+      const r = THREE.MathUtils.degToRad;
+      const p = new THREE.Vector3(Math.cos(r(lat)) * Math.cos(r(lon)), Math.sin(r(lat)), -Math.cos(r(lat)) * Math.sin(r(lon)));
+      // DÜZELTME: önceki sürümde uzaklık, kamera noktaya taşındıktan SONRA okunuyordu (= 1, yani yüzeyin üstü);
+      // bu yüzden sayfa aşırı yakın açılıyordu. Şimdi kamera noktanın tam karşısında, uzakta başlıyor
+      camera.position.copy(MERKEZ[govde]).addScaledVector(p, UZAK);
+      controls.update();
+      isaretKoy(p);
+      hedeflerHazir.then(() => noktaSecildi(lat, lon));                  // hedef adı için listeyi bekle
+    }
+
+    // Açılışta gezegene uzaktan yaklaşarak gel (ana sayfadaki uçuşun devamı gibi)
+    if (!PARAM.has('lat')) camera.position.copy(MERKEZ[govde]).add(new THREE.Vector3(UZAK, 0, 0));
+    if (!azHareket) {
+      controls.enabled = false;
+      controls.maxDistance = UZAK + 1;
+      gecis = gsap.timeline({ delay: 0.2, onComplete: () => { controls.enabled = true; controls.maxDistance = 6; } })
+        .add(uzaklikTween(NORMAL_UZAKLIK, 2.0, 'power3.out'));
+    } else {
+      const ofs = camera.position.clone().sub(controls.target).setLength(NORMAL_UZAKLIK);
+      camera.position.copy(controls.target).add(ofs);
+    }
+
+    // ============================================================
+    // 12) GİRİŞ ve KAYDIRMA ANİMASYONLARI (GSAP)
+    // ============================================================
+    if (!azHareket) {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      tl.from('header', { y: -30, opacity: 0, duration: 0.6, clearProps: 'transform' })
+        .from('.gorev-btn', { y: 24, opacity: 0, duration: 0.5, stagger: 0.07, clearProps: 'transform' }, '-=0.3')
+        .from('#sahne', { opacity: 0, duration: 1.0 }, 0.1)
+        .from('#panel', { x: 60, opacity: 0, duration: 0.8, clearProps: 'transform' }, 0.35);
+      gsap.utils.toArray('.reveal').forEach(el => {
+        gsap.from(el, { y: 40, opacity: 0, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 85%' } });
+      });
+    }
+
+    // ============================================================
+    // 13) ANİMASYON DÖNGÜSÜ
+    // ============================================================
+    const saat = new THREE.Clock();
+    renderer.setAnimationLoop(() => {
+      const t = saat.getElapsedTime();
+      controls.update();
+      gunes.target.position.copy(controls.target);   // ışık hep incelenen gezegene baksın
+      if (!azHareket) gokyuzuGuncelle(t);
+      if (isaret.visible && !azHareket) {
+        const s = 1 + 0.35 * Math.sin(t * 4);
+        halka.scale.set(s, s, 1);
+        halka.material.opacity = 0.65 - 0.3 * Math.sin(t * 4);
+      }
+      renderer.render(scene, camera);
+    });
+  </script>
+</body>
+</html>

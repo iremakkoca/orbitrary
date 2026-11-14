@@ -1,0 +1,207 @@
+{
+  "R1": {
+    "boyut": [
+      46080,
+      23040
+    ],
+    "dtype": "int16",
+    "nodata": -32768.0,
+    "olcek": 1.0,
+    "ofset": 0.0,
+    "crs": "PROJCS[\"Equirectangular Mars\",GEOGCS[\"GCS_Mars\",DATUM[\"D_Mars\",SPHEROID[\"Mars_localRadius\",3396190,0]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Equirectangular\"],PARAMETER[\"standard_parallel_1\",0],PARAMETER[\"central_meridian\",0],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]",
+    "transform": [
+      463.0935415503709,
+      0.0,
+      -10669675.197320545,
+      0.0,
+      -463.0935415503709,
+      5334837.598660273
+    ],
+    "min": -8201,
+    "min_yeri": [
+      -32.85,
+      62.21
+    ],
+    "max": 21241,
+    "max_yeri": [
+      17.34,
+      -133.45
+    ],
+    "nodata_sayisi": 0
+  },
+  "R2": {
+    "kayit": 1311,
+    "alanlar": [
+      "OBJECTID",
+      "Shape_Leng",
+      "Shape_Area",
+      "Unit",
+      "UnitDesc",
+      "SphArea_km"
+    ],
+    "birim_sayisi": 44
+  },
+  "R3_hdr": {
+    "samples": 1440,
+    "lines": 720,
+    "bands": 13,
+    "header offset": 0,
+    "data type": 4,
+    "byte order": 1
+  },
+  "R3_isis_etiket": "PDS_VERSION = 3.0\r\nRECORD_TYPE = FIXED_LENGTH\r\nRECORD_BYTES = 512\r\nFILE_RECORDS = 26328\r\nLABEL_RECORDS = 2\r\nFILE_STATE = CLEAN\r\n^QUBE = 3\r\nOBJECT = QUBE\r\n    AXES = 3\r\n    AXES_NAME = (SAMPLE,LINE,BAND)\r\n    CORE_ITEMS = (1440,720,13)\r\n    CORE_ITEM_BYTES = 4\r\n    CORE_ITEM_TYPE = PC_REAL\r\n    CORE_BASE = 0.0\r\n    CORE_MULTIPLIER = 1.0\r\n    CORE_NAME = RAW_DATA_NUMBERS\r\n    CORE_UNIT = DN\r\n    OBSERVATION_NOTE = \"DV data product\"\r\nEND_OBJECT = QUBE\r\nEND",
+  "R3_isis": {
+    "core_items": [
+      1440,
+      720,
+      13
+    ],
+    "eksenler": "SAMPLE,LINE,BAND",
+    "tip": "PC_REAL",
+    "bayt": 4,
+    "veri_baslangici": 1024,
+    "taban": 0.0,
+    "carpan": 1.0
+  },
+  "R3_geometri": {
+    "maxlat": 90.0,
+    "bati": -180.0,
+    "dogu": true,
+    "ppd": 4.0,
+    "kaynak": "dosyalarda yok; ASU Mars Global Data Sets, TES Low-Calcium Pyroxene (Bandfield 2002, 4 ppd, 1440x720): Simple cylindrical, -180E to 180E, 90N to -90N, 'ocentric"
+  },
+  "R3_bant8_-1_sayisi": 287533,
+  "R4_ti_baslik": "----------------------------------------------------------\r\nTHERMAL INERTIA MGS TES 20X20 PIX/DEG MAP    2003 June 13 \r\n                                                          \r\nPoint of Contact:  Michael T. Mellon                      \r\n                   University of Colorado                 \r\n                   LASP, Campus Box 392                   \r\n                   Boulder, CO 80309-0392                 \r\n                   mellon@argyre.colorado.edu             \r\n                   tel: 303-492-1711                      \r\n                   fax: 303-492-6946                      \r\n                                                          \r\nThis map is derived from the TES thermal bolometer        \r\nobservations using orbits 1583-11254 (primary mapping     \r\nmission). Only nighttime data are used, for bolometric    \r\ntemperatures above 160 K. The map is an average           \r\nof binned inertias.                                       \r\nThe correct reference for this map is:                    \r\n                                                          \r\nPutzig, N.E., M.T. Mellon, K.A. Kretke, and R.E. Arvidson,\r\n  \"Global thermal inertia and surface properties of Mars  \r\n  from the MGS mapping mission, Icarus 173, 325-241, 2005.\r\n----------------------------------------------------------\r\n                                                          \r\nData Range: 24-800 J m^-2 K^-1 s^-1/2                     \r\n            0 = no data                                   \r\n",
+  "R4_ti": {
+    "veri_yok_0": 2728379,
+    "min": 24,
+    "max": 800
+  },
+  "R4_albedo": {
+    "satir": 1440,
+    "sutun": 2880,
+    "tip": "PC_REAL",
+    "bit": 32,
+    "maxlat": 90.0,
+    "bati": -180.0,
+    "yon": "EAST",
+    "ppd": 8.0,
+    "sonlu_olmayan": 0,
+    "sifir_ve_alti": 0
+  },
+  "R5_etiket": "PDS_VERSION = 3.0\r\nRECORD_TYPE = FIXED_LENGTH\r\nRECORD_BYTES = 512\r\nFILE_RECORDS = 32403\r\nLABEL_RECORDS = 2\r\nFILE_STATE = CLEAN\r\n^QUBE = 3\r\nOBJECT = QUBE\r\n    AXES = 3\r\n    AXES_NAME = (BAND,SAMPLE,LINE)\r\n    CORE_ITEMS = (1,5760,2880)\r\n    CORE_ITEM_BYTES = 4\r\n    CORE_ITEM_TYPE = PC_REAL\r\n    CORE_BASE = 0.0\r\n    CORE_MULTIPLIER = 1.0\r\n    CORE_NAME = RAW_DATA_NUMBERS\r\n    CORE_UNIT = DN\r\n    OBSERVATION_NOTE = \"DV data product\"\r\nEND_OBJECT = QUBE\r\nEND",
+  "R5": {
+    "core_items": [
+      1,
+      5760,
+      2880
+    ],
+    "eksenler": "BAND,SAMPLE,LINE",
+    "tip": "PC_REAL",
+    "bayt": 4,
+    "veri_baslangici": 1024,
+    "taban": 0.0,
+    "carpan": 1.0,
+    "maxlat": 90.0,
+    "bati": -180.0,
+    "kaynak": "etikette yok; indirme_raporu3 R5 (ikincil kayıt mars.asu.edu/data/tes_ruffdust: simple cylindrical, -180->180 doğu, 90->-90)",
+    "0.85_sayisi": 3525987
+  },
+  "R6": {
+    "record_length": 72,
+    "records": 2592,
+    "alanlar": [
+      [
+        "LATITUDE",
+        1,
+        5
+      ],
+      [
+        "LONGITUDE",
+        16,
+        5
+      ],
+      [
+        "CONCENTRATION",
+        29,
+        8
+      ],
+      [
+        "SIGMA",
+        46,
+        8
+      ],
+      [
+        "SIGMA WITH CFS",
+        63,
+        8
+      ]
+    ]
+  },
+  "R7_SWIM4MIM_Ci_0_1": {
+    "boyut": [
+      7200,
+      2400
+    ],
+    "dtype": "float32",
+    "nodata": -30.0,
+    "crs": "ESRI:103885",
+    "transform": [
+      2963.735,
+      0.0,
+      -10669445.8675,
+      0.0,
+      -2963.735,
+      3556482.1175
+    ],
+    "-30_sayisi": 0,
+    "enlem_araligi": [
+      -59.97500052365867,
+      59.97500448825082
+    ]
+  },
+  "R7_SWIM4MIM_Ci_1_5": {
+    "boyut": [
+      7200,
+      2400
+    ],
+    "dtype": "float32",
+    "nodata": -30.0,
+    "crs": "ESRI:103885",
+    "transform": [
+      2963.735,
+      0.0,
+      -10669445.8675,
+      0.0,
+      -2963.735,
+      3556482.1175
+    ],
+    "-30_sayisi": 0,
+    "enlem_araligi": [
+      -59.97500052365867,
+      59.97500448825082
+    ]
+  },
+  "R7_SWIM4MIM_Ci_5": {
+    "boyut": [
+      7200,
+      2400
+    ],
+    "dtype": "float32",
+    "nodata": -30.0,
+    "crs": "ESRI:103885",
+    "transform": [
+      2963.735,
+      0.0,
+      -10669445.8675,
+      0.0,
+      -2963.735,
+      3556482.1175
+    ],
+    "-30_sayisi": 0,
+    "enlem_araligi": [
+      -59.97500052365867,
+      59.97500448825082
+    ]
+  }
+}

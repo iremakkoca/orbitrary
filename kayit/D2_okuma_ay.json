@@ -1,0 +1,208 @@
+{
+  "M1": {
+    "boyut": [
+      92160,
+      46080
+    ],
+    "dtype": "int16",
+    "nodata": -32768.0,
+    "transform": [
+      118.4505876,
+      0.0,
+      -5458203.076608,
+      0.0,
+      -118.4505876,
+      2729101.538304
+    ],
+    "lbl_multiplier": 0.5,
+    "lbl_base": 0.0,
+    "yok_sayisi_-32768": 0
+  },
+  "M4_prp_north": {
+    "satir": 2880000,
+    "sutunlar": [
+      "tri1_x",
+      "tri1_y",
+      "tri1_z",
+      "tri2_x",
+      "tri2_y",
+      "tri2_z",
+      "tri3_x",
+      "tri3_y",
+      "tri3_z",
+      "tri_clon",
+      "tri_clat",
+      "tri_calt",
+      "temp_avg",
+      "temp_max",
+      "ice_depth"
+    ],
+    "dosyada_baslik": true
+  },
+  "M4_prp_south": {
+    "satir": 2880000,
+    "sutunlar": [
+      "tri1_x",
+      "tri1_y",
+      "tri1_z",
+      "tri2_x",
+      "tri2_y",
+      "tri2_z",
+      "tri3_x",
+      "tri3_y",
+      "tri3_z",
+      "tri_clon",
+      "tri_clat",
+      "tri_calt",
+      "temp_avg",
+      "temp_max",
+      "ice_depth"
+    ],
+    "dosyada_baslik": true
+  },
+  "M4_ice_depth_sayilari": {
+    "north": {
+      "negatif_degerler": [
+        -999.0,
+        -1.0
+      ],
+      "n_0": 14457,
+      "n_-1": 65481,
+      "n_pozitif": 989573,
+      "n_-999": 1810489,
+      "-1_temp_max_en_buyuk": 101.299
+    },
+    "south": {
+      "negatif_degerler": [
+        -999.0,
+        -1.0
+      ],
+      "n_0": 18375,
+      "n_-1": 100319,
+      "n_pozitif": 913867,
+      "n_-999": 1847439,
+      "-1_temp_max_en_buyuk": 101.299
+    }
+  },
+  "M3": {
+    "boyut": [
+      46080,
+      17920
+    ],
+    "dtype": "float32",
+    "nodata": null,
+    "transform": [
+      0.0078125,
+      0.0,
+      -180.0,
+      0.0,
+      -0.0078125,
+      70.0
+    ],
+    "crs": "ESRI:104903"
+  },
+  "M4_global_cumul_avg_cyl_70n80n_002.tab": {
+    "satir": 1382400,
+    "sutunlar": [
+      "clon",
+      "clat",
+      "ltim",
+      "t3",
+      "t4",
+      "t5",
+      "t6",
+      "t7",
+      "t8",
+      "t9",
+      "tbol"
+    ]
+  },
+  "M4_global_cumul_avg_cyl_80s70s_002.tab": {
+    "satir": 1382400,
+    "sutunlar": [
+      "clon",
+      "clat",
+      "ltim",
+      "t3",
+      "t4",
+      "t5",
+      "t6",
+      "t7",
+      "t8",
+      "t9",
+      "tbol"
+    ]
+  },
+  "M7_AVGVISIB_65S": {
+    "boyut": [
+      6420,
+      6420
+    ],
+    "dtype": "int16",
+    "nodata": -32768.0,
+    "transform": [
+      240.0,
+      0.0,
+      -770400.0,
+      0.0,
+      -240.0,
+      770400.0
+    ],
+    "lbl_scaling": 4e-05,
+    "lbl_offset": 0.0
+  },
+  "M7_LPSR_65S": {
+    "boyut": [
+      6420,
+      6420
+    ],
+    "dtype": "int16",
+    "nodata": -32768.0,
+    "transform": [
+      240.0,
+      0.0,
+      -770400.0,
+      0.0,
+      -240.0,
+      770400.0
+    ],
+    "lbl_scaling": 2.5e-05,
+    "lbl_offset": 0.5
+  },
+  "M7_AVGVISIB_65N": {
+    "boyut": [
+      6420,
+      6420
+    ],
+    "dtype": "int16",
+    "nodata": -32768.0,
+    "transform": [
+      240.0,
+      0.0,
+      -770400.0,
+      0.0,
+      -240.0,
+      770400.0
+    ],
+    "lbl_scaling": 4e-05,
+    "lbl_offset": 0.0
+  },
+  "M7_LPSR_65N": {
+    "boyut": [
+      6420,
+      6420
+    ],
+    "dtype": "int16",
+    "nodata": -32768.0,
+    "transform": [
+      240.0,
+      0.0,
+      -770400.0,
+      0.0,
+      -240.0,
+      770400.0
+    ],
+    "lbl_scaling": 2.5e-05,
+    "lbl_offset": 0.5
+  }
+}

@@ -1,0 +1,249 @@
+{
+  "adim": "D0",
+  "tarih": "2026-11-13T21:43:02",
+  "testler": {
+    "ortam_python": {
+      "durum": "PASS",
+      "detay": "C:\\Users\\USER\\anaconda3\\envs\\orbitrary\\python.exe | Python 3.12.16"
+    },
+    "paket_numpy": {
+      "durum": "PASS",
+      "detay": "2.5.4"
+    },
+    "paket_scipy": {
+      "durum": "PASS",
+      "detay": "1.18.1"
+    },
+    "paket_pandas": {
+      "durum": "PASS",
+      "detay": "3.1.1"
+    },
+    "paket_pyarrow": {
+      "durum": "PASS",
+      "detay": "26.0.1"
+    },
+    "paket_GDAL": {
+      "durum": "PASS",
+      "detay": "3.13.3"
+    },
+    "paket_rasterio": {
+      "durum": "PASS",
+      "detay": "1.5.2"
+    },
+    "paket_pyproj": {
+      "durum": "PASS",
+      "detay": "3.8.0"
+    },
+    "paket_geopandas": {
+      "durum": "PASS",
+      "detay": "1.2.0"
+    },
+    "paket_pyogrio": {
+      "durum": "PASS",
+      "detay": "0.13.0"
+    },
+    "paket_shapely": {
+      "durum": "PASS",
+      "detay": "2.2.0"
+    },
+    "paket_xarray": {
+      "durum": "PASS",
+      "detay": "2026.9.0"
+    },
+    "paket_netCDF4": {
+      "durum": "PASS",
+      "detay": "1.7.5"
+    },
+    "paket_h5py": {
+      "durum": "PASS",
+      "detay": "3.16.0"
+    },
+    "paket_earthaccess": {
+      "durum": "PASS",
+      "detay": "0.19.0"
+    },
+    "paket_gudhi": {
+      "durum": "PASS",
+      "detay": "3.13.0"
+    },
+    "paket_matplotlib": {
+      "durum": "PASS",
+      "detay": "3.11.2"
+    },
+    "paket_jupyterlab": {
+      "durum": "PASS",
+      "detay": "4.6.6"
+    },
+    "paket_pytest": {
+      "durum": "PASS",
+      "detay": "9.2.0"
+    },
+    "paket_tqdm": {
+      "durum": "PASS",
+      "detay": "4.70.1"
+    },
+    "paket_inflate64": {
+      "durum": "PASS",
+      "detay": "1.0.4"
+    },
+    "conda_libgdal-hdf4": {
+      "durum": "PASS",
+      "detay": "3.13.3"
+    },
+    "conda_libgdal-hdf5": {
+      "durum": "PASS",
+      "detay": "3.13.3"
+    },
+    "conda_libgdal-netcdf": {
+      "durum": "PASS",
+      "detay": "3.13.3"
+    },
+    "gdal_tek_surum": {
+      "durum": "PASS",
+      "detay": "osgeo 3.13.3 | rasterio 3.13.3 | pyogrio 3.13.3"
+    },
+    "surucu_HDF4": {
+      "durum": "PASS",
+      "detay": "Hierarchical Data Format Release 4"
+    },
+    "surucu_HDF4Image": {
+      "durum": "PASS",
+      "detay": "HDF4 Dataset"
+    },
+    "surucu_HDF5": {
+      "durum": "PASS",
+      "detay": "Hierarchical Data Format Release 5"
+    },
+    "surucu_HDF5Image": {
+      "durum": "PASS",
+      "detay": "HDF5 Dataset"
+    },
+    "surucu_netCDF": {
+      "durum": "PASS",
+      "detay": "Network Common Data Format"
+    },
+    "surucu_GTiff": {
+      "durum": "PASS",
+      "detay": "GeoTIFF"
+    },
+    "surucu_GPKG": {
+      "durum": "PASS",
+      "detay": "GeoPackage"
+    },
+    "surucu_ESRI Shapefile": {
+      "durum": "PASS",
+      "detay": "ESRI Shapefile"
+    },
+    "surucu_OpenFileGDB": {
+      "durum": "PASS",
+      "detay": "ESRI FileGeodatabase (using OpenFileGDB)"
+    },
+    "pyogrio_surucu_GPKG": {
+      "durum": "PASS",
+      "detay": "raw"
+    },
+    "pyogrio_surucu_ESRI Shapefile": {
+      "durum": "PASS",
+      "detay": "raw"
+    },
+    "pyogrio_surucu_OpenFileGDB": {
+      "durum": "PASS",
+      "detay": "raw"
+    },
+    "yazoku_GTiff": {
+      "durum": "PASS",
+      "detay": "4x4 float32, NaN veri-yok geri okundu"
+    },
+    "yazoku_BigTIFF": {
+      "durum": "PASS",
+      "detay": "ilk baytlar 49 49 2b 00"
+    },
+    "yazoku_GPKG": {
+      "durum": "PASS",
+      "detay": "1 poligon yazıldı/okundu, alan 2.0"
+    },
+    "yazoku_ESRI_Shapefile": {
+      "durum": "PASS",
+      "detay": "1 poligon yazıldı/okundu, alan 2.0"
+    },
+    "yazoku_OpenFileGDB": {
+      "durum": "PASS",
+      "detay": "1 poligon yazıldı/okundu, alan 2.0"
+    },
+    "yazoku_HDF5": {
+      "durum": "PASS",
+      "detay": "GDAL HDF5 ile okundu; 'Scale Factor' = 0.002"
+    },
+    "yazoku_netCDF": {
+      "durum": "PASS",
+      "detay": "GDAL satırları ters çevirerek okudu (koordinatsız netCDF'te beklenen; kayda geçti)"
+    },
+    "yazoku_HDF4": {
+      "durum": "SONRA",
+      "detay": "yalnız sürücü kontrol edildi; okuma testi D2'de MCD12C1 ile"
+    },
+    "gudhi_CubicalComplex": {
+      "durum": "PASS",
+      "detay": "H0 = [(0.0, inf), (1.0, 5.0), (2.0, 5.0), (3.0, 5.0)]"
+    },
+    "netrc_dosyasi": {
+      "durum": "PASS",
+      "detay": "C:\\Users\\USER\\_netrc (içerik okunmaz, yazılmaz)"
+    },
+    "earthaccess_login_netrc": {
+      "durum": "PASS",
+      "detay": "authenticated = True"
+    },
+    "earthaccess_arama_MCD12C1": {
+      "durum": "PASS",
+      "detay": "1 granül (rapor: 1)"
+    }
+  },
+  "makine": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "islemci": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+    "cekirdek": 12,
+    "ram_gb": 34.1,
+    "disk_bos_gb": 184.2,
+    "conda": "conda 26.5.3",
+    "python": "3.12.16 | packaged by conda-forge | (main, Oct 26 2026, 11:29:01) [MSC v.1944 64 bit (AMD64)]",
+    "python_yolu": "C:\\Users\\USER\\anaconda3\\envs\\orbitrary\\python.exe"
+  },
+  "paket_surumleri": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "3.1.1",
+    "pyarrow": "26.0.1",
+    "GDAL": "3.13.3",
+    "rasterio": "1.5.2",
+    "pyproj": "3.8.0",
+    "geopandas": "1.2.0",
+    "pyogrio": "0.13.0",
+    "shapely": "2.2.0",
+    "xarray": "2026.9.0",
+    "netCDF4": "1.7.5",
+    "h5py": "3.16.0",
+    "earthaccess": "0.19.0",
+    "gudhi": "3.13.0",
+    "matplotlib": "3.11.2",
+    "jupyterlab": "4.6.6",
+    "pytest": "9.2.0",
+    "tqdm": "4.70.1",
+    "inflate64": "1.0.4"
+  },
+  "conda_paketleri": {
+    "python": "3.12.16",
+    "gdal": "3.13.3",
+    "libgdal-core": "3.13.3",
+    "libgdal-hdf4": "3.13.3",
+    "libgdal-hdf5": "3.13.3",
+    "libgdal-netcdf": "3.13.3"
+  },
+  "gdal_driver_path": "C:\\Users\\USER\\anaconda3\\envs\\orbitrary\\Library\\lib\\gdalplugins",
+  "ozet": {
+    "toplam": 49,
+    "PASS": 48,
+    "FAIL": 0,
+    "gecmeyenler": []
+  }
+}

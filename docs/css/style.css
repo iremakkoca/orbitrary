@@ -1,0 +1,135 @@
+/* Developed with assistance from Claude (Anthropic). */
+/* =========================================================
+   ORBITRARY — ORTAK STİL
+   Bütün sayfalar bu dosyayı kullanır. Bir rengi burada değiştirirsen her yerde değişir.
+   ========================================================= */
+
+/* ===== RENKLER ===== */
+:root {
+  --bg: #03050c;          /* sayfa arka planı */
+  --bg2: #070b16;         /* bölüm arka planlarında biraz açık ton */
+  --panel: #0a0f19;       /* kart arka planı */
+  --line: #1c2638;        /* ince çizgiler */
+  --text: #e8edf5;        /* ana yazı */
+  --muted: #8a97ab;       /* soluk yazı */
+  --accent: #5cc8ff;      /* vurgu rengi: soğuk mavi */
+  --warn: #ffd36b;        /* uyarı: sarı */
+  --mismatch: #ff9f5c;    /* uyuşmazlık çizgisi: turuncu */
+
+  /* MİNİK YILDIZ DESENİ (koyu bölümlerin arka planı)
+     Her katman tek bir 1–2 piksellik nokta çizen bir radial-gradient; --yildiz-boyut o noktanın
+     tekrarlandığı karonun boyu. Karo boyları birbirine bölünmeyen sayılar (173, 211, 257…) olduğu için
+     desen göze tekrar ediyormuş gibi görünmez */
+  --yildiz-desen:
+    radial-gradient(1px 1px at 37px 61px, rgba(255, 255, 255, 0.55), transparent),
+    radial-gradient(1px 1px at 120px 18px, rgba(200, 215, 255, 0.45), transparent),
+    radial-gradient(1.5px 1.5px at 80px 150px, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 200px 90px, rgba(255, 240, 220, 0.4), transparent),
+    radial-gradient(1px 1px at 15px 230px, rgba(255, 255, 255, 0.35), transparent),
+    radial-gradient(2px 2px at 300px 300px, rgba(255, 255, 255, 0.45), transparent);
+  --yildiz-boyut: 173px 173px, 211px 211px, 257px 257px, 311px 311px, 379px 379px, 431px 431px;
+}
+
+/* Bir öğeye bu sınıfı verirsen arka planı minik yıldızlı koyu lacivert olur */
+.yildizli { background-color: var(--bg); background-image: var(--yildiz-desen); background-size: var(--yildiz-boyut); }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+/* hidden işaretli öğeler, kendi display kuralları ne olursa olsun gizli kalsın */
+[hidden] { display: none !important; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+img { display: block; max-width: 100%; }
+
+/* ===== LOGO ve TERS HARFLER =====
+   .ters   → A'yı dikeyde aynalar: ∀ ("her", evrensel niceleyici)
+   .ters-e → E'yi yatayda aynalar: ∃ ("vardır", varlık niceleyicisi)
+   inline-block şart: transform satır içi metne doğrudan uygulanamaz.
+   .ters-e'de harf aralığını sıfırlayıp boşluğu sağa (margin) veriyoruz; yoksa aynalama
+   harfin sağındaki boşluğu sola taşır ve E, T'den uzaklaşıp A'ya yapışır */
+.logo { font-weight: 700; letter-spacing: 0.12em; font-size: 17px; text-decoration: none; }
+.ters   { display: inline-block; transform: scaleY(-1); }
+.ters-e { display: inline-block; transform: scaleX(-1); letter-spacing: 0; margin-right: 0.12em; }
+
+/* ===== YAZI YARDIMCILARI ===== */
+.etiket { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; }
+.soluk  { color: var(--muted); line-height: 1.6; }
+.vurgu  { color: var(--accent); }
+.mono   { font-family: ui-monospace, monospace; font-size: 13px; color: var(--muted); }
+
+/* ===== BUTONLAR ===== */
+button, .btn-link {
+  font: inherit; font-size: 15px;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 16px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+}
+button:hover, .btn-link:hover { border-color: var(--accent); }
+button.secili { background: var(--accent); color: #04121c; border-color: var(--accent); }
+button svg { width: 18px; height: 18px; flex: none; }
+button:disabled { color: var(--muted); cursor: not-allowed; opacity: 0.6; }
+button:disabled:hover { border-color: var(--line); }
+
+/* Büyük ana eylem butonu (Explore mode gibi) */
+.btn-ana {
+  background: var(--accent); color: #04121c; border-color: var(--accent);
+  font-weight: 600; padding: 11px 22px; font-size: 16px;
+}
+.btn-ana:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(92, 200, 255, 0.25); }
+
+/* ===== MOON | MARS KAPSÜLÜ =====
+   data-secim="ay" ya da "mars": mavi hap o tarafta durur.
+   data-secim boşsa (ana sayfada Dünya gösterilirken) hap görünmez */
+.segment {
+  position: relative; display: inline-flex;
+  width: 196px; padding: 4px;
+  border: 1px solid var(--line); border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(6px);
+}
+.segment button {
+  flex: 1; justify-content: center;
+  border: none; background: transparent;
+  position: relative; z-index: 1;
+  padding: 7px 0; letter-spacing: 0.08em; font-weight: 500;
+}
+.segment button.secili { background: transparent; color: #04121c; }
+.segment button:not(.secili):hover { color: var(--accent); }
+.segment-kayan {
+  position: absolute; top: 4px; bottom: 4px; left: 4px;
+  width: calc(50% - 4px);
+  border-radius: 999px; background: var(--accent);
+  /* cubic-bezier(.65,0,.35,1): yavaş başlar, hızlanır, yavaşlayarak durur */
+  transition: transform 0.35s cubic-bezier(.65, 0, .35, 1), opacity 0.25s;
+}
+.segment[data-secim="mars"] .segment-kayan { transform: translateX(100%); }
+.segment[data-secim=""] .segment-kayan { opacity: 0; }
+
+/* Gruplar arasındaki ince dikey çizgi */
+.ayrac { width: 1px; height: 28px; background: var(--line); }
+@media (max-width: 900px) { .ayrac { display: none; } }
+
+/* "Coming soon" balonu (pasif butonları saran kutu) */
+.yakinda { position: relative; display: inline-block; }
+.yakinda:hover::after {
+  content: "Coming soon";
+  position: absolute; left: 50%; bottom: calc(100% + 6px); transform: translateX(-50%);
+  background: var(--text); color: var(--bg); font-size: 12px;
+  padding: 3px 8px; border-radius: 6px; white-space: nowrap;
+}
+
+/* ===== HAREKETİ AZALT ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}

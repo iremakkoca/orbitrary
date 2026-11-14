@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<!-- Developed with assistance from Claude (Anthropic). -->
+<!-- SITE_V2_YAMA_2 -->
+<!-- SITE_V2_YAMA_3 -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="ai-assistance" content="Code developed with assistance from Claude (Anthropic). Data processing and method by the Orbitrary team.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orbitrary — Earth analogs for the Moon and Mars</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Ortak stil: renkler, butonlar, logo, MOON|MARS kapsülü -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Sadece ana sayfaya özel stiller -->
+  <style>
+    /* ===== ÜST ŞERİT: başta saydam, aşağı kaydırınca koyu zemin (.dolu) ===== */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 20;
+      display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px;
+      padding: 16px 4vw;
+      transition: background 0.3s;
+    }
+    /* Sayfanın en üstündeyken: yukarıdan aşağı solan hafif karartma (gezegen arkada olsa da yazılar okunsun) */
+    header:not(.dolu) { background: linear-gradient(rgba(3, 5, 12, 0.8), rgba(3, 5, 12, 0)); }
+    header.dolu { background: rgba(3, 5, 12, 0.85); backdrop-filter: blur(10px); }
+    header .logo { font-size: 23px; letter-spacing: 0.14em; }
+    nav { display: flex; gap: 22px; margin-left: auto; }
+    nav a { text-decoration: none; color: #aab6c8; font-size: 14px; transition: color 0.2s; text-shadow: 0 1px 6px rgba(0,0,0,0.8); }
+    nav a:hover { color: var(--text); }
+
+    /* Ekip başlığındaki ters A büyük puntoda biraz aşağıda duruyordu: sadece orada 0.05 harf boyu yukarı */
+    #ekip h2 .ters { transform: translateY(-0.05em) scaleY(-1); }
+
+    /* ===== MENÜ BUTONU (☰) ve SOLDAN AÇILAN ÇEKMECE ===== */
+    .menu-btn {
+      width: 42px; height: 42px; padding: 0; border-radius: 12px;
+      display: inline-flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+      background: rgba(10, 15, 25, 0.5);
+    }
+    .menu-btn span { width: 18px; height: 2px; border-radius: 2px; background: var(--text); transition: transform 0.3s, opacity 0.3s; }
+    /* Açıkken üç çizgi X'e döner: üst çizgi aşağı inip 45°, alt çizgi yukarı çıkıp −45° döner, ortadaki kaybolur */
+    body.menu-acik .menu-btn span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    body.menu-acik .menu-btn span:nth-child(2) { opacity: 0; }
+    body.menu-acik .menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    #perde {
+      position: fixed; inset: 0; z-index: 30; background: rgba(1, 2, 6, 0.6); backdrop-filter: blur(3px);
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    #cekmece {
+      position: fixed; top: 0; bottom: 0; left: 0; z-index: 31; width: min(340px, 86vw);
+      background: var(--panel); border-right: 1px solid var(--line);
+      padding: 22px 26px; display: flex; flex-direction: column; gap: 4px; overflow-y: auto;
+      transform: translateX(-100%); transition: transform 0.4s cubic-bezier(.65, 0, .35, 1);
+    }
+    body.menu-acik #perde { opacity: 1; pointer-events: auto; }
+    body.menu-acik #cekmece { transform: none; }
+    .cekmece-ust { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+    #cekmece a.bag {
+      text-decoration: none; padding: 11px 0; font-size: 17px; border-bottom: 1px solid var(--line);
+      display: flex; justify-content: space-between; color: var(--text); transition: color 0.2s, padding 0.2s;
+    }
+    #cekmece a.bag:hover { color: var(--accent); padding-left: 6px; }
+    #cekmece a.bag span { color: var(--muted); font-size: 13px; }
+    #cekmece .btn-ana { margin-top: 22px; justify-content: center; }
+    #cekmece .alt-not { margin-top: auto; padding-top: 24px; font-size: 12px; }
+
+    /* ===== GİRİŞ EKRANI (HERO) ===== */
+    #hero {
+      position: relative; height: 100vh; min-height: 620px; overflow: hidden;
+      background: radial-gradient(ellipse at 50% 45%, #0a1128 0%, #040712 55%, #010206 100%);
+    }
+    #hero-sahne { position: absolute; inset: 0; }
+    #hero-sahne canvas { display: block; width: 100%; height: 100%; }
+    .hero-icerik {
+      position: absolute; left: 0; right: 0; bottom: 9vh;
+      display: flex; flex-direction: column; align-items: center; gap: 18px;
+      text-align: center; padding: 0 6vw;
+      pointer-events: none;
+    }
+    .hero-icerik > * { pointer-events: auto; }
+    .hero-icerik { gap: 16px; }
+    .hero-icerik h1 { font-size: clamp(28px, 3.8vw, 50px); font-weight: 600; line-height: 1.08; max-width: 900px; }
+    .hero-icerik p { max-width: 640px; font-size: 17px; }
+    .hero-icerik > * { text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85); }
+    #hero-etiket { color: #b8c4d6; }
+    .hero-kontrol { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; justify-content: center; }
+    /* ===== ARAMA ÇUBUĞU ===== */
+    .arama { position: relative; width: min(560px, 88vw); }
+    .arama-kutu {
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(10, 15, 25, 0.85); backdrop-filter: blur(8px);
+      border: 1px solid var(--line); border-radius: 999px; padding: 6px 6px 6px 18px;
+      transition: border-color 0.2s;
+    }
+    .arama-kutu:focus-within { border-color: var(--accent); }
+    .arama-kutu svg { width: 18px; height: 18px; color: var(--muted); flex: none; }
+    .arama-kutu input {
+      flex: 1; min-width: 0; background: none; border: none; outline: none;
+      color: var(--text); font: inherit; font-size: 16px; padding: 8px 0;
+    }
+    .arama-kutu input::placeholder { color: var(--muted); }
+    .arama-kutu .btn-ana { padding: 9px 18px; font-size: 15px; white-space: nowrap; }
+    /* Öneri listesi: kutunun ÜSTÜNDE açılır (giriş ekranının altında yer olmadığı için) */
+    .oneriler {
+      position: absolute; left: 0; right: 0; bottom: calc(100% + 8px); z-index: 5;
+      list-style: none; text-align: left;
+      background: rgba(10, 15, 25, 0.97); border: 1px solid var(--line); border-radius: 16px;
+      padding: 6px; max-height: 320px; overflow-y: auto; overflow-x: hidden;
+      box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.5);
+    }
+    .oneriler li {
+      display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; cursor: pointer;
+      text-shadow: none;
+    }
+    .oneriler li.aktif, .oneriler li:hover { background: rgba(92, 200, 255, 0.1); }
+    .oneriler .govde-etiket { font-size: 11px; letter-spacing: 0.1em; color: var(--accent); width: 42px; flex: none; }
+    .oneriler .ad { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .oneriler .rozet {
+      font-size: 11px; color: var(--muted); border: 1px solid var(--line); border-radius: 999px;
+      padding: 2px 8px; white-space: nowrap;
+    }
+    .oneriler .bos { color: var(--muted); cursor: default; }
+    /* Filtreler */
+    .filtreler { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; align-items: center; }
+    .filtreler button { font-size: 15px; padding: 7px 16px; background: rgba(10, 15, 25, 0.6); }
+    .filtreler button.secili { background: var(--accent); }
+
+    #kaydir-isaret {
+      position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%);
+      font-size: 12px; color: var(--muted); letter-spacing: 0.2em; text-decoration: none;
+      animation: suzul 2.4s ease-in-out infinite;
+    }
+    @keyframes suzul { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 6px); } }
+
+    /* ===== GENEL BÖLÜM DÜZENİ ===== */
+    .bolum { padding: 120px 6vw; border-top: 1px solid var(--line); }
+    .bolum.acik { background: #050a15; }   /* SITE_V2_YAMA_1: koyu mavi; diğerleri yıldızlı lacivert */
+    /* Koyu bölümlerde minik yıldızlar (desen css/style.css'te: --yildiz-desen) */
+    .bolum:not(.acik), footer { background-color: var(--bg); background-image: var(--yildiz-desen); background-size: var(--yildiz-boyut); }
+    .ic { max-width: 1440px; margin: 0 auto; }
+    .bolum h2 { font-size: clamp(28px, 3.2vw, 44px); font-weight: 600; line-height: 1.12; margin: 10px 0 18px; max-width: 1040px; }
+    .bolum .giris { font-size: 18px; max-width: 980px; }
+    .bolum p + p { margin-top: 14px; }
+
+    /* İki sütun: bir yanda yazı, öbür yanda fotoğraf */
+    .ikili { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .ikili.ters-sira > :first-child { order: 2; }
+
+    /* ===== FOTOĞRAFLAR =====
+       figure.foto: fotoğraf + altında küçük açıklama (NASA'dan gelen başlık).
+       Fotoğraf dosyası yoksa .foto-yok sınıfı eklenir: degrade bir yer tutucu görünür */
+    .foto {
+      position: relative; overflow: hidden; border-radius: 18px;
+      background: linear-gradient(135deg, #0c1a33, #050913);
+      border: 1px solid var(--line);
+    }
+    .foto img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+    .foto:hover img { transform: scale(1.03); }
+    .foto figcaption {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      padding: 28px 14px 10px; font-size: 12px; color: rgba(232, 237, 245, 0.85);
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+    }
+    .foto figcaption:empty { display: none; }
+    .foto.foto-yok img { display: none; }
+    .foto.foto-yok::after {
+      content: "NASA photo — run the photo script (araclar)";
+      position: absolute; inset: 0; display: grid; place-items: center;
+      color: var(--muted); font-size: 13px; text-align: center; padding: 20px;
+    }
+    .oran-43 { aspect-ratio: 4 / 3; }
+    .oran-169 { aspect-ratio: 16 / 9; }
+    .oran-kare { aspect-ratio: 1; }
+
+    /* Fotoğraf mozaiği: 1 büyük + 3 küçük */
+    .mozaik { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; gap: 14px; margin-top: 44px; height: 560px; }
+    .mozaik .foto:first-child { grid-row: 1 / 3; }
+    .mozaik-alt { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 14px; height: 260px; }
+
+    /* ===== KARTLAR ===== */
+    .kartlar { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-top: 44px; }
+    .kart {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+      padding: 24px; display: flex; flex-direction: column; gap: 10px;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .kart:hover { border-color: rgba(92, 200, 255, 0.45); transform: translateY(-3px); }
+    .kart h3 { font-size: 19px; font-weight: 600; }
+    .kart .no { font-size: 13px; color: var(--accent); font-weight: 600; letter-spacing: 0.1em; }
+
+    /* ===== HOW IT WORKS: solda başlık, sağda birbirine çizgiyle bağlı 3 adım ===== */
+    .ust-hizali { align-items: start; }
+    .adim-liste { list-style: none; position: relative; display: grid; gap: 18px; }
+    /* Adımları birleştiren dikey çizgi: yukarıda vurgu renginde, aşağıda solar */
+    .adim-liste::before {
+      content: ""; position: absolute; left: 47px; top: 40px; bottom: 40px; width: 2px;
+      background: linear-gradient(var(--accent), rgba(92, 200, 255, 0.1));
+    }
+    .adim-liste li {
+      position: relative; display: flex; gap: 20px; align-items: flex-start;
+      background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 22px 24px;
+    }
+    .adim-no {
+      width: 48px; height: 48px; border-radius: 50%; flex: none; z-index: 1;
+      display: grid; place-items: center;
+      background: var(--accent); color: #04121c; font-size: 20px; font-weight: 700;
+      box-shadow: 0 0 0 6px var(--panel);   /* çizgi, numaranın arkasından geçmesin diye panel renginde halka */
+    }
+    .adim-liste h3 { font-size: 19px; font-weight: 600; margin: 4px 0 6px; }
+
+    /* ===== GÖREVLER ===== */
+    .gorev-izgara { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 44px; }
+    .gorev-kart { background: var(--panel); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; }
+    .gorev-kart .foto { border: none; border-radius: 0; aspect-ratio: 16 / 9; }
+    .gorev-ic { padding: 24px 26px 28px; display: flex; flex-direction: column; gap: 12px; }
+    .gorev-baslik { display: flex; align-items: center; gap: 12px; }
+    .gorev-baslik svg { width: 30px; height: 30px; color: var(--accent); flex: none; }
+    .gorev-baslik h3 { font-size: 22px; font-weight: 600; }
+    .soru { font-size: 17px; color: var(--text); }
+    .anahtar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 4px; }
+    .anahtar span { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-right: 4px; }
+    .anahtar b { font-weight: 500; font-size: 13px; padding: 4px 10px; border-radius: 999px; background: rgba(92, 200, 255, 0.1); color: var(--accent); }
+    .nasil-sectik { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 56px; }
+    .nasil-sectik .kart { background: transparent; }
+
+    /* ===== KATEGORİ KARTLARI (tıklanabilir) ===== */
+    .kat-kart { cursor: pointer; text-align: left; font: inherit; color: inherit; width: 100%; border-radius: 16px; }
+    .kat-kart .detay { margin-top: auto; font-size: 13px; color: var(--accent); opacity: 0.8; }
+    .kat-kart:hover .detay { opacity: 1; }
+
+    /* Kategori penceresi (<dialog>): showModal() ile açılınca arkası kararır (::backdrop) */
+    #kat-pencere {
+      margin: auto; width: min(680px, 92vw); max-height: 86vh;
+      background: var(--panel); color: var(--text);
+      border: 1px solid var(--line); border-radius: 20px; padding: 32px;
+    }
+    #kat-pencere::backdrop { background: rgba(1, 2, 6, 0.7); backdrop-filter: blur(4px); }
+    #kat-pencere h3 { font-size: 30px; font-weight: 600; margin: 6px 0 18px; }
+    #kat-pencere h4 { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; margin: 20px 0 6px; font-weight: 500; }
+    #kat-pencere p { line-height: 1.65; }
+    .pencere-alt { display: flex; gap: 10px; margin-top: 28px; }
+    .pencere-alt .kapat { margin-left: auto; }
+
+    /* ===== KİMLER İÇİN: fotoğraflı kartlar ===== */
+    .kimler { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 44px; }
+    .kimler .kart { padding: 0; overflow: hidden; }
+    .kimler .foto { border: none; border-radius: 0; aspect-ratio: 4 / 3; }
+    .kimler .kart-ic { padding: 22px 24px 26px; display: flex; flex-direction: column; gap: 10px; }
+
+    /* ===== PERDE ARKASI: yöntem / topoloji / doğrulama ===== */
+    .yer-tutucu {
+      border: 1px dashed #2a3650; border-radius: 14px; min-height: 120px; margin-top: 8px;
+      display: grid; place-items: center; color: var(--muted); font-size: 14px; text-align: center; padding: 16px;
+    }
+
+    /* ===== SINIRLAR: arkada tam genişlik fotoğraf ===== */
+    #sinirlar { position: relative; overflow: hidden; }
+    #sinirlar .arka { position: absolute; inset: 0; border: none; border-radius: 0; }
+    #sinirlar .arka img { opacity: 0.35; }
+    #sinirlar .arka::before { content: ""; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(90deg, rgba(3,5,12,0.95) 0%, rgba(3,5,12,0.75) 55%, rgba(3,5,12,0.4) 100%); }
+    #sinirlar .arka figcaption { z-index: 2; text-align: right; }
+    #sinirlar .ic { position: relative; z-index: 2; }
+    .liste-sinir { list-style: none; margin-top: 32px; display: grid; gap: 12px; max-width: 700px; }
+    .liste-sinir li { padding: 16px 20px; border: 1px solid var(--line); border-radius: 12px; background: rgba(10, 15, 25, 0.8); backdrop-filter: blur(4px); }
+    .liste-sinir b { color: var(--warn); font-weight: 600; }
+
+    /* ===== EKİP ===== */
+    .ekip { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 40px; }
+    .uye { text-align: center; padding: 28px 18px; }
+    .avatar {
+      width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 6px;
+      display: grid; place-items: center; font-size: 26px; font-weight: 600;
+      background: radial-gradient(circle at 35% 30%, #1f4b78, #0a1a30); border: 1px solid #2a4a6e;
+    }
+
+    .cagri { text-align: center; }
+    .cagri h2 { margin-left: auto !important; margin-right: auto !important; }
+    .cagri .hero-kontrol { margin-top: 28px; }
+
+    footer { padding: 36px 6vw; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+    footer .soluk { font-size: 13px; }
+    footer .sag { margin-left: auto; }
+
+    /* ===== TELEFON / DAR EKRAN ===== */
+    @media (max-width: 900px) {
+      nav { display: none; }
+      header .btn-link { margin-left: auto; }
+      .bolum { padding: 80px 6vw; }
+      .ikili, .gorev-izgara, .nasil-sectik, .kimler { grid-template-columns: 1fr; }
+      .ikili.ters-sira > :first-child { order: 0; }
+      .mozaik { grid-template-columns: 1fr; grid-template-rows: none; height: auto; }
+      .mozaik .foto { aspect-ratio: 16 / 9; grid-row: auto !important; }
+      .mozaik-alt { grid-template-columns: 1fr; height: auto; }
+      .mozaik-alt .foto { aspect-ratio: 16 / 9; }
+    }
+  </style>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/",
+      "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/index.js",
+      "gsap/": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <!-- ===================== ÜST ŞERİT ===================== -->
+  <header id="ust">
+    <button class="menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <a href="#hero" class="logo" aria-label="Orbitrary">ORBITR<span class="ters">A</span>RY</a>
+
+    <!-- MOON | MARS kapsülü. Boş data-secim = Dünya gösteriliyor -->
+    <div class="segment" data-secim="">
+      <span class="segment-kayan"></span>
+      <button data-govde="ay" title="Fly to the Moon · click again to return to Earth">MOON</button>
+      <button data-govde="mars" title="Fly to Mars · click again to return to Earth">MARS</button>
+    </div>
+
+    <nav>
+      <a href="#analog">About</a>
+      <a href="#gorevler">Missions</a>
+      <a href="#veri">Data</a>
+      <a href="#kimler">Who it's for</a>
+      <a href="#ekip">Team</a>
+      <a href="article.html">Article</a>
+    </nav>
+    <a href="explore.html" class="btn-link">Explore mode →</a>
+  </header>
+
+  <!-- ===================== MENÜ ÇEKMECESİ (☰ ile açılır) ===================== -->
+  <div id="perde"></div>
+  <div id="cekmece" aria-hidden="true">
+    <div class="cekmece-ust">
+      <span class="logo">ORBITR<span class="ters">A</span>RY</span>
+      <button id="cekmece-kapat" aria-label="Close menu">✕</button>
+    </div>
+    <a class="bag" href="#analog">The problem <span>01</span></a>
+    <a class="bag" href="#galeri">Rehearsing on Earth <span>02</span></a>
+    <a class="bag" href="#nasil">How it works <span>03</span></a>
+    <a class="bag" href="#gorevler">Missions <span>04</span></a>
+    <a class="bag" href="#veri">The data <span>05</span></a>
+    <a class="bag" href="#kimler">Who it's for <span>06</span></a>
+    <a class="bag" href="#yontem">Under the hood <span>07</span></a>
+    <a class="bag" href="#sinirlar">Limits <span>08</span></a>
+    <a class="bag" href="#ekip">Team <span>09</span></a>
+    <a class="bag" href="article.html">Read the article <span>↗</span></a>
+    <a class="btn-link btn-ana" href="explore.html">Explore mode →</a>
+    <p class="soluk alt-not">NASA Space Apps Challenge 2026 project. Not an official NASA website.</p>
+  </div>
+
+  <!-- ===================== 1) GİRİŞ EKRANI ===================== -->
+  <section id="hero">
+    <div id="hero-sahne"></div>   <!-- 3D sahne buraya yerleşir (js/scene-home.js) -->
+    <div class="hero-icerik">
+      <div class="etiket" id="hero-etiket">NASA Space Apps Challenge 2026</div>
+      <h1 id="hero-baslik">Find the places on Earth that come closest to the Moon and Mars</h1>
+      <p class="soluk" id="hero-aciklama">Pick a world, pick a site, and see its three best analogs on Earth, compared across eight categories and built on NASA and partner space-agency data.</p>
+      <!-- ARAMA: data/targets.json'daki hedeflerden öneri getirir. Seçince keşif sayfası o noktada açılır -->
+      <div class="arama">
+        <div class="arama-kutu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          <input id="arama-girdi" type="text" autocomplete="off" placeholder="Search a landing site or base candidate…" aria-label="Search targets">
+          <a href="explore.html" class="btn-link btn-ana" id="kesif-btn">Explore mode →</a>
+        </div>
+        <ul class="oneriler" id="oneriler" hidden></ul>
+      </div>
+      <div class="filtreler" id="filtreler">
+        <button class="secili" data-filtre="">All missions</button>
+        <button data-filtre="hareket">Mobility</button>
+        <button data-filtre="jeoloji">Geology</button>
+        <button data-filtre="buz">Ice &amp; resources</button>
+        <button data-filtre="astrobiyoloji">Astrobiology</button>
+      </div>
+    </div>
+    <a href="#analog" id="kaydir-isaret">SCROLL ↓</a>
+  </section>
+
+  <!-- ===================== 2) PROBLEM ===================== -->
+  <section class="bolum" id="analog">
+    <div class="ic ikili">
+      <div>
+        <div class="etiket reveal">The problem</div>
+        <h2 class="reveal">Before we fly, we rehearse on Earth</h2>
+        <p class="giris soluk reveal">
+          Every rover wheel, drill and spacesuit that reaches the Moon or Mars has first been tested somewhere on Earth:
+          in deserts, on glaciers, in volcanic fields, inside impact craters and caves. These places are called
+          <span class="vurgu">analog sites</span>.
+        </p>
+        <p class="soluk reveal">
+          Most known analogs were chosen by expert judgement, and many are only described in general terms.
+          NASA's challenge asks a sharper question: can Earth, Moon and Mars data find new analogs systematically,
+          and explain exactly where each comparison holds and where it breaks?
+        </p>
+      </div>
+      <figure class="foto oran-43 reveal" data-foto="problem"><img src="img/problem.jpg" alt="Analog field test on Earth" loading="lazy"><figcaption></figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ===================== 3) GALERİ: DÜNYA'DA PROVA ===================== -->
+  <section class="bolum acik" id="galeri">
+    <div class="ic">
+      <div class="etiket reveal">Rehearsing on Earth</div>
+      <h2 class="reveal">Underwater, in the Arctic, in the desert</h2>
+      <p class="giris soluk reveal">NASA crews and scientists have trained in analog environments since the Apollo era: astronauts learned geology in volcanic fields, aquanauts practice spacewalks on the sea floor, and rovers are driven across deserts before they are trusted on another world.</p>
+      <div class="mozaik">
+        <figure class="foto reveal" data-foto="galeri-1"><img src="img/galeri-1.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+        <figure class="foto reveal" data-foto="galeri-2"><img src="img/galeri-2.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+        <figure class="foto reveal" data-foto="galeri-3"><img src="img/galeri-3.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+      </div>
+      <div class="mozaik-alt">
+        <figure class="foto reveal" data-foto="galeri-4"><img src="img/galeri-4.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+        <figure class="foto reveal" data-foto="galeri-5"><img src="img/galeri-5.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 4) NASIL ÇALIŞIYOR ===================== -->
+  <section class="bolum" id="nasil">
+    <div class="ic ikili ust-hizali">
+      <div>
+        <div class="etiket reveal">How it works</div>
+        <h2 class="reveal">Three steps from a crater on Mars to a valley on Earth</h2>
+        <p class="giris soluk reveal">"Which place on Earth looks like this crater?" is usually answered by experience and photographs. Orbitrary turns it into a comparison you can check: the same eight measurements on both worlds, a score for each, and an honest note on what is missing.</p>
+      </div>
+      <ol class="adim-liste">
+        <li class="reveal"><span class="adim-no">1</span><div><h3>Pick a target</h3><p class="soluk">Choose the Moon or Mars, one of four missions, and a site: a known landing zone or base candidate from our list, or any point you click on the globe in Explore mode.</p></div></li>
+        <li class="reveal"><span class="adim-no">2</span><div><h3>Compare in 8 categories</h3><p class="soluk">The target is compared with Earth regions category by category. The mission decides which categories weigh more, and missing data is marked as missing instead of being treated as zero.</p></div></li>
+        <li class="reveal"><span class="adim-no">3</span><div><h3>See the top 3 analogs</h3><p class="soluk">Each result comes with a map, an eight-axis profile, a plain-language explanation of what matches and what doesn't, its data coverage, and warnings.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== 5) GÖREVLER ===================== -->
+  <section class="bolum acik" id="gorevler">
+    <div class="ic">
+      <div class="etiket reveal">Missions</div>
+      <h2 class="reveal">Four missions, four reasons to rehearse</h2>
+      <p class="giris soluk reveal">An analog is only "good" for a purpose. A flat, dusty plain is ideal for testing a rover and nearly useless for searching for traces of life. So before comparing places, you choose what you want to rehearse, and each mission puts more weight on the categories that matter for it.</p>
+
+      <div class="gorev-izgara">
+        <article class="gorev-kart reveal">
+          <figure class="foto" data-foto="gorev-hareket"><img src="img/gorev-hareket.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+          <div class="gorev-ic">
+            <div class="gorev-baslik">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="9" width="17" height="6" rx="1.5"/><circle cx="7.5" cy="17.5" r="2"/><circle cx="16.5" cy="17.5" r="2"/><path d="M15 9V5.5"/><rect x="13.5" y="3" width="4" height="2.5" rx="0.6"/></svg>
+              <h3>Mobility test</h3>
+            </div>
+            <p class="soru">Can a rover or a crew move safely here?</p>
+            <p class="soluk">Driving, navigation and traction on loose soil, climbing slopes and steering around boulders. Mobility analogs are where wheels, autonomous navigation software and spacewalk routes are tested before they are trusted on another world.</p>
+            <div class="anahtar"><span>Key categories</span><b>Topography</b><b>Topology</b><b>Dust</b></div>
+          </div>
+        </article>
+
+        <article class="gorev-kart reveal">
+          <figure class="foto" data-foto="gorev-jeoloji"><img src="img/gorev-jeoloji.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+          <div class="gorev-ic">
+            <div class="gorev-baslik">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17 7 9l5-3 6 2 2 7-5 4H8z"/><path d="M12 6l-1 6-7 5M11 12l9 3M11 12l4 7"/></svg>
+              <h3>Geology</h3>
+            </div>
+            <p class="soru">Can we learn to read the rocks here?</p>
+            <p class="soluk">Field geology training, choosing which samples to collect, and testing instruments on rocks that formed the way lunar or Martian rocks did: by volcanism, impacts, water or ice. Astronauts train their eyes on Earth so they recognise what matters on the surface.</p>
+            <div class="anahtar"><span>Key categories</span><b>Geology</b><b>Mineralogy</b><b>Topology</b></div>
+          </div>
+        </article>
+
+        <article class="gorev-kart reveal">
+          <figure class="foto" data-foto="gorev-buz"><img src="img/gorev-buz.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+          <div class="gorev-ic">
+            <div class="gorev-baslik">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9"/><path d="M9.5 4.5 12 7l2.5-2.5M9.5 19.5 12 17l2.5 2.5"/></svg>
+              <h3>Ice &amp; resources</h3>
+            </div>
+            <p class="soru">Can a base live off the land here?</p>
+            <p class="soluk">Prospecting for water ice and water-bearing minerals, and testing drills and extraction methods. Using local resources, known as in-situ resource utilization, is key for a permanent base: water means drinking water, oxygen and rocket fuel.</p>
+            <div class="anahtar"><span>Key categories</span><b>Water/Ice</b><b>Thermal</b><b>Illumination</b></div>
+          </div>
+        </article>
+
+        <article class="gorev-kart reveal">
+          <figure class="foto" data-foto="gorev-yasam"><img src="img/gorev-yasam.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+          <div class="gorev-ic">
+            <div class="gorev-baslik">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="6.5"/><circle cx="10.5" cy="11" r="2"/><circle cx="14.5" cy="14.2" r="0.9" fill="currentColor"/><path d="M12 5.5V3M18.5 12H21M12 18.5V21M5.5 12H3M16.6 7.4l1.8-1.8M7.4 16.6l-1.8 1.8"/></svg>
+              <h3>Astrobiology</h3>
+            </div>
+            <p class="soru">Could life have existed, and how would we recognise its traces?</p>
+            <p class="soluk">Extreme environments on Earth, from hyper-arid deserts to salt flats and cold springs, show where microbes survive and which minerals preserve biosignatures. They help decide where a rover should search and what its instruments must be able to detect.</p>
+            <div class="anahtar"><span>Key categories</span><b>Water/Ice</b><b>Mineralogy</b><b>Thermal</b></div>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="reveal" style="font-size:24px;font-weight:600;margin-top:72px">How we chose these four</h3>
+      <div class="nasil-sectik">
+        <div class="kart reveal"><div class="no">FROM THE CHALLENGE</div><p class="soluk">NASA's challenge lists the dimensions an analog can share: geology, terrain, temperature, water and ice, dust, biology, subsurface and conditions for robotic or human operations.</p></div>
+        <div class="kart reveal"><div class="no">GROUPED BY PURPOSE</div><p class="soluk">We grouped these dimensions by what a team would actually rehearse on Earth: moving across the surface, reading its rocks, finding resources, and looking for signs of life.</p></div>
+        <div class="kart reveal"><div class="no">DIFFERENT WEIGHTS</div><p class="soluk">All four missions use the same eight categories, but weigh them differently. The exact weights will be published with the method.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 6) VERİ: 8 KATEGORİ ===================== -->
+  <section class="bolum" id="veri">
+    <div class="ic">
+      <div class="etiket reveal">The data</div>
+      <h2 class="reveal">Eight ways two places can be alike</h2>
+      <p class="giris soluk reveal">Two places can look alike in a photo and still be very different underneath. That's why every comparison is split into eight categories. Click a category to see what it measures, which data feeds it and how we compare two places in it.</p>
+      <!-- data-kat = kategori sırası (0–7). Pencere içeriği aşağıdaki script'teki KATEGORILER listesinden gelir -->
+      <div class="kartlar" style="grid-template-columns: repeat(4, 1fr)">
+        <button class="kart kat-kart reveal" data-kat="0"><div class="no">01</div><h3>Topography</h3><p class="soluk">How high, how steep and how rough the ground is. It decides whether a rover can drive and a lander can touch down safely.</p><span class="detay">Details →</span></button>
+        <button class="kart kat-kart reveal" data-kat="1"><div class="no">02</div><h3>Topology</h3><p class="soluk">The shape structure of the terrain: its pits, rings and ridges. Two landscapes can share it even at different elevations.</p><span class="detay">Details →</span></button>
+        <button class="kart kat-kart reveal" data-kat="2"><div class="no">03</div><h3>Geology</h3><p class="soluk">What the ground is made of and how it formed: by volcanoes, impacts, water or ice.</p><span class="detay">Details →</span></button>
+        <button class="kart kat-kart reveal" data-kat="3"><div class="no">04</div><h3>Mineralogy</h3><p class="soluk">Which minerals are exposed at the surface. Some, like clays and sulfates, record a watery past.</p><span class="detay">Details →</span></button>
+        <button class="kart kat-kart reveal" data-kat="4"><div class="no">05</div><h3>Thermal</h3><p class="soluk">How hot and how cold the surface gets, and how big the swing between day and night is.</p><span class="detay">Details →</span></button>
+        <button class="kart kat-kart reveal" data-kat="5"><div class="no">06</div><h3>Water/Ice</h3><p class="soluk">Ice, permafrost and water-bearing ground: the most valuable resource for a long-term base.</p><span class="detay">Details →</span></button>
+        <button class="kart kat-kart reveal" data-kat="6"><div class="no">07</div><h3>Dust</h3><p class="soluk">Dust cover, wind and erosion: the processes that reshape the surface and wear down equipment.</p><span class="detay">Details →</span></button>
+        <button class="kart kat-kart reveal" data-kat="7"><div class="no">08</div><h3>Illumination</h3><p class="soluk">How much sunlight a site receives and how long its shadows last, which matters for power and operations.</p><span class="detay">Details →</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kategori ayrıntı penceresi (başta kapalı) -->
+  <dialog id="kat-pencere">
+    <div class="etiket" id="kp-no">Category 01 / 08</div>
+    <h3 id="kp-baslik">Topography</h3>
+    <h4>What it measures</h4>
+    <p class="soluk" id="kp-olcer"></p>
+    <h4>Data we use</h4>
+    <p class="soluk" id="kp-veri"></p>
+    <h4>How we match it</h4>
+    <p class="soluk" id="kp-yontem"></p>
+    <div class="pencere-alt">
+      <button id="kp-onceki">← Previous</button>
+      <button id="kp-sonraki">Next →</button>
+      <button class="kapat" id="kp-kapat">Close</button>
+    </div>
+  </dialog>
+
+  <!-- ===================== 7) KİMLER İÇİN ===================== -->
+  <section class="bolum acik" id="kimler">
+    <div class="ic">
+      <div class="etiket reveal">Who it's for</div>
+      <h2 class="reveal">One map, three kinds of explorers</h2>
+      <div class="kimler">
+        <div class="kart reveal">
+          <figure class="foto" data-foto="kimler-herkes"><img src="img/kimler-herkes.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+          <div class="kart-ic"><div class="no">CURIOUS MINDS</div><h3>For everyone</h3><p class="soluk">Spin the Moon and Mars, click any spot and discover which places on Earth come closest, and why. No background in planetary science needed.</p></div>
+        </div>
+        <div class="kart reveal">
+          <figure class="foto" data-foto="kimler-astronot"><img src="img/kimler-astronot.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+          <div class="kart-ic"><div class="no">MISSION TEAMS</div><h3>For astronauts &amp; planners</h3><p class="soluk">Find Earth sites to rehearse driving, sampling or ice prospecting for a specific landing zone before launch, and see which conditions each site cannot reproduce.</p></div>
+        </div>
+        <div class="kart reveal">
+          <figure class="foto" data-foto="kimler-bilim"><img src="img/kimler-bilim.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+          <div class="kart-ic"><div class="no">RESEARCH</div><h3>For scientists</h3><p class="soluk">Every score is broken down into eight categories with data coverage and warnings, so each comparison can be checked, challenged and extended.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 8) PERDE ARKASI ===================== -->
+  <section class="bolum" id="yontem">
+    <div class="ic">
+      <div class="etiket reveal">Under the hood</div>
+      <h2 class="reveal">Method, topology and validation</h2>
+      <div class="kartlar">
+        <div class="kart reveal"><div class="no">METHOD</div><h3>How the score is built</h3><p class="soluk">Per-category similarities combined with mission weights into one absolute score.</p><div class="yer-tutucu">Main formula — coming soon</div></div>
+        <div class="kart reveal" id="topoloji"><div class="no">TOPOLOGY</div><h3>Reading a crater like rising water</h3><p class="soluk">Flood a landscape slowly: pits fill up and rings appear and vanish. When they are born and when they disappear describes the terrain's shape.</p><div class="yer-tutucu">See the animation below ↓</div></div>
+        <div class="kart reveal" id="dogrulama"><div class="no">VALIDATION</div><h3>Does it find known analogs?</h3><p class="soluk">We check whether well-studied analog sites rank high for the targets they are known to resemble.</p><div class="yer-tutucu">Results — coming soon</div></div>
+      </div>
+      <!-- Site v2: topoloji animasyonu (11 Kasım Hücre 32'den; yönteme bağlı sayı içermez) -->
+      <div class="kart reveal" style="margin-top:16px">
+        <div class="no">TOPOLOGY · ANIMATION</div>
+        <canvas id="yb-tuval" width="760" height="560" style="width:100%;max-width:900px;display:block;margin:8px auto 0;background:#060a13;border:1px solid var(--line);border-radius:16px"
+                aria-label="Animation of water rising over a terrain profile and the persistence diagram it builds"></canvas>
+        <p class="soluk" style="font-size:13px">A slice through a terrain. As the water rises, each lake is born and dies when it merges into an older lake;
+          its (birth, death) pair appears on the persistence diagram. The method does this on the full grid of every window.</p>
+      </div>
+      <script>
+        (function () {
+          const tv = document.getElementById('yb-tuval'); if (!tv) return;
+          const c = tv.getContext('2d'), W = tv.width, H = tv.height;
+          const N = 260, y = [];
+          for (let i = 0; i < N; i++) {
+            const x = i / (N - 1);
+            y.push(0.55 + 0.22 * Math.sin(2 * Math.PI * x * 1.3 + 0.4) + 0.12 * Math.sin(2 * Math.PI * x * 3.7 + 1.1)
+                   + 0.07 * Math.sin(2 * Math.PI * x * 7.9 + 2.0) + 0.03 * Math.sin(2 * Math.PI * x * 15.3));
+          }
+          const lo = Math.min(...y), hi = Math.max(...y);
+          for (let i = 0; i < N; i++) y[i] = (y[i] - lo) / (hi - lo);
+          const sira = [...Array(N).keys()].sort((a, b) => y[a] - y[b]), ebe = new Array(N).fill(-1), dog = y.slice(), renk = new Array(N);
+          const kok = a => { while (ebe[a] !== a) { ebe[a] = ebe[ebe[a]]; a = ebe[a]; } return a; };
+          const ciftler = [], RENK = ['#5cc8ff', '#7ee2a8', '#ffd36b', '#ff9f5c', '#c79bff', '#ff7aa8', '#8af0ff', '#b5e86b', '#ffb36b', '#9fb4ff'];
+          for (const i of sira) {
+            ebe[i] = i; renk[i] = null;
+            for (const j of [i - 1, i + 1]) {
+              if (j < 0 || j >= N || ebe[j] === -1) continue;
+              const a = kok(i), b = kok(j); if (a === b) continue;
+              const [yasli, genc] = dog[a] <= dog[b] ? [a, b] : [b, a];
+              if (y[i] > dog[genc]) ciftler.push({ dogum: dog[genc], olum: y[i], kok: genc });
+              ebe[genc] = yasli;
+            }
+          }
+          const minimumlar = [];
+          for (let i = 0; i < N; i++) if ((i === 0 || y[i] < y[i - 1]) && (i === N - 1 || y[i] < y[i + 1])) minimumlar.push(i);
+          minimumlar.sort((a, b) => y[a] - y[b]).forEach((m, n) => { renk[m] = RENK[n % RENK.length]; });
+          const enDerin = minimumlar[0];
+          ciftler.forEach(p => { p.renk = renk[p.kok] || '#5cc8ff'; });
+          const prof = { x: 30, y: 60, w: 430, h: 440 }, dia = { x: 510, y: 90, w: 220, h: 220 };
+          const px = i => prof.x + prof.w * i / (N - 1), py = v => prof.y + prof.h * (1 - 0.85 * v) - 10;
+          let t0 = performance.now();
+          function ciz(t) {
+            const sure = 9000, bekle = 2000, u = ((t - t0) % (sure + bekle)) / sure, L = Math.min(1, u) * 1.02;
+            c.clearRect(0, 0, W, H);
+            c.fillStyle = '#9aa7bb'; c.font = '20px Space Grotesk, sans-serif';
+            c.fillText('Terrain slice and rising water', prof.x, 36); c.fillText('Persistence diagram', dia.x, 36);
+            const gol = new Array(N).fill(null);
+            for (let i = 0; i < N; i++) if (y[i] < L) {
+              let j = i; while (j > 0 && y[j - 1] < L) j--;
+              let e = j, en = j; while (e < N && y[e] < L) { if (y[e] < y[en]) en = e; e++; }
+              for (let q = j; q < e; q++) gol[q] = en; i = e - 1;
+            }
+            for (let i = 0; i < N - 1; i++) if (gol[i] != null) {
+              const m = gol[i]; let ilk = m; for (const mm of minimumlar) if (gol[mm] === m && y[mm] <= y[ilk]) ilk = mm;
+              c.fillStyle = (renk[ilk] || '#5cc8ff') + '66';
+              c.fillRect(px(i), py(L), px(i + 1) - px(i) + 0.5, prof.y + prof.h - py(L));
+            }
+            c.beginPath(); c.moveTo(px(0), prof.y + prof.h);
+            for (let i = 0; i < N; i++) c.lineTo(px(i), py(y[i]));
+            c.lineTo(px(N - 1), prof.y + prof.h); c.closePath(); c.fillStyle = '#2a2f3a'; c.fill();
+            c.beginPath(); for (let i = 0; i < N; i++) (i ? c.lineTo : c.moveTo).call(c, px(i), py(y[i])); c.strokeStyle = '#c9b38f'; c.lineWidth = 2; c.stroke();
+            c.setLineDash([6, 6]); c.strokeStyle = '#5cc8ff'; c.lineWidth = 1.2; c.beginPath(); c.moveTo(prof.x, py(L)); c.lineTo(prof.x + prof.w, py(L)); c.stroke(); c.setLineDash([]);
+            c.fillStyle = '#5cc8ff'; c.font = '17px Space Grotesk, sans-serif'; c.fillText(`water level ${Math.round(Math.min(L, 1) * 100)}%`, prof.x + prof.w - 150, py(L) - 8);
+            for (const m of minimumlar) if (y[m] < L) { c.beginPath(); c.arc(px(m), py(y[m]), 4, 0, 7); c.fillStyle = renk[m]; c.fill(); }
+            c.strokeStyle = '#243047'; c.lineWidth = 1; c.strokeRect(dia.x, dia.y, dia.w, dia.h);
+            c.beginPath(); c.moveTo(dia.x, dia.y + dia.h); c.lineTo(dia.x + dia.w, dia.y); c.strokeStyle = '#55607a'; c.setLineDash([4, 4]); c.stroke(); c.setLineDash([]);
+            c.fillStyle = '#9aa7bb'; c.font = '16px Space Grotesk, sans-serif';
+            c.fillText('birth (lake floor)', dia.x + 40, dia.y + dia.h + 26);
+            c.save(); c.translate(dia.x - 12, dia.y + dia.h - 30); c.rotate(-Math.PI / 2); c.fillText('death (merge height)', 0, 0); c.restore();
+            const dx = v => dia.x + dia.w * v, dy = v => dia.y + dia.h * (1 - v);
+            for (const p of ciftler) if (p.olum <= L) { c.beginPath(); c.arc(dx(p.dogum), dy(p.olum), 7, 0, 7); c.fillStyle = p.renk; c.fill(); }
+            if (L >= 1) { c.beginPath(); c.moveTo(dx(y[enDerin]) - 6, dy(1) + 5); c.lineTo(dx(y[enDerin]) + 6, dy(1) + 5); c.lineTo(dx(y[enDerin]), dy(1) - 6); c.closePath();
+                          c.fillStyle = renk[enDerin]; c.fill(); }
+            c.fillStyle = '#9aa7bb'; c.font = '16px Space Grotesk, sans-serif';
+            const yazi = ['Far from the diagonal: a deep,', 'well-defined basin.', 'Near the diagonal: a small bump.', '▲ the deepest lake never dies.'];
+            yazi.forEach((s, n) => c.fillText(s, dia.x - 10, dia.y + dia.h + 70 + n * 24));
+            requestAnimationFrame(ciz);
+          }
+          new IntersectionObserver(e => { if (e[0].isIntersecting && !tv.dataset.basladi) { tv.dataset.basladi = 1; t0 = performance.now(); requestAnimationFrame(ciz); } }).observe(tv);
+        })();
+      </script>
+    </div>
+  </section>
+
+  <!-- ===================== 9) SINIRLAR ===================== -->
+  <section class="bolum" id="sinirlar">
+    <figure class="foto arka" data-foto="sinir"><img src="img/sinir.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+    <div class="ic">
+      <div class="etiket reveal">Limits</div>
+      <h2 class="reveal">What Earth can't imitate</h2>
+      <p class="giris soluk reveal">Some conditions have no analog on our planet. Every result should be read with these in mind.</p>
+      <ul class="liste-sinir">
+        <li class="reveal"><b>Gravity.</b> <span class="soluk">The Moon has about 1/6 and Mars about 3/8 of Earth's gravity. Dust, rocks and wheels behave differently.</span></li>
+        <li class="reveal"><b>Vacuum.</b> <span class="soluk">The Moon has essentially no atmosphere, so there is no wind, no sound and no protection from micrometeorites.</span></li>
+        <li class="reveal"><b>Thin atmosphere.</b> <span class="soluk">Mars's surface pressure is under 1% of Earth's, too thin for liquid water to stay stable at most places.</span></li>
+        <li class="reveal"><b>Radiation.</b> <span class="soluk">Without a global magnetic field and a thick atmosphere, surface radiation is far higher than anywhere on Earth.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== 10) EKİP ===================== -->
+  <section class="bolum acik" id="ekip">
+    <div class="ic">
+      <div class="etiket reveal">The team</div>
+      <!-- A dikeyde ters (∀), E yatayda ayna (∃) -->
+      <h2 class="reveal logo" style="font-size:clamp(28px,3.2vw,44px)">ORBITR<span class="ters">A</span>RY T<span class="ters-e">E</span>AM</h2>
+      <div class="ekip">
+        <div class="kart uye reveal"><div class="avatar">İ</div><h3>İrem</h3><p class="soluk">—</p></div>
+        <div class="kart uye reveal"><div class="avatar">S</div><h3>Sude</h3><p class="soluk">—</p></div>
+        <div class="kart uye reveal"><div class="avatar">E</div><h3>Emir</h3><p class="soluk">—</p></div>
+        <div class="kart uye reveal"><div class="avatar">Z</div><h3>Zeynep</h3><p class="soluk">—</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 11) SON ÇAĞRI ===================== -->
+  <section class="bolum cagri" id="makale">
+    <div class="ic">
+      <div class="etiket reveal">Go deeper</div>
+      <h2 class="reveal">Read how we built it, or start exploring</h2>
+      <div class="hero-kontrol reveal">
+        <a href="article.html" class="btn-link btn-ana">Read the full article →</a>
+        <a href="explore.html" class="btn-link">Explore mode →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="#hero" class="btn-link">Back to top ↑</a>
+    <span class="logo">ORBITR<span class="ters">A</span>RY</span>
+    <span class="soluk">NASA Space Apps Challenge 2026 project. Not an official NASA website.</span>
+    <span class="soluk sag">Imagery: NASA / USGS · Code developed with assistance from Claude (Anthropic)</span>
+  </footer>
+
+  <script type="module">
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
+    gsap.registerPlugin(ScrollTrigger);
+
+    const azHareket = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ===== Üst şerit: 40 pikselden fazla kaydırılınca koyu zemin =====
+    const ust = document.getElementById('ust');
+    const seritGuncelle = () => ust.classList.toggle('dolu', window.scrollY > 40);
+    window.addEventListener('scroll', seritGuncelle, { passive: true });
+    seritGuncelle();
+
+    // ===== ☰ MENÜ ÇEKMECESİ =====
+    const menuBtn = document.getElementById('menu-btn');
+    const cekmece = document.getElementById('cekmece');
+    function menu(ac) {
+      document.body.classList.toggle('menu-acik', ac);
+      menuBtn.setAttribute('aria-expanded', ac);
+      cekmece.setAttribute('aria-hidden', !ac);
+    }
+    menuBtn.addEventListener('click', () => menu(!document.body.classList.contains('menu-acik')));
+    document.getElementById('cekmece-kapat').addEventListener('click', () => menu(false));
+    document.getElementById('perde').addEventListener('click', () => menu(false));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') menu(false); });
+    cekmece.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu(false)));
+
+    // ===== Menü bağlantıları: yumuşak kaydırma (sabit şeridin altında kalmasın diye pay bırak) =====
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const hedef = document.querySelector(a.getAttribute('href'));
+        if (!hedef) return;
+        e.preventDefault();
+        const y = hedef.getBoundingClientRect().top + window.scrollY - (hedef.id === 'hero' ? 0 : ust.offsetHeight);
+        window.scrollTo({ top: y, behavior: azHareket ? 'auto' : 'smooth' });
+      });
+    });
+
+    // ===== FOTOĞRAFLAR =====
+    // Fotoğraf dosyası yoksa yer tutucu göster
+    document.querySelectorAll('figure[data-foto] img').forEach(img => {
+      const yok = () => img.closest('figure').classList.add('foto-yok');
+      img.addEventListener('error', yok);
+      if (img.complete && img.naturalWidth === 0) yok();
+    });
+    // Açıklamalar: fotoğraf script'inin yazdığı data/photos.json'dan (NASA'daki başlık ve merkez)
+    fetch('data/photos.json')
+      .then(r => (r.ok ? r.json() : {}))
+      .catch(() => ({}))
+      .then(bilgi => {
+        document.querySelectorAll('figure[data-foto]').forEach(fig => {
+          const b = bilgi[fig.dataset.foto];
+          const cap = fig.querySelector('figcaption');
+          if (!b || !cap) return;
+          const baslik = b.title.length > 90 ? b.title.slice(0, 87) + '…' : b.title;
+          cap.textContent = b.nasa_id ? `${baslik} · NASA${b.center ? ' / ' + b.center : ''}` : baslik;
+        });
+      });
+
+    // ===== KATEGORİ PENCERESİ =====
+    // Metinleri ekip burada güncelleyecek: olcer = ne ölçer, veri = veri setleri, yontem = karşılaştırma yöntemi
+    // Site v2: 'veri' ve 'yontem' metinleri veri tarafının 14 Kasım cevabından (B tablosu, C7; yöntem v1.2)
+    const KATEGORILER = [
+      { ad: 'Topography',
+        olcer: 'Elevation, slope and surface roughness at the scale of a landing zone or base site. Slope decides whether a lander can touch down safely and whether a rover can climb out of a crater; roughness tells how many boulders and small bumps it will meet on the way.',
+        veri: 'Earth: ETOPO 2022 elevation (15″). Moon: LRO LOLA elevation (118 m). Mars: MGS MOLA elevation (463 m).',
+        yontem: 'Slope and roughness distributions at 500 m and 2 km are compared with a Wasserstein distance scaled by the interquartile range, together with the difference in relief on a log scale. Each distance is then turned into a similarity: the share of reference Earth windows that are further from the target.' },
+      { ad: 'Topology',
+        olcer: 'The shape structure of the terrain: how many pits, rings and ridges it has, how deep and wide they are, and how they are nested inside each other. Two landscapes at very different elevations can still share the same structure, which elevation alone would miss.',
+        veri: 'The same elevation models: ETOPO 2022 (Earth), LRO LOLA (Moon), MGS MOLA (Mars).',
+        yontem: 'We flood each window from below and from above and record when pits and hills are born and merge (0-dimensional persistence diagrams, scaled by the window\'s relief). Two windows are compared with the sliced Wasserstein distance between their diagrams. Each distance is then turned into a similarity: the share of reference Earth windows that are further from the target.' },
+      { ad: 'Geology',
+        olcer: 'What the ground is made of and how it formed: volcanic plains, impact craters, sedimentary layers laid down by water, or terrain shaped by ice. Matching the formation process matters as much as matching the rock type itself.',
+        veri: 'Earth: GLiM global lithological map (Hartmann & Moosdorf, 2012) and MODIS MCD12C1 snow/ice cover. Moon: Unified Geologic Map of the Moon 1:5M (2020). Mars: Geologic Map of Mars, SIM 3292 (Tanaka et al., 2014).',
+        yontem: 'Each window is described by the shares of its rock groups, and two windows are compared with the total variation distance between those shares. Each distance is then turned into a similarity: the share of reference Earth windows that are further from the target.' },
+      { ad: 'Mineralogy',
+        olcer: 'Which minerals are exposed at the surface, such as basalts, olivine, clays or sulfates. Some minerals only form in the presence of water, so they record a site\'s past environment and are prime targets in the search for biosignatures.',
+        veri: 'Earth: ASTER Global Emissivity Database (mafic index). Moon: Lunar Prospector gamma-ray iron oxide (FeO). Mars: MGS TES high-calcium pyroxene.',
+        yontem: 'Values are first turned into ranks within their own world, then the two distributions are compared with a Wasserstein-1 distance. Each distance is then turned into a similarity: the share of reference Earth windows that are further from the target.' },
+      { ad: 'Thermal',
+        olcer: 'How hot and how cold the surface gets, and how large the swing between day and night is. Extreme temperatures stress batteries, electronics and materials, and control whether ice can survive at or below the surface.',
+        veri: 'Earth: MODIS land surface temperature (Aqua, 2023) and albedo. Moon: LRO Diviner temperatures. Mars: TES thermal inertia (Putzig) and albedo.',
+        yontem: 'Values are first turned into ranks within their own world, then the two distributions are compared with a Wasserstein-1 distance. Each distance is then turned into a similarity: the share of reference Earth windows that are further from the target.' },
+      { ad: 'Water/Ice',
+        olcer: 'Signs of ice, permafrost or water-bearing minerals at or near the surface. Water is the most valuable local resource for a permanent base: it can be drunk, split into oxygen to breathe, and turned into rocket fuel.',
+        veri: 'Earth: permafrost maps of the Northern Hemisphere and Antarctica (Obu et al.). Moon: Lunar Prospector hydrogen. Mars: SWIM subsurface ice map (top 1 m).',
+        yontem: 'Values are ranked within their own world among the places that show water or ice, then the two distributions are compared with a Wasserstein-1 distance. Each distance is then turned into a similarity: the share of reference Earth windows that are further from the target.' },
+      { ad: 'Dust',
+        olcer: 'Dust cover, wind activity and erosion that reshape the surface over time. Fine dust clogs seals and coats solar panels, and wind-driven processes like dunes and dust devils are active on Mars today.',
+        veri: 'Earth: SoilGrids 2.0 silt and clay in the top 5 cm. Moon: LRO Diviner rock abundance. Mars: TES Dust Cover Index.',
+        yontem: 'Values are first turned into ranks within their own world, then the two distributions are compared with a Wasserstein-1 distance. Each distance is then turned into a similarity: the share of reference Earth windows that are further from the target.' },
+      { ad: 'Illumination',
+        olcer: 'How much sunlight a site receives over a day or a year, and how long its shadows last. On the Moon\'s poles some crater rims are lit almost constantly while crater floors never see the Sun, which matters for both solar power and ice.',
+        veri: 'Earth and Mars: yearly sunlight from latitude (Berger, 1978). Moon: LOLA average sun visibility (PGDA) poleward of 65°, Berger elsewhere.',
+        yontem: 'Values are first turned into ranks within their own world, then the two distributions are compared with a Wasserstein-1 distance. Each distance is then turned into a similarity: the share of reference Earth windows that are further from the target.' }
+    ];
+    const pencere = document.getElementById('kat-pencere');
+    let katNo = 0;
+
+    function katGoster(i) {
+      katNo = (i + KATEGORILER.length) % KATEGORILER.length;   // 8'den sonra 1'e, 1'den önce 8'e
+      const k = KATEGORILER[katNo];
+      document.getElementById('kp-no').textContent = `Category ${String(katNo + 1).padStart(2, '0')} / 08`;
+      document.getElementById('kp-baslik').textContent = k.ad;
+      document.getElementById('kp-olcer').textContent = k.olcer;
+      document.getElementById('kp-veri').textContent = k.veri;
+      document.getElementById('kp-yontem').textContent = k.yontem;
+      if (!azHareket) gsap.fromTo('#kat-pencere > *', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.03 });
+    }
+
+    document.querySelectorAll('.kat-kart').forEach(kart => kart.addEventListener('click', () => {
+      katGoster(Number(kart.dataset.kat));
+      pencere.showModal();
+    }));
+    document.getElementById('kp-onceki').addEventListener('click', () => katGoster(katNo - 1));
+    document.getElementById('kp-sonraki').addEventListener('click', () => katGoster(katNo + 1));
+    document.getElementById('kp-kapat').addEventListener('click', () => pencere.close());
+    pencere.addEventListener('click', e => { if (e.target === pencere) pencere.close(); });   // dışına tıklayınca kapan
+    pencere.addEventListener('keydown', e => {                                                // ← → ile gezin
+      if (e.key === 'ArrowLeft') katGoster(katNo - 1);
+      if (e.key === 'ArrowRight') katGoster(katNo + 1);
+    });
+
+    // ===== ARAMA ÇUBUĞU =====
+    // Hedef listesi: data/targets.json (ekip 40 Ay + 60 Mars hedefini buraya koyacak)
+    const GOREV_AD = { genel: 'Overall', hareket: 'Mobility', jeoloji: 'Geology', buz: 'Ice & resources', astrobiyoloji: 'Astrobiology' };
+    let hedefler = [];
+    let filtreGorev = '';
+    let aktifOneri = -1;
+    const girdi = document.getElementById('arama-girdi');
+    const liste = document.getElementById('oneriler');
+
+    fetch('data/targets.json').then(r => r.json()).then(veri => { hedefler = veri; })
+      .catch(() => console.warn('data/targets.json yüklenemedi'));
+
+    // Türkçe/İngilizce aksanları yok sayarak karşılaştır: "Hadley–Apennine" ~ "hadley apennine"
+    const sade = t => t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+
+    function onerileriGoster() {
+      // Giriş ekranında hangi gök cismi seçili? (MOON | MARS kapsülü) Boşsa ikisi birden
+      const secim = document.querySelector('.segment').dataset.secim;          // '' | 'ay' | 'mars'
+      const govde = secim === 'ay' ? 'moon' : secim === 'mars' ? 'mars' : '';
+      const q = sade(girdi.value);
+      const sonuc = hedefler.filter(h =>
+        (!govde || h.body === govde) &&
+        (!filtreGorev || h.missions.includes(filtreGorev)) &&
+        (!q || sade(h.name + ' ' + h.source).includes(q))
+      );
+      aktifOneri = -1;
+      liste.innerHTML = sonuc.length
+        ? sonuc.map((h, i) => `<li data-i="${i}" title="${h.source.replace(/"/g, '&quot;')}"><span class="govde-etiket">${h.body === 'moon' ? 'MOON' : 'MARS'}</span><span class="ad">${h.name}</span></li>`).join('')
+        : '<li class="bos">No matching targets</li>';
+      liste.querySelectorAll('li[data-i]').forEach(li => li.addEventListener('mousedown', e => {
+        e.preventDefault();                       // girdi odağını kaybetmeden önce seçimi yakala
+        hedefeGit(sonuc[Number(li.dataset.i)]);
+      }));
+      liste.hidden = false;
+      liste._sonuc = sonuc;
+    }
+
+    // Hedef seçilince: keşif sayfası o gezegende, o noktada ve uygun görevle açılır
+    function hedefeGit(h) {
+      const gorev = filtreGorev || 'genel';
+      location.href = `explore.html?body=${h.body}&lat=${h.lat}&lon=${h.lon}&hedef=${h.id}&gorev=${gorev}`;
+    }
+
+    girdi.addEventListener('focus', onerileriGoster);
+    girdi.addEventListener('input', onerileriGoster);
+    girdi.addEventListener('blur', () => setTimeout(() => { liste.hidden = true; }, 120));
+    // Klavye: ↑ ↓ ile gez, Enter ile seç, Esc ile kapat
+    girdi.addEventListener('keydown', e => {
+      const ogeler = liste.querySelectorAll('li[data-i]');
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (!ogeler.length) return;
+        aktifOneri = (aktifOneri + (e.key === 'ArrowDown' ? 1 : -1) + ogeler.length) % ogeler.length;
+        ogeler.forEach((li, i) => li.classList.toggle('aktif', i === aktifOneri));
+      } else if (e.key === 'Enter') {
+        const s = liste._sonuc || [];
+        if (s.length) hedefeGit(s[Math.max(0, aktifOneri)]);
+      } else if (e.key === 'Escape') {
+        liste.hidden = true;
+      }
+    });
+    document.querySelectorAll('[data-filtre]').forEach(b => b.addEventListener('click', () => {
+      filtreGorev = b.dataset.filtre;
+      document.querySelectorAll('[data-filtre]').forEach(x => x.classList.toggle('secili', x === b));
+      if (document.activeElement === girdi || !liste.hidden) onerileriGoster();
+    }));
+    // MOON | MARS değişince açık liste de güncellensin
+    document.querySelectorAll('[data-govde]').forEach(b => b.addEventListener('click', () => { if (!liste.hidden) setTimeout(onerileriGoster, 0); }));
+
+    // ===== ANİMASYONLAR =====
+    if (!azHareket) {
+      gsap.from('.hero-icerik > *', { y: 30, opacity: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out', delay: 0.2, clearProps: 'transform' });
+      // Kaydırınca .reveal öğeleri ekranın alt %85'ine girince belirsin; aynı anda girenler 0.08 sn arayla
+      gsap.set('.reveal', { y: 36, opacity: 0 });
+      ScrollTrigger.batch('.reveal', {
+        start: 'top 85%',
+        once: true,
+        onEnter: grup => gsap.to(grup, { y: 0, opacity: 1, duration: 0.8, stagger: 0.08, ease: 'power3.out', clearProps: 'transform' })
+      });
+    }
+  </script>
+
+  <!-- 3D sahne: ayrı dosya -->
+  <script type="module" src="js/scene-home.js"></script>
+</body>
+</html>

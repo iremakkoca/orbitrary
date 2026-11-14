@@ -1,0 +1,102 @@
+{
+  "tarih": "2026-11-13T23:41:50",
+  "hepsi_lf_ile_tuttu": false,
+  "dosyalar": [
+    {
+      "dosya": "h2o_sr_5x5.tab",
+      "ham_md5_tuttu": false,
+      "lf_md5_tuttu": false,
+      "ham_bayt": 186624,
+      "lf_bayt": 184032,
+      "etiket": "71 x 2592 = 184032  (LF boyutuna eşit)"
+    },
+    {
+      "dosya": "h2o_sr_5x5.lbl",
+      "ham_md5_tuttu": false,
+      "lf_md5_tuttu": false,
+      "ham_bayt": 4653,
+      "lf_bayt": 4535,
+      "etiket": ""
+    },
+    {
+      "dosya": "fe_sr_5x5.tab",
+      "ham_md5_tuttu": false,
+      "lf_md5_tuttu": false,
+      "ham_bayt": 186624,
+      "lf_bayt": 184032,
+      "etiket": "71 x 2592 = 184032  (LF boyutuna eşit)"
+    },
+    {
+      "dosya": "fe_sr_5x5.lbl",
+      "ham_md5_tuttu": false,
+      "lf_md5_tuttu": false,
+      "ham_bayt": 4647,
+      "lf_bayt": 4529,
+      "etiket": ""
+    },
+    {
+      "dosya": "si_sr_5x5.tab",
+      "ham_md5_tuttu": false,
+      "lf_md5_tuttu": false,
+      "ham_bayt": 186624,
+      "lf_bayt": 184032,
+      "etiket": "71 x 2592 = 184032  (LF boyutuna eşit)"
+    },
+    {
+      "dosya": "si_sr_5x5.lbl",
+      "ham_md5_tuttu": false,
+      "lf_md5_tuttu": false,
+      "ham_bayt": 4665,
+      "lf_bayt": 4547,
+      "etiket": ""
+    },
+    {
+      "dosya": "k_sr_5x5.tab",
+      "ham_md5_tuttu": false,
+      "lf_md5_tuttu": false,
+      "ham_bayt": 171072,
+      "lf_bayt": 168480,
+      "etiket": "65 x 2592 = 168480  (LF boyutuna eşit)"
+    },
+    {
+      "dosya": "k_sr_5x5.lbl",
+      "ham_md5_tuttu": false,
+      "lf_md5_tuttu": false,
+      "ham_bayt": 4642,
+      "lf_bayt": 4524,
+      "etiket": ""
+    },
+    {
+      "dosya": "th_sr_5x5.tab",
+      "ham_md5_tuttu": false,
+      "lf_md5_tuttu": false,
+      "ham_bayt": 171072,
+      "lf_bayt": 168480,
+      "etiket": "65 x 2592 = 168480  (LF boyutuna eşit)"
+    },
+    {
+      "dosya": "th_sr_5x5.lbl",
+      "ham_md5_tuttu": false,
+      "lf_md5_tuttu": false,
+      "ham_bayt": 4645,
+      "lf_bayt": 4527,
+      "etiket": ""
+    },
+    {
+      "dosya": "cl_sr_5x5.tab",
+      "ham_md5_tuttu": false,
+      "lf_md5_tuttu": false,
+      "ham_bayt": 186624,
+      "lf_bayt": 184032,
+      "etiket": "71 x 2592 = 184032  (LF boyutuna eşit)"
+    },
+    {
+      "dosya": "cl_sr_5x5.lbl",
+      "ham_md5_tuttu": false,
+      "lf_md5_tuttu": false,
+      "ham_bayt": 4649,
+      "lf_bayt": 4531,
+      "etiket": ""
+    }
+  ]
+}

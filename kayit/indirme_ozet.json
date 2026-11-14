@@ -1,0 +1,175 @@
+{
+  "bitis": "2026-11-13T23:28:26",
+  "sure_dk": 70.6,
+  "bu_oturumda_indirilen_gb": 28.256,
+  "secilen_setler": "hepsi",
+  "durum_sayilari": {
+    "KONTROL": 7,
+    "PASS": 389,
+    "FAIL": 13
+  },
+  "set_basina": {
+    "E10": {
+      "KONTROL": 2,
+      "PASS": 2
+    },
+    "M1": {
+      "KONTROL": 2,
+      "PASS": 1
+    },
+    "M3": {
+      "PASS": 5
+    },
+    "R1": {
+      "KONTROL": 2,
+      "PASS": 1
+    },
+    "R6": {
+      "PASS": 1,
+      "FAIL": 12
+    },
+    "E4": {
+      "PASS": 12
+    },
+    "E1": {
+      "PASS": 288
+    },
+    "R2": {
+      "PASS": 1,
+      "KONTROL": 1
+    },
+    "E2": {
+      "PASS": 1
+    },
+    "E9": {
+      "PASS": 2
+    },
+    "M4": {
+      "PASS": 18
+    },
+    "E6": {
+      "PASS": 12
+    },
+    "M2": {
+      "PASS": 1
+    },
+    "E7": {
+      "PASS": 1
+    },
+    "E5": {
+      "PASS": 12
+    },
+    "M6": {
+      "PASS": 6
+    },
+    "M5": {
+      "PASS": 4
+    },
+    "E8": {
+      "PASS": 1
+    },
+    "M7": {
+      "PASS": 8
+    },
+    "E3": {
+      "PASS": 1
+    },
+    "R3": {
+      "PASS": 4
+    },
+    "R4": {
+      "PASS": 3,
+      "FAIL": 1
+    },
+    "R5": {
+      "PASS": 1
+    },
+    "R7": {
+      "PASS": 3
+    }
+  },
+  "FAIL": [
+    {
+      "hedef": "mars/R6_odyssey_grs/h2o_sr_5x5.tab",
+      "not": "md5 rapor TUTMADI | md5 uretici dosyasi TUTMADI | ikinci indirmede de gecmedi; .part birakildi"
+    },
+    {
+      "hedef": "mars/R6_odyssey_grs/fe_sr_5x5.tab",
+      "not": "md5 rapor TUTMADI | md5 uretici dosyasi TUTMADI | ikinci indirmede de gecmedi; .part birakildi"
+    },
+    {
+      "hedef": "mars/R6_odyssey_grs/si_sr_5x5.tab",
+      "not": "md5 rapor TUTMADI | md5 uretici dosyasi TUTMADI | ikinci indirmede de gecmedi; .part birakildi"
+    },
+    {
+      "hedef": "mars/R6_odyssey_grs/cl_sr_5x5.tab",
+      "not": "md5 rapor TUTMADI | md5 uretici dosyasi TUTMADI | ikinci indirmede de gecmedi; .part birakildi"
+    },
+    {
+      "hedef": "mars/R6_odyssey_grs/k_sr_5x5.tab",
+      "not": "md5 rapor TUTMADI | md5 uretici dosyasi TUTMADI | ikinci indirmede de gecmedi; .part birakildi"
+    },
+    {
+      "hedef": "mars/R6_odyssey_grs/th_sr_5x5.tab",
+      "not": "md5 rapor TUTMADI | md5 uretici dosyasi TUTMADI | ikinci indirmede de gecmedi; .part birakildi"
+    },
+    {
+      "hedef": "mars/R6_odyssey_grs/si_sr_5x5.lbl",
+      "not": "md5 rapor TUTMADI | md5 uretici dosyasi TUTMADI | ikinci indirmede de gecmedi; .part birakildi"
+    },
+    {
+      "hedef": "mars/R6_odyssey_grs/h2o_sr_5x5.lbl",
+      "not": "md5 rapor TUTMADI | md5 uretici dosyasi TUTMADI | ikinci indirmede de gecmedi; .part birakildi"
+    },
+    {
+      "hedef": "mars/R6_odyssey_grs/cl_sr_5x5.lbl",
+      "not": "md5 rapor TUTMADI | md5 uretici dosyasi TUTMADI | ikinci indirmede de gecmedi; .part birakildi"
+    },
+    {
+      "hedef": "mars/R6_odyssey_grs/fe_sr_5x5.lbl",
+      "not": "md5 rapor TUTMADI | md5 uretici dosyasi TUTMADI | ikinci indirmede de gecmedi; .part birakildi"
+    },
+    {
+      "hedef": "mars/R6_odyssey_grs/th_sr_5x5.lbl",
+      "not": "md5 rapor TUTMADI | md5 uretici dosyasi TUTMADI | ikinci indirmede de gecmedi; .part birakildi"
+    },
+    {
+      "hedef": "mars/R6_odyssey_grs/k_sr_5x5.lbl",
+      "not": "md5 rapor TUTMADI | md5 uretici dosyasi TUTMADI | ikinci indirmede de gecmedi; .part birakildi"
+    },
+    {
+      "hedef": "mars/R4_tes_ti_albedo/nmsk2003.bin",
+      "not": "indirilemedi: HTTPSConnectionPool(host='se.psi.edu', port=443): Max retries exceeded with url: /inertia/nmsk2003.bin (Caused by ConnectTimeoutError(<HTTPSConnection(host='se.psi.edu', port=443) at 0x1ad721f0ef0>, 'Connection to se.psi.edu timed out. (connect timeout=30)'))"
+    }
+  ],
+  "KONTROL": [
+    {
+      "hedef": "dunya/E10_soilgrids/clay/checksum.sha256.txt",
+      "not": "raporda boyut ve saglama yok; D1'de icerik testi"
+    },
+    {
+      "hedef": "dunya/E10_soilgrids/silt/checksum.sha256.txt",
+      "not": "raporda boyut ve saglama yok; D1'de icerik testi"
+    },
+    {
+      "hedef": "ay/M1_lola/Lunar_LRO_LOLA_Global_LDEM_118m_Mar2014.tif.md5",
+      "not": "raporda boyut ve saglama yok; D1'de icerik testi"
+    },
+    {
+      "hedef": "mars/R1_mola/Mars_MGS_MOLA_DEM_mosaic_global_463m.tif.md5",
+      "not": "raporda boyut ve saglama yok; D1'de icerik testi"
+    },
+    {
+      "hedef": "ay/M1_lola/Lunar_LRO_LOLA_Global_LDEM_118m_Mar2014.lbl",
+      "not": "raporda boyut ve saglama yok; D1'de icerik testi"
+    },
+    {
+      "hedef": "mars/R1_mola/Mars_MGS_MOLA_DEM_mosaic_global_463m.lbl",
+      "not": "raporda boyut ve saglama yok; D1'de icerik testi"
+    },
+    {
+      "hedef": "mars/R2_sim3292/sim3292_readme.txt",
+      "not": "raporda boyut ve saglama yok; D1'de icerik testi"
+    }
+  ]
+}

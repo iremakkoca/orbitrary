@@ -1,0 +1,418 @@
+[
+ {
+  "id": "A3-01",
+  "body": "moon",
+  "name": "Peak near Cabeus B",
+  "lat": -83.576,
+  "lon": -69.076,
+  "type": "Artemis III candidate regions (Oct 2024) — first landing now planned as Artemis IV",
+  "source": "approximate centre (mean of candidate landing sites, Wueller et al. 2026)",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ },
+ {
+  "id": "A3-02",
+  "body": "moon",
+  "name": "Haworth",
+  "lat": -86.799,
+  "lon": -22.898,
+  "type": "Artemis III candidate regions (Oct 2024) — first landing now planned as Artemis IV",
+  "source": "approximate centre (mean of candidate landing sites, Wueller et al. 2026)",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ },
+ {
+  "id": "A3-03",
+  "body": "moon",
+  "name": "Malapert Massif",
+  "lat": -86.047,
+  "lon": 0.149,
+  "type": "Artemis III candidate regions (Oct 2024) — first landing now planned as Artemis IV",
+  "source": "approximate centre (mean of candidate landing sites, Wueller et al. 2026)",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ },
+ {
+  "id": "A3-04",
+  "body": "moon",
+  "name": "Mons Mouton Plateau",
+  "lat": -84.534,
+  "lon": 30.655,
+  "type": "Artemis III candidate regions (Oct 2024) — first landing now planned as Artemis IV",
+  "source": "approximate centre (mean of candidate landing sites, Wueller et al. 2026)",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ },
+ {
+  "id": "A3-05",
+  "body": "moon",
+  "name": "Mons Mouton",
+  "lat": -85.399,
+  "lon": 31.18,
+  "type": "Artemis III candidate regions (Oct 2024) — first landing now planned as Artemis IV; bölge merkezi IAU zirvesinden ~24 km güneyde (B5)",
+  "source": "approximate centre (mean of candidate landing sites, Wueller et al. 2026)",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ },
+ {
+  "id": "A3-06",
+  "body": "moon",
+  "name": "Nobile Rim 1",
+  "lat": -85.188,
+  "lon": 37.24,
+  "type": "Artemis III candidate regions (Oct 2024) — first landing now planned as Artemis IV",
+  "source": "approximate centre (mean of candidate landing sites, Wueller et al. 2026)",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ },
+ {
+  "id": "A3-07",
+  "body": "moon",
+  "name": "Nobile Rim 2",
+  "lat": -83.888,
+  "lon": 58.403,
+  "type": "Artemis III candidate regions (Oct 2024) — first landing now planned as Artemis IV",
+  "source": "approximate centre (mean of candidate landing sites, Wueller et al. 2026)",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ },
+ {
+  "id": "A3-08",
+  "body": "moon",
+  "name": "de Gerlache Rim 2",
+  "lat": -88.174,
+  "lon": -68.787,
+  "type": "Artemis III candidate regions (Oct 2024) — first landing now planned as Artemis IV",
+  "source": "approximate centre (mean of candidate landing sites, Wueller et al. 2026)",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ },
+ {
+  "id": "A3-09",
+  "body": "moon",
+  "name": "Slater Plain",
+  "lat": -87.207,
+  "lon": 126.606,
+  "type": "Artemis III candidate regions (Oct 2024) — first landing now planned as Artemis IV",
+  "source": "approximate centre (mean of candidate landing sites, Wueller et al. 2026)",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ },
+ {
+  "id": "M-SP",
+  "body": "moon",
+  "name": "Ay güney kutbu test noktası",
+  "lat": -89.0,
+  "lon": 30.0,
+  "type": "V1'deki iki çift ona bağlı",
+  "source": "Proje test noktası",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ },
+ {
+  "id": "M-A11",
+  "body": "moon",
+  "name": "Apollo 11, Mare Tranquillitatis",
+  "lat": 0.67416,
+  "lon": 23.47314,
+  "type": "Ay Mean Earth/Polar Axis, DE421; belge 9.1'deki A14-A17 değerleriyle aynı tablo",
+  "source": "NSSDCA / Wagner ve ark. 2017 (Icarus 283, 92-103)",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ },
+ {
+  "id": "M-A14",
+  "body": "moon",
+  "name": "Apollo 14, Fra Mauro",
+  "lat": -3.64589,
+  "lon": -17.47194,
+  "type": "V1",
+  "source": "NSSDCA / Wagner ve ark. 2017 [141]",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ },
+ {
+  "id": "M-A15",
+  "body": "moon",
+  "name": "Apollo 15, Hadley–Apennine",
+  "lat": 26.13239,
+  "lon": 3.6333,
+  "type": "V1",
+  "source": "NSSDCA / Wagner ve ark. 2017 [141]",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ },
+ {
+  "id": "M-A16",
+  "body": "moon",
+  "name": "Apollo 16, Descartes",
+  "lat": -8.9734,
+  "lon": 15.5011,
+  "type": "V1",
+  "source": "NSSDCA / Wagner ve ark. 2017 [141]",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ },
+ {
+  "id": "M-A17",
+  "body": "moon",
+  "name": "Apollo 17, Taurus–Littrow",
+  "lat": 20.1911,
+  "lon": 30.7723,
+  "type": "V1",
+  "source": "NSSDCA / Wagner ve ark. 2017 [141]",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ },
+ {
+  "id": "M-SHK",
+  "body": "moon",
+  "name": "Shackleton krateri",
+  "lat": -89.67,
+  "lon": 129.78,
+  "type": "Sayfada 3 koordinat bloğu var (-89.67/129.78; -89.63/132.32; -89.90/0.00); güncel ilk blok alındı. Krater merkezi; çap ~21 km",
+  "source": "IAU Gazetteer of Planetary Nomenclature",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ },
+ {
+  "id": "R-JEZ",
+  "body": "mars",
+  "name": "Jezero (Perseverance)",
+  "lat": 18.44,
+  "lon": 77.45,
+  "type": "Belge değeri 18,44 / 77,45; NASA/JPL'de hassas değer yok, Wikipedia değeri kullanılmadı (14 Kasım kararı)",
+  "source": "NASA/JPL",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ },
+ {
+  "id": "R-GAL",
+  "body": "mars",
+  "name": "Gale (Curiosity)",
+  "lat": -4.5895,
+  "lon": 137.4417,
+  "type": "V1",
+  "source": "NASA/JPL",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ },
+ {
+  "id": "R-PF",
+  "body": "mars",
+  "name": "Ares Vallis (Pathfinder)",
+  "lat": 19.13,
+  "lon": -33.22,
+  "type": "V1",
+  "source": "Golombek ve ark. 1999 [142]",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ },
+ {
+  "id": "R-GUS",
+  "body": "mars",
+  "name": "Gusev (Spirit)",
+  "lat": -14.5692,
+  "lon": 175.4729,
+  "type": "Spirit iniş yeri (Columbia Memorial Station); planetosentrik, doğu +",
+  "source": "Arvidson ve ark. 2004, Science 305, 821-824 (MER kartografik çözüm, MOLA IAU 2000)",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ },
+ {
+  "id": "R-MER",
+  "body": "mars",
+  "name": "Meridiani Planum (Opportunity)",
+  "lat": -1.9462,
+  "lon": -5.5266,
+  "type": "Opportunity iniş yeri (Eagle krateri); kaynakta 354.4734°D, -180..180'e çevrildi",
+  "source": "Arvidson ve ark. 2004, Science 306, 1730-1733 (MER kartografik çözüm, MOLA IAU 2000)",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ },
+ {
+  "id": "R-PHX",
+  "body": "mars",
+  "name": "Phoenix iniş yeri",
+  "lat": 68.22,
+  "lon": -125.75,
+  "type": "Phoenix iniş yeri; kaynakta 234.25°D, -180..180'e çevrildi",
+  "source": "Smith ve ark. 2009, Science 325, 58-61 (PDS ODE listesi üzerinden)",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ },
+ {
+  "id": "R-UTO",
+  "body": "mars",
+  "name": "Utopia Planitia (Viking 2)",
+  "lat": 47.64,
+  "lon": 134.29,
+  "type": "Belgedeki 'Zhurong / Viking 2' iki hedefe ayrıldı (14 Kasım kararı); değer Sude'nin raporundan",
+  "source": "NSSDCA Viking (planetosentrik)",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ },
+ {
+  "id": "R-ELY",
+  "body": "mars",
+  "name": "Elysium Planitia (InSight)",
+  "lat": 4.50238,
+  "lon": 135.62345,
+  "type": "InSight iniş yeri; HiRISE görüntüsünden, planetosentrik doğu +",
+  "source": "Golombek ve ark. 2020, Earth and Space Science 7, e2020EA001248",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ },
+ {
+  "id": "R-OLY",
+  "body": "mars",
+  "name": "Olympus Mons (feature centre, IAU Gazetteer)",
+  "lat": 18.65,
+  "lon": -133.8,
+  "type": "Gazetteer özellik MERKEZİ; tam zirve/kaldera noktası değil (belge 'zirvesi' diyor). 226.20°D -> -133.80 | sitede 'feature centre (IAU Gazetteer)'; 'zirve' denmez (14 Kasım kararı)",
+  "source": "IAU Gazetteer of Planetary Nomenclature",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ },
+ {
+  "id": "R-ZHU",
+  "body": "mars",
+  "name": "Utopia Planitia (Zhurong)",
+  "lat": 25.066,
+  "lon": 109.925,
+  "type": "Belgedeki 'Zhurong / Viking 2' iki hedefe ayrıldı (14 Kasım kararı)",
+  "source": "Liu ve ark. 2022, Nature Astronomy, doi:10.1038/s41550-021-01519-5 (HiRIC görüntüsünden)",
+  "missions": [
+   "genel",
+   "hareket",
+   "jeoloji",
+   "buz",
+   "astrobiyoloji"
+  ]
+ }
+]
