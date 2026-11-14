@@ -1,0 +1,411 @@
+{
+  "adim": "D1",
+  "tarih": "2026-11-13T23:58:38",
+  "sure_dk": 0.8,
+  "ham_dosya": 414,
+  "ham_bayt": 36919654000,
+  "acik_bayt": 5868093952,
+  "eksik": [
+    "mars/R4_tes_ti_albedo/nmsk2003.bin"
+  ],
+  "fazla": [
+    "mars/R6_odyssey_grs/pds4_etiket/cl_sr_5x5.xml",
+    "mars/R6_odyssey_grs/pds4_etiket/fe_sr_5x5.xml",
+    "mars/R6_odyssey_grs/pds4_etiket/h2o_sr_5x5.xml",
+    "mars/R6_odyssey_grs/pds4_etiket/k_sr_5x5.xml",
+    "mars/R6_odyssey_grs/pds4_etiket/si_sr_5x5.xml",
+    "mars/R6_odyssey_grs/pds4_etiket/th_sr_5x5.xml"
+  ],
+  "e4_hdf5_yapisi_ornek": [
+    "SDS/Emissivity",
+    "SDS/EmissivityUncertainty",
+    "SDS/NDVI",
+    "SDS/QualityFlag"
+  ],
+  "test_sayisi": 76,
+  "PASS": 76,
+  "FAIL": 0,
+  "gecmeyenler": [],
+  "testler": [
+    {
+      "test": "D1_eksik_dosya_yok",
+      "durum": "PASS",
+      "detay": "408/409 var; eksik ['mars/R4_tes_ti_albedo/nmsk2003.bin'] (izinli: ['mars/R4_tes_ti_albedo/nmsk2003.bin'])"
+    },
+    {
+      "test": "D1_fazla_dosya_yok",
+      "durum": "PASS",
+      "detay": "fazla 6 dosya: ['mars/R6_odyssey_grs/pds4_etiket/cl_sr_5x5.xml', 'mars/R6_odyssey_grs/pds4_etiket/fe_sr_5x5.xml', 'mars/R6_odyssey_grs/pds4_etiket/h2o_sr_5x5.xml', 'mars/R6_odyssey_grs/pds4_etiket/k_sr_5x5.xml', 'mars/R6_odyssey_grs/pds4_etiket/si_sr_5x5.xml', 'mars/R6_odyssey_grs/pds4_etiket/th_sr_5x5.xml']"
+    },
+    {
+      "test": "D1_dosya_testleri",
+      "durum": "PASS",
+      "detay": "414/414 dosya: 0 bayt yok, HTML yok, boyut = rapor, SHA-256 = indirme kaydi"
+    },
+    {
+      "test": "KONTROL_dunya/E10_soilgrids/clay/checksum.sha256.txt",
+      "durum": "PASS",
+      "detay": "rapordaki SHA-256 dosyada geciyor"
+    },
+    {
+      "test": "KONTROL_dunya/E10_soilgrids/silt/checksum.sha256.txt",
+      "durum": "PASS",
+      "detay": "rapordaki SHA-256 dosyada geciyor"
+    },
+    {
+      "test": "KONTROL_ay/M1_lola/Lunar_LRO_LOLA_Global_LDEM_118m_Mar2014.tif.md5",
+      "durum": "PASS",
+      "detay": "rapordaki MD5 dosyada geciyor"
+    },
+    {
+      "test": "KONTROL_mars/R1_mola/Mars_MGS_MOLA_DEM_mosaic_global_463m.tif.md5",
+      "durum": "PASS",
+      "detay": "rapordaki MD5 dosyada geciyor"
+    },
+    {
+      "test": "KONTROL_ay/M1_lola/Lunar_LRO_LOLA_Global_LDEM_118m_Mar2014.lbl",
+      "durum": "PASS",
+      "detay": "rapor M1: 92160 x 46080, SignedWord, Multiplier 0.5"
+    },
+    {
+      "test": "KONTROL_mars/R1_mola/Mars_MGS_MOLA_DEM_mosaic_global_463m.lbl",
+      "durum": "PASS",
+      "detay": "rapor R1: 46080 x 23040"
+    },
+    {
+      "test": "KONTROL_mars/R2_sim3292/sim3292_readme.txt",
+      "durum": "PASS",
+      "detay": "metin dosyasi, '3292' geciyor (5580 bayt)"
+    },
+    {
+      "test": "ZIP_dunya/E3_glim/LiMW_GIS 2015.gdb.zip",
+      "durum": "PASS",
+      "detay": "46 dosya (46 yeni acildi), 1.258 GB, yontemler [0, 8], atlanan 0 (__MACOSX/._), zip dizininde 0 bayt girdi 0"
+    },
+    {
+      "test": "ZIP_dunya/E7_permafrost_kuzey/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH.zip",
+      "durum": "PASS",
+      "detay": "5 dosya (5 yeni acildi), 1.943 GB, yontemler [8], atlanan 0 (__MACOSX/._), zip dizininde 0 bayt girdi 0"
+    },
+    {
+      "test": "ZIP_dunya/E8_permafrost_antarktika/UiO_PEX_PERPROB_5.0_20181205_2000_2017_ANT.zip",
+      "durum": "PASS",
+      "detay": "4 dosya (4 yeni acildi), 0.465 GB, yontemler [8], atlanan 0 (__MACOSX/._), zip dizininde 0 bayt girdi 0"
+    },
+    {
+      "test": "ZIP_dunya/E9_aridity/Global-AI_ET0__annual_v3_1.zip",
+      "durum": "PASS",
+      "detay": "17 dosya (17 yeni acildi), 0.692 GB, yontemler [8], atlanan 1 (__MACOSX/._), zip dizininde 0 bayt girdi 0"
+    },
+    {
+      "test": "ZIP_ay/M2_ay_jeoloji/Unified_Geologic_Map_of_the_Moon_GIS_v2.zip",
+      "durum": "PASS",
+      "detay": "289 dosya (289 yeni acildi), 0.310 GB, yontemler [0, 8], atlanan 0 (__MACOSX/._), zip dizininde 0 bayt girdi 0"
+    },
+    {
+      "test": "ZIP_mars/R2_sim3292/sim3292_database.zip",
+      "durum": "PASS",
+      "detay": "206 dosya (206 yeni acildi), 1.200 GB, yontemler [0, 8], atlanan 0 (__MACOSX/._), zip dizininde 0 bayt girdi 0"
+    },
+    {
+      "test": "ACILIS_E1_288_karo",
+      "durum": "PASS",
+      "detay": "288/288 acildi; (genislik, yukseklik, bant, tip) = [(3600, 3600, 1, 'float32')]; acilmayan []"
+    },
+    {
+      "test": "ACILIS_HDF4_E2",
+      "durum": "PASS",
+      "detay": "9 alt veri seti; aranan ['Land_Cover_Type_1_Percent']; eksik []"
+    },
+    {
+      "test": "ACILIS_HDF4_MYD11C3.A2023001.061.2023033164343.hdf",
+      "durum": "PASS",
+      "detay": "17 alt veri seti; aranan ['LST_Day_CMG', 'LST_Night_CMG']; eksik []"
+    },
+    {
+      "test": "ACILIS_HDF4_MYD11C3.A2023032.061.2023060194236.hdf",
+      "durum": "PASS",
+      "detay": "17 alt veri seti; aranan ['LST_Day_CMG', 'LST_Night_CMG']; eksik []"
+    },
+    {
+      "test": "ACILIS_HDF4_MYD11C3.A2023060.061.2023093152049.hdf",
+      "durum": "PASS",
+      "detay": "17 alt veri seti; aranan ['LST_Day_CMG', 'LST_Night_CMG']; eksik []"
+    },
+    {
+      "test": "ACILIS_HDF4_MYD11C3.A2023091.061.2023122195853.hdf",
+      "durum": "PASS",
+      "detay": "17 alt veri seti; aranan ['LST_Day_CMG', 'LST_Night_CMG']; eksik []"
+    },
+    {
+      "test": "ACILIS_HDF4_MYD11C3.A2023121.061.2023153211939.hdf",
+      "durum": "PASS",
+      "detay": "17 alt veri seti; aranan ['LST_Day_CMG', 'LST_Night_CMG']; eksik []"
+    },
+    {
+      "test": "ACILIS_HDF4_MYD11C3.A2023152.061.2023193054214.hdf",
+      "durum": "PASS",
+      "detay": "17 alt veri seti; aranan ['LST_Day_CMG', 'LST_Night_CMG']; eksik []"
+    },
+    {
+      "test": "ACILIS_HDF4_MYD11C3.A2023182.061.2023215202151.hdf",
+      "durum": "PASS",
+      "detay": "17 alt veri seti; aranan ['LST_Day_CMG', 'LST_Night_CMG']; eksik []"
+    },
+    {
+      "test": "ACILIS_HDF4_MYD11C3.A2023213.061.2023250152704.hdf",
+      "durum": "PASS",
+      "detay": "17 alt veri seti; aranan ['LST_Day_CMG', 'LST_Night_CMG']; eksik []"
+    },
+    {
+      "test": "ACILIS_HDF4_MYD11C3.A2023244.061.2023274184351.hdf",
+      "durum": "PASS",
+      "detay": "17 alt veri seti; aranan ['LST_Day_CMG', 'LST_Night_CMG']; eksik []"
+    },
+    {
+      "test": "ACILIS_HDF4_MYD11C3.A2023274.061.2023305220624.hdf",
+      "durum": "PASS",
+      "detay": "17 alt veri seti; aranan ['LST_Day_CMG', 'LST_Night_CMG']; eksik []"
+    },
+    {
+      "test": "ACILIS_HDF4_MYD11C3.A2023305.061.2023336214254.hdf",
+      "durum": "PASS",
+      "detay": "17 alt veri seti; aranan ['LST_Day_CMG', 'LST_Night_CMG']; eksik []"
+    },
+    {
+      "test": "ACILIS_HDF4_MYD11C3.A2023335.061.2024006163117.hdf",
+      "durum": "PASS",
+      "detay": "17 alt veri seti; aranan ['LST_Day_CMG', 'LST_Night_CMG']; eksik []"
+    },
+    {
+      "test": "ACILIS_HDF4_MCD43C3.A2023015.061.2023024104905.hdf",
+      "durum": "PASS",
+      "detay": "25 alt veri seti; aranan ['Albedo_WSA_shortwave']; eksik []"
+    },
+    {
+      "test": "ACILIS_HDF4_MCD43C3.A2023046.061.2023057224937.hdf",
+      "durum": "PASS",
+      "detay": "25 alt veri seti; aranan ['Albedo_WSA_shortwave']; eksik []"
+    },
+    {
+      "test": "ACILIS_HDF4_MCD43C3.A2023074.061.2023083070952.hdf",
+      "durum": "PASS",
+      "detay": "25 alt veri seti; aranan ['Albedo_WSA_shortwave']; eksik []"
+    },
+    {
+      "test": "ACILIS_HDF4_MCD43C3.A2023105.061.2023114063822.hdf",
+      "durum": "PASS",
+      "detay": "25 alt veri seti; aranan ['Albedo_WSA_shortwave']; eksik []"
+    },
+    {
+      "test": "ACILIS_HDF4_MCD43C3.A2023135.061.2023144071438.hdf",
+      "durum": "PASS",
+      "detay": "25 alt veri seti; aranan ['Albedo_WSA_shortwave']; eksik []"
+    },
+    {
+      "test": "ACILIS_HDF4_MCD43C3.A2023166.061.2023175104425.hdf",
+      "durum": "PASS",
+      "detay": "25 alt veri seti; aranan ['Albedo_WSA_shortwave']; eksik []"
+    },
+    {
+      "test": "ACILIS_HDF4_MCD43C3.A2023196.061.2023215170711.hdf",
+      "durum": "PASS",
+      "detay": "25 alt veri seti; aranan ['Albedo_WSA_shortwave']; eksik []"
+    },
+    {
+      "test": "ACILIS_HDF4_MCD43C3.A2023227.061.2023236071848.hdf",
+      "durum": "PASS",
+      "detay": "25 alt veri seti; aranan ['Albedo_WSA_shortwave']; eksik []"
+    },
+    {
+      "test": "ACILIS_HDF4_MCD43C3.A2023258.061.2023267065355.hdf",
+      "durum": "PASS",
+      "detay": "25 alt veri seti; aranan ['Albedo_WSA_shortwave']; eksik []"
+    },
+    {
+      "test": "ACILIS_HDF4_MCD43C3.A2023288.061.2023299045841.hdf",
+      "durum": "PASS",
+      "detay": "25 alt veri seti; aranan ['Albedo_WSA_shortwave']; eksik []"
+    },
+    {
+      "test": "ACILIS_HDF4_MCD43C3.A2023319.061.2023328224454.hdf",
+      "durum": "PASS",
+      "detay": "25 alt veri seti; aranan ['Albedo_WSA_shortwave']; eksik []"
+    },
+    {
+      "test": "ACILIS_HDF4_MCD43C3.A2023349.061.2023361073709.hdf",
+      "durum": "PASS",
+      "detay": "25 alt veri seti; aranan ['Albedo_WSA_shortwave']; eksik []"
+    },
+    {
+      "test": "ACILIS_HDF5_ASTER_GEDv4.1_A2015001.h5",
+      "durum": "PASS",
+      "detay": "4 veri seti: ['SDS/Emissivity', 'SDS/EmissivityUncertainty', 'SDS/NDVI', 'SDS/QualityFlag']"
+    },
+    {
+      "test": "ACILIS_HDF5_ASTER_GEDv4.1_A2015032.h5",
+      "durum": "PASS",
+      "detay": "4 veri seti: ['SDS/Emissivity', 'SDS/EmissivityUncertainty', 'SDS/NDVI', 'SDS/QualityFlag']"
+    },
+    {
+      "test": "ACILIS_HDF5_ASTER_GEDv4.1_A2015060.h5",
+      "durum": "PASS",
+      "detay": "4 veri seti: ['SDS/Emissivity', 'SDS/EmissivityUncertainty', 'SDS/NDVI', 'SDS/QualityFlag']"
+    },
+    {
+      "test": "ACILIS_HDF5_ASTER_GEDv4.1_A2015091.h5",
+      "durum": "PASS",
+      "detay": "4 veri seti: ['SDS/Emissivity', 'SDS/EmissivityUncertainty', 'SDS/NDVI', 'SDS/QualityFlag']"
+    },
+    {
+      "test": "ACILIS_HDF5_ASTER_GEDv4.1_A2015121.h5",
+      "durum": "PASS",
+      "detay": "4 veri seti: ['SDS/Emissivity', 'SDS/EmissivityUncertainty', 'SDS/NDVI', 'SDS/QualityFlag']"
+    },
+    {
+      "test": "ACILIS_HDF5_ASTER_GEDv4.1_A2015152.h5",
+      "durum": "PASS",
+      "detay": "4 veri seti: ['SDS/Emissivity', 'SDS/EmissivityUncertainty', 'SDS/NDVI', 'SDS/QualityFlag']"
+    },
+    {
+      "test": "ACILIS_HDF5_ASTER_GEDv4.1_A2015182.h5",
+      "durum": "PASS",
+      "detay": "4 veri seti: ['SDS/Emissivity', 'SDS/EmissivityUncertainty', 'SDS/NDVI', 'SDS/QualityFlag']"
+    },
+    {
+      "test": "ACILIS_HDF5_ASTER_GEDv4.1_A2015213.h5",
+      "durum": "PASS",
+      "detay": "4 veri seti: ['SDS/Emissivity', 'SDS/EmissivityUncertainty', 'SDS/NDVI', 'SDS/QualityFlag']"
+    },
+    {
+      "test": "ACILIS_HDF5_ASTER_GEDv4.1_A2015244.h5",
+      "durum": "PASS",
+      "detay": "4 veri seti: ['SDS/Emissivity', 'SDS/EmissivityUncertainty', 'SDS/NDVI', 'SDS/QualityFlag']"
+    },
+    {
+      "test": "ACILIS_HDF5_ASTER_GEDv4.1_A2015274.h5",
+      "durum": "PASS",
+      "detay": "4 veri seti: ['SDS/Emissivity', 'SDS/EmissivityUncertainty', 'SDS/NDVI', 'SDS/QualityFlag']"
+    },
+    {
+      "test": "ACILIS_HDF5_ASTER_GEDv4.1_A2015305.h5",
+      "durum": "PASS",
+      "detay": "4 veri seti: ['SDS/Emissivity', 'SDS/EmissivityUncertainty', 'SDS/NDVI', 'SDS/QualityFlag']"
+    },
+    {
+      "test": "ACILIS_HDF5_ASTER_GEDv4.1_A2015335.h5",
+      "durum": "PASS",
+      "detay": "4 veri seti: ['SDS/Emissivity', 'SDS/EmissivityUncertainty', 'SDS/NDVI', 'SDS/QualityFlag']"
+    },
+    {
+      "test": "ACILIS_ay/M1_lola/Lunar_LRO_LOLA_Global_LDEM_118m_Mar2014.tif",
+      "durum": "PASS",
+      "detay": "(92160, 46080, 1, 'int16', 'PROJCS[\"SimpleCylindrical Moon\",GEOGCS[\"')"
+    },
+    {
+      "test": "ACILIS_ay/M3_diviner_ghrm/dghrm_ra_sam_70s70n_tif.tif",
+      "durum": "PASS",
+      "detay": "(46080, 17920, 1, 'float32', 'ESRI:104903')"
+    },
+    {
+      "test": "ACILIS_ay/M3_diviner_ghrm/dghrm_tbol_sam_70s70n_tif.tif",
+      "durum": "PASS",
+      "detay": "(46080, 17920, 1, 'float32', 'ESRI:104903')"
+    },
+    {
+      "test": "ACILIS_ay/M7_pgda/AVGVISIB_65S_240M_201608.TIF",
+      "durum": "PASS",
+      "detay": "(6420, 6420, 1, 'int16', 'PROJCS[\"Moon2000_spole\",GEOGCS[\"GCS_Moon')"
+    },
+    {
+      "test": "ACILIS_ay/M7_pgda/AVGVISIB_65N_240M_201608.TIF",
+      "durum": "PASS",
+      "detay": "(6420, 6420, 1, 'int16', 'PROJCS[\"Moon2000_npole\",GEOGCS[\"GCS_Moon')"
+    },
+    {
+      "test": "ACILIS_ay/M7_pgda/LPSR_65S_240M_201608.TIF",
+      "durum": "PASS",
+      "detay": "(6420, 6420, 1, 'int16', 'PROJCS[\"Moon2000_spole\",GEOGCS[\"GCS_Moon')"
+    },
+    {
+      "test": "ACILIS_ay/M7_pgda/LPSR_65N_240M_201608.TIF",
+      "durum": "PASS",
+      "detay": "(6420, 6420, 1, 'int16', 'PROJCS[\"Moon2000_npole\",GEOGCS[\"GCS_Moon')"
+    },
+    {
+      "test": "ACILIS_mars/R1_mola/Mars_MGS_MOLA_DEM_mosaic_global_463m.tif",
+      "durum": "PASS",
+      "detay": "(46080, 23040, 1, 'int16', 'PROJCS[\"Equirectangular Mars\",GEOGCS[\"GC')"
+    },
+    {
+      "test": "ACILIS_mars/R7_swim/SWIM4MIM_Ci_0_1.tif",
+      "durum": "PASS",
+      "detay": "(7200, 2400, 1, 'float32', 'ESRI:103885')"
+    },
+    {
+      "test": "ACILIS_mars/R7_swim/SWIM4MIM_Ci_1_5.tif",
+      "durum": "PASS",
+      "detay": "(7200, 2400, 1, 'float32', 'ESRI:103885')"
+    },
+    {
+      "test": "ACILIS_mars/R7_swim/SWIM4MIM_Ci_5.tif",
+      "durum": "PASS",
+      "detay": "(7200, 2400, 1, 'float32', 'ESRI:103885')"
+    },
+    {
+      "test": "ACILIS_dunya/E10_soilgrids/clay/clay_0-5cm_mean_1000.tif",
+      "durum": "PASS",
+      "detay": "(39812, 14509, 1, 'int16', 'ESRI:54052')"
+    },
+    {
+      "test": "ACILIS_dunya/E10_soilgrids/silt/silt_0-5cm_mean_1000.tif",
+      "durum": "PASS",
+      "detay": "(39812, 14509, 1, 'int16', 'ESRI:54052')"
+    },
+    {
+      "test": "ACILIS_UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH.tif",
+      "durum": "PASS",
+      "detay": "('dunya/E7_permafrost_kuzey/acik/UiO_PEX_PERPROB_5.0_20181128_2000_2016_NH.tif', (22425, 21141, 1, 'float32', 'EPSG:3995'))"
+    },
+    {
+      "test": "ACILIS_UiO_PEX_PERPROB_5.0_20181205_2000_2017_ANT.tif",
+      "durum": "PASS",
+      "detay": "('dunya/E8_permafrost_antarktika/acik/UiO_PEX_PERPROB_5.0_20181205_2000_2017_ANT.tif', (9888, 8678, 1, 'float32', 'EPSG:3031'))"
+    },
+    {
+      "test": "ACILIS_ai_v31_yr.tif",
+      "durum": "PASS",
+      "detay": "('dunya/E9_aridity/acik/Global-AI_ET0__annual_v3_1/ai_v31_yr.tif', (43200, 18000, 1, 'uint16', 'EPSG:4326'))"
+    },
+    {
+      "test": "ACILIS_R3_ENVI",
+      "durum": "PASS",
+      "detay": "1440 x 720 x 13, Float32 (rapor: 1440 x 720 x 13 Float32)"
+    },
+    {
+      "test": "ACILIS_E3_GLiM",
+      "durum": "PASS",
+      "detay": "katmanlar ['GLiM_export']; GLiM_export 1235259 kayit, sutun xx var: True, CRS PROJCS[\"World_Eckert_IV\",GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SP"
+    },
+    {
+      "test": "ACILIS_M2_GeoUnits",
+      "durum": "PASS",
+      "detay": "ay/M2_ay_jeoloji/acik/Unified_Geologic_Map_of_the_Moon_GIS/Lunar_GIS/Shapefiles/GeoUnits.shp: 12247 kayit (rapor 12247), sutunlar ['FIRST_Unit', 'AREA_GEO'] var: True"
+    },
+    {
+      "test": "ACILIS_R2_SIM3292",
+      "durum": "PASS",
+      "detay": "mars/R2_sim3292/acik/SIM3292_MarsGlobalGeologicGIS_20M/SIM3292_Shapefiles/SIM3292_Global_Geology.shp: 1311 kayit (rapor 1311), sutunlar ['Unit', 'SphArea_km'] var: True, essiz Unit 44 (rapor 44)"
+    },
+    {
+      "test": "EK_M5_11306x880",
+      "durum": "PASS",
+      "detay": "9949280 bayt = 11306 x 880 (9949280)"
+    },
+    {
+      "test": "EK_M6_259200x5",
+      "durum": "PASS",
+      "detay": "259200 veri satiri (rapor 259200), 5 sutun olmayan 0, '*' iceren (bozuk hucre) 1 (rapor 1)"
+    }
+  ]
+}

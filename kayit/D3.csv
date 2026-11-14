@@ -1,0 +1,92 @@
+govde,set,test,olculen,durum,zaman
+dunya,E1,rastgele piksel fark 0,"1152 piksel (288 karo x 4), 0 farkli",PASS,2026-11-14T01:24:39
+dunya,E1,NaN sayisi = veri-yok sayisi,288 karo; tutmayan karo 0 []; toplam veri-yok 0,PASS,2026-11-14T01:24:39
+dunya,E2,rastgele piksel fark 0,"17 sinif x 1000 piksel, 0 farkli",PASS,2026-11-14T01:29:54
+dunya,E2,NaN sayisi = veri-yok sayisi,tutmayan sinif [],PASS,2026-11-14T01:29:54
+dunya,E3,"rastgele 1000 poligon: birim ayni, alan_km2 yeniden hesapla ayni",1235259 kayit (ham 1235259); birim esit True; alan en buyuk goreli fark 0.00e+00,PASS,2026-11-14T01:31:50
+dunya,E3,bos birim / bos geometri sayisi (kayit),"bos birim 0, bos geometri 0",PASS,2026-11-14T01:31:50
+dunya,E5,rastgele piksel fark 0,"12 ay x 2 x 1000 piksel, 0 farkli",PASS,2026-11-14T01:32:19
+dunya,E5,NaN sayisi = veri-yok sayisi,tutmayan dizi [],PASS,2026-11-14T01:32:19
+dunya,E5,valid_range disi (fill olmayan) deger sayisi (kayit),toplam 0,PASS,2026-11-14T01:32:19
+dunya,E6,rastgele piksel fark 0,"12 tarih x 1000 piksel, 0 farkli",PASS,2026-11-14T01:32:25
+dunya,E6,NaN sayisi = veri-yok sayisi,tutmayan dizi [],PASS,2026-11-14T01:32:25
+dunya,E7,rastgele piksel fark 0,"1 dosya x 1000 piksel, 0 farkli",PASS,2026-11-14T01:32:44
+dunya,E7,NaN sayisi = veri-yok sayisi,tutmayan [],PASS,2026-11-14T01:32:44
+dunya,E7,"gecerli deger araligi [0.0, 1.0]","min 0.0, max 1.0",PASS,2026-11-14T01:32:44
+dunya,E8,rastgele piksel fark 0,"1 dosya x 1000 piksel, 0 farkli",PASS,2026-11-14T01:32:47
+dunya,E8,NaN sayisi = veri-yok sayisi,tutmayan [],PASS,2026-11-14T01:32:47
+dunya,E8,"gecerli deger araligi [0.0, 1.0]","min 0.0, max 1.0",PASS,2026-11-14T01:32:47
+dunya,E10,rastgele piksel fark 0,"2 dosya x 1000 piksel, 0 farkli",PASS,2026-11-14T01:34:07
+dunya,E10,NaN sayisi = veri-yok sayisi,tutmayan [],PASS,2026-11-14T01:34:07
+dunya,E10,"gecerli deger araligi [0.0, 1000.0]","min 3.0, max 900.0",PASS,2026-11-14T01:34:07
+dunya,E4,rastgele piksel fark 0,"12 ay x 6 dizi x 1000 piksel, 0 farkli",PASS,2026-11-14T01:44:59
+dunya,E4,NaN sayisi = veri-yok sayisi,tutmayan dizi [],PASS,2026-11-14T01:44:59
+dunya,E4,NDVI bayrak sayisi = ham 0 (yayinim olan piksel) sayisi,tutmayan ay [],PASS,2026-11-14T01:44:59
+dunya,E9,rastgele piksel fark 0 (deger + bayrak),"1000 piksel, 0 farkli",PASS,2026-11-14T01:45:38
+dunya,E9,NaN sayisi = veri-yok sayisi (ham 0 ve su %100),"NaN 550911298, beklenen 550911298",PASS,2026-11-14T01:45:38
+dunya,E9,"bayrak sayilari (1: karada ham 0, 2: ham 65535)","1: 4883730 (beklenen 4883730), 2: 1203063 (beklenen 1203063)",PASS,2026-11-14T01:45:38
+dunya,E9,"gecerli deger araligi [0, 6.5535]","min 0.0, max 6.553500175476074",PASS,2026-11-14T01:45:38
+ay,M3,ra_sam.tif rastgele piksel fark 0,"1000 piksel, 0 farkli",PASS,2026-11-14T02:04:32
+ay,M3,ra_sam.tif NaN sayisi = veri-yok sayisi,"NaN 1392381, veri-yok 1392381",PASS,2026-11-14T02:04:32
+ay,M3,tbol_sam_K.tif rastgele piksel fark 0,"1000 piksel, 0 farkli",PASS,2026-11-14T02:05:34
+ay,M3,tbol_sam_K.tif NaN sayisi = veri-yok sayisi,"NaN 4367, veri-yok 4367",PASS,2026-11-14T02:05:34
+ay,M3,tbol gecerli < 250 K,max 239.2853546142578,PASS,2026-11-14T02:05:34
+ay,M4,PRP north talimat 6 sayilari D2 ile ayni,"{'n_0': 14457, 'n_-1': 65481, 'n_pozitif': 989573, 'n_-999': 1810489}",PASS,2026-11-14T02:05:35
+ay,M4,PRP north rastgele 1000 satir fark 0,0 farkli,PASS,2026-11-14T02:05:36
+ay,M4,PRP north NaN sayisi = -999 sayisi,"NaN 1810489, -999 1810489",PASS,2026-11-14T02:05:36
+ay,M4,PRP south talimat 6 sayilari D2 ile ayni,"{'n_0': 18375, 'n_-1': 100319, 'n_pozitif': 913867, 'n_-999': 1847439}",PASS,2026-11-14T02:05:37
+ay,M4,PRP south rastgele 1000 satir fark 0,0 farkli,PASS,2026-11-14T02:05:38
+ay,M4,PRP south NaN sayisi = -999 sayisi,"NaN 1847439, -999 1847439",PASS,2026-11-14T02:05:38
+ay,M4,GCP 70n80n rastgele 1000 satir fark 0,"11 sutun, 0 farkli",PASS,2026-11-14T02:05:38
+ay,M4,GCP 70n80n NaN sayisi = -9999 sayisi,tutmayan sutun [],PASS,2026-11-14T02:05:38
+ay,M4,GCP 80n90n rastgele 1000 satir fark 0,"11 sutun, 0 farkli",PASS,2026-11-14T02:05:39
+ay,M4,GCP 80n90n NaN sayisi = -9999 sayisi,tutmayan sutun [],PASS,2026-11-14T02:05:39
+ay,M4,GCP 80s70s rastgele 1000 satir fark 0,"11 sutun, 0 farkli",PASS,2026-11-14T02:05:40
+ay,M4,GCP 80s70s NaN sayisi = -9999 sayisi,tutmayan sutun [],PASS,2026-11-14T02:05:40
+ay,M4,GCP 90s80s rastgele 1000 satir fark 0,"11 sutun, 0 farkli",PASS,2026-11-14T02:05:41
+ay,M4,GCP 90s80s NaN sayisi = -9999 sayisi,tutmayan sutun [],PASS,2026-11-14T02:05:41
+ay,M5,rastgele 1000 satir fark 0,"11306 x 61, 0 farkli; sutun adlari var",PASS,2026-11-14T02:05:41
+ay,M5,NaN sayisi = 0 (veri-yok tanimli degil),0,PASS,2026-11-14T02:05:41
+ay,M6,rastgele 1000 satir fark 0,0 farkli,PASS,2026-11-14T02:05:42
+ay,M6,NaN sayisi = bozuk hucre sayisi,"NaN 1, '*' 1",PASS,2026-11-14T02:05:42
+ay,M6,negatif hucre sayisi korundu,4180,PASS,2026-11-14T02:05:42
+ay,M1,rastgele piksel fark 0,"1000 piksel, 0 farkli",PASS,2026-11-14T02:13:24
+ay,M1,NaN sayisi = veri-yok sayisi,"NaN 0, veri-yok 0",PASS,2026-11-14T02:13:24
+ay,M1,uc degerler D2 ile ayni,"min -9128.5, max 10781.5 (D2: -9128,5 / 10781,5)",PASS,2026-11-14T02:13:24
+ay,M2,rastgele 1000 poligon: birim ve alan_km2 ham ile ayni,12247 kayit (ham 12247); birim True; alan True; AREA_GEO toplami / 4πR² = 1.000001,PASS,2026-11-14T02:13:26
+ay,M2,bos birim sayisi (kayit),0,PASS,2026-11-14T02:13:26
+ay,M7,avgvisib_65s.tif rastgele piksel fark 0,"1000 piksel, 0 farkli",PASS,2026-11-14T02:13:29
+ay,M7,avgvisib_65s.tif NaN sayisi = veri-yok sayisi,"NaN 0, beklenen 0",PASS,2026-11-14T02:13:29
+ay,M7,"avgvisib_65s.tif deger araligi [0, 1]","min 0.0, max 0.9347599744796753",PASS,2026-11-14T02:13:29
+ay,M7,avgvisib_65n.tif rastgele piksel fark 0,"1000 piksel + anormal piksel, 0 farkli",PASS,2026-11-14T02:13:33
+ay,M7,avgvisib_65n.tif NaN sayisi = veri-yok sayisi,"NaN 1, beklenen 1",PASS,2026-11-14T02:13:33
+ay,M7,"avgvisib_65n.tif deger araligi [0, 1]","min 0.0, max 0.8908399939537048",PASS,2026-11-14T02:13:33
+ay,M7,lpsr_65s.tif rastgele piksel fark 0,"1000 piksel, 0 farkli",PASS,2026-11-14T02:13:34
+ay,M7,lpsr_65s.tif NaN sayisi = veri-yok sayisi,"NaN 0, beklenen 0",PASS,2026-11-14T02:13:34
+ay,M7,"lpsr_65s.tif deger araligi [0, 1]","min 0.0, max 1.0",PASS,2026-11-14T02:13:34
+ay,M7,lpsr_65n.tif rastgele piksel fark 0,"1000 piksel + anormal piksel, 0 farkli",PASS,2026-11-14T02:13:36
+ay,M7,lpsr_65n.tif NaN sayisi = veri-yok sayisi,"NaN 1, beklenen 1",PASS,2026-11-14T02:13:36
+ay,M7,"lpsr_65n.tif deger araligi [0, 1]","min 0.0, max 1.0",PASS,2026-11-14T02:13:36
+mars,R1,rastgele piksel fark 0,"1000 piksel, 0 farkli",PASS,2026-11-14T02:25:21
+mars,R1,NaN sayisi = veri-yok sayisi,"NaN 0, veri-yok 0",PASS,2026-11-14T02:25:21
+mars,R1,uc degerler D2 ile ayni,"min -8201.0, max 21241.0 (D2: -8201 / 21241)",PASS,2026-11-14T02:25:21
+mars,R2,rastgele 1000 poligon: birim ve alan_km2 ham ile ayni,"1311 kayit, 44 birim; birim True; alan True; SphArea_km toplami / 4πR² = 0.999999",PASS,2026-11-14T02:25:22
+mars,R3,rastgele piksel fark 0,"13 bant x 1000 piksel, 0 farkli",PASS,2026-11-14T02:25:22
+mars,R3,NaN sayisi = veri-yok (-1) sayisi,tutmayan bant [],PASS,2026-11-14T02:25:22
+mars,R4,TI rastgele piksel fark 0 (yeniden düzenleme dahil),"1000 piksel, 0 farkli",PASS,2026-11-14T02:25:24
+mars,R4,TI NaN sayisi = veri-yok (0) sayisi,"NaN 2728379, 0 2728379",PASS,2026-11-14T02:25:24
+mars,R4,albedo rastgele piksel fark 0,"1000 piksel, 0 farkli",PASS,2026-11-14T02:25:24
+mars,R4,albedo NaN sayisi = veri-yok sayisi,"NaN 0, beklenen 0",PASS,2026-11-14T02:25:24
+mars,R5,rastgele piksel fark 0,"1000 piksel, 0 farkli",PASS,2026-11-14T02:25:24
+mars,R5,"NaN sayisi = veri-yok (0,85) sayisi","NaN 3525987, 0,85 3525987",PASS,2026-11-14T02:25:24
+mars,R6,"rastgele satir fark 0 (6 element x 200 satir, boslukla bolerek bagimsiz okuma)",0 farkli,PASS,2026-11-14T02:25:25
+mars,R6,NaN sayisi = 9999.999 sayisi,tutmayan [],PASS,2026-11-14T02:25:25
+mars,R7,SWIM4MIM_Ci_0_1 rastgele piksel fark 0,"1000 piksel, 0 farkli",PASS,2026-11-14T02:25:26
+mars,R7,SWIM4MIM_Ci_0_1 NaN sayisi = veri-yok sayisi,"NaN 0, veri-yok 0",PASS,2026-11-14T02:25:26
+mars,R7,"SWIM4MIM_Ci_0_1 deger araligi [-1, 1]","min -0.37437498569488525, max 1.0",PASS,2026-11-14T02:25:26
+mars,R7,SWIM4MIM_Ci_1_5 rastgele piksel fark 0,"1000 piksel, 0 farkli",PASS,2026-11-14T02:25:28
+mars,R7,SWIM4MIM_Ci_1_5 NaN sayisi = veri-yok sayisi,"NaN 0, veri-yok 0",PASS,2026-11-14T02:25:28
+mars,R7,"SWIM4MIM_Ci_1_5 deger araligi [-1, 1]","min -0.5714285969734192, max 1.0",PASS,2026-11-14T02:25:28
+mars,R7,SWIM4MIM_Ci_5 rastgele piksel fark 0,"1000 piksel, 0 farkli",PASS,2026-11-14T02:25:29
+mars,R7,SWIM4MIM_Ci_5 NaN sayisi = veri-yok sayisi,"NaN 0, veri-yok 0",PASS,2026-11-14T02:25:29
+mars,R7,"SWIM4MIM_Ci_5 deger araligi [-1, 1]","min -0.5, max 1.0",PASS,2026-11-14T02:25:29

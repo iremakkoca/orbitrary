@@ -1,0 +1,33 @@
+# Developed with assistance from Claude (Anthropic).
+# Orbitrary v1.2 ortamı — belge Bölüm 17.1 madde 3
+name: orbitrary
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.12
+  - numpy
+  - scipy
+  - pandas
+  - pyarrow
+  - gdal
+  - rasterio
+  - pyproj
+  - geopandas
+  - pyogrio
+  - shapely
+  - xarray
+  - netcdf4
+  - h5py
+  - libgdal-hdf4
+  - libgdal-hdf5
+  - libgdal-netcdf
+  - earthaccess
+  - gudhi
+  - matplotlib
+  - jupyterlab
+  - pytest
+  - tqdm
+  - pip
+  - pip:
+      - inflate64

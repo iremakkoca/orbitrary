@@ -1,0 +1,164 @@
+{
+  "tarih": "2026-11-13T23:51:31",
+  "karar": "R6, 2013 MD5 listesi yerine PDS4 (2026) etiketleriyle dogrulandi ve kabul edildi; ham icerik degismedi.",
+  "neden": "Arsiv Eylul-Ekim 2026'da PDS4'e gocmus; .tab/.lbl yeniden yazilmis, MD5 listesi 2013'te kalmis. Surum 1.0 degismemis.",
+  "okuma_notu": "PDS3 .lbl RECORD_BYTES (71/65) eski; dosyada satir PDS4 record_length (72/66) bayt, CRLF. D3'te PDS4 etiketine gore ya da satir satir okunur.",
+  "kaynaklar": [
+    "https://pds-geosciences.wustl.edu/ody/ody-m-grs-5-elements-v1/",
+    "https://pds-geosciences.wustl.edu/ody/ody-m-grs-5-elements-v1/odgm_xxxx/data/smoothed/",
+    "https://pds-geosciences.wustl.edu/ody/ody-m-grs-5-elements-v1/odgm_xxxx/data/smoothed/h2o_sr_5x5.xml",
+    "doi:10.17189/1519480"
+  ],
+  "elementler": [
+    {
+      "element": "h2o",
+      "pds4_records": 2592,
+      "pds4_record_length": 72,
+      "pds3_RECORD_BYTES": 71,
+      "pds4_modification_date": "2026-10-01",
+      "pds4_version_id": "1.0",
+      "tab_bayt": 186624,
+      "tab_testleri": {
+        "ad_tutuyor": true,
+        "boyut_eq_records_x_length": true,
+        "satir_sayisi_tutuyor": true,
+        "her_satir_record_length": true,
+        "pds4_gocu_kaydi": true,
+        "surum_1_0": true
+      },
+      "lbl_testleri": {
+        "pds3": true,
+        "table_adi": true,
+        "file_records": true
+      },
+      "gecti": true,
+      "tab_sha256": "5cec0d637755ddb7a451f58d7b24b6fb34f081e3391b40cdfca5410200da0236",
+      "lbl_sha256": "1333eef6d604f45af7e9e9f2899e5586b7747b13ad746a389d83ab1adbcf7000"
+    },
+    {
+      "element": "fe",
+      "pds4_records": 2592,
+      "pds4_record_length": 72,
+      "pds3_RECORD_BYTES": 71,
+      "pds4_modification_date": "2026-10-01",
+      "pds4_version_id": "1.0",
+      "tab_bayt": 186624,
+      "tab_testleri": {
+        "ad_tutuyor": true,
+        "boyut_eq_records_x_length": true,
+        "satir_sayisi_tutuyor": true,
+        "her_satir_record_length": true,
+        "pds4_gocu_kaydi": true,
+        "surum_1_0": true
+      },
+      "lbl_testleri": {
+        "pds3": true,
+        "table_adi": true,
+        "file_records": true
+      },
+      "gecti": true,
+      "tab_sha256": "c6cba107597434f696e51713a00ee6a444262f47f68681d7366ced7ffc1c87ac",
+      "lbl_sha256": "208d36cee2bc73158c20c7cd2b20e08251b8fd516380f678308f476a530c6862"
+    },
+    {
+      "element": "si",
+      "pds4_records": 2592,
+      "pds4_record_length": 72,
+      "pds3_RECORD_BYTES": 71,
+      "pds4_modification_date": "2026-10-01",
+      "pds4_version_id": "1.0",
+      "tab_bayt": 186624,
+      "tab_testleri": {
+        "ad_tutuyor": true,
+        "boyut_eq_records_x_length": true,
+        "satir_sayisi_tutuyor": true,
+        "her_satir_record_length": true,
+        "pds4_gocu_kaydi": true,
+        "surum_1_0": true
+      },
+      "lbl_testleri": {
+        "pds3": true,
+        "table_adi": true,
+        "file_records": true
+      },
+      "gecti": true,
+      "tab_sha256": "dfc98582b8faa328ab62f921113adee34ea04b0c66334e1957394617763281ae",
+      "lbl_sha256": "364e2caf3a66e7c89549932ac81edcb7588ca54e3b2a14247a022bf001764486"
+    },
+    {
+      "element": "k",
+      "pds4_records": 2592,
+      "pds4_record_length": 66,
+      "pds3_RECORD_BYTES": 65,
+      "pds4_modification_date": "2026-10-01",
+      "pds4_version_id": "1.0",
+      "tab_bayt": 171072,
+      "tab_testleri": {
+        "ad_tutuyor": true,
+        "boyut_eq_records_x_length": true,
+        "satir_sayisi_tutuyor": true,
+        "her_satir_record_length": true,
+        "pds4_gocu_kaydi": true,
+        "surum_1_0": true
+      },
+      "lbl_testleri": {
+        "pds3": true,
+        "table_adi": true,
+        "file_records": true
+      },
+      "gecti": true,
+      "tab_sha256": "66eb41ab27c29aac6af75a1512630e894c211158d5bee476beaf801e1be4826d",
+      "lbl_sha256": "210a986fa38a02a97b1d911c37d5792f8cfb59a0f6f077da2598b46ee2eabfb2"
+    },
+    {
+      "element": "th",
+      "pds4_records": 2592,
+      "pds4_record_length": 66,
+      "pds3_RECORD_BYTES": 65,
+      "pds4_modification_date": "2026-10-01",
+      "pds4_version_id": "1.0",
+      "tab_bayt": 171072,
+      "tab_testleri": {
+        "ad_tutuyor": true,
+        "boyut_eq_records_x_length": true,
+        "satir_sayisi_tutuyor": true,
+        "her_satir_record_length": true,
+        "pds4_gocu_kaydi": true,
+        "surum_1_0": true
+      },
+      "lbl_testleri": {
+        "pds3": true,
+        "table_adi": true,
+        "file_records": true
+      },
+      "gecti": true,
+      "tab_sha256": "6c6ce0c50aee39353e99723eab19fc3c9e4ad65bad88c3fbe4bc48b08cd18919",
+      "lbl_sha256": "57ea5618e023046980a986bde184d179ec249bc04c27c94def353277fff4676e"
+    },
+    {
+      "element": "cl",
+      "pds4_records": 2592,
+      "pds4_record_length": 72,
+      "pds3_RECORD_BYTES": 71,
+      "pds4_modification_date": "2026-10-01",
+      "pds4_version_id": "1.0",
+      "tab_bayt": 186624,
+      "tab_testleri": {
+        "ad_tutuyor": true,
+        "boyut_eq_records_x_length": true,
+        "satir_sayisi_tutuyor": true,
+        "her_satir_record_length": true,
+        "pds4_gocu_kaydi": true,
+        "surum_1_0": true
+      },
+      "lbl_testleri": {
+        "pds3": true,
+        "table_adi": true,
+        "file_records": true
+      },
+      "gecti": true,
+      "tab_sha256": "f3e50ff4f90533b4d5bc1bd3801660366349ae030cc192f2a8dba627671f17a6",
+      "lbl_sha256": "73c4b314440ba58de5b6a6571132bd9dc698178e1f6efef5931d560832cab00b"
+    }
+  ]
+}

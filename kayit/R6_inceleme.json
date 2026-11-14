@@ -1,0 +1,143 @@
+{
+  "tarih": "2026-11-13T23:46:36",
+  "kaynak_liste": "veri/mars/R6_odyssey_grs/odgm_xxxx_130911.md5",
+  "bulgu": "Boyutlar rapor ve sunucuyla ayni; icerik gecerli PDS3 tablosu (CRLF, 2592 satir); uretici MD5 listesi ne ham dosyayla ne CRLF->LF donusumuyle tutuyor. Neden: acik.",
+  "boyut_tutan": 12,
+  "md5_tutan": 0,
+  "lf_md5_tutan": 0,
+  "dosyalar": [
+    {
+      "dosya": "h2o_sr_5x5.tab",
+      "bayt": 186624,
+      "beklenen_bayt": 186624,
+      "md5_gercek": "238ac1207d8f085fb4ea3b2f4b3b018d",
+      "md5_liste": "c6b4a8f9387b886ee99ef2f518d5abe8",
+      "md5_crlf_lf": "b906d86084a4169c073f865ea742d2c1",
+      "gercek_md5_listenin_herhangi_bir_satirinda": false,
+      "lf_md5_listenin_herhangi_bir_satirinda": false,
+      "satir_sayisi": 2592
+    },
+    {
+      "dosya": "h2o_sr_5x5.lbl",
+      "bayt": 4653,
+      "beklenen_bayt": 4653,
+      "md5_gercek": "01c286a92897b40c113aea43b70d747d",
+      "md5_liste": "595a0199fa7c6c0cebe343235100532f",
+      "md5_crlf_lf": "fdbb7594009cc6298215212aae148493",
+      "gercek_md5_listenin_herhangi_bir_satirinda": false,
+      "lf_md5_listenin_herhangi_bir_satirinda": false,
+      "satir_sayisi": 118
+    },
+    {
+      "dosya": "fe_sr_5x5.tab",
+      "bayt": 186624,
+      "beklenen_bayt": 186624,
+      "md5_gercek": "64d15cabd88c6fa3d2ed6463129253de",
+      "md5_liste": "fa90a7e62f40bb81bb893524471e2156",
+      "md5_crlf_lf": "4f84592a7693c7404c22b042de04166e",
+      "gercek_md5_listenin_herhangi_bir_satirinda": false,
+      "lf_md5_listenin_herhangi_bir_satirinda": false,
+      "satir_sayisi": 2592
+    },
+    {
+      "dosya": "fe_sr_5x5.lbl",
+      "bayt": 4647,
+      "beklenen_bayt": 4647,
+      "md5_gercek": "fe01ae5427d94f8afc962990ba00d96b",
+      "md5_liste": "3ba2fef040da91f1f618c0fead4b51d0",
+      "md5_crlf_lf": "50ba00d86417eb0e4af8df47c1922993",
+      "gercek_md5_listenin_herhangi_bir_satirinda": false,
+      "lf_md5_listenin_herhangi_bir_satirinda": false,
+      "satir_sayisi": 118
+    },
+    {
+      "dosya": "si_sr_5x5.tab",
+      "bayt": 186624,
+      "beklenen_bayt": 186624,
+      "md5_gercek": "27b771512b484bc800a182cda23e00a6",
+      "md5_liste": "f24a42fa2c11fec04d59d4b5fab20f3f",
+      "md5_crlf_lf": "91b91c33b92be81d0420446f51c6f2d2",
+      "gercek_md5_listenin_herhangi_bir_satirinda": false,
+      "lf_md5_listenin_herhangi_bir_satirinda": false,
+      "satir_sayisi": 2592
+    },
+    {
+      "dosya": "si_sr_5x5.lbl",
+      "bayt": 4665,
+      "beklenen_bayt": 4665,
+      "md5_gercek": "093f1fa1698a8a2776fd0d1595bda6a8",
+      "md5_liste": "da4b22ac036ebcd69adb622b7ad5e06b",
+      "md5_crlf_lf": "8d12f83cb67abd435922d4cf9d68d99f",
+      "gercek_md5_listenin_herhangi_bir_satirinda": false,
+      "lf_md5_listenin_herhangi_bir_satirinda": false,
+      "satir_sayisi": 118
+    },
+    {
+      "dosya": "k_sr_5x5.tab",
+      "bayt": 171072,
+      "beklenen_bayt": 171072,
+      "md5_gercek": "28cb993610b22b7737e6617cb977e024",
+      "md5_liste": "06a60428199f8915f6769e51cafed9ea",
+      "md5_crlf_lf": "e90ca99b2c6134f02581911cc100bb36",
+      "gercek_md5_listenin_herhangi_bir_satirinda": false,
+      "lf_md5_listenin_herhangi_bir_satirinda": false,
+      "satir_sayisi": 2592
+    },
+    {
+      "dosya": "k_sr_5x5.lbl",
+      "bayt": 4642,
+      "beklenen_bayt": 4642,
+      "md5_gercek": "e83ba70a530d4bbf0360ff8e0d268240",
+      "md5_liste": "9ae05d831f4812c473987423b25cfe17",
+      "md5_crlf_lf": "87155d910ff7fd2c13945ec30f9b7d3a",
+      "gercek_md5_listenin_herhangi_bir_satirinda": false,
+      "lf_md5_listenin_herhangi_bir_satirinda": false,
+      "satir_sayisi": 118
+    },
+    {
+      "dosya": "th_sr_5x5.tab",
+      "bayt": 171072,
+      "beklenen_bayt": 171072,
+      "md5_gercek": "afd5ac10830a27559451480663790e80",
+      "md5_liste": "70a7fd2e68cff9ae9d907b57f1a3bde4",
+      "md5_crlf_lf": "bf686fc2b32e9d47d7e1fd82749b4542",
+      "gercek_md5_listenin_herhangi_bir_satirinda": false,
+      "lf_md5_listenin_herhangi_bir_satirinda": false,
+      "satir_sayisi": 2592
+    },
+    {
+      "dosya": "th_sr_5x5.lbl",
+      "bayt": 4645,
+      "beklenen_bayt": 4645,
+      "md5_gercek": "a9d1542a752f36034a9bf5394ae28b3b",
+      "md5_liste": "58dd0e5e128be96aec8e9a08c86b8363",
+      "md5_crlf_lf": "24bdf4cdf0db0420edea037782d1c343",
+      "gercek_md5_listenin_herhangi_bir_satirinda": false,
+      "lf_md5_listenin_herhangi_bir_satirinda": false,
+      "satir_sayisi": 118
+    },
+    {
+      "dosya": "cl_sr_5x5.tab",
+      "bayt": 186624,
+      "beklenen_bayt": 186624,
+      "md5_gercek": "7131a9c41b33816f7ea645ecfb7dc454",
+      "md5_liste": "6419661a648f4b9d18789b3b86b8be1d",
+      "md5_crlf_lf": "f5c49d4616fc0523bb52312633bee5bc",
+      "gercek_md5_listenin_herhangi_bir_satirinda": false,
+      "lf_md5_listenin_herhangi_bir_satirinda": false,
+      "satir_sayisi": 2592
+    },
+    {
+      "dosya": "cl_sr_5x5.lbl",
+      "bayt": 4649,
+      "beklenen_bayt": 4649,
+      "md5_gercek": "bf8ac844621ced0797009e160a73270c",
+      "md5_liste": "0839f9c3df458127a12b735a362a8441",
+      "md5_crlf_lf": "06d792096cfaf5cedd04b15643d63ace",
+      "gercek_md5_listenin_herhangi_bir_satirinda": false,
+      "lf_md5_listenin_herhangi_bir_satirinda": false,
+      "satir_sayisi": 118
+    }
+  ],
+  "durum": "ACIK - karar bekliyor"
+}

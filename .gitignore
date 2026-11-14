@@ -1,0 +1,13 @@
+# Orbitrary: depoya girmeyecekler (belge 17.11: depoda ham veri, _netrc, şifre ya da token yok)
+veri/
+temiz/
+ara/
+.virtual_documents/
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+*.part
+_netrc
+.netrc
+*.token
+.env
+*.pyc

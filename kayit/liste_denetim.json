@@ -1,0 +1,42 @@
+{
+  "tarih": "2026-11-13T21:59:20",
+  "rapor": "C:\\Users\\USER\\orbitrary\\kod\\indirme_raporu3.md",
+  "rapor_sha256": "7940e0720f2ff1dead902f36d3d07c0bd6d0c127f39b8da71f2df2965f2ed551",
+  "liste": "C:\\Users\\USER\\orbitrary\\kod\\indirme_listesi.csv",
+  "liste_sha256": "69d79277cdc026dc2e7c23038d07ec7b84d8c9e1c272adf45301eee6f178211a",
+  "satir": 122,
+  "dosya": 409,
+  "set_basina_dosya": {
+    "E1": 288,
+    "E2": 1,
+    "E4": 12,
+    "E5": 12,
+    "E6": 12,
+    "E3": 1,
+    "E7": 1,
+    "E8": 1,
+    "E9": 2,
+    "E10": 4,
+    "M1": 3,
+    "M2": 1,
+    "M3": 5,
+    "M4": 18,
+    "M5": 4,
+    "M6": 6,
+    "M7": 8,
+    "R1": 3,
+    "R2": 2,
+    "R3": 4,
+    "R4": 4,
+    "R5": 1,
+    "R6": 13,
+    "R7": 3
+  },
+  "adres_kurali": {
+    "tam": 52,
+    "klasor+ad": 15,
+    "genisletilmis": 18
+  },
+  "hatalar": [],
+  "durum": "PASS"
+}
