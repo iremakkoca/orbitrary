@@ -149,7 +149,20 @@
     .puan-satir { display: flex; gap: 32px; }
     .puan-sayi { font-size: 34px; font-weight: 600; }
     .puan-sayi.kucuk { font-size: 24px; color: var(--muted); }
-    .radar.buyuk { max-width: 440px; align-self: center; }
+    .radar.buyuk { max-width: 340px; align-self: center; }
+    .esles { min-height: auto !important; padding: 34px 5vw !important; }
+    .esles-ic .harita-kutu, .esles-ic .harita-kutu .harita { min-height: 380px !important; }
+    .esles-kart { padding: 22px !important; gap: 8px !important; }
+    .esles-ad { font-size: 22px !important; }
+    .bolge-liste { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; max-height: 210px; overflow: auto; }
+    .bolge-liste button { font-size: 12.5px; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,0.03); color: var(--text); cursor: pointer; }
+    .bolge-liste button:hover { border-color: var(--accent); color: var(--accent); }
+    .ck-cubuklar { margin: 8px 0 10px; }
+    .ck-satir { display: grid; grid-template-columns: 96px 1fr 70px; gap: 10px; align-items: center; font-size: 13.5px; margin: 7px 0; }
+    .ck-iz { height: 10px; border-radius: 5px; background: #1f2a3d; overflow: hidden; }
+    .ck-iz i { display: block; height: 100%; background: var(--accent); }
+    .ck-toplam { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--line); padding-top: 8px; font-size: 15px; }
+    .ck-toplam b { font-size: 26px; color: var(--accent); }
     .lejant { display: flex; gap: 18px; justify-content: center; font-size: 13px; color: var(--muted); }
     .lejant span { display: inline-flex; align-items: center; gap: 6px; }
     .lejant i { width: 22px; height: 0; border-top: 2px solid; display: inline-block; }
@@ -252,8 +265,10 @@
         <ol class="adimlar" style="margin-top:12px">
           <li>Choose Moon or Mars</li>
           <li>Choose a mission</li>
-          <li>Click any point on the globe</li>
+          <li>Click any point on the globe, or pick a target below</li>
         </ol>
+        <div class="etiket" style="margin-top:18px">Targets on this world</div>
+        <div id="bolge-liste" class="bolge-liste"></div>
       </div>
 
       <!-- Nokta seçilince -->
@@ -283,13 +298,12 @@
       <div class="blok">
         <div class="etiket">Top Earth analogs</div>
         <ol class="liste">
-          <li><button class="liste-btn" data-git="match-1"><span class="sira">1</span><span>Coming soon</span><span class="ok">↓</span></button></li>
-          <li><button class="liste-btn" data-git="match-2"><span class="sira">2</span><span>Coming soon</span><span class="ok">↓</span></button></li>
-          <li><button class="liste-btn" data-git="match-3"><span class="sira">3</span><span>Coming soon</span><span class="ok">↓</span></button></li>
+          <li><button class="liste-btn" data-git="match-1"><span class="sira">1</span><span>Select a point</span><span class="ok">↓</span></button></li>
+          <li><button class="liste-btn" data-git="match-2"><span class="sira">2</span><span>Select a point</span><span class="ok">↓</span></button></li>
+          <li><button class="liste-btn" data-git="match-3"><span class="sira">3</span><span>Select a point</span><span class="ok">↓</span></button></li>
         </ol>
       </div>
 
-      <span class="yakinda"><button disabled>Find Earth analog →</button></span>
     </aside>
 
     <!-- Alt şerit: sahnenin ve panelin altından boydan boya -->
@@ -308,7 +322,7 @@
   <aside id="cekmece" aria-hidden="true">
     <button class="kapat-x" id="cekmece-kapat" aria-label="Close">✕</button>
     <div class="etiket" id="ck-ust">#1 · Best match</div>
-    <h2 id="ck-baslik">Coming soon</h2>
+    <h2 id="ck-baslik">No site selected</h2>
     <p id="ck-alt">Select a point on the globe first.</p>
     <h3>1. Where the match score comes from</h3>
     <div id="ck-tablo"><p class="soluk">Select a point on the globe first.</p></div>
@@ -424,7 +438,7 @@
       <section class="esles" id="match-${n}">
         <div class="esles-ic">
           <div class="harita-kutu reveal">
-            <div><div class="etiket">Earth location map</div><p class="soluk" style="margin-top:6px">Satellite map — coming soon</p></div>
+            <div><div class="etiket">Earth location map</div><p class="soluk" style="margin-top:6px">Click a point on the globe to see its closest Earth sites</p></div>
           </div>
           <div class="esles-kart reveal">
             <div class="esles-ust">
@@ -434,7 +448,7 @@
                 <div class="hedef-ozet soluk">Select a point on the globe first</div>
               </div>
             </div>
-            <h2 class="esles-ad">Coming soon</h2>
+            <h2 class="esles-ad">Select a point on the globe</h2>
             <div class="mono">—</div>
             <div class="puan-satir">
               <div><div class="puan-sayi">—%</div><div class="etiket">match</div>
@@ -445,9 +459,9 @@
             <div class="lejant">
               <span><i class="l-sim"></i>Similarity</span><span><i class="l-mis"></i>Mismatch</span><span><i class="l-yok"></i>No data</span>
             </div>
-            <h3>Why it matches</h3><p class="soluk">Coming soon.</p>
-            <h3>Where the analogy breaks</h3><p class="soluk">Coming soon.</p>
-            <div class="uyari">${UYARI_IKON}<span>Notes for this site will appear here.</span></div>
+            <h3>Why it matches</h3><p class="soluk">—</p>
+            <h3>Where the analogy breaks</h3><p class="soluk">—</p>
+            <div class="uyari">${UYARI_IKON}<span>Notes for this site appear after you select a point.</span></div>
             <button class="ac-ok" data-ac="${n}" aria-label="Open the full explanation for match #${n}">→</button>
           </div>
         </div>
@@ -457,7 +471,7 @@
     // ---------- Site v2: açıklama çekmecesi ----------
     // Kapı metinleri: yöntem v1.2 (veri tarafının 14 Kasım cevabı, C12). Durum adları belge 2.3.
     const KAPI_METNI = {
-      genel: 'Overall has no gate: every Earth window can be compared (not applicable).',
+      genel: 'General has no gate: every Earth window can be compared (not applicable).',
       hareket: 'Mobility test: nearly all of the Earth window must be flat enough for a rover to drive.',
       jeoloji: 'Geology: the rock must be visible, so the Earth window must have little vegetation and little snow or ice.',
       buz: 'Ice & resources: not applicable when the target is dry; otherwise the Earth window must be largely permafrost.',
@@ -472,7 +486,7 @@
       document.getElementById('ck-alt').textContent = secilen
         ? `Earth analog for ${koordYazi(secilen.lat, secilen.lon)} on ${GOK[govde].ile}.`
         : 'Select a point on the globe first.';
-      document.getElementById('ck-kapi').textContent = KAPI_METNI[gorev] + (gorev === 'genel' ? '' : KAPI_NOT);
+      document.getElementById('ck-kapi').textContent = KAPI_METNI[gorev];
       cekmece.classList.add('acik'); cekmeceArka.classList.add('acik'); cekmece.setAttribute('aria-hidden', 'false');
     }
     function cekmeceKapat() { cekmece.classList.remove('acik'); cekmeceArka.classList.remove('acik'); cekmece.setAttribute('aria-hidden', 'true'); }
@@ -753,7 +767,30 @@
     //   cos d = sin φ₁ sin φ₂ + cos φ₁ cos φ₂ cos(λ₁ − λ₂)
     // d < 3° ise o hedefin adını yaz, değilse "Uncharted site"
     let hedefler = [];
-    const hedeflerHazir = fetch('data/targets.json').then(r => r.json()).then(v => { hedefler = v; }).catch(() => {});
+    const hedeflerHazir = fetch('data/targets.json').then(r => r.json()).then(v => { hedefler = v; bolgeIsaretleri(); bolgeListesi(); }).catch(() => {});
+    // Hedef konumu → birim vektör (tıklamadaki dönüşümün tersi: y = sin φ, x = cos φ cos λ, z = −cos φ sin λ)
+    const hedefVektor = (lat, lon) => { const f = THREE.MathUtils.degToRad(lat), l = THREE.MathUtils.degToRad(lon);
+      return new THREE.Vector3(Math.cos(f) * Math.cos(l), Math.sin(f), -Math.cos(f) * Math.sin(l)); };
+    function bolgeIsaretleri() {
+      for (const h of hedefler) {
+        const m = MESH[h.body === 'moon' ? 'ay' : 'mars']; if (!m) continue;
+        const p = hedefVektor(h.lat, h.lon);
+        const r = new THREE.Mesh(new THREE.RingGeometry(0.012, 0.017, 32),
+          new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.85, side: THREE.DoubleSide, toneMapped: false, depthWrite: false }));
+        r.position.copy(p).multiplyScalar(1.004);
+        r.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), p);
+        m.add(r);
+      }
+    }
+    function bolgeListesi() {
+      const kok = document.getElementById('bolge-liste'); if (!kok) return;
+      const g = govde === 'ay' ? 'moon' : 'mars';
+      kok.innerHTML = hedefler.filter(h => h.body === g).map(h => `<button data-hid="${h.id}">${h.name}</button>`).join('');
+      kok.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+        const h = hedefler.find(x => x.id === b.dataset.hid), p = hedefVektor(h.lat, h.lon);
+        isaretKoy(p); noktaSecildi(h.lat, h.lon); noktayaDon(p);
+      }));
+    }
     function enYakinHedef(lat, lon) {
       const r = THREE.MathUtils.degToRad;
       const govdeAdi = govde === 'ay' ? 'moon' : 'mars';
@@ -774,7 +811,7 @@
       document.getElementById('git-btn').disabled = true;   // SITE_V2_YAMA_3: sayı değişmedikçe Go soluk
       const bolge = enYakinHedef(lat, lon);
       document.getElementById('ozet-bolge').innerHTML = bolge
-        ? `${bolge.name} · <a href="target.html?id=${encodeURIComponent(bolge.id)}" style="color:var(--accent)">Full analysis →</a>`
+        ? `${bolge.name}<br><a class="cta-analiz" style="margin-top:8px;font-size:13px;padding:7px 12px" href="target.html?id=${encodeURIComponent(bolge.id)}">Open the full ${bolge.name} analysis →</a>`
         : 'Uncharted site';
       document.getElementById('giris').hidden = true;
       document.getElementById('secim').hidden = false;
@@ -841,7 +878,7 @@
       V.radar(document.getElementById('radar'), SON[0].s);
       for (let n = 1; n <= 3; n++) {
         const e = SON[n - 1];
-        yaz(btnlar[n - 1], e ? `${koordYazi(e.earth.enlem, e.earth.boylam)} · ${e.P.toFixed(2)}` : '—');
+        yaz(btnlar[n - 1], e ? `${koordYazi(e.earth.enlem, e.earth.boylam)} · ${V.puanYuzde(e.P)}` : '—');
         await bolumDoldur(n, e, T, g);
       }
     }
@@ -863,9 +900,9 @@
             <div><div class="etiket">${n === 1 ? 'Best match' : 'Match'} · Earth analog · ${V.GOREV_AD[g]}</div>
             <div class="hedef-ozet soluk">For ${koordYazi(secilen.lat, secilen.lon)} on ${GOK[govde].ile}</div></div></div>
           <h2 class="esles-ad">Earth site ${koordYazi(e.earth.enlem, e.earth.boylam)}</h2>
-          ${et ? `<span class="rozet rozet-${et.tur}" title="${et.aciklama}">${et.ad}${et.tur !== 'new' ? ' · ' + V.saha(e.earth.analog_id) : ''} · ${e.earth.analog_km.toFixed(0)} km to the nearest documented analog</span>` : ''}
+          ${et ? `<span class="rozet rozet-${et.tur}" title="${et.aciklama}">${et.ad} · ${V.saha(e.earth.analog_id)} · ${e.earth.analog_km.toFixed(0)} km</span>` : ''}
           <div class="puan-satir">
-            <div><div class="puan-sayi">${e.P.toFixed(2)}</div><div class="etiket">mission score (0–1)</div>
+            <div><div class="puan-sayi">${V.puanYuzde(e.P)}</div><div class="etiket">match score</div>
               <button class="nasil-link" data-ac="${n}" style="margin-top:8px">How is this scored? →</button></div>
             <div><div class="puan-sayi kucuk">${kaps} / 8</div><div class="etiket">categories compared</div></div>
           </div>
@@ -879,7 +916,7 @@
         </div>`;
       V.radar(kok.querySelector('.radar'), e.s);
       kok.querySelectorAll('[data-ac]').forEach(b => b.addEventListener('click', () => cekmeceAc(Number(b.dataset.ac))));
-      V.uyduHaritasi(kok.querySelector('.harita'), e.earth.enlem, e.earth.boylam, { zoom: 9 });
+      V.uyduHaritasi(kok.querySelector('.harita'), e.earth.enlem, e.earth.boylam, { zoom: 11 });
     }
 
     async function kapiEsik(g) {
@@ -897,10 +934,13 @@
       if (!e) { kutu.innerHTML = '<p class="soluk">Select a point on the globe first.</p>'; return; }
       const g = V.SITE_GOREV[gorev], w = await V.agirliklar(g), T = await V.metin();
       const W = w.reduce((a, x, k) => a + (e.s[k] != null ? x : 0), 0);
-      kutu.innerHTML = `<table class="ck-tab"><tr><th>Category</th><th>Similarity</th><th>Weight</th><th>Points</th></tr>
-        ${e.s.map((x, k) => `<tr><td>${V.KAT_AD[k]}</td><td>${x == null ? 'no data' : V.yuzde(x)}</td><td>${w[k].toFixed(3)}</td><td>${x == null ? '—' : (w[k] * x / W).toFixed(3)}</td></tr>`).join('')}
-        <tr><td><b>Mission score</b></td><td></td><td></td><td><b>${e.P.toFixed(2)}</b></td></tr></table>
-        <p class="soluk" style="font-size:13px">Points = weight × similarity ÷ ${W.toFixed(3)} (the sum of the weights of the categories with data on both sides). Values are rounded.</p>`;
+      kutu.innerHTML = `<div class="ck-cubuklar">${e.s.map((x, k) => {
+          const enCok = w[k] / W, alinan = x == null ? 0 : w[k] * x / W;
+          return `<div class="ck-satir"><span>${V.KAT_AD[k]}</span>
+            <div class="ck-iz" style="width:${(100 * enCok / Math.max(...w.map(v => v / W))).toFixed(1)}%"><i style="width:${x == null ? 0 : (100 * x).toFixed(1)}%"></i></div>
+            <span class="mono">${x == null ? 'no data' : '+' + (100 * alinan).toFixed(1) + ' pts'}</span></div>`; }).join('')}</div>
+        <div class="ck-toplam"><span>Match score</span><b>${V.puanYuzde(e.P)}</b></div>
+        <p class="soluk" style="font-size:13px">Each grey bar is as long as the category's weight for this mission: the most it can add. The blue part is the share the site earns (its similarity). The blue parts add up to the match score. Categories without data on both sides are left out and the other weights are rescaled.</p>`;
       if (g !== 'genel' && T.kapi[g]) document.getElementById('ck-kapi').textContent = `${T.kapi[g].metin} ${await kapiEsik(g)}`;
       else document.getElementById('ck-kapi').textContent = 'The General mission has no gate (not applicable).';
     }
@@ -918,6 +958,7 @@
       document.getElementById('kaynak').textContent = GOK[ad].kaynak;
       paneliSifirla();
       zoomSiniri();
+      bolgeListesi();
     }
 
     const NORMAL_UZAKLIK = 3.2;    // gezegene normal bakış uzaklığı (merkezden)

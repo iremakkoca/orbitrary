@@ -20,7 +20,7 @@
     header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 20;
       display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px;
-      padding: 16px 4vw;
+      padding: 14px 20px;
       transition: background 0.3s;
     }
     /* Sayfanın en üstündeyken: yukarıdan aşağı solan hafif karartma (gezegen arkada olsa da yazılar okunsun) */
@@ -159,7 +159,8 @@
       border: 1px solid var(--line);
     }
     .foto img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
-    .foto:hover img { transform: scale(1.03); }
+    .foto:hover img { transform: none; }
+    #sinirlar .arka img { transform: none !important; transition: none !important; }
     .foto figcaption {
       position: absolute; left: 0; right: 0; bottom: 0;
       padding: 28px 14px 10px; font-size: 12px; color: rgba(232, 237, 245, 0.85);
@@ -234,7 +235,7 @@
 
     /* Kategori penceresi (<dialog>): showModal() ile açılınca arkası kararır (::backdrop) */
     #kat-pencere {
-      margin: auto; width: min(680px, 92vw); max-height: 86vh;
+      margin: auto; width: min(1080px, 94vw); max-height: 88vh;
       background: var(--panel); color: var(--text);
       border: 1px solid var(--line); border-radius: 20px; padding: 32px;
     }
@@ -243,6 +244,11 @@
     #kat-pencere h4 { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; margin: 20px 0 6px; font-weight: 500; }
     #kat-pencere p { line-height: 1.65; }
     .pencere-alt { display: flex; gap: 10px; margin-top: 28px; }
+    .kp-izgara { display: grid; grid-template-columns: 1.05fr 1fr; gap: 30px; align-items: start; }
+    .kp-foto { margin: 0; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: #070b14; position: sticky; top: 0; }
+    .kp-foto img { width: 100%; height: 420px; object-fit: cover; display: block; }
+    .kp-foto figcaption { font-size: 12px; color: var(--muted); padding: 8px 12px; }
+    @media (max-width: 860px) { .kp-izgara { grid-template-columns: 1fr; } .kp-foto img { height: 240px; } }
     .pencere-alt .kapat { margin-left: auto; }
 
     /* ===== KİMLER İÇİN: fotoğraflı kartlar ===== */
@@ -253,7 +259,7 @@
 
     /* ===== PERDE ARKASI: yöntem / topoloji / doğrulama ===== */
     .yer-tutucu {
-      border: 1px dashed #2a3650; border-radius: 14px; min-height: 120px; margin-top: 8px;
+      border: 1px solid rgba(92,200,255,0.18); background: rgba(92,200,255,0.04); border-radius: 14px; min-height: 120px; margin-top: 8px;
       display: grid; place-items: center; color: var(--muted); font-size: 14px; text-align: center; padding: 16px;
     }
 
@@ -271,7 +277,8 @@
 
     /* ===== EKİP ===== */
     .ekip { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 40px; }
-    .uye { text-align: center; padding: 28px 18px; }
+    .uye { text-align: left; padding: 24px 22px; }
+    .uye h3 { font-size: 21px; margin-bottom: 6px; }
     .avatar {
       width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 6px;
       display: grid; place-items: center; font-size: 26px; font-weight: 600;
@@ -535,14 +542,19 @@
 
   <!-- Kategori ayrıntı penceresi (başta kapalı) -->
   <dialog id="kat-pencere">
-    <div class="etiket" id="kp-no">Category 01 / 08</div>
-    <h3 id="kp-baslik">Topography</h3>
-    <h4>What it measures</h4>
-    <p class="soluk" id="kp-olcer"></p>
-    <h4>Data we use</h4>
-    <p class="soluk" id="kp-veri"></p>
-    <h4>How we match it</h4>
-    <p class="soluk" id="kp-yontem"></p>
+    <div class="kp-izgara">
+      <div>
+        <div class="etiket" id="kp-no">Category 01 / 08</div>
+        <h3 id="kp-baslik">Topography</h3>
+        <h4>What it measures</h4>
+        <p class="soluk" id="kp-olcer"></p>
+        <h4>How we match it</h4>
+        <p class="soluk" id="kp-yontem"></p>
+        <h4>Data we use</h4>
+        <p class="soluk" id="kp-veri"></p>
+      </div>
+      <figure class="kp-foto"><img id="kp-img" alt=""><figcaption id="kp-alt"></figcaption></figure>
+    </div>
     <div class="pencere-alt">
       <button id="kp-onceki">← Previous</button>
       <button id="kp-sonraki">Next →</button>
@@ -577,14 +589,15 @@
     <div class="ic">
       <div class="etiket reveal">Under the hood</div>
       <h2 class="reveal">Method, topology and validation</h2>
-      <div class="kartlar">
+      <div class="kartlar" style="grid-template-columns:repeat(2,1fr)">
         <div class="kart reveal"><div class="no">METHOD</div><h3>How the score is built</h3><p class="soluk">Per-category similarities combined with mission weights into one absolute score.</p><div class="yer-tutucu" style="text-align:left;line-height:1.6"><b style="font-size:18px">P = Gate · Σ w·s / Σ w</b><br><span class="soluk">s = similarity in one category (share of reference Earth windows that are further from the target); w = mission weight; the sum runs over categories with data on both sides.</span><br><a class="btn-link" href="target.html" style="margin-top:10px;display:inline-block">See full target analyses →</a></div></div>
-        <div class="kart reveal" id="topoloji"><div class="no">TOPOLOGY</div><h3>Reading a crater like rising water</h3><p class="soluk">Flood a landscape slowly: pits fill up and rings appear and vanish. When they are born and when they disappear describes the terrain's shape.</p><div class="yer-tutucu">See the animation below ↓</div></div>
         <div class="kart reveal" id="dogrulama"><div class="no">VALIDATION</div><h3>Does it find known analogs?</h3><p class="soluk">We check whether well-studied analog sites rank high for the targets they are known to resemble.</p><div class="yer-tutucu" id="dogrulama-sonuc" style="text-align:left;line-height:1.6">Loading results…</div><a class="btn-link" href="analogs.html" style="margin-top:10px;display:inline-block">See every analog site →</a></div>
       </div>
       <!-- Site v2: topoloji animasyonu (11 Kasım Hücre 32'den; yönteme bağlı sayı içermez) -->
-      <div class="kart reveal" style="margin-top:16px">
-        <div class="no">TOPOLOGY · ANIMATION</div>
+      <div class="kart reveal" id="topoloji" style="margin-top:16px">
+        <div class="no">TOPOLOGY</div>
+        <h3>Reading a crater like rising water</h3>
+        <p class="soluk">Flood a landscape slowly: pits fill up and lakes appear and merge. When each lake is born and when it disappears describes the terrain's shape, independent of its absolute height.</p>
         <canvas id="yb-tuval" width="760" height="560" style="width:100%;max-width:900px;display:block;margin:8px auto 0;background:#060a13;border:1px solid var(--line);border-radius:16px"
                 aria-label="Animation of water rising over a terrain profile and the persistence diagram it builds"></canvas>
         <p class="soluk" style="font-size:13px">A slice through a terrain. As the water rises, each lake is born and dies when it merges into an older lake;
@@ -688,12 +701,7 @@
       <div class="etiket reveal">The team</div>
       <!-- A dikeyde ters (∀), E yatayda ayna (∃) -->
       <h2 class="reveal logo" style="font-size:clamp(28px,3.2vw,44px)">ORBITR<span class="ters">A</span>RY T<span class="ters-e">E</span>AM</h2>
-      <div class="ekip">
-        <div class="kart uye reveal"><div class="avatar">İ</div><h3>İrem</h3><p class="soluk">—</p></div>
-        <div class="kart uye reveal"><div class="avatar">S</div><h3>Sude</h3><p class="soluk">—</p></div>
-        <div class="kart uye reveal"><div class="avatar">E</div><h3>Emir</h3><p class="soluk">—</p></div>
-        <div class="kart uye reveal"><div class="avatar">Z</div><h3>Zeynep</h3><p class="soluk">—</p></div>
-      </div>
+      <div class="ekip" id="ekip-liste"></div>
     </div>
   </section>
 
@@ -823,6 +831,13 @@
       document.getElementById('kp-olcer').textContent = k.olcer;
       document.getElementById('kp-veri').textContent = k.veri;
       document.getElementById('kp-yontem').textContent = k.yontem;
+      const KF = ['topografya', 'topoloji', 'jeoloji', 'mineraloji', 'termal', 'su_buz', 'toz', 'aydinlanma'][katNo];
+      const img = document.getElementById('kp-img');
+      img.src = `img/kategori/${KF}.jpg`; img.onerror = () => { img.closest('figure').style.display = 'none'; };
+      img.closest('figure').style.display = '';
+      fetch('data/kategori_foto.json').then(r => r.json()).then(F => {
+        document.getElementById('kp-alt').textContent = F[KF] ? `Photo: NASA · ${F[KF].baslik} (${F[KF].nasa_id})` : '';
+      }).catch(() => {});
       if (!azHareket) gsap.fromTo('#kat-pencere > *', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.03 });
     }
 
@@ -841,14 +856,22 @@
 
     // ===== ARAMA ÇUBUĞU =====
     // Hedef listesi: data/targets.json (ekip 40 Ay + 60 Mars hedefini buraya koyacak)
-    const GOREV_AD = { genel: 'Overall', hareket: 'Mobility', jeoloji: 'Geology', buz: 'Ice & resources', astrobiyoloji: 'Astrobiology' };
+    const GOREV_AD = { genel: 'General', hareket: 'Mobility', jeoloji: 'Geology', buz: 'Ice & resources', astrobiyoloji: 'Astrobiology' };
+    const SITE_G = { hareket: 'mobility', jeoloji: 'geology', buz: 'ice', astrobiyoloji: 'astro' };
+    const EN_IYI = {};   // hedef kimliği → { görev: en iyi P } (data/liste)
+    async function enIyiYukle() {
+      await Promise.all(hedefler.map(h => fetch(`data/liste/liste_${encodeURIComponent(h.id)}.json`).then(r => r.json()).then(L => {
+        EN_IYI[h.id] = {};
+        for (const [g, o] of Object.entries(L.gorevler)) EN_IYI[h.id][g] = o && o.durum === 'computed' && o.ilk10 && o.ilk10.length ? o.ilk10[0].P : null;
+      }).catch(() => {})));
+    }
     let hedefler = [];
     let filtreGorev = '';
     let aktifOneri = -1;
     const girdi = document.getElementById('arama-girdi');
     const liste = document.getElementById('oneriler');
 
-    fetch('data/targets.json').then(r => r.json()).then(veri => { hedefler = veri; })
+    fetch('data/targets.json').then(r => r.json()).then(veri => { hedefler = veri; enIyiYukle(); })
       .catch(() => console.warn('data/targets.json yüklenemedi'));
 
     // Türkçe/İngilizce aksanları yok sayarak karşılaştır: "Hadley–Apennine" ~ "hadley apennine"
@@ -859,15 +882,17 @@
       const secim = document.querySelector('.segment').dataset.secim;          // '' | 'ay' | 'mars'
       const govde = secim === 'ay' ? 'moon' : secim === 'mars' ? 'mars' : '';
       const q = sade(girdi.value);
+      const fg = SITE_G[filtreGorev];
       const sonuc = hedefler.filter(h =>
         (!govde || h.body === govde) &&
-        (!filtreGorev || h.missions.includes(filtreGorev)) &&
+        (!fg || (EN_IYI[h.id] && EN_IYI[h.id][fg] != null)) &&
         (!q || sade(h.name + ' ' + h.source).includes(q))
       );
+      if (fg) sonuc.sort((a, b) => EN_IYI[b.id][fg] - EN_IYI[a.id][fg]);
       aktifOneri = -1;
       liste.innerHTML = sonuc.length
-        ? sonuc.map((h, i) => `<li data-i="${i}" title="${h.source.replace(/"/g, '&quot;')}"><span class="govde-etiket">${h.body === 'moon' ? 'MOON' : 'MARS'}</span><span class="ad">${h.name}</span></li>`).join('')
-        : '<li class="bos">No matching targets</li>';
+        ? sonuc.map((h, i) => `<li data-i="${i}" title="${h.source.replace(/"/g, '&quot;')}"><span class="govde-etiket">${h.body === 'moon' ? 'MOON' : 'MARS'}</span><span class="ad">${h.name}</span>${fg ? `<span class="soluk" style="margin-left:auto;font-size:12.5px">best match ${Math.round(100 * EN_IYI[h.id][fg])}%</span>` : ''}</li>`).join('')
+        : `<li class="bos">${fg ? 'No target has results for this mission' : 'No matching targets'}</li>`;
       liste.querySelectorAll('li[data-i]').forEach(li => li.addEventListener('mousedown', e => {
         e.preventDefault();                       // girdi odağını kaybetmeden önce seçimi yakala
         hedefeGit(sonuc[Number(li.dataset.i)]);
@@ -927,12 +952,20 @@
     // Site v2: doğrulama sayıları ozet.json'dan (elle sayı yok)
     import * as V from './js/veri.js';
     try {
-      const O = await V.ozet(), g = O.V1.gorev, v3 = O.V3;
+      const [O, A] = await Promise.all([V.ozet(), V.analoglar()]), g = O.V1.gorev, v3 = O.V3;
+      const c = A.filter(x => x.tur === 'validation').flatMap(x => x.ciftler.map(k => k.sonuc)).filter(Boolean);
+      const gec = c.filter(k => !k.kapidan_kaldi).map(k => k.Pi).sort((a, b) => a - b), n = gec.length;
+      const med = n % 2 ? gec[(n - 1) / 2] : (gec[n / 2 - 1] + gec[n / 2]) / 2;
       document.getElementById('dogrulama-sonuc').innerHTML =
-        `<b style="font-size:18px">The median NASA training site scores higher than ${V.yuzde(g.Pi_ortanca)} of Earth's land windows.</b><br>` +
-        `<span class="soluk">${g.m} known site–target pairs, Fisher p = ${g.p.toFixed(3)}; ${g.kapidan_kalan} pairs did not pass the mission gate. ` +
-        `Known sites vs random windows: AUC ${v3.AUC.toFixed(2)} (95% interval ${v3.GA95.map(x => x.toFixed(2)).join('–')}).</span>`;
+        `<b style="font-size:20px;color:var(--accent)">${n} of ${c.length} NASA training sites meet the mission requirement, and their median beats ${V.yuzde(med)} of Earth's land.</b><br>` +
+        `<span class="soluk">Best case: top ${V.yuzde(1 - gec[n - 1], 1)}. Counting all ${g.m} pairs (gate failures as rank 0) the median is ${V.yuzde(g.Pi_ortanca)}, Fisher p = ${g.p.toFixed(3)}; random would be 50%.</span>`;
     } catch (e) { console.warn('ozet.json yüklenemedi', e); }
+  </script>
+  <script>
+    fetch('data/ekip.json').then(r => r.json()).then(E => {
+      document.getElementById('ekip-liste').innerHTML = E.map(u =>
+        `<div class="kart uye reveal" style="opacity:1;transform:none"><h3>${u.ad}</h3><p class="soluk">${u.gorev}</p></div>`).join('');
+    }).catch(() => {});
   </script>
 </body>
 </html>

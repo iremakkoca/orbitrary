@@ -19,7 +19,10 @@ export const meta = () => json('data/meta.json');
 export const earth = () => json('data/earth.json');
 export const metin = () => json('data/metin.json');
 export const ozet = () => json('data/ozet.json');
-export const hedefler = () => json('data/hedefler.json');
+// Kaynak dosyada Türkçe kalan üç ad, sitede İngilizce gösterilir
+export const AD_EN = { 'M-SP': 'Lunar south pole test point', 'M-SHK': 'Shackleton crater', 'R-PHX': 'Phoenix landing site' };
+export const hedefler = () => json('data/hedefler.json').then(H => H.map(h => AD_EN[h.kimlik] ? { ...h, ad: AD_EN[h.kimlik] } : h));
+export const hedefFoto = () => json('data/hedef_foto.json').catch(() => ({}));
 export const analoglar = () => json('data/analog.json');
 export const fotolar = () => json('data/analog_foto.json').catch(() => ({}));
 export const liste = id => json(`data/liste/liste_${encodeURIComponent(id)}.json`);
@@ -126,8 +129,9 @@ export async function analogEtiketi(km) {
   const e = T.analog.etiket;
   if (km < a.bilinen_alti) return { tur: 'known', ad: e.known.ad, aciklama: e.known.aciklama };
   if (km <= a.yakin_ust) return { tur: 'near', ad: e.near.ad, aciklama: e.near.aciklama };
-  return { tur: 'new', ad: e.new.ad, aciklama: e.new.aciklama };
+  return null;   // 100 km'den uzak: etiket gösterilmez
 }
+export const puanYuzde = P => P == null ? '—' : Math.round(100 * P) + '%';
 export const yuzde = (x, d = 0) => x == null ? '—' : (100 * x).toFixed(d) + '%';
 export const enlemYazi = (lat, d = 2) => `${Math.abs(lat).toFixed(d)}°${lat >= 0 ? 'N' : 'S'}`;
 export const boylamYazi = (lon, d = 2) => `${Math.abs(lon).toFixed(d)}°${lon >= 0 ? 'E' : 'W'}`;
@@ -180,28 +184,42 @@ export function radar(svg, sim, { mis = true, boyut = 'normal' } = {}) {
 
 // ---------- Uydu haritası (Leaflet, sayfada global L) ----------
 export const KAROLAR = {
-  url: 'https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless_3857/default/g/{z}/{y}/{x}.jpg',
-  atif: '<a href="https://s2maps.eu" target="_blank" rel="noopener">Sentinel-2 cloudless</a> by EOX IT Services GmbH (contains modified Copernicus Sentinel data 2016 &amp; 2017)'
+  url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  atif: 'Imagery &copy; Esri, Maxar, Earthstar Geographics, and the GIS User Community'
 };
-export function uyduHaritasi(el, lat, lon, { zoom = 9, kare = true, noktalar = null } = {}) {
+// Uydu haritası: yumuşak yaklaşma (flyTo), uzaklaşma sınırı, dünya dışına kaymaz,
+// sayfa kaydırılırken haritaya takılmaz (tekerlek yalnız haritaya tıklanınca açılır).
+export function uyduHaritasi(el, lat, lon, { zoom = 11, kare = true, noktalar = null, minZoom = null } = {}) {
   if (!window.L) { el.innerHTML = '<p class="soluk">Map library could not be loaded.</p>'; return null; }
   if (el._harita) { el._harita.remove(); }
-  const h = L.map(el, { zoomControl: true, attributionControl: true, minZoom: 2, maxZoom: 14, worldCopyJump: true }).setView([lat, lon], zoom);
-  L.tileLayer(KAROLAR.url, { attribution: KAROLAR.atif, maxZoom: 14 }).addTo(h);
+  const sinir = L.latLngBounds([[-85, -180], [85, 180]]);
+  const tek = !noktalar;
+  const enAz = minZoom != null ? minZoom : (tek ? Math.max(3, zoom - 5) : 2);
+  const h = L.map(el, { zoomControl: true, attributionControl: true, minZoom: enAz, maxZoom: 17,
+    maxBounds: sinir, maxBoundsViscosity: 1.0, worldCopyJump: false, scrollWheelZoom: false,
+    zoomSnap: 0.25, zoomAnimation: true, fadeAnimation: true })
+    .setView([lat, lon], tek ? enAz : 2);
+  L.tileLayer(KAROLAR.url, { attribution: KAROLAR.atif, maxZoom: 17, maxNativeZoom: 17, noWrap: true, bounds: sinir }).addTo(h);
   h.zoomControl.setPosition('bottomright');
-  if (kare) {   // 20 km × 20 km pencere: ±10 km (enlem 1° ≈ 111,32 km)
+  h.on('click focus', () => h.scrollWheelZoom.enable());
+  h.on('mouseout blur', () => h.scrollWheelZoom.disable());
+  if (kare && tek) {   // 20 km × 20 km pencere: ±10 km (enlem 1° ≈ 111,32 km)
     const dl = 10 / 111.32, dL = 10 / (111.32 * Math.max(0.05, Math.cos(lat * Math.PI / 180)));
-    L.rectangle([[lat - dl, lon - dL], [lat + dl, lon + dL]], { color: '#5cc8ff', weight: 2, fill: false }).addTo(h);
+    L.rectangle([[lat - dl, lon - dL], [lat + dl, lon + dL]], { color: '#ffffff', weight: 2, dashArray: null, fill: false, opacity: 0.95 }).addTo(h);
   }
-  if (noktalar) {
+  if (tek) {
+    L.circleMarker([lat, lon], { radius: 5, color: '#ffffff', weight: 2, fillColor: '#5cc8ff', fillOpacity: 1 }).addTo(h);
+    setTimeout(() => h.flyTo([lat, lon], zoom, { duration: 1.6 }), 350);
+  } else {
     const grup = [];
     noktalar.forEach(n => {
-      const m = L.circleMarker([n.lat, n.lon], { radius: n.r || 6, color: n.renk || '#5cc8ff', weight: 2, fillOpacity: 0.6 }).addTo(h);
+      const m = L.circleMarker([n.lat, n.lon], { radius: n.r || 6, color: '#ffffff', weight: 1.5, fillColor: n.renk || '#5cc8ff', fillOpacity: 0.95 }).addTo(h);
       if (n.etiket) m.bindTooltip(n.etiket);
       if (n.tikla) m.on('click', n.tikla);
       grup.push([n.lat, n.lon]);
     });
-    if (grup.length > 1) h.fitBounds(grup, { padding: [30, 30], maxZoom: 6 });
+    if (grup.length > 1) setTimeout(() => h.flyToBounds(grup, { padding: [40, 40], maxZoom: 6, duration: 1.4 }), 300);
+    else if (grup.length === 1) setTimeout(() => h.flyTo(grup[0], 8, { duration: 1.4 }), 300);
   }
   el._harita = h;
   setTimeout(() => h.invalidateSize(), 200);

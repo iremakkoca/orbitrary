@@ -146,7 +146,7 @@
  {
   "id": "M-SP",
   "body": "moon",
-  "name": "Ay güney kutbu test noktası",
+  "name": "Lunar south pole test point",
   "lat": -89.0,
   "lon": 30.0,
   "type": "V1'deki iki çift ona bağlı",
@@ -242,7 +242,7 @@
  {
   "id": "M-SHK",
   "body": "moon",
-  "name": "Shackleton krateri",
+  "name": "Shackleton crater",
   "lat": -89.67,
   "lon": 129.78,
   "type": "Sayfada 3 koordinat bloğu var (-89.67/129.78; -89.63/132.32; -89.90/0.00); güncel ilk blok alındı. Krater merkezi; çap ~21 km",
@@ -338,7 +338,7 @@
  {
   "id": "R-PHX",
   "body": "mars",
-  "name": "Phoenix iniş yeri",
+  "name": "Phoenix landing site",
   "lat": 68.22,
   "lon": -125.75,
   "type": "Phoenix iniş yeri; kaynakta 234.25°D, -180..180'e çevrildi",

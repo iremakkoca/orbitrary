@@ -90,3 +90,46 @@ table.ck-tab th { color: var(--muted); font-weight: 500; font-size: 12px; }
   .iki, .saha-kart, .cift { grid-template-columns: 1fr; }
   .sampiyon-grid2, .hedef-izgara { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ---------- v2.1 düzenlemeleri ---------- */
+.kahraman { min-height: 58vh; }
+.kahraman::before { opacity: 0.62; }
+.kahraman::after { background: linear-gradient(180deg, rgba(3,5,12,0.05) 0%, rgba(3,5,12,0.35) 55%, rgba(3,5,12,0.97) 100%); }
+.foto-kredi { position: absolute; right: 16px; bottom: 10px; z-index: 2; font-size: 11px; color: rgba(230,236,245,0.7); }
+.rozet-new { display: none !important; }
+.rozet-kaldi { border-color: var(--line); color: var(--muted); }
+.kaynaklar { font-size: 11.5px; opacity: 0.85; }
+.kaynaklar a { color: #b9dcf2; text-decoration: none; border-bottom: 1px solid rgba(185,220,242,0.3); }
+.kaynaklar a:hover { color: #e6f4ff; }
+.harita .leaflet-tile-pane { filter: brightness(0.82) saturate(0.75) contrast(1.05); }
+.leaflet-tooltip { background: rgba(3,5,12,0.92); color: #e6ecf5; border: 1px solid var(--line); font-family: 'Space Grotesk', sans-serif; }
+
+/* Hedef sayfası: üst eşleşme bloğu (harita solda, radar sağda) */
+.en-iyi { display: grid; grid-template-columns: 1.1fr 1fr; gap: 22px; margin: 6px 0 24px; }
+.en-iyi .harita { min-height: 480px; }
+.en-iyi-sag { display: flex; flex-direction: column; }
+.buyuk-puan { font-size: 64px; font-weight: 600; line-height: 1; color: var(--accent); }
+.radar-buyuk { width: 100%; max-width: 460px; display: block; margin: 6px auto 0; }
+.kat-cubuk { display: grid; grid-template-columns: 110px 1fr 54px; gap: 10px; align-items: center; font-size: 13.5px; margin: 5px 0; }
+.kat-cubuk .cubuk { height: 8px; }
+.kat-cubuk .cubuk.bos { background: repeating-linear-gradient(90deg, #1a2436 0 6px, transparent 6px 10px); }
+.hedef-kart { padding: 0; overflow: hidden; }
+.hedef-kart .hk-foto { height: 120px; background: #0a0f1a center / cover no-repeat; }
+.hedef-kart .hk-ic { padding: 14px 16px; }
+.terim { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 30px 0 6px; }
+.terim .kutu b { color: var(--text); }
+.cta-analiz { display: inline-flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 999px; background: rgba(92,200,255,0.12);
+  border: 1px solid rgba(92,200,255,0.5); color: var(--accent) !important; text-decoration: none; font-weight: 500; }
+.cta-analiz:hover { background: rgba(92,200,255,0.22); }
+
+/* Analog sayfası */
+.saha-kart { grid-template-columns: 440px 1fr; }
+.saha-gorsel { display: grid; grid-template-rows: 260px 200px; gap: 10px; }
+.saha-gorsel .saha-foto, .saha-gorsel .harita { min-height: 0; height: 100%; }
+.saha-gorsel img { min-height: 0; height: 100%; }
+.cift { grid-template-columns: 320px 1fr; }
+.cift svg.radar { width: 100%; max-width: 320px; }
+.vurgu { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 14px; margin: 18px 0 10px; }
+.vurgu .kutu .sayi { font-size: 44px; color: var(--accent); }
+.bolum-ayrac { margin: 40px 0 16px; padding-top: 22px; border-top: 1px solid var(--line); }
+@media (max-width: 960px) { .en-iyi, .vurgu, .terim { grid-template-columns: 1fr; } .saha-kart { grid-template-columns: 1fr; } }

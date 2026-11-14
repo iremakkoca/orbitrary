@@ -46,27 +46,38 @@
     const $ = s => document.querySelector(s);
     const PARAM = new URLSearchParams(location.search);
     const id = PARAM.get('id');
-    const [T, H, O, M] = await Promise.all([V.metin(), V.hedefler(), V.ozet(), V.meta()]);
+    const [T, H, O, F] = await Promise.all([V.metin(), V.hedefler(), V.ozet(), V.hedefFoto()]);
     const govdeAd = c => c === 'ay' ? 'Moon' : 'Mars';
+    const fotoUrl = k => F[k] ? `img/hedef/${k}.jpg` : null;
 
     if (!id) liste(); else hedefSayfasi(id);
 
     // ---------- 26 hedef listesi ----------
     function liste() {
-      $('#k-ust').textContent = T.sayfa.target.baslik;
-      $('#k-baslik').textContent = 'Choose a target';
-      $('#k-alt').textContent = T.sayfa.target.giris;
+      $('#k-ust').textContent = '26 targets · Moon and Mars';
+      $('#k-baslik').textContent = 'Where on Earth is most like…';
+      $('#k-alt').textContent = 'Pick a place on the Moon or Mars. For each one we scored all ' + O.E_prime.toLocaleString('en') +
+        ' land windows on Earth, with no shortcut, and show the ten closest Earth sites for each of five missions.';
+      const ilkFoto = H.map(h => fotoUrl(h.kimlik)).find(Boolean);
+      if (ilkFoto) $('#kahraman').style.setProperty('--kahraman-foto', `url(${ilkFoto})`);
       const grup = [
         ['Artemis', h => String(h.kimlik).startsWith('A3-'), T.uyari.artemis],
         ['Moon', h => h.cisim === 'ay' && !String(h.kimlik).startsWith('A3-'), 'Apollo landing sites and other lunar targets'],
         ['Mars', h => h.cisim === 'mars', 'Mars landing sites']];
-      $('#icerik').innerHTML = grup.map(([ad, f, alt]) => `
+      $('#icerik').innerHTML = `
+        <div class="terim">
+          <div class="kutu"><div class="etiket">Target</div><div class="alt"><b>A place on the Moon or Mars</b>, for example an Apollo landing site, an Artemis candidate region or a rover landing site.</div></div>
+          <div class="kutu"><div class="etiket">Analog</div><div class="alt"><b>A place on Earth</b> that resembles the target, where astronauts can train or equipment can be tested.</div></div>
+          <div class="kutu"><div class="etiket">Score</div><div class="alt"><b>How alike the two places are, from 0% to 100%</b>, across eight categories and weighted for the chosen mission.</div></div>
+        </div>` + grup.map(([ad, f, alt]) => `
         <h2 style="margin:40px 0 6px;font-size:26px">${ad}</h2><p class="soluk" style="margin-bottom:16px">${alt}</p>
         <div class="hedef-izgara">${H.filter(f).map(h => `
           <a class="hedef-kart" href="target.html?id=${encodeURIComponent(h.kimlik)}">
-            <div class="etiket">${govdeAd(h.cisim)} · ${h.kimlik}</div>
+            <div class="hk-foto" style="${fotoUrl(h.kimlik) ? `background-image:url(${fotoUrl(h.kimlik)})` : ''}"></div>
+            <div class="hk-ic"><div class="etiket">${govdeAd(h.cisim)} · ${h.kimlik}</div>
             <div style="font-size:18px;font-weight:600;margin:6px 0">${h.ad}</div>
             <div class="soluk mono" style="font-size:13px">${V.koordYazi(h.enlem, h.boylam)}</div>
+            <div style="margin-top:10px;color:var(--accent);font-size:14px">See the full analysis →</div></div>
           </a>`).join('')}</div>`).join('');
     }
 
@@ -76,16 +87,21 @@
       if (!h) { $('#icerik').innerHTML = '<p>Unknown target.</p>'; return; }
       const L_ = await V.liste(id);
       document.title = `Orbitrary — ${h.ad}`;
+      if (fotoUrl(id)) {
+        $('#kahraman').style.setProperty('--kahraman-foto', `url(${fotoUrl(id)})`);
+        $('#kahraman').insertAdjacentHTML('beforeend', `<div class="foto-kredi">Photo: NASA · ${F[id].baslik} (${F[id].nasa_id})</div>`);
+      }
       $('#k-ust').textContent = `${govdeAd(h.cisim)} · ${h.kimlik}${h.etiket ? ' · ' + h.etiket : ''}`;
       $('#k-baslik').textContent = h.ad;
-      $('#k-alt').innerHTML = `${V.koordYazi(h.enlem, h.boylam, 3)}${h.koordinat_notu ? ' · ' + h.koordinat_notu : ''}${h.kaynak && h.kaynak !== h.koordinat_notu ? ' · source: ' + h.kaynak : ''}.<br>${T.sayfa.target.giris}`;
+      $('#k-alt').innerHTML = `${V.koordYazi(h.enlem, h.boylam, 3)} · ${h.koordinat_notu || ('source: ' + String(h.kaynak).replace(/ ve ark\./g, ' et al.').replace(/ ve /g, ' and '))}.<br>
+        We compared this site with all ${O.E_prime.toLocaleString('en')} land windows on Earth (20 × 20 km each) in eight categories. Choose a mission below to see the ten Earth sites that come closest.`;
       $('#k-butonlar').innerHTML = `<a class="btn-ana" href="explore.html?body=${h.cisim === 'ay' ? 'moon' : 'mars'}&lat=${h.enlem}&lon=${h.boylam}&hedef=${encodeURIComponent(h.kimlik)}">Open in Explore 3D →</a>
-        <a class="btn-link" href="target.html">All targets</a>`;
+        <a class="btn-link" href="target.html">All 26 targets</a>`;
       const eksikHedef = L_.hedef.kategori_var.map((v, k) => v ? null : V.KAT_AD[k]).filter(Boolean);
       $('#icerik').innerHTML = `
         <div class="sekmeler" id="sekmeler">${V.GOREV_SIRA.map(g => `<button data-g="${g}">${T.gorev[g].ad}</button>`).join('')}</div>
-        <p class="soluk" id="soru" style="font-size:17px"></p>
-        ${eksikHedef.length ? `<div class="not">${eksikHedef.map(k => `${k}: ${T.eksik_taraf.hedef}`).join('<br>')}${!L_.hedef.islak ? '<br>' + T.uyari.kuru_hedef : ''}</div>` : ''}
+        <p id="soru" style="font-size:19px;margin-bottom:6px"></p>
+        ${eksikHedef.length ? `<p class="soluk" style="font-size:13.5px">No data for this target in: ${eksikHedef.join(', ')}. These categories are left out of the score.${!L_.hedef.islak ? ' ' + T.uyari.kuru_hedef : ''}</p>` : ''}
         <div id="gorev-icerik"></div>`;
       const sec = g => {
         document.querySelectorAll('#sekmeler button').forEach(b => b.classList.toggle('secili', b.dataset.g === g));
@@ -97,6 +113,12 @@
       sec(V.GOREV_SIRA.includes(PARAM.get('gorev')) ? PARAM.get('gorev') : 'genel');
     }
 
+    function katCubuklari(s, w) {
+      return s.map((x, k) => `<div class="kat-cubuk"><span>${V.KAT_AD[k]}</span>
+        <div class="cubuk ${x == null ? 'bos' : ''}"><i style="width:${x == null ? 0 : (100 * x).toFixed(1)}%"></i></div>
+        <span class="mono" style="text-align:right">${x == null ? 'no data' : V.yuzde(x)}</span></div>`).join('');
+    }
+
     async function gorevCiz(h, L_, g) {
       const o = L_.gorevler[g], kok = $('#gorev-icerik');
       if (!o || o.durum !== 'computed') {
@@ -106,24 +128,27 @@
       const ilk = o.ilk10, w = await V.agirliklar(g);
       const d = o.duyarlilik || {};
       const saglam = d.esit && d.geometrik && d.esit.jaccard_top3 === 1 && d.geometrik.jaccard_top3 === 1;
-      const kapiMetni = g === 'genel' ? 'No gate for the General mission (not applicable).' : T.kapi[g].metin;
+      const kapiMetni = g === 'genel' ? 'The General mission has no gate: every land window is scored.' : T.kapi[g].metin;
       kok.innerHTML = `
         <div class="kutular">
-          <div class="kutu"><div class="etiket">Best mission score</div><div class="sayi">${ilk[0].P.toFixed(2)}</div><div class="alt">${T.okunus.P}</div></div>
-          <div class="kutu"><div class="etiket">Earth windows searched</div><div class="sayi mono">${o.E_g.toLocaleString('en')}</div><div class="alt">of ${O.E_prime.toLocaleString('en')} land windows pass this mission's gate; all of them are scored (no prefilter).</div></div>
-          <div class="kutu"><div class="etiket">Mission requirement (gate)</div><div class="sayi" style="font-size:20px">${g === 'genel' ? 'not applicable' : (o.kapi_yedek ? 'fallback threshold' : 'main threshold')}</div><div class="alt">${kapiMetni}</div></div>
-          <div class="kutu"><div class="etiket">Robustness to weights</div><div class="sayi" style="font-size:20px">${saglam ? 'top 3 unchanged' : 'top 3 changes'}</div><div class="alt">${saglam ? T.duyarlilik.saglam : T.duyarlilik.degisti} Jaccard: equal weights ${d.esit ? d.esit.jaccard_top3.toFixed(2) : '—'}, geometric mean ${d.geometrik ? d.geometrik.jaccard_top3.toFixed(2) : '—'}.</div></div>
+          <div class="kutu"><div class="etiket">Best match</div><div class="sayi">${V.puanYuzde(ilk[0].P)}</div><div class="alt">The weighted average of the category similarities for this mission. It is 0% if the mission requirement is not met.</div></div>
+          <div class="kutu"><div class="etiket">Earth windows compared</div><div class="sayi mono">${o.E_g.toLocaleString('en')}</div><div class="alt">of ${O.E_prime.toLocaleString('en')} land windows meet this mission's requirement; every one of them was scored.</div></div>
+          <div class="kutu"><div class="etiket">Mission requirement</div><div class="sayi" style="font-size:20px">${g === 'genel' ? 'none' : (o.kapi_yedek ? 'fallback threshold' : 'main threshold')}</div><div class="alt">${kapiMetni}</div></div>
+          <div class="kutu"><div class="etiket">Robustness</div><div class="sayi" style="font-size:20px">${saglam ? 'top 3 unchanged' : 'top 3 shifts'}</div><div class="alt">${saglam ? T.duyarlilik.saglam : T.duyarlilik.degisti}</div></div>
+        </div>
+        <div class="en-iyi">
+          <div class="harita" id="harita"></div>
+          <div class="kart2 en-iyi-sag" id="ozet-sag"></div>
         </div>
         <div class="iki">
-          <div>
-            <div class="kart2" style="padding:12px 14px">
-              <table class="tab" id="tablo"><thead><tr><th>#</th><th>Earth location</th><th>Label</th><th>Score</th><th>Data</th></tr></thead><tbody></tbody></table>
-            </div>
-            <div class="harita" id="harita" style="margin-top:18px"></div>
+          <div class="kart2" style="padding:12px 14px">
+            <h3 style="margin:6px 8px 4px">The ten closest Earth sites</h3>
+            <p class="soluk" style="font-size:13px;margin:0 8px 8px">Click a row to see it on the map.</p>
+            <table class="tab" id="tablo"><thead><tr><th>#</th><th>Earth location</th><th>Score</th><th>Data</th></tr></thead><tbody></tbody></table>
           </div>
           <div class="kart2" id="detay"></div>
         </div>
-        <h2 style="margin:44px 0 6px;font-size:24px">Category champions</h2>
+        <h2 style="margin:44px 0 6px;font-size:24px">Best Earth site in each category</h2>
         <p class="soluk" style="margin-bottom:14px">${T.okunus.sampiyon}</p>
         <div class="sampiyon-grid2" id="sampiyon"></div>`;
       const tb = $('#tablo tbody');
@@ -133,15 +158,11 @@
         const kaps = r.s.filter(x => x != null).length;
         tb.insertAdjacentHTML('beforeend', `<tr class="satir" data-i="${i}">
           <td class="mono">${i + 1}</td>
-          <td class="mono">${V.koordYazi(r.enlem, r.boylam)}</td>
-          <td>${et ? `<span class="rozet rozet-${et.tur}" title="${et.aciklama}">${et.ad}</span>` : ''}</td>
-          <td><div class="mono">${r.P.toFixed(3)}</div><div class="cubuk"><i style="width:${(100 * r.P).toFixed(1)}%"></i></div></td>
+          <td><span class="mono">${V.koordYazi(r.enlem, r.boylam)}</span>${et ? `<br><span class="rozet rozet-${et.tur}" style="margin-top:4px" title="${et.aciklama}">${et.ad} · ${V.saha(r.en_yakin_analog.id)}</span>` : ''}</td>
+          <td><div class="mono">${V.puanYuzde(r.P)}</div><div class="cubuk"><i style="width:${(100 * r.P).toFixed(1)}%"></i></div></td>
           <td class="mono">${kaps}/8</td></tr>`);
       }
-      const harita = V.uyduHaritasi($('#harita'), ilk[0].enlem, ilk[0].boylam, {
-        kare: false, noktalar: ilk.map((r, i) => ({ lat: r.enlem, lon: r.boylam, etiket: `#${i + 1} · ${r.P.toFixed(3)}`, renk: i < 3 ? '#5cc8ff' : '#8a97ab', tikla: () => detay(i) }))
-      });
-      let kareKatman = null;
+      let harita = null;
       async function detay(i) {
         const r = ilk[i];
         document.querySelectorAll('#tablo tr.satir').forEach(t => t.classList.toggle('secili', Number(t.dataset.i) === i));
@@ -149,35 +170,33 @@
         const gz = V.guclu_zayif(r.s);
         const notlar = await V.eksikNotlari(r.eksik_taraf);
         const durumAd = Object.values(T.kapi.durum).find(x => x.ad === r.kapi_durumu);
+        $('#ozet-sag').innerHTML = `
+          <div class="etiket">Earth site #${i + 1} · ${T.gorev[g].ad}</div>
+          <h2 style="margin:6px 0 2px">${V.koordYazi(r.enlem, r.boylam)}</h2>
+          ${et ? `<span class="rozet rozet-${et.tur}" title="${et.aciklama}">${et.ad} · ${V.saha(r.en_yakin_analog.id)} · ${r.en_yakin_analog.km.toFixed(0)} km</span>` : ''}
+          <div style="display:flex;align-items:baseline;gap:12px;margin-top:10px"><span class="buyuk-puan">${V.puanYuzde(r.P)}</span><span class="soluk">match for ${h.ad}</span></div>
+          <svg class="radar radar-buyuk" id="d-radar"></svg>
+          <div class="lejant" style="display:flex;gap:16px;justify-content:center;font-size:13px;color:var(--muted)"><span>— Similarity</span><span style="color:var(--mismatch)">- - Mismatch</span><span>⋯ No data</span></div>`;
         $('#detay').innerHTML = `
-          <div class="etiket">#${i + 1} · ${T.gorev[g].ad}</div>
-          <h2>Earth site ${V.koordYazi(r.enlem, r.boylam)}</h2>
-          ${et ? `<span class="rozet rozet-${et.tur}" title="${et.aciklama}">${et.ad}${et.tur !== 'new' ? ' · ' + V.saha(r.en_yakin_analog.id) : ''} · ${r.en_yakin_analog.km.toFixed(0)} km to the nearest documented analog</span>` : ''}
-          <svg class="radar" id="d-radar" style="max-width:420px;display:block;margin:10px auto"></svg>
-          <div class="lejant" style="display:flex;gap:16px;justify-content:center;font-size:13px;color:var(--muted)"><span>— Similarity</span><span style="color:var(--mismatch)">- - Mismatch</span><span>⋯ No data</span></div>
-          <h3>Why it matches</h3><p>${gz.guclu.map(o => `<b>${V.KAT_AD[o.k]}</b> ${V.yuzde(o.x)}`).join(' · ')}</p>
+          <h3 style="margin-top:0">Why it matches</h3><p>${gz.guclu.map(o => `<b>${V.KAT_AD[o.k]}</b> ${V.yuzde(o.x)}`).join(' · ')}</p>
           <h3>Where the analogy breaks</h3><p>${gz.zayif.map(o => `<b>${V.KAT_AD[o.k]}</b> ${V.yuzde(o.x)}`).join(' · ')}</p>
-          <p class="soluk" style="font-size:13px"><b>How to read:</b> ${V.KAT_AD[gz.guclu[0].k]} ${Math.round(100 * gz.guclu[0].x)}% means ${T.okunus.s.replace('{X}', Math.round(100 * gz.guclu[0].x)).replace(/^./, c => c.toLowerCase()).replace(/\.$/, '')} (${V.KAT_AD[gz.guclu[0].k]}).</p>
           <h3>Category by category</h3>
-          <table class="ck-tab"><tr><th>Category</th><th>Similarity</th><th>Raw distance</th><th>Weight</th></tr>
-            ${r.s.map((x, k) => `<tr><td>${V.KAT_AD[k]}</td><td class="mono">${x == null ? 'no data' : V.yuzde(x, 1)}</td><td class="mono">${r.d[k] == null ? '—' : r.d[k].toPrecision(3)}</td><td class="mono">${w[k].toFixed(3)}</td></tr>`).join('')}
-          </table>
-          <p class="soluk" style="font-size:12.5px">${T.okunus.ham_uzaklik}</p>
-          <h3>Mission requirement (gate)</h3><p><span class="rozet ${r.kapi_durumu === 'passed' ? 'rozet-gecti' : ''}">${r.kapi_durumu}</span> <span class="soluk" style="font-size:13px">${durumAd ? durumAd.aciklama : ''}</span></p>
-          ${notlar.map(t => `<div class="not">${t}</div>`).join('')}`;
+          ${katCubuklari(r.s, w)}
+          <p class="soluk" style="font-size:12.5px;margin-top:8px"><b>How to read:</b> ${V.KAT_AD[gz.guclu[0].k]} ${Math.round(100 * gz.guclu[0].x)}% means ${T.okunus.s.replace('{X}', Math.round(100 * gz.guclu[0].x)).replace(/^./, c => c.toLowerCase()).replace(/\.$/, '')} (${V.KAT_AD[gz.guclu[0].k]}).</p>
+          <details style="margin-top:10px"><summary class="soluk" style="cursor:pointer;font-size:13.5px">Raw distances and weights</summary>
+          <table class="ck-tab"><tr><th>Category</th><th>Raw distance</th><th>Mission weight</th></tr>
+            ${r.s.map((x, k) => `<tr><td>${V.KAT_AD[k]}</td><td class="mono">${r.d[k] == null ? '—' : r.d[k].toPrecision(3)}</td><td class="mono">${w[k].toFixed(3)}</td></tr>`).join('')}
+          </table><p class="soluk" style="font-size:12.5px">${T.okunus.ham_uzaklik}</p></details>
+          <h3>Mission requirement</h3><p><span class="rozet ${r.kapi_durumu === 'passed' ? 'rozet-gecti' : ''}">${r.kapi_durumu}</span> <span class="soluk" style="font-size:13px">${durumAd ? durumAd.aciklama : ''}</span></p>
+          ${notlar.map(t => `<p class="soluk" style="font-size:13px">${t}</p>`).join('')}`;
         V.radar($('#d-radar'), r.s);
-        if (harita) {
-          if (kareKatman) kareKatman.remove();
-          const dl = 10 / 111.32, dL = 10 / (111.32 * Math.max(0.05, Math.cos(r.enlem * Math.PI / 180)));
-          kareKatman = L.rectangle([[r.enlem - dl, r.boylam - dL], [r.enlem + dl, r.boylam + dL]], { color: '#ffd36b', weight: 2, fill: false }).addTo(harita);
-          harita.setView([r.enlem, r.boylam], 9);
-        }
+        harita = V.uyduHaritasi($('#harita'), r.enlem, r.boylam, { zoom: 11 });
       }
-      document.querySelectorAll('#tablo tr.satir').forEach(t => t.addEventListener('click', () => detay(Number(t.dataset.i))));
+      document.querySelectorAll('#tablo tr.satir').forEach(t => t.addEventListener('click', () => { detay(Number(t.dataset.i)); $('#harita').scrollIntoView({ behavior: 'smooth', block: 'center' }); }));
       detay(0);
       $('#sampiyon').innerHTML = o.sampiyonlar.map((c, k) => c ? `
         <div class="sampiyon2"><div class="etiket">${V.KAT_AD[k]}</div><b class="mono">${V.koordYazi(c.enlem, c.boylam)}</b>
-          <span class="soluk">similarity ${V.yuzde(c.s, 1)} · distance ${c.d.toPrecision(3)}</span></div>`
+          <span class="soluk">similarity ${V.yuzde(c.s, 1)}</span></div>`
         : `<div class="sampiyon2"><div class="etiket">${V.KAT_AD[k]}</div><b>—</b><span class="soluk">no data</span></div>`).join('');
     }
   </script>
