@@ -966,6 +966,19 @@
     } catch (e) { console.warn('ozet.json yüklenemedi', e); }
   </script>
   <script>
+    // Başka sayfadan "Home" ile dönünce kalınan yere git (sekme oturumu boyunca saklanır)
+    (function () {
+      try {
+        const y = Number(sessionStorage.getItem('anaY') || 0);
+        const ic = document.referrer && new URL(document.referrer).origin === location.origin && !location.hash;
+        if (ic && y > 0) {
+          history.scrollRestoration = 'manual';
+          const git = () => window.scrollTo(0, y);
+          git(); setTimeout(git, 120); setTimeout(git, 600);
+        }
+        let z; window.addEventListener('scroll', () => { clearTimeout(z); z = setTimeout(() => sessionStorage.setItem('anaY', String(window.scrollY)), 150); }, { passive: true });
+      } catch (e) {}
+    })();
     fetch('data/ekip.json').then(r => r.json()).then(E => {
       document.getElementById('ekip-liste').innerHTML = E.map(u =>
         `<div class="kart uye reveal" style="opacity:1;transform:none"><h3>${u.ad}</h3><p class="soluk">${u.gorev}</p></div>`).join('');

@@ -4,11 +4,6 @@
   "baslik": "Apollo 15 Crew - Lunar Roving Vehicle (LRV) - Simulated Extravehicular Activity (EVA) - NM",
   "merkez": "JSC"
  },
- "v-ries": {
-  "nasa_id": "PIA23851",
-  "baslik": "Nordlingen, Germany",
-  "merkez": "JPL"
- },
  "v-spcrater": {
   "nasa_id": "PIA13700",
   "baslik": "SP Crater, Arizona",
@@ -23,5 +18,25 @@
   "nasa_id": "PIA23065",
   "baslik": "Potrillo Volcanic Field, New Mexico",
   "merkez": "JPL"
+ },
+ "v-dumont": {
+  "nasa_id": "PIA15682",
+  "baslik": "Test Rover Aids Preparations in California for Curiosity Rover on Mars",
+  "merkez": "JPL"
+ },
+ "v-lcvf": {
+  "nasa_id": "S72-48854",
+  "baslik": "Apollo 17 Crewmembers - Rock Specimen Exam - Geological Field Trip - NV",
+  "merkez": "JSC"
+ },
+ "v-ries": {
+  "nasa_id": "EO 8554",
+  "baslik": "Ries Crater, Germany (ASTER, simulated natural color)",
+  "merkez": "NASA Earth Observatory"
+ },
+ "v-sudbury": {
+  "nasa_id": "EO 148844",
+  "baslik": "Sudbury Impact Structure (Landsat 8)",
+  "merkez": "NASA Earth Observatory"
  }
 }

@@ -38,6 +38,7 @@
 
   <footer style="padding:30px 5vw;border-top:1px solid var(--line);display:flex;gap:18px;flex-wrap:wrap;align-items:center">
     <a href="index.html" class="btn-link">← Home</a>
+    <button class="btn-link" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top ↑</button>
     <span class="soluk" style="font-size:13px">NASA Space Apps Challenge 2026 project. Not an official NASA website. Every number on this page is read from the project's result files. Code developed with assistance from Claude (Anthropic).</span>
   </footer>
 
@@ -49,6 +50,19 @@
     const [T, H, O, F] = await Promise.all([V.metin(), V.hedefler(), V.ozet(), V.hedefFoto()]);
     const govdeAd = c => c === 'ay' ? 'Moon' : 'Mars';
     const fotoUrl = k => F[k] ? `img/hedef/${k}.jpg` : null;
+    // Güney kutbu konum haritası: kutba açısal uzaklık r = 90° + enlem (en fazla 7°), 0° boylam yukarıda, 90°D sağda
+    const KUTUP = H.filter(x => x.cisim === 'ay' && x.enlem < -80);
+    function kutupSvg(h) {
+      if (!(h.cisim === 'ay' && h.enlem < -80)) return '';
+      const R = 7, P = x => { const r = (90 + x.enlem) / R * 44, a = x.boylam * Math.PI / 180; return [50 + r * Math.sin(a), 50 - r * Math.cos(a)]; };
+      const halka = [2, 4, 6].map(d => `<circle cx="50" cy="50" r="${d / R * 44}" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="0.6"/>`).join('');
+      const nokta = KUTUP.map(x => { const [px, py] = P(x), ben = x.kimlik === h.kimlik;
+        return `<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="${ben ? 4 : 1.8}" fill="${ben ? '#5cc8ff' : 'rgba(255,255,255,0.7)'}" ${ben ? 'stroke="#fff" stroke-width="1"' : ''}/>`; }).join('');
+      return `<svg class="kutup-svg" viewBox="0 0 100 100" aria-label="Location near the lunar south pole">
+        <circle cx="50" cy="50" r="48" fill="rgba(3,5,12,0.72)" stroke="rgba(255,255,255,0.35)"/>${halka}
+        <path d="M50 44v12M44 50h12" stroke="rgba(255,255,255,0.5)" stroke-width="0.6"/>${nokta}
+        <text x="50" y="97" text-anchor="middle" font-size="7" fill="#cfd7e3" font-family="Space Grotesk">south pole · rings 2°, 4°, 6°</text></svg>`;
+    }
 
     if (!id) liste(); else hedefSayfasi(id);
 
@@ -73,7 +87,7 @@
         <h2 style="margin:40px 0 6px;font-size:26px">${ad}</h2><p class="soluk" style="margin-bottom:16px">${alt}</p>
         <div class="hedef-izgara">${H.filter(f).map(h => `
           <a class="hedef-kart" href="target.html?id=${encodeURIComponent(h.kimlik)}">
-            <div class="hk-foto" style="${fotoUrl(h.kimlik) ? `background-image:url(${fotoUrl(h.kimlik)})` : ''}"></div>
+            <div class="hk-foto" style="${fotoUrl(h.kimlik) ? `background-image:url(${fotoUrl(h.kimlik)})` : ''}">${kutupSvg(h)}</div>
             <div class="hk-ic"><div class="etiket">${govdeAd(h.cisim)} · ${h.kimlik}</div>
             <div style="font-size:18px;font-weight:600;margin:6px 0">${h.ad}</div>
             <div class="soluk mono" style="font-size:13px">${V.koordYazi(h.enlem, h.boylam)}</div>
@@ -91,6 +105,7 @@
         $('#kahraman').style.setProperty('--kahraman-foto', `url(${new URL(fotoUrl(id), location.href).href})`);
         $('#kahraman').insertAdjacentHTML('beforeend', `<div class="foto-kredi">Photo: NASA · ${F[id].baslik} (${F[id].nasa_id})</div>`);
       }
+      $('#kahraman').insertAdjacentHTML('beforeend', kutupSvg(h));
       $('#k-ust').textContent = `${govdeAd(h.cisim)} · ${h.kimlik}${h.etiket ? ' · ' + h.etiket : ''}`;
       $('#k-baslik').textContent = h.ad;
       $('#k-alt').innerHTML = `${V.koordYazi(h.enlem, h.boylam, 3)} · ${h.koordinat_notu || ('source: ' + String(h.kaynak).replace(/ ve ark\./g, ' et al.').replace(/ ve /g, ' and '))}.<br>

@@ -634,8 +634,8 @@
       const g = c.getContext('2d');
       const x = lon => (lon + 180) / 360 * W;
       const y = lat => (90 - lat) / 180 * H;
-      g.strokeStyle = 'rgba(255,255,255,0.35)';
-      g.lineWidth = 2;
+      g.lineWidth = 3;
+      g.strokeStyle = 'rgba(92,200,255,0.85)';
       for (let lon = -180; lon <= 180; lon += 15) { g.beginPath(); g.moveTo(x(lon), 0); g.lineTo(x(lon), H); g.stroke(); }
       for (let lat = -75; lat <= 75; lat += 15) { g.beginPath(); g.moveTo(0, y(lat)); g.lineTo(W, y(lat)); g.stroke(); }
       g.lineWidth = 5;
@@ -653,17 +653,19 @@
       t.anisotropy = renderer.capabilities.getMaxAnisotropy();
       return t;
     }
-    const izgara = new THREE.Mesh(
-      new THREE.SphereGeometry(1.003, 96, 48),
-      new THREE.MeshBasicMaterial({ map: izgaraDokusu(), transparent: true, depthWrite: false, toneMapped: false })
-    );
-    izgara.visible = false;
-    izgara.position.copy(MERKEZ[govde]);
-    scene.add(izgara);
+    // Izgara her gezegenin çocuğu: gezegenle birlikte durur, iki gezegende de açılıp kapanır
+    const izgaraDoku = izgaraDokusu();
+    const IZGARA = ['ay', 'mars'].map(ad => {
+      const m = new THREE.Mesh(new THREE.SphereGeometry(1.004, 96, 48),
+        new THREE.MeshBasicMaterial({ map: izgaraDoku, transparent: true, depthWrite: false, toneMapped: false, polygonOffset: true, polygonOffsetFactor: -2 }));
+      m.renderOrder = 5; m.visible = false; MESH[ad].add(m); return m;
+    });
+    const izgara = { position: new THREE.Vector3(), get visible() { return IZGARA[0].visible; } };
     const izgaraBtn = document.getElementById('izgara-btn');
     izgaraBtn.addEventListener('click', () => {
-      izgara.visible = !izgara.visible;
-      izgaraBtn.classList.toggle('secili', izgara.visible);
+      const ac = !IZGARA[0].visible;
+      IZGARA.forEach(m => { m.visible = ac; });
+      izgaraBtn.classList.toggle('secili', ac);
     });
 
     // ============================================================

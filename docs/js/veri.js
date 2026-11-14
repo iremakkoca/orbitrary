@@ -185,22 +185,31 @@ export function radar(svg, sim, { mis = true, boyut = 'normal' } = {}) {
 // ---------- Uydu haritası (Leaflet, sayfada global L) ----------
 export const KAROLAR = {
   url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  etiket: 'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}',
+  arazi: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
   atif: 'Imagery &copy; Esri, Maxar, Earthstar Geographics, and the GIS User Community'
 };
-// Uydu haritası: yumuşak yaklaşma (flyTo), uzaklaşma sınırı, dünya dışına kaymaz,
-// sayfa kaydırılırken haritaya takılmaz (tekerlek yalnız haritaya tıklanınca açılır).
-export function uyduHaritasi(el, lat, lon, { zoom = 11, kare = true, noktalar = null } = {}) {
+export function uyduHaritasi(el, lat, lon, { zoom = 10, kare = true, noktalar = null } = {}) {
   if (!window.L) { el.innerHTML = '<p class="soluk">Map library could not be loaded.</p>'; return null; }
   if (el._harita) { el._harita.remove(); el._harita = null; }
   const sinir = L.latLngBounds([[-85, -180], [85, 180]]);
   const tek = !noktalar;
   // Bütün haritalarda aynı hareket: 4 seviye uzaktan başlar, görünür olunca 2,2 sn'de yaklaşır.
-  const bas = tek ? Math.max(3, zoom - 4) : 2;
+  const bas = tek ? Math.max(3, zoom - 5) : 2;
   const h = L.map(el, { zoomControl: true, attributionControl: true, minZoom: tek ? bas : 2, maxZoom: 17,
     maxBounds: sinir, maxBoundsViscosity: 1.0, worldCopyJump: false, scrollWheelZoom: false,
     zoomSnap: 0.25, fadeAnimation: false }).setView([lat, lon], bas);
-  L.tileLayer(KAROLAR.url, { attribution: KAROLAR.atif, maxZoom: 17, maxNativeZoom: 17, noWrap: true, bounds: sinir, keepBuffer: 4 }).addTo(h);
+  const ortak = { maxZoom: 17, maxNativeZoom: 17, noWrap: true, bounds: sinir, keepBuffer: 4 };
+  const uydu = L.layerGroup([L.tileLayer(KAROLAR.url, { ...ortak, attribution: KAROLAR.atif }),
+                             L.tileLayer(KAROLAR.etiket, { ...ortak, opacity: 0.9 })]).addTo(h);
+  const arazi = L.tileLayer(KAROLAR.arazi, { ...ortak, attribution: 'Map &copy; Esri, HERE, Garmin, USGS' });
+  L.control.layers({ 'Satellite': uydu, 'Terrain': arazi }, null, { position: 'topright' }).addTo(h);
   h.zoomControl.setPosition('bottomright');
+  if (tek && kare) {
+    const lejant = L.control({ position: 'bottomleft' });
+    lejant.onAdd = () => { const d = L.DomUtil.create('div', 'harita-lejant'); d.innerHTML = '<i></i>20 × 20 km comparison window'; return d; };
+    lejant.addTo(h);
+  }
   h.on('click', () => h.scrollWheelZoom.enable());
   h.on('mouseout', () => h.scrollWheelZoom.disable());
   let hareket;
@@ -210,7 +219,7 @@ export function uyduHaritasi(el, lat, lon, { zoom = 11, kare = true, noktalar = 
       L.rectangle([[lat - dl, lon - dL], [lat + dl, lon + dL]], { color: '#ffffff', weight: 1.5, fill: false, opacity: 0.9 }).addTo(h);
     }
     L.circleMarker([lat, lon], { radius: 5, color: '#ffffff', weight: 2, fillColor: '#5cc8ff', fillOpacity: 1 }).addTo(h);
-    hareket = () => h.flyTo([lat, lon], zoom, { duration: 2.2, easeLinearity: 0.2 });
+    hareket = () => h.flyTo([lat, lon], zoom, { duration: 2.6, easeLinearity: 0.15 });
   } else {
     const grup = [];
     noktalar.forEach(n => {
