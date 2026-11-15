@@ -1,0 +1,53 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\USER\anaconda3\envs\orbitrary\python.exe
+rootdir: C:\Users\USER\orbitrary\kod
+plugins: anyio-4.16.0, platformdirs-4.14.5
+collecting ... collected 34 items
+
+testler/test_teorem.py::test_ornek_buyukluk_8_1 PASSED                   [  2%]
+testler/test_teorem.py::test_lemma1_hucre_sinirlari[0] PASSED            [  5%]
+testler/test_teorem.py::test_lemma1_hucre_sinirlari[1] PASSED            [  8%]
+testler/test_teorem.py::test_lemma1_hucre_sinirlari[2] PASSED            [ 11%]
+testler/test_teorem.py::test_lemma1_hucre_sinirlari[3] PASSED            [ 14%]
+testler/test_teorem.py::test_lemma1_hucre_sinirlari[4] PASSED            [ 17%]
+testler/test_teorem.py::test_lemma1_hucre_sinirlari[5] PASSED            [ 20%]
+testler/test_teorem.py::test_lemma1_hucre_sinirlari[6] PASSED            [ 23%]
+testler/test_teorem.py::test_lemma1_hucre_sinirlari[7] PASSED            [ 26%]
+testler/test_teorem.py::test_lemma1_hucre_sinirlari[8] PASSED            [ 29%]
+testler/test_teorem.py::test_lemma1_hucre_sinirlari[9] PASSED            [ 32%]
+testler/test_teorem.py::test_lemma2_psi1[0] PASSED                       [ 35%]
+testler/test_teorem.py::test_lemma2_psi1[1] PASSED                       [ 38%]
+testler/test_teorem.py::test_lemma2_psi1[2] PASSED                       [ 41%]
+testler/test_teorem.py::test_lemma2_psi1[3] PASSED                       [ 44%]
+testler/test_teorem.py::test_lemma2_psi1[4] PASSED                       [ 47%]
+testler/test_teorem.py::test_lemma2_psi1[5] PASSED                       [ 50%]
+testler/test_teorem.py::test_lemma2_psi1[6] PASSED                       [ 52%]
+testler/test_teorem.py::test_lemma2_psi1[7] PASSED                       [ 55%]
+testler/test_teorem.py::test_lemma2_psi1[8] PASSED                       [ 58%]
+testler/test_teorem.py::test_lemma2_psi1[9] PASSED                       [ 61%]
+testler/test_teorem.py::test_lemma2_psi2[0] PASSED                       [ 64%]
+testler/test_teorem.py::test_lemma2_psi2[1] PASSED                       [ 67%]
+testler/test_teorem.py::test_lemma2_psi2[2] PASSED                       [ 70%]
+testler/test_teorem.py::test_lemma2_psi2[3] PASSED                       [ 73%]
+testler/test_teorem.py::test_lemma2_psi2[4] PASSED                       [ 76%]
+testler/test_teorem.py::test_psi_artan_ve_sifirda_sifir PASSED           [ 79%]
+testler/test_teorem.py::test_eps_yildiz_bilinen PASSED                   [ 82%]
+testler/test_teorem.py::test_teorem1_s1_degismez[0] PASSED               [ 85%]
+testler/test_teorem.py::test_teorem1_s1_degismez[1] PASSED               [ 88%]
+testler/test_teorem.py::test_teorem1_s1_degismez[2] PASSED               [ 91%]
+testler/test_teorem.py::test_teorem1_s1_degismez[3] PASSED               [ 94%]
+testler/test_teorem.py::test_teorem1_s1_degismez[4] PASSED               [ 97%]
+testler/test_teorem.py::test_hareket_kapisi_degismez PASSED              [100%]
+
+============================ slowest 10 durations =============================
+0.08s call     testler/test_teorem.py::test_lemma2_psi2[1]
+0.08s call     testler/test_teorem.py::test_lemma2_psi2[4]
+0.08s call     testler/test_teorem.py::test_lemma2_psi2[0]
+0.07s call     testler/test_teorem.py::test_lemma2_psi2[2]
+0.07s call     testler/test_teorem.py::test_lemma2_psi2[3]
+0.06s call     testler/test_teorem.py::test_teorem1_s1_degismez[0]
+0.06s call     testler/test_teorem.py::test_teorem1_s1_degismez[1]
+0.06s call     testler/test_teorem.py::test_teorem1_s1_degismez[2]
+0.05s call     testler/test_teorem.py::test_teorem1_s1_degismez[3]
+0.05s call     testler/test_teorem.py::test_teorem1_s1_degismez[4]
+============================= 34 passed in 1.03s ==============================

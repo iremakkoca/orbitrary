@@ -1,0 +1,528 @@
+{
+  "surum": "1.2.1",
+  "aciklama": "Bölüm 8.4'teki bütün tasarım parametreleri + Bölüm 4.1 sabitleri. Her değerin yanında kaynağı ya da 'proje kararı'.",
+  "parametreler": {
+    "tohum": {
+      "deger": 20261113,
+      "kaynak": "belge 8.4 / V2",
+      "bolum": "8.4"
+    },
+    "alt_tohum": {
+      "deger": {
+        "R_orneklem": 1,
+        "V2": 2,
+        "V3": 3,
+        "V4_ikinci_R": 4,
+        "V5": 5,
+        "V7": 7,
+        "P_fB": 10,
+        "katman_B_R": 11,
+        "V4_hedef": 6,
+        "D5_kuru": 12
+      },
+      "kaynak": "proje kararı (belge 17: aşama başına sabit alt tohum) | V4_hedef = 6: V4'ün 200 rastgele hedefi (Q-14, Sude 14 Kasım; V5'ten ayrı küme) | D5_kuru = 12: D5 kuru koşu örnek pencereleri (yalnız süre/disk ölçümü, sonuca girmez)",
+      "bolum": "17"
+    },
+    "cisim": {
+      "yaricap_km": {
+        "deger": {
+          "dunya": 6371.0,
+          "ay": 1737.4,
+          "mars": 3389.5
+        },
+        "kaynak": "[73, 3]",
+        "birim": "km",
+        "bolum": "4.1"
+      },
+      "eksen_egikligi_der": {
+        "deger": {
+          "dunya": 23.44,
+          "ay": 1.54,
+          "mars": 25.19
+        },
+        "kaynak": "[3, 65]",
+        "birim": "derece",
+        "bolum": "4.1"
+      },
+      "sigma_v_m": {
+        "deger": {
+          "dunya": 7.17,
+          "ay": 10.0,
+          "mars": 1.0
+        },
+        "kaynak": "Dünya [59] ETOPO sayfası; Ay [105] Smith ve ark. 2010 özeti '~10 m radial accuracy'; Mars [104] Smith ve ark. 2001 özeti 'vertical and radial accuracies of ~1 m' (Ay/Mars değeri v1.2.1'de eklendi)",
+        "birim": "m",
+        "bolum": "4.1"
+      }
+    },
+    "izgara": {
+      "Delta_km": {
+        "deger": 20.0,
+        "kaynak": "Artemis bölge ölçeği [84]",
+        "birim": "km",
+        "bolum": "4.2"
+      },
+      "L_km": {
+        "deger": 20.0,
+        "kaynak": "Artemis bölge ölçeği [84]",
+        "birim": "km",
+        "bolum": "4.1"
+      },
+      "delta_m": {
+        "deger": 500.0,
+        "kaynak": "MOLA 463 m'nin üstü",
+        "birim": "m",
+        "bolum": "4.1"
+      },
+      "N": {
+        "deger": 40,
+        "kaynak": "N = L/δ",
+        "bolum": "4.1"
+      },
+      "n_komsu": {
+        "deger": 20,
+        "kaynak": "proje kararı; kontrol V7",
+        "bolum": "6.1"
+      },
+      "kenar_genisletme_hucre": {
+        "deger": 2,
+        "kaynak": "belge 6.1 (kenar hücreleri için 2 hücre dışarı)",
+        "bolum": "6.1"
+      }
+    },
+    "uzaklik": {
+      "M_yuzdelik": {
+        "deger": 1000,
+        "kaynak": "yakınsama (8.4)",
+        "bolum": "5.1"
+      },
+      "M_theta": {
+        "deger": 50,
+        "kaynak": "yakınsama (8.4)",
+        "bolum": "6.2"
+      },
+      "P_fB_en_fazla_piksel": {
+        "deger": 1000000,
+        "kaynak": "belge 5.2 (en fazla 10⁶ rastgele piksel)",
+        "bolum": "5.2"
+      }
+    },
+    "referans": {
+      "katman_A": {
+        "deger": {
+          "1": 2000,
+          "2": 200,
+          "3": "E'",
+          "4": "E'",
+          "5": "E'",
+          "6": "E'",
+          "7": "E'",
+          "8": 200
+        },
+        "kaynak": "belge 5.4; kontrol V4",
+        "bolum": "5.4"
+      },
+      "katman_B": {
+        "deger": {
+          "1": 2000,
+          "2": 200,
+          "3": 2000,
+          "4": 2000,
+          "5": 2000,
+          "6": 2000,
+          "7": 2000,
+          "8": 200
+        },
+        "kaynak": "belge 3.2; kontrol V4",
+        "bolum": "3.2"
+      },
+      "en_kucuk": {
+        "deger": 100,
+        "kaynak": "belge 5.4 (|R_k| < 100 ise s = null)",
+        "bolum": "5.4"
+      }
+    },
+    "topografya": {
+      "olcekler": {
+        "deger": [
+          1,
+          4
+        ],
+        "kaynak": "belge 6.1 (500 m ve 2 km)",
+        "bolum": "6.1"
+      },
+      "IQR_yuzdelikleri": {
+        "deger": [
+          0.25,
+          0.75
+        ],
+        "kaynak": "belge 6.1 [96]",
+        "bolum": "6.1"
+      }
+    },
+    "topoloji": {
+      "kappa": {
+        "deger": 2,
+        "kaynak": "proje kararı; kontrol V7",
+        "bolum": "6.2"
+      },
+      "aday_sayisi": {
+        "deger": 30,
+        "kaynak": "proje kararı; kontrol V5",
+        "bolum": "7.4"
+      }
+    },
+    "onele": {
+      "K_on_adaylari": {
+        "deger": [
+          100,
+          200,
+          400,
+          800
+        ],
+        "kaynak": "belge 7.1, v1.2 D8",
+        "bolum": "7.1"
+      },
+      "K_on": {
+        "deger": null,
+        "kaynak": "V5: recall ≥ 0,9 sağlayan en küçük; hepsinde < 0,9 ise 800 (K3)",
+        "bolum": "7.1",
+        "durum": "V5 ile belirlenir"
+      },
+      "recall_esigi": {
+        "deger": 0.9,
+        "kaynak": "belge 8.3 V5",
+        "bolum": "8.3"
+      }
+    },
+    "maske": {
+      "kara_orani": {
+        "deger": 0.9,
+        "kaynak": "proje kararı; kontrol V1",
+        "bolum": "7.1"
+      }
+    },
+    "kapi": {
+      "mobility": {
+        "egim_der": {
+          "deger": 20.0,
+          "kaynak": "[17] NASA Artemis III EVA eğim gereksinimi",
+          "birim": "derece",
+          "bolum": "7.2"
+        },
+        "hucre_orani": {
+          "deger": 0.95,
+          "kaynak": "proje kararı; kontrol V1",
+          "bolum": "7.2"
+        },
+        "olcek_m": {
+          "deger": 500.0,
+          "kaynak": "belge 7.2 (500 m Horn eğimi)",
+          "birim": "m",
+          "bolum": "7.2"
+        }
+      },
+      "buz": {
+        "ana": {
+          "deger": 0.9,
+          "kaynak": "[12] IPA sürekli %90–100",
+          "bolum": "7.2"
+        },
+        "yedek": {
+          "deger": 0.5,
+          "kaynak": "[12] IPA süreksiz %50–90",
+          "bolum": "7.2"
+        }
+      },
+      "astro": {
+        "ana": {
+          "deger": 0.03,
+          "kaynak": "[131] aşırı kurak < 0,03 (temiz\\ AI zaten ham/10 000)",
+          "bolum": "7.2"
+        },
+        "yedek": {
+          "deger": 0.2,
+          "kaynak": "[131] kurak < 0,20",
+          "bolum": "7.2"
+        }
+      },
+      "jeoloji": {
+        "Pv_esigi": {
+          "deger": 0.5,
+          "kaynak": "[137] Sobrino ve ark.",
+          "bolum": "7.2"
+        },
+        "NDVI_ciplak": {
+          "deger": 0.2,
+          "kaynak": "[137]",
+          "bolum": "7.2"
+        },
+        "NDVI_tam": {
+          "deger": 0.5,
+          "kaynak": "[137]",
+          "bolum": "7.2"
+        },
+        "kar_buz_siniri": {
+          "deger": 0.5,
+          "kaynak": "proje kararı",
+          "bolum": "7.2"
+        },
+        "X": {
+          "deger": null,
+          "kaynak": "leave-one-out, V1 Geology çiftleri (v1.2 D7)",
+          "bolum": "7.2",
+          "durum": "LOO ile hesaplanır"
+        }
+      },
+      "yedek_siniri_pencere": {
+        "deger": 100,
+        "kaynak": "belge 5.4 ile aynı",
+        "bolum": "7.2"
+      }
+    },
+    "uygunluk": {
+      "zorunlu_kategoriler": {
+        "deger": [
+          1,
+          2
+        ],
+        "kaynak": "proje kararı; kontrol V8",
+        "bolum": "7.2"
+      },
+      "en_fazla_eksik": {
+        "deger": 1,
+        "kaynak": "proje kararı; kontrol V8",
+        "bolum": "7.2"
+      }
+    },
+    "agirlik": {
+      "ana_pay": {
+        "deger": 0.8,
+        "kaynak": "[84] uyarlaması (80/20); duyarlılık, V1",
+        "bolum": "7.3"
+      },
+      "ana_kategoriler": {
+        "deger": {
+          "mobility": [
+            1,
+            2,
+            7
+          ],
+          "geology": [
+            2,
+            3,
+            4
+          ],
+          "ice": [
+            5,
+            6,
+            8
+          ],
+          "astro": [
+            4,
+            5,
+            6
+          ]
+        },
+        "kaynak": "belge 7.3 tablosu (kalın değerler)",
+        "bolum": "7.3"
+      },
+      "duyarlilik_sema": {
+        "deger": [
+          "esit",
+          "geometrik"
+        ],
+        "kaynak": "belge 7.4",
+        "bolum": "7.4"
+      }
+    },
+    "jeoloji": {
+      "glim_alt_ornekleme": {
+        "deger": 5,
+        "kaynak": "proje kararı (hücre başına 5 × 5 nokta)",
+        "bolum": "4.4"
+      },
+      "mars_yayla": {
+        "deger": {
+          "volkanik": 0.5,
+          "tortul": 0.5
+        },
+        "kaynak": "proje kararı; kontrol V8",
+        "bolum": "6.3"
+      }
+    },
+    "mineraloji": {
+      "gecerlilik_orani": {
+        "deger": 0.5,
+        "kaynak": "proje kararı",
+        "bolum": "6.4"
+      }
+    },
+    "termal": {
+      "ay_tgece_gcp_sinir_der": {
+        "deger": 70.0,
+        "kaynak": "v1.2 D5",
+        "birim": "derece",
+        "bolum": "6.5"
+      },
+      "ay_prp_sinir_der": {
+        "deger": 76.0,
+        "kaynak": "belge 6.5 tablosu",
+        "birim": "derece",
+        "bolum": "6.5"
+      },
+      "ay_gcp_yerel_saat": {
+        "deger": [
+          18.0,
+          6.0
+        ],
+        "kaynak": "v1.2 D5 (18:00–06:00 ortalaması)",
+        "birim": "saat",
+        "bolum": "6.5"
+      },
+      "ay_tbol_ust_K": {
+        "deger": 250.0,
+        "kaynak": "belge 6.5 (≥ 250 K veri yok)",
+        "birim": "K",
+        "bolum": "6.5"
+      }
+    },
+    "su_buz": {
+      "islak_esigi": {
+        "deger": 0.5,
+        "kaynak": "proje kararı",
+        "bolum": "6.6"
+      },
+      "kar_buz_siniri": {
+        "deger": 0.5,
+        "kaynak": "belge 6.6 sıfır kuralı",
+        "bolum": "6.6"
+      },
+      "ay_toryum_ppm": {
+        "deger": 4.56,
+        "kaynak": "proje kararı (Ay'ın en yüksek %10'u)",
+        "birim": "ppm",
+        "bolum": "6.6"
+      },
+      "ay_prp_kapsama_der": {
+        "deger": 75.9,
+        "kaynak": "belge 6.6",
+        "birim": "derece",
+        "bolum": "6.6"
+      }
+    },
+    "aydinlanma": {
+      "ay_pgda_sinir_der": {
+        "deger": 65.0,
+        "kaynak": "PGDA haritasının tam kapsadığı çember",
+        "birim": "derece",
+        "bolum": "6.8"
+      },
+      "Ls_adim": {
+        "deger": 3600,
+        "kaynak": "proje kararı (yıllık ortalamanın sayısal integrali)",
+        "bolum": "6.8"
+      }
+    },
+    "siralama": {
+      "top3_en_az_km": {
+        "deger": 100.0,
+        "kaynak": "proje kararı",
+        "birim": "km",
+        "bolum": "7.4"
+      }
+    },
+    "katman_B": {
+      "sure_siniri_sa": {
+        "deger": 10.0,
+        "kaynak": "proje kararı (K1)",
+        "birim": "saat",
+        "bolum": "11"
+      },
+      "katman_A_sure_siniri_sa": {
+        "deger": 4.0,
+        "kaynak": "K2",
+        "birim": "saat",
+        "bolum": "11"
+      }
+    },
+    "dogrulama": {
+      "alfa": {
+        "deger": 0.05,
+        "kaynak": "belge 8.3",
+        "bolum": "8.3"
+      },
+      "V2_sinif_orani": {
+        "deger": 0.9,
+        "kaynak": "v1.2 D6 (sınıf 2 ve 12 ≥ %90)",
+        "bolum": "8.3"
+      },
+      "V3_bootstrap": {
+        "deger": 2000,
+        "kaynak": "belge 8.3 [28]",
+        "bolum": "8.3"
+      },
+      "V3_rastgele_pencere": {
+        "deger": 1000,
+        "kaynak": "belge 8.3",
+        "bolum": "8.3"
+      },
+      "V4_hedef": {
+        "deger": 200,
+        "kaynak": "belge 8.3",
+        "bolum": "8.3"
+      },
+      "V4_tau_esigi": {
+        "deger": 0.9,
+        "kaynak": "belge 8.3, K4",
+        "bolum": "8.3"
+      },
+      "V5_hedef": {
+        "deger": 200,
+        "kaynak": "belge 8.3",
+        "bolum": "8.3"
+      },
+      "V6_rs_esigi": {
+        "deger": 0.8,
+        "kaynak": "belge 8.3, K5/K6",
+        "bolum": "8.3"
+      },
+      "V7_tekrar": {
+        "deger": 20,
+        "kaynak": "belge 8.3",
+        "bolum": "8.3"
+      }
+    },
+    "analog_uzaklik_km": {
+      "deger": {
+        "bilinen_alti": 20.0,
+        "yakin_ust": 100.0
+      },
+      "kaynak": "proje talimatı v1.2.1 madde 4 (Known < 20, Near 20–100, New > 100 km); puana girmez; D8 ile kilitlenir",
+      "birim": "km",
+      "bolum": "8.4"
+    },
+    "katman": {
+      "piksel_basina_ornek": {
+        "deger": 2,
+        "kaynak": "proje kararı (hücreden ince katmanda piksel kenarı başına en az 2 alt nokta; alan ağırlıklı ortalama)",
+        "bolum": "4.4"
+      },
+      "alt_ornek_en_fazla": {
+        "deger": 10,
+        "kaynak": "proje kararı (kutba yakın coğrafi ızgarada üst sınır)",
+        "bolum": "4.4"
+      },
+      "vektor_alt_ornek": {
+        "deger": 5,
+        "kaynak": "belge 4.4 (GLiM hücre başına 5 × 5 nokta; aynı kural Ay ve Mars jeolojisinde)",
+        "bolum": "4.4"
+      },
+      "ucgen_esik_carpani": {
+        "deger": 3.0,
+        "kaynak": "proje kararı (PRP: en yakın üçgen merkezi ortanca komşu aralığının 3 katından uzaksa veri yok)",
+        "bolum": "4.4"
+      }
+    }
+  }
+}

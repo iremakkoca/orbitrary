@@ -1,0 +1,49 @@
+{
+ "n": 500,
+ "bilgisayar": {
+  "platform": "Windows-11-10.0.26200-SP0",
+  "islemci": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+  "python": "3.12.16"
+ },
+ "govde": {
+  "dunya": {
+   "P2_isinma_s": 0.5,
+   "P2_s_pencere": 0.010158290624618531,
+   "E_orani_orneklem": 0.264,
+   "E_prime_tahmin": 336727,
+   "toplam_pencere": 1275482,
+   "P3_isinma_s": 364.0,
+   "P3_n": 500,
+   "P3_s_pencere": 0.09705498933792114,
+   "bayt_pencere": 56101,
+   "dem_tam_orani": 1.0
+  },
+  "ay": {
+   "toplam_pencere": 94864,
+   "P3_isinma_s": 154.7,
+   "P3_n": 500,
+   "P3_s_pencere": 0.22429373931884766,
+   "bayt_pencere": 52101,
+   "dem_tam_orani": 1.0
+  },
+  "mars": {
+   "toplam_pencere": 360654,
+   "P3_isinma_s": 16.6,
+   "P3_n": 500,
+   "P3_s_pencere": 0.061360191822052004,
+   "bayt_pencere": 44101,
+   "dem_tam_orani": 1.0
+  }
+ },
+ "tahmin_saat": {
+  "P2_dunya": 3.6,
+  "P3_dunya": 9.08,
+  "KatmanB_ozellik_ay_mars": 12.06,
+  "not": "Katman A puanlama (P5–P6) ve Katman B puanlama süresi 2. parçada ölçülür; K1/K2 kararı o zaman"
+ },
+ "disk_GB": {
+  "ozellik_tahmini": 39.7,
+  "bos": 107.6,
+  "yeterli": true
+ }
+}

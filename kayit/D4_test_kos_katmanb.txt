@@ -1,0 +1,31 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\USER\anaconda3\envs\orbitrary\python.exe
+rootdir: C:\Users\USER\orbitrary\kod
+plugins: anyio-4.16.0, platformdirs-4.14.5
+collecting ... collected 12 items
+
+testler/test_kos_hatti.py::test_depo_tam_kosu PASSED                     [  8%]
+testler/test_kos_hatti.py::test_depo_kesilip_devam_K16 PASSED            [ 16%]
+testler/test_kos_hatti.py::test_depo_sema_ve_boyut PASSED                [ 25%]
+testler/test_kos_hatti.py::test_izgara_sayilari PASSED                   [ 33%]
+testler/test_kos_hatti.py::test_depo_iki_isci PASSED                     [ 41%]
+testler/test_kos_hatti.py::test_diyagram_deposu PASSED                   [ 50%]
+testler/test_kos_puanla.py::test_uzaklik_ve_puanla PASSED                [ 58%]
+testler/test_kos_v5_d7.py::test_skor_aday_kumesinden_bagimsiz PASSED     [ 66%]
+testler/test_kos_v5_d7.py::test_v5_recall PASSED                         [ 75%]
+testler/test_kos_v5_d7.py::test_d7_kimlik PASSED                         [ 83%]
+testler/test_kos_katmanb.py::test_p3_blok_ham_ve_diyagram PASSED         [ 91%]
+testler/test_kos_katmanb.py::test_p3b_fonk_diyagram_dosyasi PASSED       [100%]
+
+============================ slowest 10 durations =============================
+5.04s setup    testler/test_kos_v5_d7.py::test_skor_aday_kumesinden_bagimsiz
+4.84s setup    testler/test_kos_puanla.py::test_uzaklik_ve_puanla
+1.27s call     testler/test_kos_puanla.py::test_uzaklik_ve_puanla
+1.19s call     testler/test_kos_v5_d7.py::test_d7_kimlik
+0.99s call     testler/test_kos_hatti.py::test_depo_iki_isci
+0.59s call     testler/test_kos_v5_d7.py::test_skor_aday_kumesinden_bagimsiz
+0.54s call     testler/test_kos_v5_d7.py::test_v5_recall
+0.32s call     testler/test_kos_katmanb.py::test_p3b_fonk_diyagram_dosyasi
+0.17s call     testler/test_kos_katmanb.py::test_p3_blok_ham_ve_diyagram
+0.12s call     testler/test_kos_hatti.py::test_diyagram_deposu
+============================= 12 passed in 17.22s =============================

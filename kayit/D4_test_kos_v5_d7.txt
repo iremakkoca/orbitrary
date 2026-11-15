@@ -1,0 +1,29 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\USER\anaconda3\envs\orbitrary\python.exe
+rootdir: C:\Users\USER\orbitrary\kod
+plugins: anyio-4.16.0, platformdirs-4.14.5
+collecting ... collected 10 items
+
+testler/test_kos_hatti.py::test_depo_tam_kosu PASSED                     [ 10%]
+testler/test_kos_hatti.py::test_depo_kesilip_devam_K16 PASSED            [ 20%]
+testler/test_kos_hatti.py::test_depo_sema_ve_boyut PASSED                [ 30%]
+testler/test_kos_hatti.py::test_izgara_sayilari PASSED                   [ 40%]
+testler/test_kos_hatti.py::test_depo_iki_isci PASSED                     [ 50%]
+testler/test_kos_hatti.py::test_diyagram_deposu PASSED                   [ 60%]
+testler/test_kos_puanla.py::test_uzaklik_ve_puanla PASSED                [ 70%]
+testler/test_kos_v5_d7.py::test_skor_aday_kumesinden_bagimsiz PASSED     [ 80%]
+testler/test_kos_v5_d7.py::test_v5_recall PASSED                         [ 90%]
+testler/test_kos_v5_d7.py::test_d7_kimlik PASSED                         [100%]
+
+============================ slowest 10 durations =============================
+3.79s setup    testler/test_kos_puanla.py::test_uzaklik_ve_puanla
+3.75s setup    testler/test_kos_v5_d7.py::test_skor_aday_kumesinden_bagimsiz
+0.92s call     testler/test_kos_v5_d7.py::test_d7_kimlik
+0.91s call     testler/test_kos_puanla.py::test_uzaklik_ve_puanla
+0.90s call     testler/test_kos_hatti.py::test_depo_iki_isci
+0.42s call     testler/test_kos_v5_d7.py::test_skor_aday_kumesinden_bagimsiz
+0.39s call     testler/test_kos_v5_d7.py::test_v5_recall
+0.09s call     testler/test_kos_hatti.py::test_diyagram_deposu
+0.04s call     testler/test_kos_hatti.py::test_depo_kesilip_devam_K16
+0.03s call     testler/test_kos_hatti.py::test_depo_tam_kosu
+============================= 10 passed in 12.46s =============================

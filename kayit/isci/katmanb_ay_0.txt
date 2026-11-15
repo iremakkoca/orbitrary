@@ -1,0 +1,74 @@
+   Katman B ay işçi 0: blok 2/74  geçen 5.4 dk  kalan ≈ 194.6 dk
+   Katman B ay işçi 0: blok 4/74  geçen 11.1 dk  kalan ≈ 194.6 dk
+   Katman B ay işçi 0: blok 6/74  geçen 16.3 dk  kalan ≈ 184.9 dk
+   Katman B ay işçi 0: blok 8/74  geçen 21.5 dk  kalan ≈ 177.4 dk
+   Katman B ay işçi 0: blok 10/74  geçen 26.8 dk  kalan ≈ 171.4 dk
+   Katman B ay işçi 0: blok 12/74  geçen 32.1 dk  kalan ≈ 165.8 dk
+   Katman B ay işçi 0: blok 14/74  geçen 37.3 dk  kalan ≈ 160.0 dk
+Traceback (most recent call last):
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 1677, in <module>
+    kur = time.time() - f0
+    ^^^^^^
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 459, in main
+    
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 303, in isci
+    return kim
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 112, in bloklari_kos
+    
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 1534, in f
+    S, Zt, Dm, uyg = skor_topolojisiz(D, Dk, 0, idx, d1[idx], d1[self.R1], self.R1, self.R28, KT, R37=self.RB)
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 1484, in hedef
+    d1[self.R1] = d1_hizli(self.ref1[0], self.ref1[1], hz["Q1"], float(hz["lnR"]), hz["iqr"])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 798, in topoloji_ve_sira
+    ref37, rk37 = np.asarray(R37, np.int64), _konum(D.n, R37)[idx]
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 784, in d2_referans
+    """Belge 5.4: idx adayları için s_k, ζ_k, d_k (kategori 1, 3–8; 2 boş) ve uygunluk (7.2; topoloji 'DEM tamsa
+                                           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\orbitrary\kod\ozellik_topoloji.py", line 127, in d2
+    D1 = np.asarray(D1, float).reshape(-1, 2)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\orbitrary\kod\ozellik_topoloji.py", line 116, in sw
+    
+KeyboardInterrupt
+   Katman B ay işçi 0: blok 2/38  geçen 5.7 dk  kalan ≈ 102.8 dk
+   Katman B ay işçi 0: blok 4/38  geçen 11.5 dk  kalan ≈ 97.4 dk
+   Katman B ay işçi 0: blok 6/38  geçen 17.1 dk  kalan ≈ 91.2 dk
+Traceback (most recent call last):
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 1834, in <module>
+    z = np.load(self.kl / f"blok_{b:05d}.npz")
+^^
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 478, in main
+    isci(a.isci_asama, a.govde, a.isci_no, a.isci_sayi)
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 316, in isci
+    bloklari_kos(depo, _katmanb_fonk(govde, kon_oku(), X_al()), f"Katman B {govde} işçi {no}", her=2,
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 123, in bloklari_kos
+    depo.yaz(b, fonk(a, z))
+                ^^^^^^^^^^
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 1586, in f
+    
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 1527, in hedef
+    out = {"top3": np.full((5, 3), -1, np.int64), "P": np.full((5, 3), np.nan, np.float32),
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 1498, in _uzaklik
+    d1[U] = d1_hizli(D.Q1(U), D.lnR[U], hz["Q1"], float(hz["lnR"]), hz["iqr"], dt)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\orbitrary\kod\uzaklik.py", line 47, in w1_matris
+    def w1_matris(Q_aday, Q_ref, parca=256):
+    
+KeyboardInterrupt
+   Katman B ay işçi 0: blok 2/26  geçen 4.7 dk  kalan ≈ 56.1 dk
+   Katman B ay işçi 0: blok 4/26  geçen 9.5 dk  kalan ≈ 52.3 dk
+   Katman B ay işçi 0: blok 6/26  geçen 14.4 dk  kalan ≈ 48.0 dk
+   Katman B ay işçi 0: blok 8/26  geçen 19.6 dk  kalan ≈ 44.0 dk
+   Katman B ay işçi 0: blok 10/26  geçen 24.6 dk  kalan ≈ 39.3 dk
+   Katman B ay işçi 0: blok 12/26  geçen 29.2 dk  kalan ≈ 34.0 dk
+   Katman B ay işçi 0: blok 14/26  geçen 33.5 dk  kalan ≈ 28.8 dk
+   Katman B ay işçi 0: blok 16/26  geçen 38.5 dk  kalan ≈ 24.1 dk
+   Katman B ay işçi 0: blok 18/26  geçen 43.4 dk  kalan ≈ 19.3 dk
+   Katman B ay işçi 0: blok 20/26  geçen 48.7 dk  kalan ≈ 14.6 dk
+   Katman B ay işçi 0: blok 22/26  geçen 53.9 dk  kalan ≈ 9.8 dk
+   Katman B ay işçi 0: blok 24/26  geçen 58.8 dk  kalan ≈ 4.9 dk
+   Katman B ay işçi 0: blok 26/26  geçen 61.6 dk  kalan ≈ 0.0 dk

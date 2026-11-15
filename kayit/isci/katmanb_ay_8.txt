@@ -1,0 +1,13 @@
+   Katman B ay işçi 8: blok 2/25  geçen 4.7 dk  kalan ≈ 54.0 dk
+   Katman B ay işçi 8: blok 4/25  geçen 9.6 dk  kalan ≈ 50.3 dk
+   Katman B ay işçi 8: blok 6/25  geçen 14.5 dk  kalan ≈ 45.9 dk
+   Katman B ay işçi 8: blok 8/25  geçen 19.7 dk  kalan ≈ 41.8 dk
+   Katman B ay işçi 8: blok 10/25  geçen 24.7 dk  kalan ≈ 37.0 dk
+   Katman B ay işçi 8: blok 12/25  geçen 29.3 dk  kalan ≈ 31.7 dk
+   Katman B ay işçi 8: blok 14/25  geçen 33.7 dk  kalan ≈ 26.5 dk
+   Katman B ay işçi 8: blok 16/25  geçen 38.6 dk  kalan ≈ 21.7 dk
+   Katman B ay işçi 8: blok 18/25  geçen 43.6 dk  kalan ≈ 17.0 dk
+   Katman B ay işçi 8: blok 20/25  geçen 48.9 dk  kalan ≈ 12.2 dk
+   Katman B ay işçi 8: blok 22/25  geçen 54.0 dk  kalan ≈ 7.4 dk
+   Katman B ay işçi 8: blok 24/25  geçen 58.9 dk  kalan ≈ 2.5 dk
+   Katman B ay işçi 8: blok 25/25  geçen 61.0 dk  kalan ≈ 0.0 dk

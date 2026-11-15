@@ -1,0 +1,23 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\USER\anaconda3\envs\orbitrary\python.exe
+rootdir: C:\Users\USER\orbitrary\kod
+plugins: anyio-4.16.0, platformdirs-4.14.5
+collecting ... collected 4 items
+
+testler/test_kos_site.py::test_site_veri PASSED                          [ 25%]
+testler/test_kos_dogrulama.py::test_dogrulama_uctan_uca PASSED           [ 50%]
+testler/test_kos_puanla.py::test_uzaklik_ve_puanla PASSED                [ 75%]
+testler/test_kos_puanla.py::test_puanla_tam_mod PASSED                   [100%]
+
+============================ slowest 10 durations =============================
+6.41s setup    testler/test_kos_puanla.py::test_uzaklik_ve_puanla
+4.82s call     testler/test_kos_dogrulama.py::test_dogrulama_uctan_uca
+2.83s call     testler/test_kos_site.py::test_site_veri
+2.63s call     testler/test_kos_puanla.py::test_puanla_tam_mod
+2.11s call     testler/test_kos_puanla.py::test_uzaklik_ve_puanla
+0.02s teardown testler/test_kos_site.py::test_site_veri
+0.01s teardown testler/test_kos_dogrulama.py::test_dogrulama_uctan_uca
+0.01s setup    testler/test_kos_site.py::test_site_veri
+
+(2 durations < 0.005s hidden.  Use -vv to show these durations.)
+============================= 4 passed in 22.41s ==============================

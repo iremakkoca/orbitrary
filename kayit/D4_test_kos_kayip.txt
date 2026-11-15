@@ -1,0 +1,37 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\USER\anaconda3\envs\orbitrary\python.exe
+rootdir: C:\Users\USER\orbitrary\kod
+plugins: anyio-4.16.0, platformdirs-4.14.5
+collecting ... collected 18 items
+
+testler/test_kos_hatti.py::test_depo_tam_kosu PASSED                     [  5%]
+testler/test_kos_hatti.py::test_depo_kesilip_devam_K16 PASSED            [ 11%]
+testler/test_kos_hatti.py::test_depo_sema_ve_boyut PASSED                [ 16%]
+testler/test_kos_hatti.py::test_izgara_sayilari PASSED                   [ 22%]
+testler/test_kos_hatti.py::test_depo_iki_isci PASSED                     [ 27%]
+testler/test_kos_hatti.py::test_diyagram_deposu PASSED                   [ 33%]
+testler/test_kos_puanla.py::test_uzaklik_ve_puanla PASSED                [ 38%]
+testler/test_kos_v5_d7.py::test_skor_aday_kumesinden_bagimsiz PASSED     [ 44%]
+testler/test_kos_v5_d7.py::test_v5_recall PASSED                         [ 50%]
+testler/test_kos_v5_d7.py::test_d7_kimlik PASSED                         [ 55%]
+testler/test_kos_v5_d7.py::test_kayip_hedef PASSED                       [ 61%]
+testler/test_kos_katmanb.py::test_p3_blok_ham_ve_diyagram PASSED         [ 66%]
+testler/test_kos_katmanb.py::test_p3b_fonk_diyagram_dosyasi PASSED       [ 72%]
+testler/test_kos_katmanb_puan.py::test_seyrek_tam_ile_ayni PASSED        [ 77%]
+testler/test_kos_katmanb_puan.py::test_referans_37_sabit_2000 PASSED     [ 83%]
+testler/test_kos_katmanb_puan.py::test_kuru_hedef PASSED                 [ 88%]
+testler/test_kos_d8.py::test_d8_kilit_ve_degisiklik PASSED               [ 94%]
+testler/test_kos_d8.py::test_v2_ciftleri PASSED                          [100%]
+
+============================ slowest 10 durations =============================
+5.44s setup    testler/test_kos_v5_d7.py::test_skor_aday_kumesinden_bagimsiz
+5.40s setup    testler/test_kos_katmanb_puan.py::test_seyrek_tam_ile_ayni
+4.94s setup    testler/test_kos_puanla.py::test_uzaklik_ve_puanla
+2.43s call     testler/test_kos_katmanb_puan.py::test_seyrek_tam_ile_ayni
+1.44s call     testler/test_kos_puanla.py::test_uzaklik_ve_puanla
+1.31s call     testler/test_kos_v5_d7.py::test_d7_kimlik
+1.11s call     testler/test_kos_hatti.py::test_depo_iki_isci
+0.67s call     testler/test_kos_v5_d7.py::test_skor_aday_kumesinden_bagimsiz
+0.60s call     testler/test_kos_v5_d7.py::test_kayip_hedef
+0.57s call     testler/test_kos_v5_d7.py::test_v5_recall
+============================= 18 passed in 28.94s =============================

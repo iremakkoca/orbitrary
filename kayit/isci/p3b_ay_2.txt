@@ -1,0 +1,5 @@
+   P3B ay işçi 2: blok 20/93  geçen 13.4 dk  kalan ≈ 48.9 dk
+   P3B ay işçi 2: blok 40/93  geçen 23.3 dk  kalan ≈ 30.9 dk
+   P3B ay işçi 2: blok 60/93  geçen 33.3 dk  kalan ≈ 18.3 dk
+   P3B ay işçi 2: blok 80/93  geçen 45.6 dk  kalan ≈ 7.4 dk
+   P3B ay işçi 2: blok 93/93  geçen 54.4 dk  kalan ≈ 0.0 dk

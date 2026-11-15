@@ -1,0 +1,194 @@
+{
+ "zaman": "20261114_1129",
+ "hedef_sayisi": 26,
+ "hedefler": [
+  {
+   "kimlik": "A3-01",
+   "ad": "Peak near Cabeus B",
+   "cisim": "ay",
+   "enlem": "-83.576",
+   "boylam": "-69.076"
+  },
+  {
+   "kimlik": "A3-02",
+   "ad": "Haworth",
+   "cisim": "ay",
+   "enlem": "-86.799",
+   "boylam": "-22.898"
+  },
+  {
+   "kimlik": "A3-03",
+   "ad": "Malapert Massif",
+   "cisim": "ay",
+   "enlem": "-86.047",
+   "boylam": "0.149"
+  },
+  {
+   "kimlik": "A3-04",
+   "ad": "Mons Mouton Plateau",
+   "cisim": "ay",
+   "enlem": "-84.534",
+   "boylam": "30.655"
+  },
+  {
+   "kimlik": "A3-05",
+   "ad": "Mons Mouton",
+   "cisim": "ay",
+   "enlem": "-85.399",
+   "boylam": "31.18"
+  },
+  {
+   "kimlik": "A3-06",
+   "ad": "Nobile Rim 1",
+   "cisim": "ay",
+   "enlem": "-85.188",
+   "boylam": "37.24"
+  },
+  {
+   "kimlik": "A3-07",
+   "ad": "Nobile Rim 2",
+   "cisim": "ay",
+   "enlem": "-83.888",
+   "boylam": "58.403"
+  },
+  {
+   "kimlik": "A3-08",
+   "ad": "de Gerlache Rim 2",
+   "cisim": "ay",
+   "enlem": "-88.174",
+   "boylam": "-68.787"
+  },
+  {
+   "kimlik": "A3-09",
+   "ad": "Slater Plain",
+   "cisim": "ay",
+   "enlem": "-87.207",
+   "boylam": "126.606"
+  },
+  {
+   "kimlik": "M-SP",
+   "ad": "Ay güney kutbu test noktası",
+   "cisim": "ay",
+   "enlem": "-89.0",
+   "boylam": "30.0"
+  },
+  {
+   "kimlik": "M-A11",
+   "ad": "Apollo 11, Mare Tranquillitatis",
+   "cisim": "ay",
+   "enlem": "0.67416",
+   "boylam": "23.47314"
+  },
+  {
+   "kimlik": "M-A14",
+   "ad": "Apollo 14, Fra Mauro",
+   "cisim": "ay",
+   "enlem": "-3.64589",
+   "boylam": "-17.47194"
+  },
+  {
+   "kimlik": "M-A15",
+   "ad": "Apollo 15, Hadley–Apennine",
+   "cisim": "ay",
+   "enlem": "26.13239",
+   "boylam": "3.6333"
+  },
+  {
+   "kimlik": "M-A16",
+   "ad": "Apollo 16, Descartes",
+   "cisim": "ay",
+   "enlem": "-8.9734",
+   "boylam": "15.5011"
+  },
+  {
+   "kimlik": "M-A17",
+   "ad": "Apollo 17, Taurus–Littrow",
+   "cisim": "ay",
+   "enlem": "20.1911",
+   "boylam": "30.7723"
+  },
+  {
+   "kimlik": "M-SHK",
+   "ad": "Shackleton krateri",
+   "cisim": "ay",
+   "enlem": "-89.67",
+   "boylam": "129.78"
+  },
+  {
+   "kimlik": "R-JEZ",
+   "ad": "Jezero (Perseverance)",
+   "cisim": "mars",
+   "enlem": "18.44",
+   "boylam": "77.45"
+  },
+  {
+   "kimlik": "R-GAL",
+   "ad": "Gale (Curiosity)",
+   "cisim": "mars",
+   "enlem": "-4.5895",
+   "boylam": "137.4417"
+  },
+  {
+   "kimlik": "R-PF",
+   "ad": "Ares Vallis (Pathfinder)",
+   "cisim": "mars",
+   "enlem": "19.13",
+   "boylam": "-33.22"
+  },
+  {
+   "kimlik": "R-GUS",
+   "ad": "Gusev (Spirit)",
+   "cisim": "mars",
+   "enlem": "-14.5692",
+   "boylam": "175.4729"
+  },
+  {
+   "kimlik": "R-MER",
+   "ad": "Meridiani Planum (Opportunity)",
+   "cisim": "mars",
+   "enlem": "-1.9462",
+   "boylam": "-5.5266"
+  },
+  {
+   "kimlik": "R-PHX",
+   "ad": "Phoenix iniş yeri",
+   "cisim": "mars",
+   "enlem": "68.22",
+   "boylam": "-125.75"
+  },
+  {
+   "kimlik": "R-UTO",
+   "ad": "Utopia Planitia (Viking 2)",
+   "cisim": "mars",
+   "enlem": "47.64",
+   "boylam": "134.29"
+  },
+  {
+   "kimlik": "R-ELY",
+   "ad": "Elysium Planitia (InSight)",
+   "cisim": "mars",
+   "enlem": "4.502384",
+   "boylam": "135.623447"
+  },
+  {
+   "kimlik": "R-OLY",
+   "ad": "Olympus Mons (feature centre, IAU Gazetteer)",
+   "cisim": "mars",
+   "enlem": "18.65",
+   "boylam": "-133.8"
+  },
+  {
+   "kimlik": "R-ZHU",
+   "ad": "Utopia Planitia (Zhurong)",
+   "cisim": "mars",
+   "enlem": "25.066",
+   "boylam": "109.925"
+  }
+ ],
+ "mars_gruplari": {
+  "tortul": 16,
+  "volkanik": 12,
+  "yayla_yarim": 9,
+  "buz": 7
+ }
+}

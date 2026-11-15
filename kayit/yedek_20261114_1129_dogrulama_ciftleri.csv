@@ -1,0 +1,12 @@
+﻿tur,cift_no,hedef_kimlik,dunya_saha,enlem,boylam,gorev,kaynak,ilk_cift,kaynak_yeri
+V1,1,M-A15,"Rio Grande Gorge, Taos, New Mexico",36.47611,-105.73222,geology,NASA History; BLM 2021,True,belge 9.3
+V1,2,M-A14,"Nördlinger Ries, Almanya",48.8833,10.6167,geology,"NASA ALSJ Apollo 14 Ries geology trip (10–15 Ağustos 1970); Phinney, NASA SP-2015-626 [143]",True,belge 9.3
+V1,3,M-A16,"Sudbury, Ontario",46.6,-81.183,geology,NASA History; GSA 2008,True,belge 9.3
+V1,4,M-A17,"Sudbury, Ontario",46.6,-81.183,geology,CBC 2021,False,belge 9.3
+V1,5,M-SP,"SP Crater, Arizona",35.58223,-111.63182,mobility,JETT3 NTRS 20230000146 [144]; JETT5 NTRS 20250000177 [145],True,belge 9.3
+V1,6,R-PF,"Ephrata fanı, Washington",47.318,-119.553,genel,Golombek ve ark. 1999 [142],True,belge 9.3
+V1,7,R-GAL,"Dumont Dunes, Mojave",35.67863,-116.23156,mobility,"JPL, 11 Mayıs 2012 (Scarecrow testleri) [146]",True,belge 9.3
+V1,8,M-A15,"Kilbourne Hole, New Mexico",31.97194,-106.96472,geology,BLM 2021,True,belge 9.3
+V1,9,M-A16,"Rio Grande Gorge, Taos, New Mexico",36.47611,-105.73222,geology,"NASA History (Taos, Eylül 1971)",False,belge 9.3
+V1,10,M-A17,"Lunar Crater Volcanic Field, Nevada",38.4,-116.05,geology,"Phinney, NASA SP-2015-626 [143]",True,belge 9.3
+V1,11,M-SP,"Kilbourne Hole, New Mexico",31.97194,-106.96472,mobility,JETT1 NTRS 20220015570 [147],False,belge 9.3

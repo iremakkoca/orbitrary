@@ -1,0 +1,45 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\USER\anaconda3\envs\orbitrary\python.exe
+rootdir: C:\Users\USER\orbitrary\kod
+plugins: anyio-4.16.0, platformdirs-4.14.5
+collecting ... collected 26 items
+
+testler/test_kos_hiz.py::test_d1_hizli_birebir PASSED                    [  3%]
+testler/test_kos_hiz.py::test_diyagram_tek_ayni PASSED                   [  7%]
+testler/test_kos_hiz.py::test_sw_onbellek_ayni PASSED                    [ 11%]
+testler/test_ozellik_topoloji.py::test_ayni_diyagram_sw_sifir_8_2 PASSED [ 15%]
+testler/test_ozellik_topoloji.py::test_rolyef_sifir_diyagram_bos_8_2 PASSED [ 19%]
+testler/test_ozellik_topoloji.py::test_normalizasyon_kappa_taban PASSED  [ 23%]
+testler/test_ozellik_topoloji.py::test_iki_cukur_bilinen_diyagram PASSED [ 26%]
+testler/test_ozellik_topoloji.py::test_capraz_komsuluk PASSED            [ 30%]
+testler/test_ozellik_topoloji.py::test_sw_tek_nokta_analitik_ve_K12 PASSED [ 34%]
+testler/test_ozellik_topoloji.py::test_sw_simetrik_ve_pozitif PASSED     [ 38%]
+testler/test_ozellik_topoloji.py::test_d2_ve_null PASSED                 [ 42%]
+testler/test_ozellik_topoloji.py::test_n_onemli PASSED                   [ 46%]
+testler/test_kos_hatti.py::test_depo_tam_kosu PASSED                     [ 50%]
+testler/test_kos_hatti.py::test_depo_kesilip_devam_K16 PASSED            [ 53%]
+testler/test_kos_hatti.py::test_depo_sema_ve_boyut PASSED                [ 57%]
+testler/test_kos_hatti.py::test_izgara_sayilari PASSED                   [ 61%]
+testler/test_kos_hatti.py::test_depo_iki_isci PASSED                     [ 65%]
+testler/test_kos_hatti.py::test_diyagram_deposu PASSED                   [ 69%]
+testler/test_kos_puanla.py::test_uzaklik_ve_puanla PASSED                [ 73%]
+testler/test_kos_katmanb_puan.py::test_seyrek_tam_ile_ayni PASSED        [ 76%]
+testler/test_kos_katmanb_puan.py::test_referans_37_sabit_2000 PASSED     [ 80%]
+testler/test_kos_katmanb_puan.py::test_kuru_hedef PASSED                 [ 84%]
+testler/test_kos_v5_d7.py::test_skor_aday_kumesinden_bagimsiz PASSED     [ 88%]
+testler/test_kos_v5_d7.py::test_v5_recall PASSED                         [ 92%]
+testler/test_kos_v5_d7.py::test_d7_kimlik PASSED                         [ 96%]
+testler/test_kos_v5_d7.py::test_kayip_hedef PASSED                       [100%]
+
+============================ slowest 10 durations =============================
+12.26s call     testler/test_kos_hiz.py::test_diyagram_tek_ayni
+5.82s setup    testler/test_kos_katmanb_puan.py::test_seyrek_tam_ile_ayni
+5.68s setup    testler/test_kos_v5_d7.py::test_skor_aday_kumesinden_bagimsiz
+5.45s setup    testler/test_kos_puanla.py::test_uzaklik_ve_puanla
+2.40s call     testler/test_kos_katmanb_puan.py::test_seyrek_tam_ile_ayni
+1.66s call     testler/test_kos_v5_d7.py::test_d7_kimlik
+1.62s call     testler/test_kos_puanla.py::test_uzaklik_ve_puanla
+1.41s call     testler/test_kos_hatti.py::test_depo_iki_isci
+0.82s call     testler/test_kos_v5_d7.py::test_skor_aday_kumesinden_bagimsiz
+0.80s call     testler/test_kos_v5_d7.py::test_v5_recall
+============================= 26 passed in 42.42s =============================

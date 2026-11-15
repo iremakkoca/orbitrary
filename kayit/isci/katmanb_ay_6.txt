@@ -1,0 +1,38 @@
+   Katman B ay işçi 6: blok 2/37  geçen 5.7 dk  kalan ≈ 100.3 dk
+   Katman B ay işçi 6: blok 4/37  geçen 11.5 dk  kalan ≈ 94.6 dk
+   Katman B ay işçi 6: blok 6/37  geçen 17.1 dk  kalan ≈ 88.2 dk
+Traceback (most recent call last):
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 1834, in <module>
+    z = np.load(self.kl / f"blok_{b:05d}.npz")
+^^
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 478, in main
+    isci(a.isci_asama, a.govde, a.isci_no, a.isci_sayi)
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 316, in isci
+    bloklari_kos(depo, _katmanb_fonk(govde, kon_oku(), X_al()), f"Katman B {govde} işçi {no}", her=2,
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 123, in bloklari_kos
+    depo.yaz(b, fonk(a, z))
+                ^^^^^^^^^^
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 1586, in f
+    
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 1527, in hedef
+    out = {"top3": np.full((5, 3), -1, np.int64), "P": np.full((5, 3), np.nan, np.float32),
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 1484, in _uzaklik
+    
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 1436, in d1_hizli
+    FT = np.flatnonzero(np.isfinite(iqr) & (iqr > 0))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+   Katman B ay işçi 6: blok 2/25  geçen 4.7 dk  kalan ≈ 54.0 dk
+   Katman B ay işçi 6: blok 4/25  geçen 9.5 dk  kalan ≈ 50.0 dk
+   Katman B ay işçi 6: blok 6/25  geçen 14.5 dk  kalan ≈ 45.8 dk
+   Katman B ay işçi 6: blok 8/25  geçen 19.6 dk  kalan ≈ 41.7 dk
+   Katman B ay işçi 6: blok 10/25  geçen 24.6 dk  kalan ≈ 36.9 dk
+   Katman B ay işçi 6: blok 12/25  geçen 29.2 dk  kalan ≈ 31.7 dk
+   Katman B ay işçi 6: blok 14/25  geçen 33.7 dk  kalan ≈ 26.4 dk
+   Katman B ay işçi 6: blok 16/25  geçen 38.6 dk  kalan ≈ 21.7 dk
+   Katman B ay işçi 6: blok 18/25  geçen 43.5 dk  kalan ≈ 16.9 dk
+   Katman B ay işçi 6: blok 20/25  geçen 48.7 dk  kalan ≈ 12.2 dk
+   Katman B ay işçi 6: blok 22/25  geçen 53.9 dk  kalan ≈ 7.3 dk
+   Katman B ay işçi 6: blok 24/25  geçen 58.8 dk  kalan ≈ 2.4 dk
+   Katman B ay işçi 6: blok 25/25  geçen 60.6 dk  kalan ≈ 0.0 dk

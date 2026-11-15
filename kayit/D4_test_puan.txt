@@ -1,0 +1,30 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\USER\anaconda3\envs\orbitrary\python.exe
+rootdir: C:\Users\USER\orbitrary\kod
+plugins: anyio-4.16.0, platformdirs-4.14.5
+collecting ... collected 19 items
+
+testler/test_puan.py::test_gorev_agirligi_8_2 PASSED                     [  5%]
+testler/test_puan.py::test_agirlik_tablosu_7_3 PASSED                    [ 10%]
+testler/test_puan.py::test_null_dusmesi_8_3 PASSED                       [ 15%]
+testler/test_puan.py::test_yuzdelik_kalibrasyon_s1_8_2 PASSED            [ 21%]
+testler/test_puan.py::test_yuzdelik_sira_bicimi_8_2 PASSED               [ 26%]
+testler/test_puan.py::test_sira_bicimi_formulu_rastgele PASSED           [ 31%]
+testler/test_puan.py::test_referans_alt_siniri_8_3 PASSED                [ 36%]
+testler/test_puan.py::test_zeta_ve_kendi_haric_ortanca PASSED            [ 42%]
+testler/test_puan.py::test_zeta_kaba_kuvvet PASSED                       [ 47%]
+testler/test_puan.py::test_zeta_ortanca_sifir_Q11 PASSED                 [ 52%]
+testler/test_puan.py::test_ayar_agirlik_tablosu_7_3 PASSED               [ 57%]
+testler/test_puan.py::test_P_Q_null_ve_kapi PASSED                       [ 63%]
+testler/test_puan.py::test_esitlik_kirici_8_3 PASSED                     [ 68%]
+testler/test_puan.py::test_top3_araligi_8_3 PASSED                       [ 73%]
+testler/test_puan.py::test_yeniden_sirala_ilk30 PASSED                   [ 78%]
+testler/test_puan.py::test_sampiyonlar_Q2 PASSED                         [ 84%]
+testler/test_puan.py::test_geometrik_ortalama PASSED                     [ 89%]
+testler/test_puan.py::test_kendall_ve_jaccard PASSED                     [ 94%]
+testler/test_puan.py::test_kimlik_D7_her_s1 PASSED                       [100%]
+
+============================ slowest 10 durations =============================
+
+(10 durations < 0.005s hidden.  Use -vv to show these durations.)
+============================= 19 passed in 1.13s ==============================

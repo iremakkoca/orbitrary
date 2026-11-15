@@ -1,0 +1,27 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\USER\anaconda3\envs\orbitrary\python.exe
+rootdir: C:\Users\USER\orbitrary\kod
+plugins: anyio-4.16.0, platformdirs-4.14.5
+collecting ... collected 7 items
+
+testler/test_kos_hatti.py::test_depo_tam_kosu PASSED                     [ 14%]
+testler/test_kos_hatti.py::test_depo_kesilip_devam_K16 PASSED            [ 28%]
+testler/test_kos_hatti.py::test_depo_sema_ve_boyut PASSED                [ 42%]
+testler/test_kos_hatti.py::test_izgara_sayilari PASSED                   [ 57%]
+testler/test_kos_hatti.py::test_depo_iki_isci PASSED                     [ 71%]
+testler/test_kos_hatti.py::test_diyagram_deposu PASSED                   [ 85%]
+testler/test_kos_puanla.py::test_uzaklik_ve_puanla PASSED                [100%]
+
+============================ slowest 10 durations =============================
+3.87s setup    testler/test_kos_puanla.py::test_uzaklik_ve_puanla
+0.91s call     testler/test_kos_puanla.py::test_uzaklik_ve_puanla
+0.88s call     testler/test_kos_hatti.py::test_depo_iki_isci
+0.09s call     testler/test_kos_hatti.py::test_diyagram_deposu
+0.03s call     testler/test_kos_hatti.py::test_izgara_sayilari
+0.02s call     testler/test_kos_hatti.py::test_depo_kesilip_devam_K16
+0.02s call     testler/test_kos_hatti.py::test_depo_tam_kosu
+0.01s call     testler/test_kos_hatti.py::test_depo_sema_ve_boyut
+0.01s setup    testler/test_kos_hatti.py::test_depo_tam_kosu
+
+(1 durations < 0.005s hidden.  Use -vv to show these durations.)
+============================== 7 passed in 6.94s ==============================

@@ -1,0 +1,30 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\USER\anaconda3\envs\orbitrary\python.exe
+rootdir: C:\Users\USER\orbitrary\kod
+plugins: anyio-4.16.0, platformdirs-4.14.5
+collecting ... collected 16 items
+
+testler/test_kapi.py::test_kara_maskesi_8_3 PASSED                       [  6%]
+testler/test_kapi.py::test_hareket_kapisi_8_2 PASSED                     [ 12%]
+testler/test_kapi.py::test_buz_kapisi_8_2 PASSED                         [ 18%]
+testler/test_kapi.py::test_kapi_yedegi_8_2 PASSED                        [ 25%]
+testler/test_kapi.py::test_astrobiyoloji_kapisi_8_2 PASSED               [ 31%]
+testler/test_kapi.py::test_bitki_ortusu_8_2 PASSED                       [ 37%]
+testler/test_kapi.py::test_eksik_kapi_verisi_8_2 PASSED                  [ 43%]
+testler/test_kapi.py::test_kuru_hedefte_ice_uygulanmaz PASSED            [ 50%]
+testler/test_kapi.py::test_w_kare_kara_esigi_K1 PASSED                   [ 56%]
+testler/test_kapi.py::test_jeoloji_kapisi PASSED                         [ 62%]
+testler/test_kapi.py::test_pv_ortanca_K2 PASSED                          [ 68%]
+testler/test_kapi.py::test_uygunluk_K4 PASSED                            [ 75%]
+testler/test_kapi.py::test_X_leave_one_out_K5 PASSED                     [ 81%]
+testler/test_kapi_gercek.py::test_e5_aqua_myd11c3 PASSED                 [ 87%]
+testler/test_kapi_gercek.py::test_ndvi_yillik PASSED                     [ 93%]
+testler/test_kapi_gercek.py::test_sp_crater_kapi_degiskenleri PASSED     [100%]
+
+============================ slowest 10 durations =============================
+2.47s call     testler/test_kapi_gercek.py::test_ndvi_yillik
+1.20s call     testler/test_kapi_gercek.py::test_sp_crater_kapi_degiskenleri
+0.01s call     testler/test_kapi_gercek.py::test_e5_aqua_myd11c3
+
+(7 durations < 0.005s hidden.  Use -vv to show these durations.)
+============================= 16 passed in 4.77s ==============================

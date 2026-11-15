@@ -1,0 +1,42 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\USER\anaconda3\envs\orbitrary\python.exe
+rootdir: C:\Users\USER\orbitrary\kod
+plugins: anyio-4.16.0, platformdirs-4.14.5
+collecting ... collected 25 items
+
+testler/test_ozellik_diger.py::test_C1_8_2[0-0-1.5707963267948966] PASSED [  4%]
+testler/test_ozellik_diger.py::test_C1_8_2[45-20-1.5165] PASSED          [  8%]
+testler/test_ozellik_diger.py::test_C1_8_2[80-20-0.5126322437636067] PASSED [ 12%]
+testler/test_ozellik_diger.py::test_C1_8_2[80--20-0.0] PASSED            [ 16%]
+testler/test_ozellik_diger.py::test_C1_8_2[69.99-20-1.0102] PASSED       [ 20%]
+testler/test_ozellik_diger.py::test_C1_8_2[70.01-20-1.0092] PASSED       [ 24%]
+testler/test_ozellik_diger.py::test_C1_kutup_gunu_degeri_8_2 PASSED      [ 28%]
+testler/test_ozellik_diger.py::test_I_arti_8_2 PASSED                    [ 32%]
+testler/test_ozellik_diger.py::test_su_buz_sifir_kurali_8_2 PASSED       [ 36%]
+testler/test_ozellik_diger.py::test_islak_kuru_8_2 PASSED                [ 40%]
+testler/test_ozellik_diger.py::test_aydinlanma_8_2[0-0-0.3183098861837907] PASSED [ 44%]
+testler/test_ozellik_diger.py::test_aydinlanma_8_2[90-23.44-0.39778850739794974] PASSED [ 48%]
+testler/test_ozellik_diger.py::test_aydinlanma_8_2[90--23.44-0.0] PASSED [ 52%]
+testler/test_ozellik_diger.py::test_berger_tablosu_ara_deger PASSED      [ 56%]
+testler/test_ozellik_diger.py::test_deklinasyon PASSED                   [ 60%]
+testler/test_ozellik_diger.py::test_mars_mineraloji_8_2 PASSED           [ 64%]
+testler/test_ozellik_diger.py::test_mineraloji_gecersiz_pencere_8_2 PASSED [ 68%]
+testler/test_ozellik_diger.py::test_mafik_indeks PASSED                  [ 72%]
+testler/test_ozellik_diger.py::test_sozluk_assertleri PASSED             [ 76%]
+testler/test_ozellik_diger.py::test_grup_paylari_ve_kar_buz PASSED       [ 80%]
+testler/test_ozellik_diger.py::test_pencere_jeoloji_ve_tv PASSED         [ 84%]
+testler/test_ozellik_diger.py::test_mars_pencere_hatti PASSED            [ 88%]
+testler/test_ozellik_diger.py::test_ay_pencere_hatti_pi_arti_ve_aydinlanma PASSED [ 92%]
+testler/test_ozellik_diger.py::test_termal_ozellikleri PASSED            [ 96%]
+testler/test_ozellik_diger.py::test_I_arti_yillik_madde29 PASSED         [100%]
+
+============================ slowest 10 durations =============================
+38.88s call     testler/test_ozellik_diger.py::test_berger_tablosu_ara_deger
+13.34s call     testler/test_ozellik_diger.py::test_mars_pencere_hatti
+0.06s call     testler/test_ozellik_diger.py::test_ay_pencere_hatti_pi_arti_ve_aydinlanma
+0.02s call     testler/test_ozellik_diger.py::test_sozluk_assertleri
+0.01s call     testler/test_ozellik_diger.py::test_grup_paylari_ve_kar_buz
+0.01s setup    testler/test_ozellik_diger.py::test_sozluk_assertleri
+
+(4 durations < 0.005s hidden.  Use -vv to show these durations.)
+============================= 25 passed in 53.55s =============================

@@ -1,0 +1,19 @@
+{"zaman": "2026-11-14T14:01:15", "asama": "D5", "P2_dunya": 3.6, "P3_dunya": 9.08, "KatmanB_ozellik_ay_mars": 12.06, "not": "Katman A puanlama (P5–P6) ve Katman B puanlama süresi 2. parçada ölçülür; K1/K2 kararı o zaman", "disk": {"ozellik_tahmini": 39.7, "bos": 107.6, "yeterli": true}}
+{"zaman": "2026-11-14T14:33:26", "asama": "P2", "pencere": 1275482, "E_prime": 346064, "sure_s": 300.3, "isci": 5}
+{"zaman": "2026-11-14T15:41:43", "asama": "P3", "govde": "dunya", "pencere": 346064, "sure_s": 3963.3, "isci": 5}
+{"zaman": "2026-11-14T16:26:29", "asama": "katman_A", "cikti": "pilot", "hedef": 3, "K_on": 800, "sure_s": 146.6, "hedef_sure": {"R-JEZ": 15.4, "M-A15": 13.4, "A3-03": 13.0}}
+{"zaman": "2026-11-14T17:00:19", "asama": "diyagram_dunya", "pencere": 346064, "sure_s": 780.2, "isci": 4}
+{"zaman": "2026-11-14T17:39:02", "asama": "D7", "gecti": true, "sure_s": 236.3}
+{"zaman": "2026-11-14T18:51:19", "asama": "P3B", "govde": "ay", "pencere": 94864, "sure_s": 3387.7, "isci": 4}
+{"zaman": "2026-11-14T19:05:32", "asama": "V5", "K_on": 800, "esik_saglandi": false, "sure_s": 5446.8}
+{"zaman": "2026-11-14T20:21:21", "asama": "P3B", "govde": "mars", "pencere": 360654, "sure_s": 5401.4, "isci": 4}
+{"zaman": "2026-11-14T20:32:04", "asama": "V5_kayip", "n": 50, "sure_s": 1075.8}
+{"zaman": "2026-11-14T20:53:52", "asama": "D8", "K_on": 800}
+{"zaman": "2026-11-14T21:05:11", "asama": "katman_A", "cikti": "liste", "hedef": 26, "K_on": 800, "sure_s": 679.4, "hedef_sure": {"A3-01": 4.8, "A3-02": 5.1, "A3-03": 4.2, "A3-04": 4.1, "A3-05": 3.9, "A3-06": 4.0, "A3-07": 4.1, "A3-08": 3.9, "A3-09": 5.2, "M-SP": 5.2, "M-A11": 5.0, "M-A14": 4.6, "M-A15": 4.5, "M-A16": 4.4, "M-A17": 4.4, "M-SHK": 5.2, "R-JEZ": 4.7, "R-GAL": 5.9, "R-PF": 4.7, "R-GUS": 5.4, "R-MER": 6.0, "R-PHX": 4.2, "R-UTO": 5.5, "R-ELY": 5.1, "R-OLY": 5.0, "R-ZHU": 4.7}}
+{"zaman": "2026-11-14T21:23:01", "asama": "katmanB_kuru", "govde": "mars", "n": 30, "s_pencere": 0.915, "kurulum_s": 4.9}
+{"zaman": "2026-11-14T22:19:54", "asama": "katman_A", "cikti": "liste", "hedef": 26, "K_on": null, "sure_s": 1521.6, "hedef_sure": {"A3-01": 6.0, "A3-02": 6.7, "A3-03": 5.8, "A3-04": 6.5, "A3-05": 5.8, "A3-06": 5.7, "A3-07": 6.1, "A3-08": 5.8, "A3-09": 7.7, "M-SP": 7.7, "M-A11": 6.5, "M-A14": 8.1, "M-A15": 6.5, "M-A16": 7.9, "M-A17": 6.3, "M-SHK": 6.5, "R-JEZ": 6.3, "R-GAL": 7.1, "R-PF": 6.5, "R-GUS": 7.1, "R-MER": 7.3, "R-PHX": 5.5, "R-UTO": 7.6, "R-ELY": 5.7, "R-OLY": 5.7, "R-ZHU": 5.9}}
+{"zaman": "2026-11-14T22:51:23", "asama": "P8_dogrulama", "sure_s": 1502.4}
+{"zaman": "2026-11-14T22:56:03", "asama": "katman_B", "govde": "ay", "pencere": 94864, "K_on": 800, "X": 0.0, "sure_s": 3785.8, "isci": 10}
+{"zaman": "2026-11-14T23:12:29", "asama": "P9_site_veri", "sure_s": 1.5, "katman_B": {"ay": true, "mars": false}}
+{"zaman": "2026-11-15T04:42:26", "asama": "katman_B", "govde": "mars", "pencere": 360654, "K_on": 800, "X": 0.0, "sure_s": 20782.8, "isci": 10}
+{"zaman": "2026-11-15T04:45:50", "asama": "P9_site_veri", "sure_s": 2.2, "katman_B": {"ay": true, "mars": true}}

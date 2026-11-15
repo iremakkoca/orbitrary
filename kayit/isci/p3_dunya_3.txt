@@ -1,0 +1,14 @@
+   P3 dunya işçi 3: blok 20/270  geçen 10.2 dk  kalan ≈ 127.3 dk
+   P3 dunya işçi 3: blok 40/270  geçen 14.9 dk  kalan ≈ 85.8 dk
+   P3 dunya işçi 3: blok 60/270  geçen 19.7 dk  kalan ≈ 68.9 dk
+   P3 dunya işçi 3: blok 80/270  geçen 23.8 dk  kalan ≈ 56.6 dk
+   P3 dunya işçi 3: blok 100/270  geçen 28.4 dk  kalan ≈ 48.4 dk
+   P3 dunya işçi 3: blok 120/270  geçen 32.8 dk  kalan ≈ 40.9 dk
+   P3 dunya işçi 3: blok 140/270  geçen 37.1 dk  kalan ≈ 34.4 dk
+   P3 dunya işçi 3: blok 160/270  geçen 41.3 dk  kalan ≈ 28.4 dk
+   P3 dunya işçi 3: blok 180/270  geçen 45.6 dk  kalan ≈ 22.8 dk
+   P3 dunya işçi 3: blok 200/270  geçen 49.7 dk  kalan ≈ 17.4 dk
+   P3 dunya işçi 3: blok 220/270  geçen 53.8 dk  kalan ≈ 12.2 dk
+   P3 dunya işçi 3: blok 240/270  geçen 58.1 dk  kalan ≈ 7.3 dk
+   P3 dunya işçi 3: blok 260/270  geçen 62.8 dk  kalan ≈ 2.4 dk
+   P3 dunya işçi 3: blok 270/270  geçen 65.6 dk  kalan ≈ 0.0 dk

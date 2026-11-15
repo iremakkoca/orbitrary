@@ -1,0 +1,11 @@
+{
+ "iarti_gecerli_piksel": 8638888,
+ "dTg_1K_alti_ayi_olan_piksel": 2913886,
+ "oran": 0.3289,
+ "iarti_yuzdelikler": {
+  "1": 0.0112,
+  "50": 0.0541,
+  "99": 0.5152,
+  "99.9": 3.9962
+ }
+}

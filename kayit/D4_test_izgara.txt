@@ -1,0 +1,61 @@
+[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[31mF[0m[31mF[0m[31mF[0m[32m.[0m[31m                                   [100%][0m
+================================== FAILURES ===================================
+[31m[1m________________________ test_tiklama_rastgele[dunya] _________________________[0m
+
+halkalar = {'dunya': <izgara.Halka object at 0x00000230E3540620>, 'ay': <izgara.Halka object at 0x00000230E3540650>, 'mars': <izgara.Halka object at 0x00000230E3540680>}
+govde = 'dunya'
+
+    [0m[37m@pytest[39;49;00m.mark.parametrize([33m"[39;49;00m[33mgovde[39;49;00m[33m"[39;49;00m, G)[90m[39;49;00m
+    [94mdef[39;49;00m[90m [39;49;00m[92mtest_tiklama_rastgele[39;49;00m(halkalar, govde):[90m[39;49;00m
+        H = halkalar[govde][90m[39;49;00m
+        lat, lon = _kure_noktalari(np.random.default_rng([94m4[39;49;00m), [94m100000[39;49;00m)[90m[39;49;00m
+        k = H.tikla(lat, lon)[90m[39;49;00m
+        d = Z.haversine(np.radians(lat), np.radians(lon), H.phi[k], H.lam[k], H.r)[90m[39;49;00m
+>       [94massert[39;49;00m d.max() < [94m15.0[39;49;00m, d.max()[90m[39;49;00m
+[1m[31mE       AssertionError: np.float64(16.46854071454591)[0m
+[1m[31mE       assert np.float64(16.46854071454591) < 15.0[0m
+[1m[31mE        +  where np.float64(16.46854071454591) = <built-in method max of numpy.ndarray object at 0x00000230E349BA50>()[0m
+[1m[31mE        +    where <built-in method max of numpy.ndarray object at 0x00000230E349BA50> = array([ 7.16947424,  5.48343715,  3.61578738, ..., 10.98021628,\n        9.99754585,  9.99754585], shape=(200002,)).max[0m
+
+[1m[31mtestler\test_izgara.py[0m:123: AssertionError
+[31m[1m__________________________ test_tiklama_rastgele[ay] __________________________[0m
+
+halkalar = {'dunya': <izgara.Halka object at 0x00000230E3540620>, 'ay': <izgara.Halka object at 0x00000230E3540650>, 'mars': <izgara.Halka object at 0x00000230E3540680>}
+govde = 'ay'
+
+    [0m[37m@pytest[39;49;00m.mark.parametrize([33m"[39;49;00m[33mgovde[39;49;00m[33m"[39;49;00m, G)[90m[39;49;00m
+    [94mdef[39;49;00m[90m [39;49;00m[92mtest_tiklama_rastgele[39;49;00m(halkalar, govde):[90m[39;49;00m
+        H = halkalar[govde][90m[39;49;00m
+        lat, lon = _kure_noktalari(np.random.default_rng([94m4[39;49;00m), [94m100000[39;49;00m)[90m[39;49;00m
+        k = H.tikla(lat, lon)[90m[39;49;00m
+        d = Z.haversine(np.radians(lat), np.radians(lon), H.phi[k], H.lam[k], H.r)[90m[39;49;00m
+>       [94massert[39;49;00m d.max() < [94m15.0[39;49;00m, d.max()[90m[39;49;00m
+[1m[31mE       AssertionError: np.float64(17.025177148029076)[0m
+[1m[31mE       assert np.float64(17.025177148029076) < 15.0[0m
+[1m[31mE        +  where np.float64(17.025177148029076) = <built-in method max of numpy.ndarray object at 0x00000230E651CC30>()[0m
+[1m[31mE        +    where <built-in method max of numpy.ndarray object at 0x00000230E651CC30> = array([11.33642954,  6.6671167 ,  8.07316347, ...,  9.01072443,\n        9.99670893,  9.99670893], shape=(200002,)).max[0m
+
+[1m[31mtestler\test_izgara.py[0m:123: AssertionError
+[31m[1m_________________________ test_tiklama_rastgele[mars] _________________________[0m
+
+halkalar = {'dunya': <izgara.Halka object at 0x00000230E3540620>, 'ay': <izgara.Halka object at 0x00000230E3540650>, 'mars': <izgara.Halka object at 0x00000230E3540680>}
+govde = 'mars'
+
+    [0m[37m@pytest[39;49;00m.mark.parametrize([33m"[39;49;00m[33mgovde[39;49;00m[33m"[39;49;00m, G)[90m[39;49;00m
+    [94mdef[39;49;00m[90m [39;49;00m[92mtest_tiklama_rastgele[39;49;00m(halkalar, govde):[90m[39;49;00m
+        H = halkalar[govde][90m[39;49;00m
+        lat, lon = _kure_noktalari(np.random.default_rng([94m4[39;49;00m), [94m100000[39;49;00m)[90m[39;49;00m
+        k = H.tikla(lat, lon)[90m[39;49;00m
+        d = Z.haversine(np.radians(lat), np.radians(lon), H.phi[k], H.lam[k], H.r)[90m[39;49;00m
+>       [94massert[39;49;00m d.max() < [94m15.0[39;49;00m, d.max()[90m[39;49;00m
+[1m[31mE       AssertionError: np.float64(16.902397937529695)[0m
+[1m[31mE       assert np.float64(16.902397937529695) < 15.0[0m
+[1m[31mE        +  where np.float64(16.902397937529695) = <built-in method max of numpy.ndarray object at 0x00000230E651CE70>()[0m
+[1m[31mE        +    where <built-in method max of numpy.ndarray object at 0x00000230E651CE70> = array([ 8.47707656,  7.48413888,  9.78961811, ...,  5.05066919,\n       10.00792133, 10.00792133], shape=(200002,)).max[0m
+
+[1m[31mtestler\test_izgara.py[0m:123: AssertionError
+[36m[1m=========================== short test summary info ===========================[0m
+[31mFAILED[0m testler/test_izgara.py::[1mtest_tiklama_rastgele[dunya][0m - AssertionError: np.float64(16.46854071454591)
+[31mFAILED[0m testler/test_izgara.py::[1mtest_tiklama_rastgele[ay][0m - AssertionError: np.float64(17.025177148029076)
+[31mFAILED[0m testler/test_izgara.py::[1mtest_tiklama_rastgele[mars][0m - AssertionError: np.float64(16.902397937529695)
+[31m[31m[1m3 failed[0m, [32m35 passed[0m[31m in 3.21s[0m[0m

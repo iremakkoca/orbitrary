@@ -1,0 +1,28 @@
+{
+  "zaman": "2026-11-14T10:37:27",
+  "dosyalar": {
+    "hedefler.csv": {
+      "yollar": []
+    },
+    "jeoloji_sozluk.csv": {
+      "yollar": []
+    },
+    "dogrulama_ciftleri.csv": {
+      "yollar": []
+    },
+    "v10_lambert_reimold.csv": {
+      "yollar": []
+    },
+    "analog_metin.csv": {
+      "yollar": []
+    },
+    "metin.json": {
+      "yollar": []
+    }
+  },
+  "birim_sayilari": {
+    "glim": 16,
+    "ay": 49,
+    "mars": 44
+  }
+}

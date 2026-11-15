@@ -1,0 +1,97 @@
+{
+ "tanim": {
+  "yontem": "madde 29 (Sude 12:57): I⊕ yıllık = Σ C₁(1 − α) / Σ ΔTg, geçerli aylar (C₁ > 0, ΔTg > 0, α var)",
+  "karsilastirilan": "aylık I⊕'nin düz ortalaması (belgedeki ilk okuma), aynı geçerli aylar",
+  "fark": "|u_eski − u_yeni|, u = cos φ ağırlıklı ECDF sırası (belge 5.2 biçimi), ortak geçerli pikseller"
+ },
+ "gecerli_piksel": 8638888,
+ "yeni_en_kucuk": 0.000306722562527284,
+ "yeni_en_buyuk": 75.2815170288086,
+ "sira_farki": {
+  "ortanca": 0.0206,
+  "yuzde95": 0.2282,
+  "en_buyuk": 0.9883
+ },
+ "en_buyuk_fark_10_piksel": [
+  {
+   "enlem": -87.675,
+   "boylam": -83.725,
+   "fark": 0.9883,
+   "gecerli_ay": 2,
+   "I_eski": 0.48856,
+   "I_yeni": 0.009
+  },
+  {
+   "enlem": -87.675,
+   "boylam": -83.675,
+   "fark": 0.9882,
+   "gecerli_ay": 2,
+   "I_eski": 0.48554,
+   "I_yeni": 0.00897
+  },
+  {
+   "enlem": -87.675,
+   "boylam": -83.775,
+   "fark": 0.9881,
+   "gecerli_ay": 2,
+   "I_eski": 0.4795,
+   "I_yeni": 0.00891
+  },
+  {
+   "enlem": -87.675,
+   "boylam": -83.625,
+   "fark": 0.988,
+   "gecerli_ay": 2,
+   "I_eski": 0.47344,
+   "I_yeni": 0.00882
+  },
+  {
+   "enlem": -87.675,
+   "boylam": -83.825,
+   "fark": 0.9879,
+   "gecerli_ay": 2,
+   "I_eski": 0.47039,
+   "I_yeni": 0.00874
+  },
+  {
+   "enlem": -87.675,
+   "boylam": -83.875,
+   "fark": 0.9878,
+   "gecerli_ay": 2,
+   "I_eski": 0.46737,
+   "I_yeni": 0.00871
+  },
+  {
+   "enlem": -87.675,
+   "boylam": -83.525,
+   "fark": 0.9877,
+   "gecerli_ay": 2,
+   "I_eski": 0.46432,
+   "I_yeni": 0.00862
+  },
+  {
+   "enlem": -87.675,
+   "boylam": -83.575,
+   "fark": 0.9877,
+   "gecerli_ay": 2,
+   "I_eski": 0.46434,
+   "I_yeni": 0.00865
+  },
+  {
+   "enlem": -87.675,
+   "boylam": -83.925,
+   "fark": 0.9875,
+   "gecerli_ay": 2,
+   "I_eski": 0.45527,
+   "I_yeni": 0.00856
+  },
+  {
+   "enlem": -87.675,
+   "boylam": -83.975,
+   "fark": 0.9874,
+   "gecerli_ay": 2,
+   "I_eski": 0.45225,
+   "I_yeni": 0.00854
+  }
+ ]
+}

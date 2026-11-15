@@ -1,0 +1,38 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\USER\anaconda3\envs\orbitrary\python.exe
+rootdir: C:\Users\USER\orbitrary\kod
+plugins: anyio-4.16.0, platformdirs-4.14.5
+collecting ... collected 19 items
+
+testler/test_kos_dogrulama.py::test_dogrulama_uctan_uca PASSED           [  5%]
+testler/test_kos_puanla.py::test_uzaklik_ve_puanla PASSED                [ 10%]
+testler/test_kos_puanla.py::test_puanla_tam_mod PASSED                   [ 15%]
+testler/test_dogrula.py::test_pi_ve_K14 PASSED                           [ 21%]
+testler/test_dogrula.py::test_fisher_elle PASSED                         [ 26%]
+testler/test_dogrula.py::test_fisher_H0_altinda_duzgun PASSED            [ 31%]
+testler/test_dogrula.py::test_fisher_yon PASSED                          [ 36%]
+testler/test_dogrula.py::test_auc_kaba_kuvvet_ve_mw PASSED               [ 42%]
+testler/test_dogrula.py::test_v3_tekrar_ve_GA PASSED                     [ 47%]
+testler/test_dogrula.py::test_b_prime_ve_hedefler PASSED                 [ 52%]
+testler/test_dogrula.py::test_v2_sec PASSED                              [ 57%]
+testler/test_dogrula.py::test_recall PASSED                              [ 63%]
+testler/test_dogrula.py::test_spearman_matris PASSED                     [ 68%]
+testler/test_dogrula.py::test_holm_elle PASSED                           [ 73%]
+testler/test_dogrula.py::test_ablasyon_sabit_kategori PASSED             [ 78%]
+testler/test_dogrula.py::test_v4_v7_ozet PASSED                          [ 84%]
+testler/test_dogrula.py::test_v10_yon PASSED                             [ 89%]
+testler/test_dogrula.py::test_tau_ortak_Q15 PASSED                       [ 94%]
+testler/test_dogrula.py::test_alt_tohum_V4_hedef_Q14 PASSED              [100%]
+
+============================ slowest 10 durations =============================
+6.31s setup    testler/test_kos_puanla.py::test_uzaklik_ve_puanla
+4.61s call     testler/test_kos_dogrulama.py::test_dogrulama_uctan_uca
+2.56s call     testler/test_kos_puanla.py::test_puanla_tam_mod
+1.99s call     testler/test_kos_puanla.py::test_uzaklik_ve_puanla
+1.09s call     testler/test_dogrula.py::test_spearman_matris
+0.93s call     testler/test_dogrula.py::test_v3_tekrar_ve_GA
+0.47s call     testler/test_dogrula.py::test_fisher_H0_altinda_duzgun
+0.12s call     testler/test_dogrula.py::test_auc_kaba_kuvvet_ve_mw
+0.05s call     testler/test_dogrula.py::test_v10_yon
+0.01s teardown testler/test_kos_dogrulama.py::test_dogrulama_uctan_uca
+============================= 19 passed in 21.96s =============================

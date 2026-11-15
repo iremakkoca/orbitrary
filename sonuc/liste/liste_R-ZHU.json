@@ -1,0 +1,2176 @@
+{
+ "hedef": {
+  "kimlik": "R-ZHU",
+  "ad": "Utopia Planitia (Zhurong)",
+  "cisim": "mars",
+  "enlem": 25.066,
+  "boylam": 109.925,
+  "kaynak": "Liu ve ark. 2022, Nature Astronomy, doi:10.1038/s41550-021-01519-5 (HiRIC görüntüsünden)",
+  "islak": false,
+  "pi_arti": 0.0,
+  "kategori_var": [
+   true,
+   true,
+   true,
+   false,
+   true,
+   false,
+   true,
+   true
+  ],
+  "F5": [
+   "iarti"
+  ]
+ },
+ "parametre": {
+  "K_on": "tam (bütün E′, ön elemesiz)",
+  "hedef_merkez": "koordinat",
+  "X": 0.0
+ },
+ "gorevler": {
+  "genel": {
+   "durum": "computed",
+   "kapi_yedek": false,
+   "kapi_bilgi": {
+    "yedek": false
+   },
+   "E_g": 346064,
+   "aday": 346064,
+   "uygun": 346058,
+   "ilk10": [
+    {
+     "kimlik": 898519,
+     "enlem": 24.0959,
+     "boylam": -99.2118,
+     "P": 0.9213883828025772,
+     "Q": 0.14810314624468515,
+     "s": [
+      0.9815,
+      0.865,
+      0.7754585074592357,
+      null,
+      0.9542070982320883,
+      null,
+      0.9971646911241392,
+      0.955
+     ],
+     "d": [
+      0.30389839486578957,
+      0.5535218785933991,
+      0.0,
+      null,
+      0.031663225710392,
+      null,
+      0.047221690870821474,
+      0.016239167511463166
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "not applicable",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-kilbourne",
+      "km": 1159.4
+     }
+    },
+    {
+     "kimlik": 379791,
+     "enlem": -23.9161,
+     "boylam": -63.8361,
+     "P": 0.921037969194748,
+     "Q": 0.143502021100791,
+     "s": [
+      0.956,
+      0.98,
+      0.7754585074592357,
+      null,
+      0.9589606366562831,
+      null,
+      0.9133086710529684,
+      0.9425
+     ],
+     "d": [
+      0.4040709853895376,
+      0.2356723832170463,
+      0.0,
+      null,
+      0.029623013079166413,
+      null,
+      0.09183490905910731,
+      0.019136342763900756
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "not applicable",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "r-atacama",
+      "km": 612.5
+     }
+    },
+    {
+     "kimlik": 881128,
+     "enlem": 22.4775,
+     "boylam": 95.3056,
+     "P": 0.9098498577193634,
+     "Q": 0.1637185523847133,
+     "s": [
+      0.9775,
+      0.895,
+      0.7754585074592357,
+      null,
+      0.9570534419085818,
+      null,
+      0.9790871969483628,
+      0.875
+     ],
+     "d": [
+      0.3343507362071713,
+      0.4062026139892375,
+      0.0,
+      null,
+      0.030466490626335142,
+      null,
+      0.06809489879757166,
+      0.042147023677825926
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "not applicable",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-ries",
+      "km": 7768.3
+     }
+    },
+    {
+     "kimlik": 394516,
+     "enlem": -22.4775,
+     "boylam": -63.5695,
+     "P": 0.9079991424180066,
+     "Q": 0.15894936420134909,
+     "s": [
+      0.946,
+      0.965,
+      0.7754585074592357,
+      null,
+      0.8930005952759364,
+      null,
+      0.9935357517728681,
+      0.875
+     ],
+     "d": [
+      0.4279797364977785,
+      0.25013029184297175,
+      0.0,
+      null,
+      0.05694303625822067,
+      null,
+      0.05403461278229952,
+      0.042147023677825926
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "not applicable",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "r-atacama",
+      "km": 666.7
+     }
+    },
+    {
+     "kimlik": 365228,
+     "enlem": -25.3546,
+     "boylam": -64.1791,
+     "P": 0.9052426090608557,
+     "Q": 0.16151815724556337,
+     "s": [
+      0.9775,
+      0.91,
+      0.7754585074592357,
+      null,
+      0.9256771986198845,
+      null,
+      0.8528199482860142,
+      0.99
+     ],
+     "d": [
+      0.3325237396557261,
+      0.35259316196550683,
+      0.0,
+      null,
+      0.043373323321342465,
+      null,
+      0.10790462801605463,
+      0.0038145886063575747
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "not applicable",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "r-atacama",
+      "km": 591.8
+     }
+    },
+    {
+     "kimlik": 345488,
+     "enlem": -27.3327,
+     "boylam": -64.2857,
+     "P": 0.8965467109695696,
+     "Q": 0.18411305911181874,
+     "s": [
+      0.987,
+      0.895,
+      0.7754585074592357,
+      null,
+      0.8729461535349565,
+      null,
+      0.9688756048232252,
+      0.88
+     ],
+     "d": [
+      0.27340460168042,
+      0.424041683688367,
+      0.0,
+      null,
+      0.06543558782339096,
+      null,
+      0.0739031601920724,
+      0.03469795763492584
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "not applicable",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "r-atacama",
+      "km": 666.5
+     }
+    },
+    {
+     "kimlik": 864386,
+     "enlem": 20.8591,
+     "boylam": 95.9679,
+     "P": 0.8918304129665927,
+     "Q": 0.20413869363872436,
+     "s": [
+      0.9775,
+      0.875,
+      0.7754585074592357,
+      null,
+      0.9509504187159378,
+      null,
+      0.9570735516243823,
+      0.815
+     ],
+     "d": [
+      0.3271368598471053,
+      0.5064782164331815,
+      0.0,
+      null,
+      0.032986439734697344,
+      null,
+      0.07897664318233728,
+      0.06847434478998184
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "not applicable",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-ries",
+      "km": 7945.4
+     }
+    },
+    {
+     "kimlik": 908530,
+     "enlem": 25.1748,
+     "boylam": 81.6013,
+     "P": 0.8882908365217936,
+     "Q": 0.21603940673553948,
+     "s": [
+      0.932,
+      0.7,
+      0.7754585074592357,
+      null,
+      0.9669506267735466,
+      null,
+      0.95533588489798,
+      1.0
+     ],
+     "d": [
+      0.4609921008201588,
+      0.994830119329492,
+      0.0,
+      null,
+      0.026373413681983947,
+      null,
+      0.07960430959612132,
+      0.0010148869156837463
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "not applicable",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-ries",
+      "km": 6565.4
+     }
+    },
+    {
+     "kimlik": 911239,
+     "enlem": 25.3546,
+     "boylam": -99.602,
+     "P": 0.8875978182443992,
+     "Q": 0.20415900832642783,
+     "s": [
+      0.9815,
+      0.865,
+      0.7754585074592357,
+      null,
+      0.8230470036814638,
+      null,
+      0.8905813983256957,
+      0.99
+     ],
+     "d": [
+      0.30768370361632874,
+      0.522823778417664,
+      0.0,
+      null,
+      0.08741869670152665,
+      null,
+      0.09733435884863138,
+      0.0038145886063575747
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "not applicable",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-kilbourne",
+      "km": 1027.7
+     }
+    },
+    {
+     "kimlik": 912144,
+     "enlem": 25.5345,
+     "boylam": 80.6312,
+     "P": 0.8769130569988312,
+     "Q": 0.19909480164010243,
+     "s": [
+      0.7875,
+      0.815,
+      0.7754585074592357,
+      null,
+      0.9966075051003012,
+      null,
+      0.9044123294334503,
+      0.9825
+     ],
+     "d": [
+      0.7665445713462439,
+      0.6903499636982385,
+      0.0,
+      null,
+      0.011552162766456604,
+      null,
+      0.09402812538295985,
+      0.006623472034931183
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "not applicable",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-ries",
+      "km": 6467.1
+     }
+    }
+   ],
+   "sampiyonlar": [
+    {
+     "kimlik": 19870,
+     "enlem": -75.7043,
+     "boylam": -90.7287,
+     "s": 1.0,
+     "d": 0.08899618422288144
+    },
+    {
+     "kimlik": 379791,
+     "enlem": -23.9161,
+     "boylam": -63.8361,
+     "s": 0.98,
+     "d": 0.2356723832170463
+    },
+    {
+     "kimlik": 117846,
+     "enlem": -54.6653,
+     "boylam": -66.6839,
+     "s": 0.7754585074592357,
+     "d": 0.0
+    },
+    null,
+    {
+     "kimlik": 1141608,
+     "enlem": 52.1479,
+     "boylam": -88.9739,
+     "s": 1.0,
+     "d": 0.005016750454902649
+    },
+    null,
+    {
+     "kimlik": 1035018,
+     "enlem": 38.4815,
+     "boylam": -79.8341,
+     "s": 1.0,
+     "d": 0.024768918417394162
+    },
+    {
+     "kimlik": 365626,
+     "enlem": -25.1748,
+     "boylam": 15.0083,
+     "s": 1.0,
+     "d": 0.0010148869156837463
+    }
+   ],
+   "duyarlilik": {
+    "esit": {
+     "tau_b": 1.0,
+     "jaccard_top3": 1.0,
+     "top3": [
+      898519,
+      379791,
+      881128
+     ]
+    },
+    "geometrik": {
+     "tau_b": 0.967816091954023,
+     "jaccard_top3": 1.0,
+     "top3": [
+      379791,
+      898519,
+      881128
+     ]
+    }
+   },
+   "esitlik_payi_ilk30": {
+    "1": 0.03333333333333333,
+    "2": 0.03333333333333333,
+    "3": 1.0,
+    "4": null,
+    "5": 0.03333333333333333,
+    "6": null,
+    "7": 0.03333333333333333,
+    "8": 0.13333333333333333
+   }
+  },
+  "mobility": {
+   "durum": "computed",
+   "kapi_yedek": false,
+   "kapi_bilgi": {
+    "yedek": false
+   },
+   "E_g": 331027,
+   "aday": 331027,
+   "uygun": 331021,
+   "ilk10": [
+    {
+     "kimlik": 882976,
+     "enlem": 22.6573,
+     "boylam": 95.2139,
+     "P": 0.9618079922030012,
+     "Q": 0.16719052636730908,
+     "s": [
+      0.994,
+      0.965,
+      0.7754585074592357,
+      null,
+      0.8388622716423259,
+      null,
+      0.9858394562351195,
+      0.875
+     ],
+     "d": [
+      0.2420087992318767,
+      0.25082250008305895,
+      0.0,
+      null,
+      0.08034708970785141,
+      null,
+      0.06276371894031763,
+      0.03914151757955551
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-ries",
+      "km": 7747.5
+     }
+    },
+    {
+     "kimlik": 394516,
+     "enlem": -22.4775,
+     "boylam": -63.5695,
+     "P": 0.9524795991835201,
+     "Q": 0.17209992859781836,
+     "s": [
+      0.946,
+      0.965,
+      0.7754585074592357,
+      null,
+      0.8930005952759364,
+      null,
+      0.9935357517728681,
+      0.875
+     ],
+     "d": [
+      0.4279797364977785,
+      0.25013029184297175,
+      0.0,
+      null,
+      0.05694303625822067,
+      null,
+      0.05403461278229952,
+      0.042147023677825926
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "r-atacama",
+      "km": 666.7
+     }
+    },
+    {
+     "kimlik": 377961,
+     "enlem": -24.0959,
+     "boylam": -63.9409,
+     "P": 0.949374678481394,
+     "Q": 0.1937285019920485,
+     "s": [
+      0.9875,
+      0.96,
+      0.7754585074592357,
+      null,
+      0.7102942281351681,
+      null,
+      0.9617297304216482,
+      0.955
+     ],
+     "d": [
+      0.2696270154304053,
+      0.2611745824699875,
+      0.0,
+      null,
+      0.14029101160168647,
+      null,
+      0.07711817017942667,
+      0.016239167511463166
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "r-atacama",
+      "km": 601.3
+     }
+    },
+    {
+     "kimlik": 340164,
+     "enlem": -27.8721,
+     "boylam": -64.4093,
+     "P": 0.9488219054501621,
+     "Q": 0.19315489955877518,
+     "s": [
+      0.989,
+      0.955,
+      0.7754585074592357,
+      null,
+      0.726973513110519,
+      null,
+      0.9731957707175956,
+      0.8725
+     ],
+     "d": [
+      0.2679537827433736,
+      0.2690619473768995,
+      0.0,
+      null,
+      0.13222569954395294,
+      null,
+      0.07160361144691706,
+      0.04310015398263931
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "r-atacama",
+      "km": 690.1
+     }
+    },
+    {
+     "kimlik": 928314,
+     "enlem": 27.1528,
+     "boylam": 84.7951,
+     "P": 0.9453927665033978,
+     "Q": 0.1948202470078248,
+     "s": [
+      0.959,
+      0.96,
+      0.7754585074592357,
+      null,
+      0.8130746869021955,
+      null,
+      0.9704500652825069,
+      0.8925
+     ],
+     "d": [
+      0.39423637070785716,
+      0.2552465362893379,
+      0.0,
+      null,
+      0.09199550032615661,
+      null,
+      0.07311909163743258,
+      0.03189869385957718
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-ries",
+      "km": 6647.1
+     }
+    },
+    {
+     "kimlik": 898519,
+     "enlem": 24.0959,
+     "boylam": -99.2118,
+     "P": 0.9409752266602429,
+     "Q": 0.20764960178321068,
+     "s": [
+      0.9815,
+      0.865,
+      0.7754585074592357,
+      null,
+      0.9542070982320883,
+      null,
+      0.9971646911241392,
+      0.955
+     ],
+     "d": [
+      0.30389839486578957,
+      0.5535218785933991,
+      0.0,
+      null,
+      0.031663225710392,
+      null,
+      0.047221690870821474,
+      0.016239167511463166
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-kilbourne",
+      "km": 1159.4
+     }
+    },
+    {
+     "kimlik": 341930,
+     "enlem": -27.6923,
+     "boylam": -65.5192,
+     "P": 0.9401717206070194,
+     "Q": 0.2104994897963471,
+     "s": [
+      0.9739869934967483,
+      0.95,
+      0.7754585074592357,
+      null,
+      0.747305364996619,
+      null,
+      0.9599408617290904,
+      0.875
+     ],
+     "d": [
+      0.35227009387399427,
+      0.29058285059345057,
+      0.0,
+      null,
+      0.1227685416340828,
+      null,
+      0.07785437259823084,
+      0.04028191232681275
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "r-atacama",
+      "km": 592.8
+     }
+    },
+    {
+     "kimlik": 864386,
+     "enlem": 20.8591,
+     "boylam": 95.9679,
+     "P": 0.9248651856668575,
+     "Q": 0.2450335095240975,
+     "s": [
+      0.9775,
+      0.875,
+      0.7754585074592357,
+      null,
+      0.9509504187159378,
+      null,
+      0.9570735516243823,
+      0.815
+     ],
+     "d": [
+      0.3271368598471053,
+      0.5064782164331815,
+      0.0,
+      null,
+      0.032986439734697344,
+      null,
+      0.07897664318233728,
+      0.06847434478998184
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-ries",
+      "km": 7945.4
+     }
+    },
+    {
+     "kimlik": 855001,
+     "enlem": 19.96,
+     "boylam": 95.4067,
+     "P": 0.9245808753793004,
+     "Q": 0.2431825143513449,
+     "s": [
+      0.9665,
+      0.895,
+      0.7754585074592357,
+      null,
+      0.8595668934109311,
+      null,
+      0.9638002099280613,
+      0.795
+     ],
+     "d": [
+      0.3760596727922997,
+      0.44431272784345754,
+      0.0,
+      null,
+      0.07103120744228363,
+      null,
+      0.07620215568691492,
+      0.08328665274381637
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-ries",
+      "km": 7977.3
+     }
+    },
+    {
+     "kimlik": 740433,
+     "enlem": 9.3506,
+     "boylam": 11.5747,
+     "P": 0.9159823524262648,
+     "Q": 0.2613365023169936,
+     "s": [
+      0.984,
+      0.865,
+      0.7754585074592357,
+      null,
+      0.9445988822682903,
+      null,
+      0.9923805074114846,
+      0.405
+     ],
+     "d": [
+      0.29439416985851175,
+      0.5354242224363763,
+      0.0,
+      null,
+      0.03560727000236511,
+      null,
+      0.0556598861888051,
+      0.26107018333673476
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "r-riotinto",
+      "km": 3640.8
+     }
+    }
+   ],
+   "sampiyonlar": [
+    {
+     "kimlik": 19870,
+     "enlem": -75.7043,
+     "boylam": -90.7287,
+     "s": 1.0,
+     "d": 0.08899618422288144
+    },
+    {
+     "kimlik": 394516,
+     "enlem": -22.4775,
+     "boylam": -63.5695,
+     "s": 0.965,
+     "d": 0.25013029184297175
+    },
+    {
+     "kimlik": 117846,
+     "enlem": -54.6653,
+     "boylam": -66.6839,
+     "s": 0.7754585074592357,
+     "d": 0.0
+    },
+    null,
+    {
+     "kimlik": 1141608,
+     "enlem": 52.1479,
+     "boylam": -88.9739,
+     "s": 1.0,
+     "d": 0.005016750454902649
+    },
+    null,
+    {
+     "kimlik": 1035018,
+     "enlem": 38.4815,
+     "boylam": -79.8341,
+     "s": 1.0,
+     "d": 0.024768918417394162
+    },
+    {
+     "kimlik": 365626,
+     "enlem": -25.1748,
+     "boylam": 15.0083,
+     "s": 1.0,
+     "d": 0.0010148869156837463
+    }
+   ],
+   "duyarlilik": {
+    "esit": {
+     "tau_b": 0.48965517241379314,
+     "jaccard_top3": 0.2,
+     "top3": [
+      898519,
+      881128,
+      394516
+     ]
+    },
+    "geometrik": {
+     "tau_b": 0.9632183908045978,
+     "jaccard_top3": 1.0,
+     "top3": [
+      882976,
+      394516,
+      377961
+     ]
+    }
+   },
+   "esitlik_payi_ilk30": {
+    "1": 0.03333333333333333,
+    "2": 0.06666666666666667,
+    "3": 1.0,
+    "4": null,
+    "5": 0.03333333333333333,
+    "6": null,
+    "7": 0.03333333333333333,
+    "8": 0.03333333333333333
+   }
+  },
+  "geology": {
+   "durum": "computed",
+   "kapi_yedek": false,
+   "kapi_bilgi": {
+    "yedek": false,
+    "c_yildiz": 3
+   },
+   "E_g": 165811,
+   "aday": 165811,
+   "uygun": 165810,
+   "ilk10": [
+    {
+     "kimlik": 879278,
+     "enlem": 22.2977,
+     "boylam": 95.54,
+     "P": 0.8590792984564045,
+     "Q": 0.1505534997440034,
+     "s": [
+      0.9815,
+      0.9,
+      0.7754585074592357,
+      null,
+      0.9157742343768963,
+      null,
+      0.953710222472543,
+      0.87
+     ],
+     "d": [
+      0.3038469686629605,
+      0.3690746263422799,
+      0.0,
+      null,
+      0.047405945420265196,
+      null,
+      0.08021669820696116,
+      0.04510303443670273
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-ries",
+      "km": 7799.5
+     }
+    },
+    {
+     "kimlik": 855001,
+     "enlem": 19.96,
+     "boylam": 95.4067,
+     "P": 0.8493032972923403,
+     "Q": 0.18793647898151372,
+     "s": [
+      0.9665,
+      0.895,
+      0.7754585074592357,
+      null,
+      0.8595668934109311,
+      null,
+      0.9638002099280613,
+      0.795
+     ],
+     "d": [
+      0.3760596727922997,
+      0.44431272784345754,
+      0.0,
+      null,
+      0.07103120744228363,
+      null,
+      0.07620215568691492,
+      0.08328665274381637
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-ries",
+      "km": 7977.3
+     }
+    },
+    {
+     "kimlik": 864386,
+     "enlem": 20.8591,
+     "boylam": 95.9679,
+     "P": 0.8482835011578015,
+     "Q": 0.19235459271465286,
+     "s": [
+      0.9775,
+      0.875,
+      0.7754585074592357,
+      null,
+      0.9509504187159378,
+      null,
+      0.9570735516243823,
+      0.815
+     ],
+     "d": [
+      0.3271368598471053,
+      0.5064782164331815,
+      0.0,
+      null,
+      0.032986439734697344,
+      null,
+      0.07897664318233728,
+      0.06847434478998184
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-ries",
+      "km": 7945.4
+     }
+    },
+    {
+     "kimlik": 871733,
+     "enlem": 21.5784,
+     "boylam": 73.0253,
+     "P": 0.8403899413505631,
+     "Q": 0.20806440699216194,
+     "s": [
+      0.917,
+      0.865,
+      0.7754585074592357,
+      null,
+      0.8739055302868305,
+      null,
+      0.9844634033946904,
+      0.855
+     ],
+     "d": [
+      0.5075532413843943,
+      0.5455309084601367,
+      0.0,
+      null,
+      0.06502287364006043,
+      null,
+      0.06396430269628763,
+      0.056811829805374144
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-ries",
+      "km": 6218.4
+     }
+    },
+    {
+     "kimlik": 912140,
+     "enlem": 25.5345,
+     "boylam": 79.8339,
+     "P": 0.8277045477806644,
+     "Q": 0.23596303296173676,
+     "s": [
+      0.9085,
+      0.835,
+      0.7754585074592357,
+      null,
+      0.8894665056146658,
+      null,
+      0.8300222728552776,
+      0.9825
+     ],
+     "d": [
+      0.5228958513284988,
+      0.6560322828682904,
+      0.0,
+      null,
+      0.05842816436290741,
+      null,
+      0.11535457823425531,
+      0.006623472034931183
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-ries",
+      "km": 6408.9
+     }
+    },
+    {
+     "kimlik": 904831,
+     "enlem": 24.8152,
+     "boylam": 67.8591,
+     "P": 0.802160842015328,
+     "Q": 0.27849538989372763,
+     "s": [
+      0.9085,
+      0.755,
+      0.7754585074592357,
+      null,
+      0.8042958116847465,
+      null,
+      0.9982687335193672,
+      0.99
+     ],
+     "d": [
+      0.5234618345912595,
+      0.8316269261818645,
+      0.0,
+      null,
+      0.09610398930311204,
+      null,
+      0.044038325734436515,
+      0.004752246141433716
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-ries",
+      "km": 5590.0
+     }
+    },
+    {
+     "kimlik": 911248,
+     "enlem": 25.3546,
+     "boylam": -97.8109,
+     "P": 0.7986275387567935,
+     "Q": 0.27912682694313706,
+     "s": [
+      0.7795,
+      0.76,
+      0.7754585074592357,
+      null,
+      0.9006409330227881,
+      null,
+      0.9363463557000589,
+      0.99
+     ],
+     "d": [
+      0.7777093293247849,
+      0.8204806767546748,
+      0.0,
+      null,
+      0.053717472553253175,
+      null,
+      0.08574828938394785,
+      0.0038145886063575747
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-kilbourne",
+      "km": 1156.3
+     }
+    },
+    {
+     "kimlik": 910279,
+     "enlem": 25.3546,
+     "boylam": 69.3532,
+     "P": 0.7968679051126912,
+     "Q": 0.2727647741581282,
+     "s": [
+      0.638,
+      0.76,
+      0.7754585074592357,
+      null,
+      0.9494622288749285,
+      null,
+      0.9985247433501446,
+      0.99
+     ],
+     "d": [
+      1.1542770269516305,
+      0.8215580305628906,
+      0.0,
+      null,
+      0.033566755294799806,
+      null,
+      0.043083986438810826,
+      0.0038145886063575747
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-ries",
+      "km": 5657.1
+     }
+    },
+    {
+     "kimlik": 908530,
+     "enlem": 25.1748,
+     "boylam": 81.6013,
+     "P": 0.7898467246961404,
+     "Q": 0.3138100712691301,
+     "s": [
+      0.932,
+      0.7,
+      0.7754585074592357,
+      null,
+      0.9669506267735466,
+      null,
+      0.95533588489798,
+      1.0
+     ],
+     "d": [
+      0.4609921008201588,
+      0.994830119329492,
+      0.0,
+      null,
+      0.026373413681983947,
+      null,
+      0.07960430959612132,
+      0.0010148869156837463
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-ries",
+      "km": 6565.4
+     }
+    },
+    {
+     "kimlik": 913888,
+     "enlem": 25.7143,
+     "boylam": 68.386,
+     "P": 0.6911555359265431,
+     "Q": 0.4507886847590955,
+     "s": [
+      0.7625,
+      0.475,
+      0.7754585074592357,
+      null,
+      0.9546232134497685,
+      null,
+      0.9590160262154067,
+      0.9675
+     ],
+     "d": [
+      0.8068841324759765,
+      1.4447321975868572,
+      0.0,
+      null,
+      0.031468142211437226,
+      null,
+      0.07821268232911825,
+      0.009437408328056335
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-ries",
+      "km": 5559.2
+     }
+    }
+   ],
+   "sampiyonlar": [
+    {
+     "kimlik": 612944,
+     "enlem": -2.1578,
+     "boylam": 38.61,
+     "s": 1.0,
+     "d": 0.10218958966327522
+    },
+    {
+     "kimlik": 879278,
+     "enlem": 22.2977,
+     "boylam": 95.54,
+     "s": 0.9,
+     "d": 0.3690746263422799
+    },
+    {
+     "kimlik": 127276,
+     "enlem": -53.2268,
+     "boylam": -68.6644,
+     "s": 0.7754585074592357,
+     "d": 0.0
+    },
+    null,
+    {
+     "kimlik": 427390,
+     "enlem": -19.2408,
+     "boylam": 143.7143,
+     "s": 0.9999768824879066,
+     "d": 0.006277372777462006
+    },
+    null,
+    {
+     "kimlik": 1170687,
+     "enlem": 56.6434,
+     "boylam": -92.6975,
+     "s": 0.9999871995084612,
+     "d": 0.02640089878439903
+    },
+    {
+     "kimlik": 365626,
+     "enlem": -25.1748,
+     "boylam": 15.0083,
+     "s": 1.0,
+     "d": 0.0010148869156837463
+    }
+   ],
+   "duyarlilik": {
+    "esit": {
+     "tau_b": 0.8344827586206897,
+     "jaccard_top3": 0.5,
+     "top3": [
+      879278,
+      864386,
+      908530
+     ]
+    },
+    "geometrik": {
+     "tau_b": 0.9862068965517242,
+     "jaccard_top3": 0.5,
+     "top3": [
+      879278,
+      855001,
+      862514
+     ]
+    }
+   },
+   "esitlik_payi_ilk30": {
+    "1": 0.03333333333333333,
+    "2": 0.03333333333333333,
+    "3": 1.0,
+    "4": null,
+    "5": 0.03333333333333333,
+    "6": null,
+    "7": 0.03333333333333333,
+    "8": 0.06666666666666667
+   }
+  },
+  "ice": {
+   "durum": "not applicable",
+   "neden": "dry target (π⁺ < 0.5)"
+  },
+  "astro": {
+   "durum": "computed",
+   "kapi_yedek": false,
+   "kapi_bilgi": {
+    "yedek": false,
+    "ana_gecen": 24780
+   },
+   "E_g": 54479,
+   "aday": 54479,
+   "uygun": 54474,
+   "ilk10": [
+    {
+     "kimlik": 805124,
+     "enlem": 15.2847,
+     "boylam": 43.159,
+     "P": 0.8926361242285306,
+     "Q": 0.1816457927394889,
+     "s": [
+      0.9235,
+      0.94,
+      0.5460848404977833,
+      null,
+      0.9793878482797681,
+      null,
+      0.8477509536366197,
+      0.6275
+     ],
+     "d": [
+      0.48703709057455724,
+      0.31257006899719564,
+      0.000949989422224462,
+      null,
+      0.020782691717147826,
+      null,
+      0.10951459289342165,
+      0.1605396357178688
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-ries",
+      "km": 4762.8
+     }
+    },
+    {
+     "kimlik": 963090,
+     "enlem": 30.7493,
+     "boylam": 30.6628,
+     "P": 0.8663989601187979,
+     "Q": 0.23589244787095048,
+     "s": [
+      0.6935,
+      0.61,
+      0.7754585074592357,
+      null,
+      0.9713458437602945,
+      null,
+      0.7708904021914441,
+      0.7825
+     ],
+     "d": [
+      0.9493230895328024,
+      1.1702351413314547,
+      0.0,
+      null,
+      0.02443988263607025,
+      null,
+      0.13738512612134218,
+      0.08690236335992813
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-ries",
+      "km": 2628.5
+     }
+    },
+    {
+     "kimlik": 963095,
+     "enlem": 30.7493,
+     "boylam": 31.7093,
+     "P": 0.8566976029448022,
+     "Q": 0.2610815001706321,
+     "s": [
+      0.647,
+      0.29,
+      0.7754585074592357,
+      null,
+      0.9891116518040328,
+      null,
+      0.905769181536571,
+      0.7825
+     ],
+     "d": [
+      1.1120608245169044,
+      2.030100682550987,
+      0.0,
+      null,
+      0.01598686534166336,
+      null,
+      0.09369070223718881,
+      0.08690236335992813
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-ries",
+      "km": 2685.5
+     }
+    },
+    {
+     "kimlik": 795448,
+     "enlem": 14.3856,
+     "boylam": 43.3522,
+     "P": 0.8220866432108787,
+     "Q": 0.33476626635604,
+     "s": [
+      0.979,
+      0.95,
+      0.7754585074592357,
+      null,
+      0.8489154997139208,
+      null,
+      0.6371156652415453,
+      0.59
+     ],
+     "d": [
+      0.31718024246663284,
+      0.27813377936066586,
+      0.0,
+      null,
+      0.07582603198289871,
+      null,
+      0.19760042620450258,
+      0.17563911336660384
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-ries",
+      "km": 4859.1
+     }
+    },
+    {
+     "kimlik": 758363,
+     "enlem": 10.969,
+     "boylam": 47.1756,
+     "P": 0.7719701056622056,
+     "Q": 2.7850779481370447,
+     "s": [
+      0.133,
+      0.72,
+      0.7754585074592357,
+      null,
+      0.9448820717914338,
+      null,
+      0.6036455799902716,
+      0.475
+     ],
+     "d": [
+      86.46814205410399,
+      0.8928514589961947,
+      0.0,
+      null,
+      0.035472033977508546,
+      null,
+      0.21313640744239093,
+      0.2333897089958191
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-ries",
+      "km": 5399.0
+     }
+    },
+    {
+     "kimlik": 754425,
+     "enlem": 10.6094,
+     "boylam": 46.2125,
+     "P": 0.7718537140247145,
+     "Q": 2.8021689299632677,
+     "s": [
+      0.1315,
+      0.61,
+      0.7754585074592357,
+      null,
+      0.959807315536702,
+      null,
+      0.6367860525844192,
+      0.4525
+     ],
+     "d": [
+      87.05704714789202,
+      1.1635623726601179,
+      0.0,
+      null,
+      0.029267300844192504,
+      null,
+      0.19773977778106927,
+      0.23963326579332353
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-ries",
+      "km": 5378.8
+     }
+    },
+    {
+     "kimlik": 756414,
+     "enlem": 10.7892,
+     "boylam": 50.2645,
+     "P": 0.7629374808109622,
+     "Q": 1.8380906346983417,
+     "s": [
+      0.1775,
+      0.485,
+      0.7754585074592357,
+      null,
+      0.9610701096348011,
+      null,
+      0.5808447044366504,
+      0.475
+     ],
+     "d": [
+      52.764962752992275,
+      1.4184454903949675,
+      0.0,
+      null,
+      0.02877643686532974,
+      null,
+      0.22391299060732126,
+      0.2364958609342575
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-ries",
+      "km": 5596.0
+     }
+    },
+    {
+     "kimlik": 764275,
+     "enlem": 11.5085,
+     "boylam": 50.9434,
+     "P": 0.7532613557905411,
+     "Q": 2.0610103791711873,
+     "s": [
+      0.1685,
+      0.405,
+      0.7754585074592357,
+      null,
+      0.990923486814349,
+      null,
+      0.34543406466808324,
+      0.4875
+     ],
+     "d": [
+      59.27437161903131,
+      1.6445511393869965,
+      0.0,
+      null,
+      0.014981314182281495,
+      null,
+      0.40513123212009666,
+      0.2241448342204094
+     ],
+     "kapsama": 0.75,
+     "eksik_taraf": [
+      null,
+      null,
+      null,
+      "hedef",
+      null,
+      "hedef",
+      null,
+      null
+     ],
+     "kapi_durumu": "passed",
+     "eps1": 0.0,
+     "eps1_durum": "hassasiyetten küçük",
+     "eps2": 0.0,
+     "eps2_durum": "hassasiyetten küçük",
+     "en_yakin_analog": {
+      "id": "v-ries",
+      "km": 5570.0
+     }
+    }
+   ],
+   "sampiyonlar": [
+    {
+     "kimlik": 19870,
+     "enlem": -75.7043,
+     "boylam": -90.7287,
+     "s": 1.0,
+     "d": 0.08899618422288144
+    },
+    {
+     "kimlik": 793508,
+     "enlem": 14.2058,
+     "boylam": 43.3299,
+     "s": 0.95,
+     "d": 0.27434014506995497
+    },
+    {
+     "kimlik": 329994,
+     "enlem": -28.7712,
+     "boylam": 16.9327,
+     "s": 0.7754585074592357,
+     "d": 0.0
+    },
+    null,
+    {
+     "kimlik": 964813,
+     "enlem": 30.9291,
+     "boylam": 31.3454,
+     "s": 0.9961885001936092,
+     "d": 0.011870301604270935
+    },
+    null,
+    {
+     "kimlik": 940464,
+     "enlem": 28.4116,
+     "boylam": 33.8523,
+     "s": 0.9998815954532654,
+     "d": 0.03302908367663622
+    },
+    {
+     "kimlik": 365626,
+     "enlem": -25.1748,
+     "boylam": 15.0083,
+     "s": 1.0,
+     "d": 0.0010148869156837463
+    }
+   ],
+   "duyarlilik": {
+    "esit": {
+     "tau_b": 0.5218390804597701,
+     "jaccard_top3": 0.5,
+     "top3": [
+      805124,
+      793508,
+      963090
+     ]
+    },
+    "geometrik": {
+     "tau_b": 0.7241379310344828,
+     "jaccard_top3": 1.0,
+     "top3": [
+      805124,
+      963090,
+      963095
+     ]
+    }
+   },
+   "esitlik_payi_ilk30": {
+    "1": 0.03333333333333333,
+    "2": 0.13333333333333333,
+    "3": 0.8666666666666667,
+    "4": null,
+    "5": 0.03333333333333333,
+    "6": null,
+    "7": 0.03333333333333333,
+    "8": 0.13333333333333333
+   }
+  }
+ }
+}

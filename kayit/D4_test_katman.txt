@@ -1,0 +1,322 @@
+[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[31mF[0m[31mF[0m[31mF[0m[31mF[0m[32m.[0m[32m.[0m[31m [ 60%]
+[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[31mF[0m[31mF[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[32m.[0m[31m                         [100%][0m
+================================== FAILURES ===================================
+[31m[1m_______________________ test_katman_acilir[avgvisib_n] ________________________[0m
+
+>   [0m[96mself[39;49;00m._hds = open_dataset([90m[39;49;00m
+
+[1m[31mrasterio/_base.pyx[0m:322: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+[1m[31mrasterio/_base.pyx[0m:234: in rasterio._base.open_dataset
+    [0m[94mreturn[39;49;00m exc_wrap_pointer(hds)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+>   [0m[04m[91m?[39;49;00m[04m[91m?[39;49;00m[04m[91m?[39;49;00m[90m[39;49;00m
+[1m[31mE   rasterio._err.CPLE_OpenFailedError: C:\Users\USER\orbitrary\temiz\ay\M7_pgda\avgvisib_n.tif: No such file or directory[0m
+
+[1m[31mrasterio/_err.pyx[0m:359: CPLE_OpenFailedError
+
+[33mDuring handling of the above exception, another exception occurred:[0m
+
+ad = 'avgvisib_n'
+
+    [0m[37m@pytest[39;49;00m.mark.parametrize([33m"[39;49;00m[33mad[39;49;00m[33m"[39;49;00m, RASTER)[90m[39;49;00m
+    [94mdef[39;49;00m[90m [39;49;00m[92mtest_katman_acilir[39;49;00m(ad):[90m[39;49;00m
+>       [94massert[39;49;00m K.ac(ad) [95mis[39;49;00m [95mnot[39;49;00m [94mNone[39;49;00m[90m[39;49;00m
+               ^^^^^^^^[90m[39;49;00m
+
+[1m[31mtestler\test_katman_gercek.py[0m:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+[1m[31mkatman.py[0m:556: in ac
+    [0mk = _ac(ad)[90m[39;49;00m
+        ^^^^^^^[90m[39;49;00m
+[1m[31mkatman.py[0m:612: in _ac
+    [0mds = rasterio.open(_kl([33m"[39;49;00m[33may[39;49;00m[33m"[39;49;00m, [33m"[39;49;00m[33mM7[39;49;00m[33m"[39;49;00m) / [33mf[39;49;00m[33m"[39;49;00m[33m{[39;49;00mad[33m}[39;49;00m[33m.tif[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[90m[39;49;00m
+[1m[31m..\..\anaconda3\envs\orbitrary\Lib\site-packages\rasterio\env.py[0m:464: in wrapper
+    [0m[94mreturn[39;49;00m f(*args, **kwds)[90m[39;49;00m
+           ^^^^^^^^^^^^^^^^[90m[39;49;00m
+[1m[31m..\..\anaconda3\envs\orbitrary\Lib\site-packages\rasterio\__init__.py[0m:367: in open
+    [0mdataset = DatasetReader(path, driver=driver, sharing=sharing, thread_safe=thread_safe, **kwargs)[90m[39;49;00m
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+>   [0m[94mraise[39;49;00m RasterioIOError([96mstr[39;49;00m(err))[90m[39;49;00m
+[1m[31mE   rasterio.errors.RasterioIOError: C:\Users\USER\orbitrary\temiz\ay\M7_pgda\avgvisib_n.tif: No such file or directory[0m
+
+[1m[31mrasterio/_base.pyx[0m:331: RasterioIOError
+[31m[1m_______________________ test_katman_acilir[avgvisib_s] ________________________[0m
+
+>   [0m[96mself[39;49;00m._hds = open_dataset([90m[39;49;00m
+
+[1m[31mrasterio/_base.pyx[0m:322: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+[1m[31mrasterio/_base.pyx[0m:234: in rasterio._base.open_dataset
+    [0m[94mreturn[39;49;00m exc_wrap_pointer(hds)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+>   [0m[04m[91m?[39;49;00m[04m[91m?[39;49;00m[04m[91m?[39;49;00m[90m[39;49;00m
+[1m[31mE   rasterio._err.CPLE_OpenFailedError: C:\Users\USER\orbitrary\temiz\ay\M7_pgda\avgvisib_s.tif: No such file or directory[0m
+
+[1m[31mrasterio/_err.pyx[0m:359: CPLE_OpenFailedError
+
+[33mDuring handling of the above exception, another exception occurred:[0m
+
+ad = 'avgvisib_s'
+
+    [0m[37m@pytest[39;49;00m.mark.parametrize([33m"[39;49;00m[33mad[39;49;00m[33m"[39;49;00m, RASTER)[90m[39;49;00m
+    [94mdef[39;49;00m[90m [39;49;00m[92mtest_katman_acilir[39;49;00m(ad):[90m[39;49;00m
+>       [94massert[39;49;00m K.ac(ad) [95mis[39;49;00m [95mnot[39;49;00m [94mNone[39;49;00m[90m[39;49;00m
+               ^^^^^^^^[90m[39;49;00m
+
+[1m[31mtestler\test_katman_gercek.py[0m:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+[1m[31mkatman.py[0m:556: in ac
+    [0mk = _ac(ad)[90m[39;49;00m
+        ^^^^^^^[90m[39;49;00m
+[1m[31mkatman.py[0m:612: in _ac
+    [0mds = rasterio.open(_kl([33m"[39;49;00m[33may[39;49;00m[33m"[39;49;00m, [33m"[39;49;00m[33mM7[39;49;00m[33m"[39;49;00m) / [33mf[39;49;00m[33m"[39;49;00m[33m{[39;49;00mad[33m}[39;49;00m[33m.tif[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[90m[39;49;00m
+[1m[31m..\..\anaconda3\envs\orbitrary\Lib\site-packages\rasterio\env.py[0m:464: in wrapper
+    [0m[94mreturn[39;49;00m f(*args, **kwds)[90m[39;49;00m
+           ^^^^^^^^^^^^^^^^[90m[39;49;00m
+[1m[31m..\..\anaconda3\envs\orbitrary\Lib\site-packages\rasterio\__init__.py[0m:367: in open
+    [0mdataset = DatasetReader(path, driver=driver, sharing=sharing, thread_safe=thread_safe, **kwargs)[90m[39;49;00m
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+>   [0m[94mraise[39;49;00m RasterioIOError([96mstr[39;49;00m(err))[90m[39;49;00m
+[1m[31mE   rasterio.errors.RasterioIOError: C:\Users\USER\orbitrary\temiz\ay\M7_pgda\avgvisib_s.tif: No such file or directory[0m
+
+[1m[31mrasterio/_base.pyx[0m:331: RasterioIOError
+[31m[1m_________________________ test_katman_acilir[lpsr_n] __________________________[0m
+
+>   [0m[96mself[39;49;00m._hds = open_dataset([90m[39;49;00m
+
+[1m[31mrasterio/_base.pyx[0m:322: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+[1m[31mrasterio/_base.pyx[0m:234: in rasterio._base.open_dataset
+    [0m[94mreturn[39;49;00m exc_wrap_pointer(hds)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+>   [0m[04m[91m?[39;49;00m[04m[91m?[39;49;00m[04m[91m?[39;49;00m[90m[39;49;00m
+[1m[31mE   rasterio._err.CPLE_OpenFailedError: C:\Users\USER\orbitrary\temiz\ay\M7_pgda\lpsr_n.tif: No such file or directory[0m
+
+[1m[31mrasterio/_err.pyx[0m:359: CPLE_OpenFailedError
+
+[33mDuring handling of the above exception, another exception occurred:[0m
+
+ad = 'lpsr_n'
+
+    [0m[37m@pytest[39;49;00m.mark.parametrize([33m"[39;49;00m[33mad[39;49;00m[33m"[39;49;00m, RASTER)[90m[39;49;00m
+    [94mdef[39;49;00m[90m [39;49;00m[92mtest_katman_acilir[39;49;00m(ad):[90m[39;49;00m
+>       [94massert[39;49;00m K.ac(ad) [95mis[39;49;00m [95mnot[39;49;00m [94mNone[39;49;00m[90m[39;49;00m
+               ^^^^^^^^[90m[39;49;00m
+
+[1m[31mtestler\test_katman_gercek.py[0m:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+[1m[31mkatman.py[0m:556: in ac
+    [0mk = _ac(ad)[90m[39;49;00m
+        ^^^^^^^[90m[39;49;00m
+[1m[31mkatman.py[0m:612: in _ac
+    [0mds = rasterio.open(_kl([33m"[39;49;00m[33may[39;49;00m[33m"[39;49;00m, [33m"[39;49;00m[33mM7[39;49;00m[33m"[39;49;00m) / [33mf[39;49;00m[33m"[39;49;00m[33m{[39;49;00mad[33m}[39;49;00m[33m.tif[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[90m[39;49;00m
+[1m[31m..\..\anaconda3\envs\orbitrary\Lib\site-packages\rasterio\env.py[0m:464: in wrapper
+    [0m[94mreturn[39;49;00m f(*args, **kwds)[90m[39;49;00m
+           ^^^^^^^^^^^^^^^^[90m[39;49;00m
+[1m[31m..\..\anaconda3\envs\orbitrary\Lib\site-packages\rasterio\__init__.py[0m:367: in open
+    [0mdataset = DatasetReader(path, driver=driver, sharing=sharing, thread_safe=thread_safe, **kwargs)[90m[39;49;00m
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+>   [0m[94mraise[39;49;00m RasterioIOError([96mstr[39;49;00m(err))[90m[39;49;00m
+[1m[31mE   rasterio.errors.RasterioIOError: C:\Users\USER\orbitrary\temiz\ay\M7_pgda\lpsr_n.tif: No such file or directory[0m
+
+[1m[31mrasterio/_base.pyx[0m:331: RasterioIOError
+[31m[1m_________________________ test_katman_acilir[lpsr_s] __________________________[0m
+
+>   [0m[96mself[39;49;00m._hds = open_dataset([90m[39;49;00m
+
+[1m[31mrasterio/_base.pyx[0m:322: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+[1m[31mrasterio/_base.pyx[0m:234: in rasterio._base.open_dataset
+    [0m[94mreturn[39;49;00m exc_wrap_pointer(hds)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+>   [0m[04m[91m?[39;49;00m[04m[91m?[39;49;00m[04m[91m?[39;49;00m[90m[39;49;00m
+[1m[31mE   rasterio._err.CPLE_OpenFailedError: C:\Users\USER\orbitrary\temiz\ay\M7_pgda\lpsr_s.tif: No such file or directory[0m
+
+[1m[31mrasterio/_err.pyx[0m:359: CPLE_OpenFailedError
+
+[33mDuring handling of the above exception, another exception occurred:[0m
+
+ad = 'lpsr_s'
+
+    [0m[37m@pytest[39;49;00m.mark.parametrize([33m"[39;49;00m[33mad[39;49;00m[33m"[39;49;00m, RASTER)[90m[39;49;00m
+    [94mdef[39;49;00m[90m [39;49;00m[92mtest_katman_acilir[39;49;00m(ad):[90m[39;49;00m
+>       [94massert[39;49;00m K.ac(ad) [95mis[39;49;00m [95mnot[39;49;00m [94mNone[39;49;00m[90m[39;49;00m
+               ^^^^^^^^[90m[39;49;00m
+
+[1m[31mtestler\test_katman_gercek.py[0m:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+[1m[31mkatman.py[0m:556: in ac
+    [0mk = _ac(ad)[90m[39;49;00m
+        ^^^^^^^[90m[39;49;00m
+[1m[31mkatman.py[0m:612: in _ac
+    [0mds = rasterio.open(_kl([33m"[39;49;00m[33may[39;49;00m[33m"[39;49;00m, [33m"[39;49;00m[33mM7[39;49;00m[33m"[39;49;00m) / [33mf[39;49;00m[33m"[39;49;00m[33m{[39;49;00mad[33m}[39;49;00m[33m.tif[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[90m[39;49;00m
+[1m[31m..\..\anaconda3\envs\orbitrary\Lib\site-packages\rasterio\env.py[0m:464: in wrapper
+    [0m[94mreturn[39;49;00m f(*args, **kwds)[90m[39;49;00m
+           ^^^^^^^^^^^^^^^^[90m[39;49;00m
+[1m[31m..\..\anaconda3\envs\orbitrary\Lib\site-packages\rasterio\__init__.py[0m:367: in open
+    [0mdataset = DatasetReader(path, driver=driver, sharing=sharing, thread_safe=thread_safe, **kwargs)[90m[39;49;00m
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+>   [0m[94mraise[39;49;00m RasterioIOError([96mstr[39;49;00m(err))[90m[39;49;00m
+[1m[31mE   rasterio.errors.RasterioIOError: C:\Users\USER\orbitrary\temiz\ay\M7_pgda\lpsr_s.tif: No such file or directory[0m
+
+[1m[31mrasterio/_base.pyx[0m:331: RasterioIOError
+[31m[1m________________________ test_pgda_anormal_piksel_nan _________________________[0m
+
+>   [0m[96mself[39;49;00m._hds = open_dataset([90m[39;49;00m
+
+[1m[31mrasterio/_base.pyx[0m:322: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+[1m[31mrasterio/_base.pyx[0m:234: in rasterio._base.open_dataset
+    [0m[94mreturn[39;49;00m exc_wrap_pointer(hds)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+>   [0m[04m[91m?[39;49;00m[04m[91m?[39;49;00m[04m[91m?[39;49;00m[90m[39;49;00m
+[1m[31mE   rasterio._err.CPLE_OpenFailedError: C:\Users\USER\orbitrary\temiz\ay\M7_pgda\lpsr_n.tif: No such file or directory[0m
+
+[1m[31mrasterio/_err.pyx[0m:359: CPLE_OpenFailedError
+
+[33mDuring handling of the above exception, another exception occurred:[0m
+
+    [0m[94mdef[39;49;00m[90m [39;49;00m[92mtest_pgda_anormal_piksel_nan[39;49;00m():[90m[39;49;00m
+        [90m# belge 10.2: anormal piksel 88,435°K 106,602°D NaN[39;49;00m[90m[39;49;00m
+        [94mfor[39;49;00m ad [95min[39;49;00m ([33m"[39;49;00m[33mlpsr_n[39;49;00m[33m"[39;49;00m, [33m"[39;49;00m[33mavgvisib_n[39;49;00m[33m"[39;49;00m):[90m[39;49;00m
+>           k = K.ac(ad)[90m[39;49;00m
+                ^^^^^^^^[90m[39;49;00m
+
+[1m[31mtestler\test_katman_gercek.py[0m:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+[1m[31mkatman.py[0m:556: in ac
+    [0mk = _ac(ad)[90m[39;49;00m
+        ^^^^^^^[90m[39;49;00m
+[1m[31mkatman.py[0m:612: in _ac
+    [0mds = rasterio.open(_kl([33m"[39;49;00m[33may[39;49;00m[33m"[39;49;00m, [33m"[39;49;00m[33mM7[39;49;00m[33m"[39;49;00m) / [33mf[39;49;00m[33m"[39;49;00m[33m{[39;49;00mad[33m}[39;49;00m[33m.tif[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[90m[39;49;00m
+[1m[31m..\..\anaconda3\envs\orbitrary\Lib\site-packages\rasterio\env.py[0m:464: in wrapper
+    [0m[94mreturn[39;49;00m f(*args, **kwds)[90m[39;49;00m
+           ^^^^^^^^^^^^^^^^[90m[39;49;00m
+[1m[31m..\..\anaconda3\envs\orbitrary\Lib\site-packages\rasterio\__init__.py[0m:367: in open
+    [0mdataset = DatasetReader(path, driver=driver, sharing=sharing, thread_safe=thread_safe, **kwargs)[90m[39;49;00m
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+>   [0m[94mraise[39;49;00m RasterioIOError([96mstr[39;49;00m(err))[90m[39;49;00m
+[1m[31mE   rasterio.errors.RasterioIOError: C:\Users\USER\orbitrary\temiz\ay\M7_pgda\lpsr_n.tif: No such file or directory[0m
+
+[1m[31mrasterio/_base.pyx[0m:331: RasterioIOError
+[31m[1m______________________ test_pgda_en_soguk_ucgenler_guney ______________________[0m
+
+>   [0m[96mself[39;49;00m._hds = open_dataset([90m[39;49;00m
+
+[1m[31mrasterio/_base.pyx[0m:322: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+[1m[31mrasterio/_base.pyx[0m:234: in rasterio._base.open_dataset
+    [0m[94mreturn[39;49;00m exc_wrap_pointer(hds)[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+>   [0m[04m[91m?[39;49;00m[04m[91m?[39;49;00m[04m[91m?[39;49;00m[90m[39;49;00m
+[1m[31mE   rasterio._err.CPLE_OpenFailedError: C:\Users\USER\orbitrary\temiz\ay\M7_pgda\lpsr_s.tif: No such file or directory[0m
+
+[1m[31mrasterio/_err.pyx[0m:359: CPLE_OpenFailedError
+
+[33mDuring handling of the above exception, another exception occurred:[0m
+
+    [0m[94mdef[39;49;00m[90m [39;49;00m[92mtest_pgda_en_soguk_ucgenler_guney[39;49;00m():[90m[39;49;00m
+        \x1b[90m# D2 testinin katman.py ile tekrar\u0131: |enlem| \u2265 85\xb0 g\xfcney en so\u011fuk 100 PRP \xfc\xe7geni (temp_max) \u2192 LPSR = 1 oran\u0131 \u2265 0,9\x1b[39;49;00m\x1b[90m\x1b[39;49;00m
+        kl = K._kl([33m"[39;49;00m[33may[39;49;00m[33m"[39;49;00m, [33m"[39;49;00m[33mM4[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+        lat = np.load(kl / [33m"[39;49;00m[33mprp_south_tri_clat.npy[39;49;00m[33m"[39;49;00m); lon = np.load(kl / [33m"[39;49;00m[33mprp_south_tri_clon.npy[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+        t = np.load(kl / [33m"[39;49;00m[33mprp_south_temp_max.npy[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+        m = np.abs(lat) >= [94m85[39;49;00m[90m[39;49;00m
+        o = np.argsort(t[m])[:[94m100[39;49;00m][90m[39;49;00m
+>       lp = K.ac([33m"[39;49;00m[33mlpsr_s[39;49;00m[33m"[39;49;00m).ornekle(lat[m][o], lon[m][o])[90m[39;49;00m
+             ^^^^^^^^^^^^^^[90m[39;49;00m
+
+[1m[31mtestler\test_katman_gercek.py[0m:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+[1m[31mkatman.py[0m:556: in ac
+    [0mk = _ac(ad)[90m[39;49;00m
+        ^^^^^^^[90m[39;49;00m
+[1m[31mkatman.py[0m:612: in _ac
+    [0mds = rasterio.open(_kl([33m"[39;49;00m[33may[39;49;00m[33m"[39;49;00m, [33m"[39;49;00m[33mM7[39;49;00m[33m"[39;49;00m) / [33mf[39;49;00m[33m"[39;49;00m[33m{[39;49;00mad[33m}[39;49;00m[33m.tif[39;49;00m[33m"[39;49;00m)[90m[39;49;00m
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[90m[39;49;00m
+[1m[31m..\..\anaconda3\envs\orbitrary\Lib\site-packages\rasterio\env.py[0m:464: in wrapper
+    [0m[94mreturn[39;49;00m f(*args, **kwds)[90m[39;49;00m
+           ^^^^^^^^^^^^^^^^[90m[39;49;00m
+[1m[31m..\..\anaconda3\envs\orbitrary\Lib\site-packages\rasterio\__init__.py[0m:367: in open
+    [0mdataset = DatasetReader(path, driver=driver, sharing=sharing, thread_safe=thread_safe, **kwargs)[90m[39;49;00m
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[90m[39;49;00m
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+>   [0m[94mraise[39;49;00m RasterioIOError([96mstr[39;49;00m(err))[90m[39;49;00m
+[1m[31mE   rasterio.errors.RasterioIOError: C:\Users\USER\orbitrary\temiz\ay\M7_pgda\lpsr_s.tif: No such file or directory[0m
+
+[1m[31mrasterio/_base.pyx[0m:331: RasterioIOError
+============================= slowest 8 durations =============================
+62.46s setup    testler/test_katman_gercek.py::test_glim_siniflari
+17.35s call     testler/test_katman_gercek.py::test_cografi_tif_rasterio_ile_ayni[etopo--90-90]
+12.39s call     testler/test_katman_gercek.py::test_metre_silindirik_rasterio_ile_ayni[lola-1737400.0--90-90]
+11.27s call     testler/test_katman_gercek.py::test_cografi_tif_rasterio_ile_ayni[ra--70-70]
+10.07s call     testler/test_katman_gercek.py::test_cografi_tif_rasterio_ile_ayni[tbol--70-70]
+6.05s call     testler/test_katman_gercek.py::test_cografi_tif_rasterio_ile_ayni[ai--60-90]
+3.24s call     testler/test_katman_gercek.py::test_projeksiyon_rasterio_ile_ayni[kil--56-84]
+3.17s call     testler/test_katman_gercek.py::test_projeksiyon_rasterio_ile_ayni[silt--56-84]
+[36m[1m=========================== short test summary info ===========================[0m
+[31mFAILED[0m testler/test_katman_gercek.py::[1mtest_katman_acilir[avgvisib_n][0m - rasterio.errors.RasterioIOError: C:\Users\USER\orbitrary\temiz\ay\M7_pgda\a...
+[31mFAILED[0m testler/test_katman_gercek.py::[1mtest_katman_acilir[avgvisib_s][0m - rasterio.errors.RasterioIOError: C:\Users\USER\orbitrary\temiz\ay\M7_pgda\a...
+[31mFAILED[0m testler/test_katman_gercek.py::[1mtest_katman_acilir[lpsr_n][0m - rasterio.errors.RasterioIOError: C:\Users\USER\orbitrary\temiz\ay\M7_pgda\l...
+[31mFAILED[0m testler/test_katman_gercek.py::[1mtest_katman_acilir[lpsr_s][0m - rasterio.errors.RasterioIOError: C:\Users\USER\orbitrary\temiz\ay\M7_pgda\l...
+[31mFAILED[0m testler/test_katman_gercek.py::[1mtest_pgda_anormal_piksel_nan[0m - rasterio.errors.RasterioIOError: C:\Users\USER\orbitrary\temiz\ay\M7_pgda\l...
+[31mFAILED[0m testler/test_katman_gercek.py::[1mtest_pgda_en_soguk_ucgenler_guney[0m - rasterio.errors.RasterioIOError: C:\Users\USER\orbitrary\temiz\ay\M7_pgda\l...
+[31m[31m[1m6 failed[0m, [32m114 passed[0m[31m in 144.31s (0:02:24)[0m[0m
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:
+Error in sys.excepthook:
+
+Original exception was:

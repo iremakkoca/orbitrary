@@ -1,0 +1,18 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\USER\anaconda3\envs\orbitrary\python.exe
+rootdir: C:\Users\USER\orbitrary\kod
+plugins: anyio-4.16.0, platformdirs-4.14.5
+collecting ... collected 43 items / 37 deselected / 6 selected
+
+testler/test_ozellik_diger_gercek.py::test_dunya_cmg_turetilmis PASSED   [ 16%]
+testler/test_ozellik_diger_gercek.py::test_turetilmis_katman_acilir[cmg_mi] PASSED [ 33%]
+testler/test_ozellik_diger_gercek.py::test_turetilmis_katman_acilir[cmg_tmax] PASSED [ 50%]
+testler/test_ozellik_diger_gercek.py::test_turetilmis_katman_acilir[cmg_tort] PASSED [ 66%]
+testler/test_ozellik_diger_gercek.py::test_turetilmis_katman_acilir[cmg_tgece] PASSED [ 83%]
+testler/test_ozellik_diger_gercek.py::test_turetilmis_katman_acilir[cmg_iarti] PASSED [100%]
+
+============================ slowest 10 durations =============================
+1.63s call     testler/test_ozellik_diger_gercek.py::test_dunya_cmg_turetilmis
+
+(9 durations < 0.005s hidden.  Use -vv to show these durations.)
+====================== 6 passed, 37 deselected in 2.83s =======================

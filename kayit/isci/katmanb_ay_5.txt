@@ -1,0 +1,39 @@
+   Katman B ay işçi 5: blok 2/37  geçen 5.7 dk  kalan ≈ 100.1 dk
+   Katman B ay işçi 5: blok 4/37  geçen 11.4 dk  kalan ≈ 94.1 dk
+   Katman B ay işçi 5: blok 6/37  geçen 17.1 dk  kalan ≈ 88.5 dk
+Traceback (most recent call last):
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 1834, in <module>
+    z = np.load(self.kl / f"blok_{b:05d}.npz")
+^^
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 478, in main
+    isci(a.isci_asama, a.govde, a.isci_no, a.isci_sayi)
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 316, in isci
+    bloklari_kos(depo, _katmanb_fonk(govde, kon_oku(), X_al()), f"Katman B {govde} işçi {no}", her=2,
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 123, in bloklari_kos
+    depo.yaz(b, fonk(a, z))
+                ^^^^^^^^^^
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 1586, in f
+    
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 1527, in hedef
+    out = {"top3": np.full((5, 3), -1, np.int64), "P": np.full((5, 3), np.nan, np.float32),
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 1483, in _uzaklik
+    self.Dk = {k: np.full((D.n, 1), np.nan) for k in (3, 4, 5, 6, 7, 8)}
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\orbitrary\kod\kos.py", line 1436, in d1_hizli
+    FT = np.flatnonzero(np.isfinite(iqr) & (iqr > 0))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+   Katman B ay işçi 5: blok 2/25  geçen 4.8 dk  kalan ≈ 55.5 dk
+   Katman B ay işçi 5: blok 4/25  geçen 9.6 dk  kalan ≈ 50.4 dk
+   Katman B ay işçi 5: blok 6/25  geçen 14.7 dk  kalan ≈ 46.5 dk
+   Katman B ay işçi 5: blok 8/25  geçen 19.7 dk  kalan ≈ 41.9 dk
+   Katman B ay işçi 5: blok 10/25  geçen 24.8 dk  kalan ≈ 37.2 dk
+   Katman B ay işçi 5: blok 12/25  geçen 29.3 dk  kalan ≈ 31.8 dk
+   Katman B ay işçi 5: blok 14/25  geçen 33.7 dk  kalan ≈ 26.5 dk
+   Katman B ay işçi 5: blok 16/25  geçen 38.6 dk  kalan ≈ 21.7 dk
+   Katman B ay işçi 5: blok 18/25  geçen 43.6 dk  kalan ≈ 17.0 dk
+   Katman B ay işçi 5: blok 20/25  geçen 49.0 dk  kalan ≈ 12.2 dk
+   Katman B ay işçi 5: blok 22/25  geçen 54.1 dk  kalan ≈ 7.4 dk
+   Katman B ay işçi 5: blok 24/25  geçen 59.0 dk  kalan ≈ 2.5 dk
+   Katman B ay işçi 5: blok 25/25  geçen 60.6 dk  kalan ≈ 0.0 dk

@@ -14,3 +14,24 @@ _netrc
 site_yedek/
 site_v0_arsiv/
 site_v2/
+
+# Orbitrary: büyük veri, ara dosyalar ve yedekler GitHub'a gitmez
+paylas/
+site_calisma/
+site_calisma_v1/
+__pycache__/
+sonuc/site/
+site_v2/data/
+site_v2/img/
+site_v2/textures/
+site_v2/makale/
+*.zip
+*.npy
+*.npz
+*.h5
+*.hdf
+*.tif
+*.tiff
+*.nc
+*.parquet
+*.bin.tmp

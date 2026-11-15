@@ -1,0 +1,116 @@
+{
+ "tanim": {
+  "I_yillik": "belge 6.5: geçerli ayların ortalaması (değişmedi)",
+  "pay": "piksel başına en büyük aylık I⊕ / geçerli ayların toplamı",
+  "fark": "|u(yıllık ortalama) − u(aylık ortanca)|, u = cos φ ağırlıklı ECDF sırası (belge 5.2 biçimi), ortak geçerli pikseller"
+ },
+ "dTg_negatif_ay_piksel": {
+  "01": 108029,
+  "02": 226275,
+  "03": 134462,
+  "04": 36406,
+  "05": 14860,
+  "06": 15081,
+  "07": 19830,
+  "08": 11588,
+  "09": 58721,
+  "10": 209886,
+  "11": 335517,
+  "12": 171825
+ },
+ "dTg_negatif_toplam": 1342480,
+ "gecerli_piksel": 8638888,
+ "gecerli_ay_sayisi_ortanca": 10,
+ "en_buyuk_ayin_payi": {
+  "ortanca": 0.1644,
+  "yuzde95": 0.6729,
+  "en_buyuk": 1.0
+ },
+ "sira_farki": {
+  "ortanca": 0.026,
+  "yuzde95": 0.1991,
+  "en_buyuk": 0.9864
+ },
+ "en_buyuk_fark_10_piksel": [
+  {
+   "enlem": -85.725,
+   "boylam": -155.625,
+   "fark": 0.9864,
+   "gecerli_ay": 5,
+   "I_ort": 0.41479,
+   "I_ortanca": 0.00749
+  },
+  {
+   "enlem": -87.125,
+   "boylam": -0.975,
+   "fark": 0.9861,
+   "gecerli_ay": 3,
+   "I_ort": 0.4167,
+   "I_ortanca": 0.01016
+  },
+  {
+   "enlem": -87.125,
+   "boylam": -1.025,
+   "fark": 0.9861,
+   "gecerli_ay": 3,
+   "I_ort": 0.4167,
+   "I_ortanca": 0.01016
+  },
+  {
+   "enlem": -87.475,
+   "boylam": 32.725,
+   "fark": 0.986,
+   "gecerli_ay": 3,
+   "I_ort": 0.40502,
+   "I_ortanca": 0.00842
+  },
+  {
+   "enlem": -85.675,
+   "boylam": 7.625,
+   "fark": 0.986,
+   "gecerli_ay": 3,
+   "I_ort": 0.50943,
+   "I_ortanca": 0.01172
+  },
+  {
+   "enlem": -85.675,
+   "boylam": 7.575,
+   "fark": 0.9859,
+   "gecerli_ay": 3,
+   "I_ort": 0.5321,
+   "I_ortanca": 0.01193
+  },
+  {
+   "enlem": -87.475,
+   "boylam": 32.675,
+   "fark": 0.9859,
+   "gecerli_ay": 3,
+   "I_ort": 0.40044,
+   "I_ortanca": 0.0082
+  },
+  {
+   "enlem": -87.475,
+   "boylam": 32.775,
+   "fark": 0.9858,
+   "gecerli_ay": 3,
+   "I_ort": 0.40049,
+   "I_ortanca": 0.00838
+  },
+  {
+   "enlem": -85.675,
+   "boylam": 7.775,
+   "fark": 0.9858,
+   "gecerli_ay": 3,
+   "I_ort": 0.50956,
+   "I_ortanca": 0.01179
+  },
+  {
+   "enlem": -85.175,
+   "boylam": -162.975,
+   "fark": 0.9858,
+   "gecerli_ay": 4,
+   "I_ort": 0.50452,
+   "I_ortanca": 0.01175
+  }
+ ]
+}

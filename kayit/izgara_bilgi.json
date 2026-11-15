@@ -1,0 +1,38 @@
+{
+  "dunya": {
+    "pencere_sayisi": 1275482,
+    "halka_sayisi": 1001,
+    "tiklama_en_yakin_orani": 0.9624,
+    "kutup_ilk_halka_m": 3,
+    "kutup_ilk_halka_komsu_km": 17.32,
+    "kose_km": {
+      "halka_0": 17.32,
+      "halka_1": 15.64,
+      "diger_en_buyuk": 14.67
+    }
+  },
+  "ay": {
+    "pencere_sayisi": 94864,
+    "halka_sayisi": 273,
+    "tiklama_en_yakin_orani": 0.9617,
+    "kutup_ilk_halka_m": 3,
+    "kutup_ilk_halka_komsu_km": 17.31,
+    "kose_km": {
+      "halka_0": 17.31,
+      "halka_1": 15.64,
+      "diger_en_buyuk": 14.67
+    }
+  },
+  "mars": {
+    "pencere_sayisi": 360654,
+    "halka_sayisi": 532,
+    "tiklama_en_yakin_orani": 0.9617,
+    "kutup_ilk_halka_m": 3,
+    "kutup_ilk_halka_komsu_km": 17.33,
+    "kose_km": {
+      "halka_0": 17.33,
+      "halka_1": 15.66,
+      "diger_en_buyuk": 14.68
+    }
+  }
+}

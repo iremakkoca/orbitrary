@@ -1,0 +1,31 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\USER\anaconda3\envs\orbitrary\python.exe
+rootdir: C:\Users\USER\orbitrary\kod
+plugins: anyio-4.16.0, platformdirs-4.14.5
+collecting ... collected 16 items
+
+testler/test_dogrula.py::test_pi_ve_K14 PASSED                           [  6%]
+testler/test_dogrula.py::test_fisher_elle PASSED                         [ 12%]
+testler/test_dogrula.py::test_fisher_H0_altinda_duzgun PASSED            [ 18%]
+testler/test_dogrula.py::test_fisher_yon PASSED                          [ 25%]
+testler/test_dogrula.py::test_auc_kaba_kuvvet_ve_mw PASSED               [ 31%]
+testler/test_dogrula.py::test_v3_tekrar_ve_GA PASSED                     [ 37%]
+testler/test_dogrula.py::test_b_prime_ve_hedefler PASSED                 [ 43%]
+testler/test_dogrula.py::test_v2_sec PASSED                              [ 50%]
+testler/test_dogrula.py::test_recall PASSED                              [ 56%]
+testler/test_dogrula.py::test_spearman_matris PASSED                     [ 62%]
+testler/test_dogrula.py::test_holm_elle PASSED                           [ 68%]
+testler/test_dogrula.py::test_ablasyon_sabit_kategori PASSED             [ 75%]
+testler/test_dogrula.py::test_v4_v7_ozet PASSED                          [ 81%]
+testler/test_dogrula.py::test_v10_yon PASSED                             [ 87%]
+testler/test_dogrula.py::test_tau_ortak_Q15 PASSED                       [ 93%]
+testler/test_dogrula.py::test_alt_tohum_V4_hedef_Q14 PASSED              [100%]
+
+============================ slowest 10 durations =============================
+0.54s call     testler/test_dogrula.py::test_v3_tekrar_ve_GA
+0.25s call     testler/test_dogrula.py::test_fisher_H0_altinda_duzgun
+0.07s call     testler/test_dogrula.py::test_auc_kaba_kuvvet_ve_mw
+0.03s call     testler/test_dogrula.py::test_spearman_matris
+
+(6 durations < 0.005s hidden.  Use -vv to show these durations.)
+============================= 16 passed in 2.02s ==============================

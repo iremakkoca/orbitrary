@@ -1,0 +1,16 @@
+   diyagram işçi 3: 20 blok, 2.2 dk
+   diyagram işçi 3: 40 blok, 3.1 dk
+   diyagram işçi 3: 60 blok, 3.7 dk
+   diyagram işçi 3: 80 blok, 4.2 dk
+   diyagram işçi 3: 100 blok, 4.7 dk
+   diyagram işçi 3: 120 blok, 5.3 dk
+   diyagram işçi 3: 140 blok, 5.8 dk
+   diyagram işçi 3: 160 blok, 6.4 dk
+   diyagram işçi 3: 180 blok, 6.9 dk
+   diyagram işçi 3: 200 blok, 7.5 dk
+   diyagram işçi 3: 220 blok, 8.0 dk
+   diyagram işçi 3: 240 blok, 8.6 dk
+   diyagram işçi 3: 260 blok, 9.3 dk
+   diyagram işçi 3: 280 blok, 10.0 dk
+   diyagram işçi 3: 300 blok, 10.7 dk
+   diyagram işçi 3: 320 blok, 11.7 dk

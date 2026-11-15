@@ -1,0 +1,14 @@
+{
+  "F12": {
+    "baslik": "Category ablation",
+    "altyazi": "Effect of removing each category on the ranking (V8). For each of the eight categories, the bar shows Kendall's τb between the ranking by the full score and the ranking with that category removed, as the median over {X} targets. A lower τb marks a more influential category."
+  },
+  "F13": {
+    "baslik": "Sensitivity to weights and aggregation",
+    "altyazi": "Sensitivity of the top-3 lists to the weighting and aggregation rule. For each mission profile, the bars show the mean Jaccard index between the baseline top-3 and the top-3 obtained with equal weights and with the weighted geometric mean, over {X} targets. A value of 1 means that the same three analogs are returned."
+  },
+  "F14": {
+    "baslik": "Category coverage on the Moon and Mars",
+    "altyazi": "Category coverage of lunar and martian target windows: the fraction of the eight categories that can be computed for each window. Coverage ranges from {X} to {X} on the Moon and from {X} to {X} on Mars; it is lower where data products end, for example beyond 70° latitude for the Diviner global products on the Moon and beyond 60° for water/ice on Mars."
+  }
+}

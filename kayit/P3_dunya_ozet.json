@@ -1,0 +1,142 @@
+{
+ "pencere": 346064,
+ "alan": {
+  "Omega_1": {
+   "bicim": [],
+   "dolu_orani": 1.0
+  },
+  "Omega_4": {
+   "bicim": [],
+   "dolu_orani": 1.0
+  },
+  "Q1": {
+   "bicim": [
+    6,
+    1000
+   ],
+   "dolu_orani": 1.0
+  },
+  "Q4": {
+   "bicim": [
+    1000
+   ],
+   "dolu_orani": 0.9996
+  },
+  "Q5_iarti": {
+   "bicim": [
+    1000
+   ],
+   "dolu_orani": 1.0
+  },
+  "Q5_tgece": {
+   "bicim": [
+    1000
+   ],
+   "dolu_orani": 1.0
+  },
+  "Q5_tmax": {
+   "bicim": [
+    1000
+   ],
+   "dolu_orani": 1.0
+  },
+  "Q5_tort": {
+   "bicim": [
+    1000
+   ],
+   "dolu_orani": 1.0
+  },
+  "Q6": {
+   "bicim": [
+    1000
+   ],
+   "dolu_orani": 0.9022
+  },
+  "Q7": {
+   "bicim": [
+    1000
+   ],
+   "dolu_orani": 0.903
+  },
+  "Q8": {
+   "bicim": [
+    1000
+   ],
+   "dolu_orani": 1.0
+  },
+  "R": {
+   "bicim": [],
+   "dolu_orani": 1.0
+  },
+  "dem_tam": {
+   "bicim": [],
+   "ortalama": 1.0
+  },
+  "lnR": {
+   "bicim": [],
+   "dolu_orani": 1.0
+  },
+  "mob": {
+   "bicim": [],
+   "dolu_orani": 1.0
+  },
+  "q3": {
+   "bicim": [
+    6
+   ],
+   "dolu_orani": 0.9999
+  },
+  "q3_gecerli": {
+   "bicim": [],
+   "dolu_orani": 1.0
+  },
+  "x4_gecerli": {
+   "bicim": [],
+   "dolu_orani": 1.0
+  },
+  "z": {
+   "bicim": [
+    6
+   ],
+   "dolu_orani": 1.0
+  }
+ },
+ "z": {
+  "theta_ort": {
+   "ortanca": 0.013897649280296447,
+   "yuzde1": 0.000608217628611327,
+   "yuzde99": 0.27608802134559346,
+   "MAD": 0.010934657862785871
+  },
+  "theta_09": {
+   "ortanca": 0.025847109218003626,
+   "yuzde1": 0.001084803238079757,
+   "yuzde99": 0.4473877619277552,
+   "MAD": 0.02067684538256706
+  },
+  "vrm_ort": {
+   "ortanca": 5.300465199037384e-05,
+   "yuzde1": 3.4210385716058195e-08,
+   "yuzde99": 0.015364844419722802,
+   "MAD": 5.2547281106421517e-05
+  },
+  "lnR": {
+   "ortanca": 5.0843966718067275,
+   "yuzde1": 2.069227521202435,
+   "yuzde99": 7.802301936936782,
+   "MAD": 0.9758617676400663
+  },
+  "n_asagi": {
+   "ortanca": 2.0,
+   "yuzde1": 0.0,
+   "yuzde99": 25.0,
+   "MAD": 2.0
+  },
+  "n_yukari": {
+   "ortanca": 5.0,
+   "yuzde1": 0.0,
+   "yuzde99": 47.0,
+   "MAD": 5.0
+  }
+ }
+}

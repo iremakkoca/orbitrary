@@ -1,0 +1,818 @@
+{
+ "gecti": true,
+ "K_on": 800,
+ "gorev": "genel",
+ "sahalar": {
+  "Rio Grande Gorge, Taos, New Mexico": {
+   "gecti": true,
+   "ilk": true,
+   "kategoriler": [
+    {
+     "k": 1,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 2000,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 2,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 200,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 3,
+     "d_e": 0.0,
+     "s": 0.9999985549717642,
+     "s_beklenen": 0.9999985549717642,
+     "esit_ref": 1,
+     "n_ref": 346014,
+     "s_bir": false,
+     "gecti": true
+    },
+    {
+     "k": 4,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 345819,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 5,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 346058,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 6,
+     "durum": "hedefte yok (null)",
+     "s": null
+    },
+    {
+     "k": 7,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 312488,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 8,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 200,
+     "s_bir": true,
+     "gecti": true
+    }
+   ],
+   "en_buyuk_fark": 0.0
+  },
+  "Nördlinger Ries, Almanya": {
+   "gecti": true,
+   "ilk": true,
+   "kategoriler": [
+    {
+     "k": 1,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 2000,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 2,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 200,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 3,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 346014,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 4,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 345819,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 5,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 346058,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 6,
+     "durum": "hedefte yok (null)",
+     "s": null
+    },
+    {
+     "k": 7,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 312488,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 8,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 200,
+     "s_bir": true,
+     "gecti": true
+    }
+   ],
+   "en_buyuk_fark": 0.0
+  },
+  "Sudbury, Ontario": {
+   "gecti": true,
+   "ilk": true,
+   "kategoriler": [
+    {
+     "k": 1,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 2000,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 2,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 200,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 3,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 346014,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 4,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 345819,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 5,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 346058,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 6,
+     "durum": "hedefte yok (null)",
+     "s": null
+    },
+    {
+     "k": 7,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 312488,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 8,
+     "d_e": 0.0,
+     "s": 0.9975,
+     "s_beklenen": 0.9975,
+     "esit_ref": 1,
+     "n_ref": 200,
+     "s_bir": false,
+     "gecti": true
+    }
+   ],
+   "en_buyuk_fark": 0.0
+  },
+  "SP Crater, Arizona": {
+   "gecti": true,
+   "ilk": true,
+   "kategoriler": [
+    {
+     "k": 1,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 2000,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 2,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 200,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 3,
+     "d_e": 0.0,
+     "s": 0.9999985549717642,
+     "s_beklenen": 0.9999985549717642,
+     "esit_ref": 1,
+     "n_ref": 346014,
+     "s_bir": false,
+     "gecti": true
+    },
+    {
+     "k": 4,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 345819,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 5,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 346058,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 6,
+     "durum": "hedefte yok (null)",
+     "s": null
+    },
+    {
+     "k": 7,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 312488,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 8,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 200,
+     "s_bir": true,
+     "gecti": true
+    }
+   ],
+   "en_buyuk_fark": 0.0
+  },
+  "Ephrata fanı, Washington": {
+   "gecti": true,
+   "ilk": true,
+   "kategoriler": [
+    {
+     "k": 1,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 2000,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 2,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 200,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 3,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 346014,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 4,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 345819,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 5,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 346058,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 6,
+     "durum": "hedefte yok (null)",
+     "s": null
+    },
+    {
+     "k": 7,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 312488,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 8,
+     "d_e": 0.0,
+     "s": 0.9975,
+     "s_beklenen": 0.9975,
+     "esit_ref": 1,
+     "n_ref": 200,
+     "s_bir": false,
+     "gecti": true
+    }
+   ],
+   "en_buyuk_fark": 0.0
+  },
+  "Dumont Dunes, Mojave": {
+   "gecti": true,
+   "ilk": true,
+   "kategoriler": [
+    {
+     "k": 1,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 2000,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 2,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 200,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 3,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 346014,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 4,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 345819,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 5,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 346058,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 6,
+     "durum": "hedefte yok (null)",
+     "s": null
+    },
+    {
+     "k": 7,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 312488,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 8,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 200,
+     "s_bir": true,
+     "gecti": true
+    }
+   ],
+   "en_buyuk_fark": 0.0
+  },
+  "Kilbourne Hole, New Mexico": {
+   "gecti": true,
+   "ilk": true,
+   "kategoriler": [
+    {
+     "k": 1,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 2000,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 2,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 200,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 3,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 346014,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 4,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 345819,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 5,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 346058,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 6,
+     "durum": "hedefte yok (null)",
+     "s": null
+    },
+    {
+     "k": 7,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 312488,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 8,
+     "d_e": 0.0,
+     "s": 0.9975,
+     "s_beklenen": 0.9975,
+     "esit_ref": 1,
+     "n_ref": 200,
+     "s_bir": false,
+     "gecti": true
+    }
+   ],
+   "en_buyuk_fark": 0.0
+  },
+  "Lunar Crater Volcanic Field, Nevada": {
+   "gecti": true,
+   "ilk": true,
+   "kategoriler": [
+    {
+     "k": 1,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 2000,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 2,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 200,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 3,
+     "d_e": 0.0,
+     "s": 0.9999985549717642,
+     "s_beklenen": 0.9999985549717642,
+     "esit_ref": 1,
+     "n_ref": 346014,
+     "s_bir": false,
+     "gecti": true
+    },
+    {
+     "k": 4,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 345819,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 5,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 346058,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 6,
+     "durum": "hedefte yok (null)",
+     "s": null
+    },
+    {
+     "k": 7,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 312488,
+     "s_bir": true,
+     "gecti": true
+    },
+    {
+     "k": 8,
+     "d_e": 0.0,
+     "s": 1.0,
+     "s_beklenen": 1.0,
+     "esit_ref": 0,
+     "n_ref": 200,
+     "s_bir": true,
+     "gecti": true
+    }
+   ],
+   "en_buyuk_fark": 0.0
+  }
+ },
+ "tutarlilik": {
+  "Rio Grande Gorge, Taos, New Mexico": {
+   "Q1": 0.0,
+   "lnR": 0.0,
+   "R": 0.0,
+   "Omega_1": 0.0,
+   "Omega_4": 0.0,
+   "z": 0.0,
+   "q3": 0.0,
+   "x4_gecerli": 0.0,
+   "Q4": 0.0,
+   "Q6": 0.0,
+   "Q7": 0.0,
+   "Q8": 0.0,
+   "mob": 0.0,
+   "Q5_tmax": 0.0,
+   "Q5_tort": 0.0,
+   "Q5_tgece": 0.0,
+   "Q5_iarti": 0.0
+  },
+  "Nördlinger Ries, Almanya": {
+   "Q1": 0.0,
+   "lnR": 0.0,
+   "R": 0.0,
+   "Omega_1": 0.0,
+   "Omega_4": 0.0,
+   "z": 0.0,
+   "q3": 0.0,
+   "x4_gecerli": 0.0,
+   "Q4": 0.0,
+   "Q6": 0.0,
+   "Q7": 0.0,
+   "Q8": 0.0,
+   "mob": 0.0,
+   "Q5_tmax": 0.0,
+   "Q5_tort": 0.0,
+   "Q5_tgece": 0.0,
+   "Q5_iarti": 0.0
+  },
+  "Sudbury, Ontario": {
+   "Q1": 0.0,
+   "lnR": 0.0,
+   "R": 0.0,
+   "Omega_1": 0.0,
+   "Omega_4": 0.0,
+   "z": 0.0,
+   "q3": 0.0,
+   "x4_gecerli": 0.0,
+   "Q4": 0.0,
+   "Q6": 0.0,
+   "Q7": 0.0,
+   "Q8": 0.0,
+   "mob": 0.0,
+   "Q5_tmax": 0.0,
+   "Q5_tort": 0.0,
+   "Q5_tgece": 0.0,
+   "Q5_iarti": 0.0
+  },
+  "SP Crater, Arizona": {
+   "Q1": 0.0,
+   "lnR": 0.0,
+   "R": 0.0,
+   "Omega_1": 0.0,
+   "Omega_4": 0.0,
+   "z": 0.0,
+   "q3": 0.0,
+   "x4_gecerli": 0.0,
+   "Q4": 0.0,
+   "Q6": 0.0,
+   "Q7": 0.0,
+   "Q8": 0.0,
+   "mob": 0.0,
+   "Q5_tmax": 0.0,
+   "Q5_tort": 0.0,
+   "Q5_tgece": 0.0,
+   "Q5_iarti": 0.0
+  },
+  "Ephrata fanı, Washington": {
+   "Q1": 0.0,
+   "lnR": 0.0,
+   "R": 0.0,
+   "Omega_1": 0.0,
+   "Omega_4": 0.0,
+   "z": 0.0,
+   "q3": 0.0,
+   "x4_gecerli": 0.0,
+   "Q4": 0.0,
+   "Q6": 0.0,
+   "Q7": 0.0,
+   "Q8": 0.0,
+   "mob": 0.0,
+   "Q5_tmax": 0.0,
+   "Q5_tort": 0.0,
+   "Q5_tgece": 0.0,
+   "Q5_iarti": 0.0
+  },
+  "Dumont Dunes, Mojave": {
+   "Q1": 0.0,
+   "lnR": 0.0,
+   "R": 0.0,
+   "Omega_1": 0.0,
+   "Omega_4": 0.0,
+   "z": 0.0,
+   "q3": 0.0,
+   "x4_gecerli": 0.0,
+   "Q4": 0.0,
+   "Q6": 0.0,
+   "Q7": 0.0,
+   "Q8": 0.0,
+   "mob": 0.0,
+   "Q5_tmax": 0.0,
+   "Q5_tort": 0.0,
+   "Q5_tgece": 0.0,
+   "Q5_iarti": 0.0
+  },
+  "Kilbourne Hole, New Mexico": {
+   "Q1": 0.0,
+   "lnR": 0.0,
+   "R": 0.0,
+   "Omega_1": 0.0,
+   "Omega_4": 0.0,
+   "z": 0.0,
+   "q3": 0.0,
+   "x4_gecerli": 0.0,
+   "Q4": 0.0,
+   "Q6": 0.0,
+   "Q7": 0.0,
+   "Q8": 0.0,
+   "mob": 0.0,
+   "Q5_tmax": 0.0,
+   "Q5_tort": 0.0,
+   "Q5_tgece": 0.0,
+   "Q5_iarti": 0.0
+  },
+  "Lunar Crater Volcanic Field, Nevada": {
+   "Q1": 0.0,
+   "lnR": 0.0,
+   "R": 0.0,
+   "Omega_1": 0.0,
+   "Omega_4": 0.0,
+   "z": 0.0,
+   "q3": 0.0,
+   "x4_gecerli": 0.0,
+   "Q4": 0.0,
+   "Q6": 0.0,
+   "Q7": 0.0,
+   "Q8": 0.0,
+   "mob": 0.0,
+   "Q5_tmax": 0.0,
+   "Q5_tort": 0.0,
+   "Q5_tgece": 0.0,
+   "Q5_iarti": 0.0
+  }
+ },
+ "sure_dk": 3.9
+}

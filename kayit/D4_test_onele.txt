@@ -1,0 +1,28 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\USER\anaconda3\envs\orbitrary\python.exe
+rootdir: C:\Users\USER\orbitrary\kod
+plugins: anyio-4.16.0, platformdirs-4.14.5
+collecting ... collected 16 items
+
+testler/test_onele.py::test_z_vektoru_bilesenleri PASSED                 [  6%]
+testler/test_onele.py::test_z_vektoru_dem_eksik_nan PASSED               [ 12%]
+testler/test_onele.py::test_medyan_mad_elle PASSED                       [ 18%]
+testler/test_onele.py::test_mad_sifir_bilesen_cikar_Q1 PASSED            [ 25%]
+testler/test_onele.py::test_kd_kaba_kuvvetle_ayni[1] PASSED              [ 31%]
+testler/test_onele.py::test_kd_kaba_kuvvetle_ayni[5] PASSED              [ 37%]
+testler/test_onele.py::test_kd_kaba_kuvvetle_ayni[37] PASSED             [ 43%]
+testler/test_onele.py::test_kd_kaba_kuvvetle_ayni[200] PASSED            [ 50%]
+testler/test_onele.py::test_esitlikte_kucuk_kimlik_once PASSED           [ 56%]
+testler/test_onele.py::test_kimlik_D7_kendi_penceresi_ilk PASSED         [ 62%]
+testler/test_onele.py::test_aday_sayisi_K_den_az PASSED                  [ 68%]
+testler/test_onele.py::test_kapi_ve_eksik_sayilari PASSED                [ 75%]
+testler/test_onele.py::test_hedef_nan PASSED                             [ 81%]
+testler/test_onele.py::test_olcek_ve_kaydirma_degismez PASSED            [ 87%]
+testler/test_onele.py::test_kon_sec_Q9_Q10 PASSED                        [ 93%]
+testler/test_onele.py::test_recall_ozet PASSED                           [100%]
+
+============================ slowest 10 durations =============================
+0.02s call     testler/test_onele.py::test_z_vektoru_bilesenleri
+
+(9 durations < 0.005s hidden.  Use -vv to show these durations.)
+============================= 16 passed in 0.60s ==============================

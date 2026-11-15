@@ -1,0 +1,15 @@
+{
+ "zaman": "2026-11-14T20:53:52",
+ "tohum": 20261113,
+ "K_on": 800,
+ "sha256": {
+  "kod/ayar.json": "4307e455b7382d00503397aede91ce4a2b187d3f350ae1ce005da19fb1fcfd49",
+  "kod/dogrulama_ciftleri.csv": "96e68742d61d6d6c00e01c46768547c2425b6ebda0335d596e10eada45f0e080",
+  "kod/hedefler.csv": "0de42a9714c5c5c83a021941ab147a9ec5ae8bee10c8ba842c564805bcfe7989",
+  "kod/site_girdi/analog_metin.csv": "c40462de7ad2c0a84be027e4a3fe0668bf50e02ebc97cdaddb0ddc4b922505f6",
+  "kod/site_girdi/mission_prep.csv": "507ce0bc69eda0a604d9fd0fa7b6ef31bb09de57b98c2e3bf865e115b08b40c9",
+  "ara/ref_kumeleri.npz": "1b58109ed3917865d430667e80ef3a79847cbd47d9fabd8638d72e77d17e129c",
+  "ara/ref_B.npy": "9bdad789cd48ed97cb3ea0e95cb01c0507f59c9c13e666e44f8176ae011f8e62",
+  "sonuc/dogrulama/V5.json": "860ea5b2b58cd5691ea861290aec0847d40185de3ce797071d0b1eb678080126"
+ }
+}

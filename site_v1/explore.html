@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<!-- Developed with assistance from Claude (Anthropic). -->
+<html lang="en" class="kesif-sayfa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orbitrary — Explore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/",
+      "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/index.js",
+      "gsap/": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header id="ust">
+    <a class="hap" href="index.html">← Home</a>
+    <a class="logo" href="index.html">ORBITR<span class="ters">A</span>RY</a>
+    <div class="segment" data-secim="ay">
+      <span class="segment-kayan"></span>
+      <button data-govde="ay" class="secili">MOON</button>
+      <button data-govde="mars">MARS</button>
+    </div>
+    <span class="ayrac"></span>
+    <nav class="gorevler">
+      <button class="hap gorev-btn" data-gorev="genel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><polygon points="12,3 18.4,5.6 21,12 18.4,18.4 12,21 5.6,18.4 3,12 5.6,5.6"/><polygon points="12,8 14.8,9.2 16,12 14.8,14.8 12,16 9.2,14.8 8,12 9.2,9.2"/></svg>Overall</button>
+      <button class="hap gorev-btn" data-gorev="hareket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="6" rx="1.5"/><circle cx="7.5" cy="17" r="2.2"/><circle cx="16.5" cy="17" r="2.2"/><path d="M12 8V4.5M10 4.5h4"/></svg>Mobility test</button>
+      <button class="hap gorev-btn" data-gorev="jeoloji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19l5-9 4 5 3-4 6 8z"/><path d="M8 10l1.5 3"/></svg>Geology</button>
+      <button class="hap gorev-btn" data-gorev="buz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9"/><path d="M10 4.5l2 1.5 2-1.5M10 19.5l2-1.5 2 1.5"/></svg>Ice &amp; resources</button>
+      <button class="hap gorev-btn" data-gorev="astrobiyoloji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="6.5"/><circle cx="10" cy="10.5" r="1.3"/><circle cx="14.2" cy="13.8" r="1"/><path d="M12 5.5V3M18.5 12H21M12 18.5V21M5.5 12H3"/></svg>Astrobiology</button>
+    </nav>
+    <button class="hap" id="izgara-btn" title="Latitude/longitude grid, 15°"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M4.5 7.5h15M4.5 16.5h15M12 3c3.2 3 3.2 15 0 18M12 3c-3.2 3-3.2 15 0 18"/></svg>Grid</button>
+  </header>
+
+  <main id="kesif">
+    <div id="sahne"></div>
+    <aside id="panel">
+      <div id="giris">
+        <p class="ust-etiket">Explore mode</p>
+        <h2 id="giris-baslik">Explore the Moon</h2>
+        <p class="aciklama">Pick a mission, then click anywhere on the surface.</p>
+        <ol class="adimlar">
+          <li><span class="no">1</span>Choose Moon or Mars</li>
+          <li><span class="no">2</span>Choose a mission</li>
+          <li><span class="no">3</span>Click a site on the globe</li>
+        </ol>
+      </div>
+      <div id="secim" hidden>
+        <p class="ust-etiket anim" id="secim-etiket">Moon · selected site</p>
+        <p id="koordinat" class="anim"></p>
+        <p id="ondalik" class="anim mono"></p>
+        <dl class="ozet anim">
+          <div><dt>Mission</dt><dd id="ozet-gorev">—</dd></div>
+          <div><dt>Region</dt><dd id="ozet-bolge">—</dd></div>
+        </dl>
+        <p class="ust-etiket anim">Similarity profile</p>
+        <svg id="radar" class="anim"></svg>
+        <p class="not-kucuk anim">Data for this site isn't ready yet.</p>
+        <p class="ust-etiket anim">Top Earth analogs</p>
+        <ol class="ilk3 anim">
+          <li><span class="no">1</span>Coming soon</li>
+          <li><span class="no">2</span>Coming soon</li>
+          <li><span class="no">3</span>Coming soon</li>
+        </ol>
+        <button class="pasif-link anim" disabled>Find Earth analog →</button>
+      </div>
+      <div class="elle">
+        <p class="ust-etiket" style="color: var(--muted)">Or enter coordinates</p>
+        <form id="elle-form" autocomplete="off">
+          <input id="elle-girdi" placeholder="lat, lon  (e.g. -43.31, -11.36)" aria-label="Latitude, longitude">
+          <button class="hap" type="submit">Go</button>
+        </form>
+        <p class="hata" id="elle-hata" hidden>Enter latitude and longitude in degrees, e.g. -43.31, -11.36</p>
+      </div>
+    </aside>
+    <div id="alt-serit">
+      <span id="kaynak">Imagery: NASA SVS CGI Moon Kit (LRO/LROC)</span>
+      <span id="ipucu">Drag: rotate · Scroll: zoom · Click: select a site</span>
+      <button class="hap" id="asagi-btn">Top matches ↓</button>
+    </div>
+  </main>
+
+  <div id="eslesmeler"></div>
+
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
+    import { gokyuzuEkle } from './js/gokyuzu.js';
+    gsap.registerPlugin(ScrollTrigger);
+
+    const azHareket = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const GOREV_AD = { genel: 'Overall', hareket: 'Mobility test', jeoloji: 'Geology',
+                       buz: 'Ice & resources', astrobiyoloji: 'Astrobiology' };
+    const GOVDE_AD = { ay: 'Moon', mars: 'Mars' };
+    const KAYNAK = { ay: 'Imagery: NASA SVS CGI Moon Kit (LRO/LROC)',
+                     mars: 'Imagery: USGS Viking MDIM 2.1 color mosaic' };
+    const url = new URLSearchParams(location.search);
+    let govde = url.get('body') === 'mars' ? 'mars' : 'ay';
+    let gorev = GOREV_AD[url.get('gorev')] ? url.get('gorev') : null;
+    const rad = THREE.MathUtils.degToRad, deg = THREE.MathUtils.radToDeg;
+
+    // ---------- Sahne ----------
+    const kap = document.getElementById('sahne');
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    kap.appendChild(renderer.domElement);
+    const scene = new THREE.Scene();
+    const gokZaman = gokyuzuEkle(scene, renderer);
+
+    const camera = new THREE.PerspectiveCamera(40, 1, 0.01, 500);
+    scene.add(camera);
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.08;
+    controls.rotateSpeed = 0.6;
+    controls.enablePan = false;
+    controls.maxDistance = 6;
+
+    // Isik kameraya bagli: (-2.2, 0.9, 1.0), 3.2; hedefi her karede controls.target (S13)
+    const gunes = new THREE.DirectionalLight(0xffffff, 3.2);
+    gunes.position.set(-2.2, 0.9, 1.0);
+    camera.add(gunes);
+    scene.add(gunes.target);
+
+    // ---------- Iki gezegen yan yana (Master devir 4.3) ----------
+    const DOKU_GENISLIK = { ay: 2048, mars: 4096 };
+    const MERKEZ = { ay: new THREE.Vector3(0, 0, 0), mars: new THREE.Vector3(0, 0, -40) };
+    const DOKU = { ay: 'textures/moon_color.jpg', mars: 'textures/mars_color.jpg' };
+    const yukleyici = new THREE.TextureLoader();
+    const MESH = {};
+    for (const ad of ['ay', 'mars']) {
+      const t = yukleyici.load(DOKU[ad], tx => { DOKU_GENISLIK[ad] = tx.image.width; zoomSiniri(); });
+      t.colorSpace = THREE.SRGBColorSpace;
+      t.anisotropy = renderer.capabilities.getMaxAnisotropy();
+      const m = new THREE.Mesh(new THREE.SphereGeometry(1, 128, 64),
+        new THREE.MeshStandardMaterial({ map: t, roughness: 1, metalness: 0, transparent: true, opacity: 1 }));
+      m.position.copy(MERKEZ[ad]);
+      m.visible = ad === govde;
+      scene.add(m);
+      MESH[ad] = m;
+    }
+
+    // ---------- Zoom siniri (Master devir 4.3, birebir) ----------
+    let ucusta = false;   // gecis ucusu sirasinda zoom siniri karismasin
+    function zoomSiniri() {
+      const K = 2.5;
+      const fov = THREE.MathUtils.degToRad(camera.fov);
+      controls.minDistance = 1 + (2 * Math.PI * kap.clientHeight) / (DOKU_GENISLIK[govde] * fov * K);
+      if (ucusta) return;
+      const ofs = camera.position.clone().sub(controls.target);     // gezegen merkezinden kameraya
+      if (ofs.length() < controls.minDistance) camera.position.copy(controls.target).add(ofs.setLength(controls.minDistance));
+    }
+
+    // ---------- Grid: esdikdortgen izgara, 15 derece ----------
+    function izgaraDokusu() {
+      const c = document.createElement('canvas');
+      c.width = 2048; c.height = 1024;
+      const g = c.getContext('2d');
+      g.strokeStyle = 'rgba(92, 200, 255, 0.45)';
+      g.lineWidth = 1.5;
+      for (let i = 0; i <= 24; i++) { const x = i * c.width / 24; g.beginPath(); g.moveTo(x, 0); g.lineTo(x, c.height); g.stroke(); }
+      for (let j = 1; j < 12; j++) { const y = j * c.height / 12; g.beginPath(); g.moveTo(0, y); g.lineTo(c.width, y); g.stroke(); }
+      const t = new THREE.CanvasTexture(c);
+      t.anisotropy = renderer.capabilities.getMaxAnisotropy();
+      return t;
+    }
+    const izgara = new THREE.Mesh(new THREE.SphereGeometry(1.003, 96, 48),
+      new THREE.MeshBasicMaterial({ map: izgaraDokusu(), transparent: true, depthWrite: false }));
+    izgara.visible = false;
+    MESH[govde].add(izgara);
+    const izgaraBtn = document.getElementById('izgara-btn');
+    izgaraBtn.addEventListener('click', () => {
+      izgara.visible = !izgara.visible;
+      izgaraBtn.classList.toggle('secili', izgara.visible);
+    });
+
+    // ---------- Isaretci: mavi nokta + nabiz gibi atan halka ----------
+    const isaretci = new THREE.Group();
+    const nokta = new THREE.Mesh(new THREE.CircleGeometry(0.008, 24),
+      new THREE.MeshBasicMaterial({ color: 0x5cc8ff, side: THREE.DoubleSide }));
+    const halka = new THREE.Mesh(new THREE.RingGeometry(0.018, 0.024, 48),
+      new THREE.MeshBasicMaterial({ color: 0x5cc8ff, side: THREE.DoubleSide, transparent: true, opacity: 0.9 }));
+    isaretci.add(nokta, halka);
+    isaretci.visible = false;
+    MESH[govde].add(isaretci);
+
+    // ---------- Gorev butonlari ----------
+    function gorevSec(g) {
+      gorev = g;
+      document.querySelectorAll('.gorev-btn').forEach(b => b.classList.toggle('secili', b.dataset.gorev === g));
+      document.getElementById('ozet-gorev').textContent = g ? GOREV_AD[g] : '—';
+    }
+    document.querySelectorAll('.gorev-btn').forEach(btn => btn.addEventListener('click', () => gorevSec(btn.dataset.gorev)));
+    gorevSec(gorev);
+
+    // ---------- Region: en yakin hedef 3 dereceden yakinsa (data/targets.json gelince) ----------
+    let hedefler = [];
+    fetch('data/targets.json').then(r => r.ok ? r.json() : []).then(j => { hedefler = Array.isArray(j) ? j : []; })
+      .catch(() => { hedefler = []; });
+    function bolgeBul(lat, lon) {
+      const cisim = govde === 'ay' ? 'moon' : 'mars';
+      let enIyi = null, enAz = Infinity;
+      for (const h of hedefler) {
+        if (h.body !== cisim) continue;
+        const c = Math.sin(rad(lat)) * Math.sin(rad(h.lat)) + Math.cos(rad(lat)) * Math.cos(rad(h.lat)) * Math.cos(rad(lon - h.lon));
+        const d = deg(Math.acos(Math.min(1, Math.max(-1, c))));
+        if (d < enAz) { enAz = d; enIyi = h; }
+      }
+      return enIyi && enAz < 3 ? enIyi.name : 'Uncharted site';
+    }
+
+    // ---------- 8-gen radar (Master devir 4.2, birebir) ----------
+    const EKSEN_ANAHTAR = ['topografya', 'topoloji', 'jeoloji', 'mineraloji', 'termal', 'su_buz', 'toz', 'aydinlanma'];
+    const EKSEN_AD = ['Topography', 'Topology', 'Geology', 'Mineralogy', 'Thermal', 'Water / ice', 'Dust', 'Illumination'];
+    function radarCiz(svg, sim = null, mis = null) {
+      const cx = 160, cy = 160, R = 110;
+      svg.setAttribute('viewBox', '-50 0 420 320');
+      const aci = i => -Math.PI / 2 + i * 2 * Math.PI / 8;
+      const P = (i, v) => `${cx + R * v * Math.cos(aci(i))},${cy + R * v * Math.sin(aci(i))}`;
+      let s = '';
+      for (let k = 1; k <= 4; k++) {
+        s += `<polygon points="${EKSEN_AD.map((_, i) => P(i, k / 4)).join(' ')}" fill="none" stroke="#243047" stroke-dasharray="3 4"/>`;
+      }
+      EKSEN_AD.forEach((ad, i) => {
+        const yok = sim && sim[EKSEN_ANAHTAR[i]] == null;
+        s += `<line x1="${cx}" y1="${cy}" x2="${cx + R * Math.cos(aci(i))}" y2="${cy + R * Math.sin(aci(i))}"
+                stroke="${yok ? '#55607a' : '#243047'}" ${yok ? 'stroke-dasharray="2 4"' : ''}/>`;
+        const lx = cx + (R + 30) * Math.cos(aci(i)), ly = cy + (R + 30) * Math.sin(aci(i)) + 4;
+        s += `<text x="${lx}" y="${ly}" text-anchor="middle" font-size="12.5" font-family="Space Grotesk, sans-serif"
+                fill="${yok ? '#55607a' : '#9aa7bb'}">${ad}${yok ? ' · no data' : ''}</text>`;
+      });
+      const cokgen = (veri, renk, dolu) => {
+        const pts = EKSEN_ANAHTAR.map((k, i) => veri[k] == null ? null : P(i, veri[k])).filter(Boolean);
+        return `<polygon points="${pts.join(' ')}" fill="${dolu ? renk : 'none'}" fill-opacity="0.22"
+                  stroke="${renk}" stroke-width="2" ${dolu ? '' : 'stroke-dasharray="6 5"'}/>`;
+      };
+      if (mis) s += cokgen(mis, '#ff9f5c', false);
+      if (sim) s += cokgen(sim, '#5cc8ff', true);
+      svg.innerHTML = s;
+    }
+    radarCiz(document.getElementById('radar'));
+
+    // ---------- Acilis yaklasmasi ve MOON <-> MARS yana ucusu (Master devir 4.4, birebir) ----------
+    const NORMAL_UZAKLIK = 3.2;    // gezegene normal bakis uzakligi (merkezden)
+    const UZAK = 11;               // acilista kameranin basladigi uzaklik
+    let gecis = null;
+
+    function uzaklikTween(hedefR, sure, ease) {
+      const durum = { t: 0 };
+      let r0 = NORMAL_UZAKLIK;
+      return gsap.to(durum, {
+        t: 1, duration: sure, ease,
+        onStart: () => { r0 = camera.position.distanceTo(controls.target); },
+        onUpdate: () => {
+          const ofs = camera.position.clone().sub(controls.target).setLength(r0 + (hedefR - r0) * durum.t);
+          camera.position.copy(controls.target).add(ofs);
+        }
+      });
+    }
+
+    function saydamlik(mesh, hedef, sure, gecikme) {
+      gsap.killTweensOf(mesh.material);
+      mesh.visible = true;
+      gsap.to(mesh.material, { opacity: hedef, duration: sure, delay: gecikme, ease: 'power1.inOut',
+        onComplete: () => { if (hedef === 0) mesh.visible = false; } });
+    }
+
+    function govdeSec(ad) {
+      govde = ad;
+      document.querySelector('.segment').dataset.secim = ad;
+      document.querySelectorAll('.segment button').forEach(b => b.classList.toggle('secili', b.dataset.govde === ad));
+      document.getElementById('giris-baslik').textContent = ad === 'ay' ? 'Explore the Moon' : 'Explore Mars';
+      document.getElementById('secim-etiket').textContent = `${GOVDE_AD[ad]} · selected site`;
+      document.getElementById('kaynak').textContent = KAYNAK[ad];
+      MESH[ad].add(izgara);
+      MESH[ad].add(isaretci);
+      isaretci.visible = false;
+      document.getElementById('giris').hidden = false;
+      document.getElementById('secim').hidden = true;
+      const u = new URL(location.href);
+      u.searchParams.set('body', ad === 'ay' ? 'moon' : 'mars');
+      ['lat', 'lon', 'hedef'].forEach(k => u.searchParams.delete(k));
+      history.replaceState(null, '', u);
+    }
+
+    function govdeGecis(ad) {
+      const cA = controls.target.clone(), cB = MERKEZ[ad].clone();
+      const eksen = cB.clone().sub(cA).normalize();
+      const yon = camera.position.clone().sub(cA).normalize();
+      yon.addScaledVector(eksen, -yon.dot(eksen));
+      if (yon.lengthSq() < 0.01) yon.set(1, 0, 0);
+      yon.normalize();
+
+      const P0 = camera.position.clone();
+      const P3 = cB.clone().addScaledVector(yon, NORMAL_UZAKLIK);
+      const P1 = P0.clone().addScaledVector(yon, 6);   // once 6 birim geri cekil
+      const P2 = P3.clone().addScaledVector(yon, 9);   // yeni gezegene 9 birim geriden yaklas
+
+      const eskiMesh = MESH[govde], yeniMesh = MESH[ad];
+      govdeSec(ad);
+      if (azHareket) {
+        camera.position.copy(P3); controls.target.copy(cB);
+        eskiMesh.visible = false; yeniMesh.visible = true; return;
+      }
+      if (gecis) gecis.kill();
+      if (merkezTween) { merkezTween.kill(); merkezde = false; }
+      yeniMesh.material.opacity = 0;
+      saydamlik(yeniMesh, 1, 1.2, 0.2);
+      saydamlik(eskiMesh, 0, 1.0, 1.6);
+      ucusta = true;
+      controls.enabled = false;
+      controls.minDistance = 0; controls.maxDistance = 1000;
+      const durum = { t: 0 };
+      gecis = gsap.to(durum, {
+        t: 1, duration: 3.0, ease: 'power2.inOut',
+        onUpdate: () => {
+          const t = durum.t, u = 1 - t;
+          camera.position.set(0, 0, 0)
+            .addScaledVector(P0, u * u * u).addScaledVector(P1, 3 * u * u * t)
+            .addScaledVector(P2, 3 * u * t * t).addScaledVector(P3, t * t * t);
+          controls.target.lerpVectors(cA, cB, THREE.MathUtils.smoothstep(t, 0.2, 0.8));
+        },
+        onComplete: () => {
+          ucusta = false; controls.enabled = true; controls.maxDistance = 6;
+          zoomSiniri();
+        }
+      });
+    }
+    document.querySelectorAll('.segment button').forEach(b => b.addEventListener('click', () => {
+      if (b.dataset.govde !== govde && !ucusta) govdeGecis(b.dataset.govde);
+    }));
+
+    // ---------- Tiklanan noktayi ortaya getir (kuresel ara deger, ~1.2 sn, uzaklik korunur) ----------
+    let merkezTween = null, merkezde = false;
+    function merkezle(p) {
+      const c = controls.target.clone();
+      const ofs = camera.position.clone().sub(c);
+      const r = ofs.length();
+      const u0 = ofs.normalize();
+      const q = new THREE.Quaternion().setFromUnitVectors(u0, p.clone().normalize());
+      const qi = new THREE.Quaternion();
+      const durum = { t: 0 };
+      if (merkezTween) merkezTween.kill();
+      merkezde = true;
+      controls.enabled = false;
+      merkezTween = gsap.to(durum, {
+        t: 1, duration: azHareket ? 0.01 : 1.2, ease: 'power2.inOut',
+        onUpdate: () => {
+          qi.identity().slerp(q, durum.t);
+          camera.position.copy(c).add(u0.clone().applyQuaternion(qi).multiplyScalar(r));
+          camera.lookAt(c);
+        },
+        onComplete: () => { merkezde = false; controls.enabled = true; controls.update(); }
+      });
+    }
+
+    // ---------- Secim (tiklama, URL ve elle giris ayni yoldan gecer) ----------
+    // Enlem phi, boylam lambda'dan birim vektor: x = cos phi cos lambda, y = sin phi, z = -cos phi sin lambda
+    const birimVektor = (lat, lon) => new THREE.Vector3(
+      Math.cos(rad(lat)) * Math.cos(rad(lon)), Math.sin(rad(lat)), -Math.cos(rad(lat)) * Math.sin(rad(lon)));
+    const yon = (deger, art, eks) => `${Math.abs(deger).toFixed(2)}°${deger < 0 ? eks : art}`;
+
+    function secimYap(lat, lon, ortala) {
+      const p = birimVektor(lat, lon);
+      isaretci.position.copy(p).multiplyScalar(1.002);
+      isaretci.lookAt(MESH[govde].localToWorld(p.clone().multiplyScalar(2)));
+      isaretci.visible = true;
+      if (ortala) merkezle(p);
+
+      document.getElementById('koordinat').textContent = `${yon(lat, 'N', 'S')}, ${yon(lon, 'E', 'W')}`;
+      document.getElementById('ondalik').textContent = `lat ${lat.toFixed(4)}, lon ${lon.toFixed(4)}`;
+      document.getElementById('ozet-gorev').textContent = gorev ? GOREV_AD[gorev] : '—';
+      document.getElementById('ozet-bolge').textContent = bolgeBul(lat, lon);
+      const ilkSecim = document.getElementById('secim').hidden;
+      document.getElementById('giris').hidden = true;
+      document.getElementById('secim').hidden = false;
+      if (!azHareket) {
+        gsap.from('#secim .anim', { y: 12, opacity: 0, duration: 0.5, stagger: ilkSecim ? 0.06 : 0.03,
+                                    ease: 'power2.out', clearProps: 'transform,opacity' });
+      }
+    }
+
+    // Tiklama: 5 px'ten fazla kayarsa surukleme; coklu dokunma yok sayilir
+    const isin = new THREE.Raycaster();
+    const fare = new THREE.Vector2();
+    let basla = null, parmak = 0;
+    const el = renderer.domElement;
+    el.addEventListener('pointerdown', e => { parmak++; basla = parmak === 1 ? { x: e.clientX, y: e.clientY } : null; });
+    el.addEventListener('pointerup', e => {
+      parmak = Math.max(0, parmak - 1);
+      if (!basla) return;
+      const kayma = Math.hypot(e.clientX - basla.x, e.clientY - basla.y);
+      basla = null;
+      if (kayma > 5 || ucusta || merkezde) return;
+      const r = el.getBoundingClientRect();
+      fare.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+      isin.setFromCamera(fare, camera);
+      const vurus = isin.intersectObject(MESH[govde], false)[0];
+      if (!vurus) return;
+      // Birim vektor p'den: enlem = asin(y), boylam = atan2(-z, x)
+      const p = MESH[govde].worldToLocal(vurus.point.clone()).normalize();
+      secimYap(deg(Math.asin(p.y)), deg(Math.atan2(-p.z, p.x)), true);
+    });
+    el.addEventListener('pointercancel', () => { parmak = 0; basla = null; });
+
+    // Elle koordinat girisi: "lat, lon" (derece; guney ve bati eksi)
+    document.getElementById('elle-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const sayilar = (document.getElementById('elle-girdi').value.match(/-?\d+(?:\.\d+)?/g) || []).map(Number);
+      const hata = document.getElementById('elle-hata');
+      if (sayilar.length !== 2 || Math.abs(sayilar[0]) > 90 || Math.abs(sayilar[1]) > 180 || ucusta) { hata.hidden = false; return; }
+      hata.hidden = true;
+      secimYap(sayilar[0], sayilar[1], true);
+    });
+
+    // ---------- #1, #2, #3 eslesme bolumleri (simdilik Coming soon) ----------
+    document.getElementById('eslesmeler').innerHTML = [1, 2, 3].map(n => `
+      <section class="esles yildizli" id="match-${n}">
+        <div class="esles-ic">
+          <div class="harita-kart reveal">
+            <div class="harita-etiket"><p class="ust-etiket">Earth location · 20 km window</p><p>Coming soon</p></div>
+            <div class="bos">Satellite map · Coming soon</div>
+          </div>
+          <div class="sonuc-kart reveal">
+            <div class="sonuc-bas">
+              <span class="sira">#${n}</span>
+              <div><p class="ust-etiket">${n === 1 ? 'Best match · ' : ''}Earth analog</p><p>Coming soon</p></div>
+            </div>
+            <h3>Earth analog</h3>
+            <svg class="buyuk-radar" id="radar-${n}"></svg>
+            <div class="lejant"><span>Similarity</span><span class="l-mis">Mismatch = 1 − similarity</span><span class="l-yok">No data</span></div>
+            <h4>Why it matches</h4><p class="muted">Coming soon</p>
+            <h4>Where the analogy breaks</h4><p class="muted">Coming soon</p>
+          </div>
+        </div>
+      </section>`).join('');
+    [1, 2, 3].forEach(n => radarCiz(document.getElementById(`radar-${n}`)));
+    document.getElementById('asagi-btn').addEventListener('click', () =>
+      document.getElementById('match-1').scrollIntoView({ behavior: azHareket ? 'auto' : 'smooth' }));
+
+    // Asagi kaydirinca yumusak yukselerek gelme (.reveal)
+    if (!azHareket) {
+      gsap.set('.reveal', { y: 36, opacity: 0 });
+      ScrollTrigger.batch('.reveal', { start: 'top 85%', once: true,
+        onEnter: grup => gsap.to(grup, { y: 0, opacity: 1, duration: 0.8, stagger: 0.08, ease: 'power3.out', clearProps: 'transform' }) });
+    }
+
+    // ---------- Boyut ----------
+    function boyutla() {
+      const w = kap.clientWidth, h = kap.clientHeight;
+      if (!w || !h) return;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      zoomSiniri();
+    }
+    new ResizeObserver(boyutla).observe(kap);
+
+    // ---------- Acilis: gezegene 11 birim uzaktan 3.2'ye, 2 sn; URL'de nokta varsa onun karsisindan ----------
+    controls.target.copy(MERKEZ[govde]);
+    govdeSec(govde);
+    const uLat = parseFloat(url.get('lat')), uLon = parseFloat(url.get('lon'));
+    const noktaVar = Number.isFinite(uLat) && Number.isFinite(uLon);
+    const baslangicYon = noktaVar ? birimVektor(uLat, uLon) : new THREE.Vector3(1, 0, 0);
+    camera.position.copy(MERKEZ[govde]).addScaledVector(baslangicYon, UZAK);
+    camera.lookAt(MERKEZ[govde]);
+    boyutla();
+    if (noktaVar) {
+      const u = new URL(location.href); u.searchParams.set('lat', uLat); u.searchParams.set('lon', uLon);
+      history.replaceState(null, '', u);
+      secimYap(uLat, uLon, false);
+    }
+    ucusta = true;
+    controls.maxDistance = 1000;
+    uzaklikTween(NORMAL_UZAKLIK, azHareket ? 0.01 : 2, 'power3.out')
+      .eventCallback('onComplete', () => { ucusta = false; controls.maxDistance = 6; zoomSiniri(); });
+
+    // Giris timeline'i (hepsinde clearProps: transform)
+    if (!azHareket) {
+      gsap.timeline()
+        .from('#ust', { y: -30, opacity: 0, duration: 0.6, ease: 'power3.out', clearProps: 'transform' })
+        .from('.gorev-btn', { y: 24, opacity: 0, duration: 0.5, stagger: 0.07, ease: 'power3.out', clearProps: 'transform' }, '-=0.3')
+        .from('#sahne', { opacity: 0, duration: 1.0 }, 0)
+        .from('#panel', { x: 60, opacity: 0, duration: 0.8, ease: 'power3.out', clearProps: 'transform' }, 0.2);
+    }
+
+    // ---------- Dongu ----------
+    const saat = new THREE.Clock();
+    renderer.setAnimationLoop(() => {
+      const t = saat.getElapsedTime();
+      halka.scale.setScalar(1 + 0.35 * Math.sin(4 * t));
+      if (!merkezde) controls.update();
+      gunes.target.position.copy(controls.target);
+      gokZaman(t);
+      renderer.render(scene, camera);
+    });
+  </script>
+</body>
+</html>

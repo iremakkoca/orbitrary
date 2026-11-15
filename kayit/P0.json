@@ -1,0 +1,206 @@
+{
+  "adim": "P0-sağlama",
+  "zaman": "2026-11-14T09:26:42",
+  "makine": "DESKTOP-5V6MTI8",
+  "sure_s": 12.0,
+  "d1_satir": 414,
+  "d1_sha_sayisi": 414,
+  "temiz_dosya": 742,
+  "temiz_gb": 33.206,
+  "setler": {
+    "dunya/E1": {
+      "klasor": "temiz\\dunya\\E1_etopo",
+      "meta_sha_sayisi": 288,
+      "ham_eslesen": 288,
+      "temiz_eslesen": 0,
+      "eslesmeyen": [],
+      "durum": "PASS"
+    },
+    "dunya/E2": {
+      "klasor": "temiz\\dunya\\E2_mcd12c1",
+      "meta_sha_sayisi": 1,
+      "ham_eslesen": 1,
+      "temiz_eslesen": 0,
+      "eslesmeyen": [],
+      "durum": "PASS"
+    },
+    "dunya/E3": {
+      "klasor": "temiz\\dunya\\E3_glim",
+      "meta_sha_sayisi": 1,
+      "ham_eslesen": 1,
+      "temiz_eslesen": 0,
+      "eslesmeyen": [],
+      "durum": "PASS"
+    },
+    "dunya/E4": {
+      "klasor": "temiz\\dunya\\E4_aster_ged",
+      "meta_sha_sayisi": 12,
+      "ham_eslesen": 12,
+      "temiz_eslesen": 0,
+      "eslesmeyen": [],
+      "durum": "PASS"
+    },
+    "dunya/E5": {
+      "klasor": "temiz\\dunya\\E5_myd11c3",
+      "meta_sha_sayisi": 12,
+      "ham_eslesen": 12,
+      "temiz_eslesen": 0,
+      "eslesmeyen": [],
+      "durum": "PASS"
+    },
+    "dunya/E6": {
+      "klasor": "temiz\\dunya\\E6_mcd43c3",
+      "meta_sha_sayisi": 12,
+      "ham_eslesen": 12,
+      "temiz_eslesen": 0,
+      "eslesmeyen": [],
+      "durum": "PASS"
+    },
+    "dunya/E7": {
+      "klasor": "temiz\\dunya\\E7_permafrost_kuzey",
+      "meta_sha_sayisi": 1,
+      "ham_eslesen": 1,
+      "temiz_eslesen": 0,
+      "eslesmeyen": [],
+      "durum": "PASS"
+    },
+    "dunya/E8": {
+      "klasor": "temiz\\dunya\\E8_permafrost_antarktika",
+      "meta_sha_sayisi": 1,
+      "ham_eslesen": 1,
+      "temiz_eslesen": 0,
+      "eslesmeyen": [],
+      "durum": "PASS"
+    },
+    "dunya/E9": {
+      "klasor": "temiz\\dunya\\E9_aridity",
+      "meta_sha_sayisi": 2,
+      "ham_eslesen": 2,
+      "temiz_eslesen": 0,
+      "eslesmeyen": [],
+      "durum": "PASS"
+    },
+    "dunya/E10": {
+      "klasor": "temiz\\dunya\\E10_soilgrids",
+      "meta_sha_sayisi": 4,
+      "ham_eslesen": 4,
+      "temiz_eslesen": 0,
+      "eslesmeyen": [],
+      "durum": "PASS"
+    },
+    "ay/M1": {
+      "klasor": "temiz\\ay\\M1_lola",
+      "meta_sha_sayisi": 3,
+      "ham_eslesen": 3,
+      "temiz_eslesen": 0,
+      "eslesmeyen": [],
+      "durum": "PASS"
+    },
+    "ay/M2": {
+      "klasor": "temiz\\ay\\M2_jeoloji",
+      "meta_sha_sayisi": 1,
+      "ham_eslesen": 1,
+      "temiz_eslesen": 0,
+      "eslesmeyen": [],
+      "durum": "PASS"
+    },
+    "ay/M3": {
+      "klasor": "temiz\\ay\\M3_diviner_ghrm",
+      "meta_sha_sayisi": 5,
+      "ham_eslesen": 5,
+      "temiz_eslesen": 0,
+      "eslesmeyen": [],
+      "durum": "PASS"
+    },
+    "ay/M4": {
+      "klasor": "temiz\\ay\\M4_diviner_prp_gcp",
+      "meta_sha_sayisi": 18,
+      "ham_eslesen": 18,
+      "temiz_eslesen": 0,
+      "eslesmeyen": [],
+      "durum": "PASS"
+    },
+    "ay/M5": {
+      "klasor": "temiz\\ay\\M5_lp_grs",
+      "meta_sha_sayisi": 4,
+      "ham_eslesen": 4,
+      "temiz_eslesen": 0,
+      "eslesmeyen": [],
+      "durum": "PASS"
+    },
+    "ay/M6": {
+      "klasor": "temiz\\ay\\M6_lp_hidrojen",
+      "meta_sha_sayisi": 6,
+      "ham_eslesen": 6,
+      "temiz_eslesen": 0,
+      "eslesmeyen": [],
+      "durum": "PASS"
+    },
+    "ay/M7": {
+      "klasor": "temiz\\ay\\M7_pgda",
+      "meta_sha_sayisi": 8,
+      "ham_eslesen": 8,
+      "temiz_eslesen": 0,
+      "eslesmeyen": [],
+      "durum": "PASS"
+    },
+    "mars/R1": {
+      "klasor": "temiz\\mars\\R1_mola",
+      "meta_sha_sayisi": 3,
+      "ham_eslesen": 3,
+      "temiz_eslesen": 0,
+      "eslesmeyen": [],
+      "durum": "PASS"
+    },
+    "mars/R2": {
+      "klasor": "temiz\\mars\\R2_sim3292",
+      "meta_sha_sayisi": 2,
+      "ham_eslesen": 2,
+      "temiz_eslesen": 0,
+      "eslesmeyen": [],
+      "durum": "PASS"
+    },
+    "mars/R3": {
+      "klasor": "temiz\\mars\\R3_tes_mineral",
+      "meta_sha_sayisi": 4,
+      "ham_eslesen": 4,
+      "temiz_eslesen": 0,
+      "eslesmeyen": [],
+      "durum": "PASS"
+    },
+    "mars/R4": {
+      "klasor": "temiz\\mars\\R4_tes_ti_albedo",
+      "meta_sha_sayisi": 3,
+      "ham_eslesen": 3,
+      "temiz_eslesen": 0,
+      "eslesmeyen": [],
+      "durum": "PASS"
+    },
+    "mars/R5": {
+      "klasor": "temiz\\mars\\R5_tes_dci",
+      "meta_sha_sayisi": 1,
+      "ham_eslesen": 1,
+      "temiz_eslesen": 0,
+      "eslesmeyen": [],
+      "durum": "PASS"
+    },
+    "mars/R6": {
+      "klasor": "temiz\\mars\\R6_odyssey_grs",
+      "meta_sha_sayisi": 19,
+      "ham_eslesen": 19,
+      "temiz_eslesen": 0,
+      "eslesmeyen": [],
+      "durum": "PASS"
+    },
+    "mars/R7": {
+      "klasor": "temiz\\mars\\R7_swim",
+      "meta_sha_sayisi": 3,
+      "ham_eslesen": 3,
+      "temiz_eslesen": 0,
+      "eslesmeyen": [],
+      "durum": "PASS"
+    }
+  },
+  "sağlama_durum": "PASS",
+  "D4": "bekliyor (Bölüm 8.2 testleri modüllerle yazılınca kos.py P0'da kapanır)"
+}

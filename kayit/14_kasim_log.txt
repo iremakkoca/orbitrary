@@ -1,0 +1,38 @@
+2026-11-14T09:26:42	P0-sağlama	PASS	12.0 s	24/24
+2026-11-14T09:31:52	ayar.py+test_ayar	PASS
+2026-11-14T09:37:30	izgara.py+test_izgara	FAIL
+2026-11-14T09:39:18	test_izgara (2. koşu, köşe sınırı)	PASS
+2026-11-14T09:41:49	temiz envanteri	OK
+2026-11-14T09:59:33	katman.py+test_katman(+gercek)	FAIL
+2026-11-14T10:04:28	test_katman 2. koşu (PGDA adı)	PASS
+2026-11-14T10:11:02	uzaklik.py+test_uzaklik	PASS
+2026-11-14T10:25:14	ozellik_topo.py+test	PASS
+2026-11-14T10:33:40	ozellik_topoloji.py+test (GUDHI=UF)	PASS
+2026-11-14T10:40:13	girdi dosyaları belgeden (hedefler 17/25, V1 11, sözlük Dünya+Ay; Mars 44 boş)	OK
+2026-11-14T11:29:20	Sude birleştirme + mars_jeoloji testi	PASS
+(not) ozellik_diger ilk test koşusu tamamlanamadı: çekirdek bağlantısı koptu (bellek), kayıt dosyası oluşmadı
+2026-11-14T12:02:39	D4_test_ozellik_diger_3	PASS	287 s
+2026-11-14T12:10:01	D4_test_cmg_sinir	PASS	3 s
+2026-11-14T12:23:14	D4_test_kapi	PASS	6 s
+2026-11-14T12:42:20	D4_test_teorem	PASS	2 s
+2026-11-14T12:50:44	D4_test_onele	PASS	1 s
+2026-11-14T12:54:01	D4_test_onele	PASS	1 s
+2026-11-14T13:05:06	D4_test_ozellik_diger_i29	PASS	54 s
+2026-11-14T13:05:10	D4_test_cmg_sinir_i29	PASS	4 s
+2026-11-14T13:13:27	D4_test_puan	PASS	2 s
+2026-11-14T13:16:45	D4_test_puan	PASS	2 s
+2026-11-14T13:22:28	D4_test_dogrula	PASS	3 s
+2026-11-14T13:29:57	D4_test_dogrula	PASS	3 s
+2026-11-14T13:47:22	D4_test_kos_hatti	PASS	1 s
+2026-11-14T14:25:52	D4_test_kos_hatti	FAIL	2 s
+2026-11-14T14:27:06	D4_test_kos_hatti_duzeltme	PASS	2 s
+2026-11-14T16:12:39	D4_test_kos2	PASS	8 s
+2026-11-14T16:46:58	D4_test_kos_diyagram	PASS	8 s
+2026-11-14T17:26:53	D4_test_kos_v5_d7	PASS	13 s
+2026-11-14T17:53:14	D4_test_kos_katmanb	PASS	18 s
+2026-11-14T18:21:38	D4_test_kos_katmanb_puan	PASS	33 s
+2026-11-14T20:13:57	D4_test_kos_kayip	PASS	31 s
+2026-11-14T21:32:50	D4_test_kos_hiz	PASS	44 s
+2026-11-14T21:50:43	D4_test_kos_f32	PASS	41 s
+2026-11-14T22:25:18	D4_test_kos_dogrulama	PASS	24 s
+2026-11-14T23:11:43	D4_test_kos_site	PASS	24 s

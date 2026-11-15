@@ -1,0 +1,34 @@
+﻿tur,cift_no,hedef_kimlik,dunya_saha,enlem,boylam,gorev,kaynak,ilk_cift,kaynak_yeri,sude_kontrol
+V1,1,M-A15,"Rio Grande Gorge, Taos, New Mexico",36.47611,-105.73222,geology,NASA History; BLM 2021,True,belge 9.3,kaynakla tutuyor (14 Kasım)
+V1,2,M-A14,"Nördlinger Ries, Almanya",48.8833,10.6167,geology,"NASA ALSJ Apollo 14 Ries geology trip (10–15 Ağustos 1970); Phinney, NASA SP-2015-626 [143]",True,belge 9.3,kaynakla tutuyor (14 Kasım)
+V1,3,M-A16,"Sudbury, Ontario",46.6,-81.183,geology,NASA History; GSA 2008,True,belge 9.3,kaynakla tutuyor (14 Kasım)
+V1,4,M-A17,"Sudbury, Ontario",46.6,-81.183,geology,CBC 2021,False,belge 9.3,kaynakla tutuyor (14 Kasım)
+V1,5,M-SP,"SP Crater, Arizona",35.58223,-111.63182,mobility,"JETT3 NTRS 20230000146 [144]; JETT5 NTRS 20250000177 [145]; JETT5 USGS: https://www.usgs.gov/centers/astrogeology-science-center/news/artemis-iii-mission-tests-san-francisco-volcanic-field (NTRS 20250000177 kimliği doğrulanamadı, Sude)",True,belge 9.3,kaynakla tutuyor (14 Kasım)
+V1,6,R-PF,"Ephrata fanı, Washington",47.318,-119.553,genel,Golombek ve ark. 1999 [142],True,belge 9.3,kaynakla tutuyor (14 Kasım)
+V1,7,R-GAL,"Dumont Dunes, Mojave",35.67863,-116.23156,mobility,"JPL, 11 Mayıs 2012 (Scarecrow testleri) [146]; testler Mayıs 2012 başı, 11 Mayıs JPL haberinin tarihi (Sude)",True,belge 9.3,kaynakla tutuyor (14 Kasım)
+V1,8,M-A15,"Kilbourne Hole, New Mexico",31.97194,-106.96472,geology,BLM 2021,True,belge 9.3,kaynakla tutuyor (14 Kasım)
+V1,9,M-A16,"Rio Grande Gorge, Taos, New Mexico",36.47611,-105.73222,geology,"NASA History (Taos, Eylül 1971)",False,belge 9.3,kaynakla tutuyor (14 Kasım)
+V1,10,M-A17,"Lunar Crater Volcanic Field, Nevada",38.4,-116.05,geology,"Phinney, NASA SP-2015-626 [143]",True,belge 9.3,kaynakla tutuyor (14 Kasım)
+V1,11,M-SP,"Kilbourne Hole, New Mexico",31.97194,-106.96472,mobility,"JETT1 NTRS 20220015570 [147]; kaynakta kesin tarih yok, JETT serisi Nisan 2022'de başladı (Sude)",False,belge 9.3,kaynakla tutuyor (14 Kasım)
+V2,1,M-A15,"V2 yağmur ormanı (MCD12C1 sınıf 2 ≥ %90), E′ penceresi 562535",-6.83317,-58.61097,geology,"tohum 20261113, alt tohum V2 (belge 8.3 V2, Q-3)",,kos.v2_ciftleri,
+V2,1,M-A15,"V2 tarım (MCD12C1 sınıf 12 ≥ %90), E′ penceresi 1064373",41.8981,-0.12081,geology,"tohum 20261113, alt tohum V2 (belge 8.3 V2, Q-3)",,kos.v2_ciftleri,
+V2,2,M-A14,"V2 yağmur ormanı (MCD12C1 sınıf 2 ≥ %90), E′ penceresi 659389",1.97802,114.75,geology,"tohum 20261113, alt tohum V2 (belge 8.3 V2, Q-3)",,kos.v2_ciftleri,
+V2,2,M-A14,"V2 tarım (MCD12C1 sınıf 12 ≥ %90), E′ penceresi 1080578",44.05594,24.4089,geology,"tohum 20261113, alt tohum V2 (belge 8.3 V2, Q-3)",,kos.v2_ciftleri,
+V2,3,M-A16,"V2 yağmur ormanı (MCD12C1 sınıf 2 ≥ %90), E′ penceresi 604857",-2.87712,22.6013,geology,"tohum 20261113, alt tohum V2 (belge 8.3 V2, Q-3)",,kos.v2_ciftleri,
+V2,3,M-A16,"V2 tarım (MCD12C1 sınıf 12 ≥ %90), E′ penceresi 1044306",39.56044,-88.07518,geology,"tohum 20261113, alt tohum V2 (belge 8.3 V2, Q-3)",,kos.v2_ciftleri,
+V2,4,M-A17,"V2 yağmur ormanı (MCD12C1 sınıf 2 ≥ %90), E′ penceresi 618859",-1.61838,23.11844,geology,"tohum 20261113, alt tohum V2 (belge 8.3 V2, Q-3)",,kos.v2_ciftleri,
+V2,4,M-A17,"V2 tarım (MCD12C1 sınıf 12 ≥ %90), E′ penceresi 1103114",46.93307,40.16094,geology,"tohum 20261113, alt tohum V2 (belge 8.3 V2, Q-3)",,kos.v2_ciftleri,
+V2,5,M-SP,"V2 yağmur ormanı (MCD12C1 sınıf 2 ≥ %90), E′ penceresi 604455",-3.05694,-49.7949,mobility,"tohum 20261113, alt tohum V2 (belge 8.3 V2, Q-3)",,kos.v2_ciftleri,
+V2,5,M-SP,"V2 tarım (MCD12C1 sınıf 12 ≥ %90), E′ penceresi 966740",31.10889,75.50758,mobility,"tohum 20261113, alt tohum V2 (belge 8.3 V2, Q-3)",,kos.v2_ciftleri,
+V2,6,R-PF,"V2 yağmur ormanı (MCD12C1 sınıf 2 ≥ %90), E′ penceresi 608377",-2.6973,-63.48174,genel,"tohum 20261113, alt tohum V2 (belge 8.3 V2, Q-3)",,kos.v2_ciftleri,
+V2,6,R-PF,"V2 tarım (MCD12C1 sınıf 12 ≥ %90), E′ penceresi 1082976",44.23576,-94.51883,genel,"tohum 20261113, alt tohum V2 (belge 8.3 V2, Q-3)",,kos.v2_ciftleri,
+V2,7,R-GAL,"V2 yağmur ormanı (MCD12C1 sınıf 2 ≥ %90), E′ penceresi 614441",-2.15784,-51.93,mobility,"tohum 20261113, alt tohum V2 (belge 8.3 V2, Q-3)",,kos.v2_ciftleri,
+V2,7,R-GAL,"V2 tarım (MCD12C1 sınıf 12 ≥ %90), E′ penceresi 744745",9.71029,77.82058,mobility,"tohum 20261113, alt tohum V2 (belge 8.3 V2, Q-3)",,kos.v2_ciftleri,
+V2,8,M-A15,"V2 yağmur ormanı (MCD12C1 sınıf 2 ≥ %90), E′ penceresi 566525",-6.47353,-56.1991,geology,"tohum 20261113, alt tohum V2 (belge 8.3 V2, Q-3)",,kos.v2_ciftleri,
+V2,8,M-A15,"V2 tarım (MCD12C1 sınıf 12 ≥ %90), E′ penceresi 1126481",49.99001,-103.07692,geology,"tohum 20261113, alt tohum V2 (belge 8.3 V2, Q-3)",,kos.v2_ciftleri,
+V2,9,M-A16,"V2 yağmur ormanı (MCD12C1 sınıf 2 ≥ %90), E′ penceresi 610879",-2.33766,26.91,geology,"tohum 20261113, alt tohum V2 (belge 8.3 V2, Q-3)",,kos.v2_ciftleri,
+V2,9,M-A16,"V2 tarım (MCD12C1 sınıf 12 ≥ %90), E′ penceresi 740798",9.35065,78.10633,geology,"tohum 20261113, alt tohum V2 (belge 8.3 V2, Q-3)",,kos.v2_ciftleri,
+V2,10,M-A17,"V2 yağmur ormanı (MCD12C1 sınıf 2 ≥ %90), E′ penceresi 589538",-4.31568,141.67335,geology,"tohum 20261113, alt tohum V2 (belge 8.3 V2, Q-3)",,kos.v2_ciftleri,
+V2,10,M-A17,"V2 tarım (MCD12C1 sınıf 12 ≥ %90), E′ penceresi 710679",6.65335,8.05835,geology,"tohum 20261113, alt tohum V2 (belge 8.3 V2, Q-3)",,kos.v2_ciftleri,
+V2,11,M-SP,"V2 yağmur ormanı (MCD12C1 sınıf 2 ≥ %90), E′ penceresi 690358",4.67532,-65.05263,mobility,"tohum 20261113, alt tohum V2 (belge 8.3 V2, Q-3)",,kos.v2_ciftleri,
+V2,11,M-SP,"V2 tarım (MCD12C1 sınıf 12 ≥ %90), E′ penceresi 931841",27.51249,78.59155,mobility,"tohum 20261113, alt tohum V2 (belge 8.3 V2, Q-3)",,kos.v2_ciftleri,

@@ -1,0 +1,3278 @@
+{
+ "dunya/E10_soilgrids": {
+  "meta_anahtarlar": [
+   "set",
+   "ad",
+   "doi",
+   "surum",
+   "lisans",
+   "birim",
+   "kaynak_adresleri",
+   "indirme_tarihi",
+   "ham_sha256",
+   "gercek_yer_testleri_D2",
+   "D3_testleri",
+   "crs",
+   "piksel",
+   "olcek",
+   "ofset",
+   "veri_yok_kurali",
+   "okuma",
+   "dosyalar",
+   "uretim_zamani",
+   "uretim_kodu"
+  ],
+  "dosya_gruplari": {
+   "kil_#-#cm.tif": {
+    "adet": 1,
+    "ornek": "kil_0-5cm.tif",
+    "bayt_ornek": 133731706,
+    "boyut": [
+     14509,
+     39812
+    ],
+    "bant": 1,
+    "dtype": "float32",
+    "nodata": NaN,
+    "transform": [
+     1000.0,
+     0.0,
+     -19949750.0,
+     0.0,
+     -1000.0,
+     8361000.000000001
+    ],
+    "crs": "ESRI:54052",
+    "olcek": [
+     1.0
+    ],
+    "ofset": [
+     0.0
+    ],
+    "blok": [
+     512,
+     512
+    ]
+   },
+   "silt_#-#cm.tif": {
+    "adet": 1,
+    "ornek": "silt_0-5cm.tif",
+    "bayt_ornek": 138981181,
+    "boyut": [
+     14509,
+     39812
+    ],
+    "bant": 1,
+    "dtype": "float32",
+    "nodata": NaN,
+    "transform": [
+     1000.0,
+     0.0,
+     -19949750.0,
+     0.0,
+     -1000.0,
+     8361000.000000001
+    ],
+    "crs": "ESRI:54052",
+    "olcek": [
+     1.0
+    ],
+    "ofset": [
+     0.0
+    ],
+    "blok": [
+     512,
+     512
+    ]
+   }
+  },
+  "meta_kritik": {
+   "birim": "‰ (g/kg)",
+   "crs": "ESRI:54052",
+   "olcek": 1.0,
+   "ofset": 0.0,
+   "veri_yok_kurali": "ham nodata (dosyadan) ve sonlu olmayan değerler -> NaN"
+  }
+ },
+ "dunya/E1_etopo": {
+  "meta_anahtarlar": [
+   "set",
+   "ad",
+   "doi",
+   "surum",
+   "lisans",
+   "birim",
+   "kaynak_adresleri",
+   "indirme_tarihi",
+   "ham_sha256",
+   "gercek_yer_testleri_D2",
+   "D3_testleri",
+   "crs",
+   "cozunurluk",
+   "olcek",
+   "ofset",
+   "veri_yok_kurali",
+   "dosyalar",
+   "toplam_veri_yok",
+   "uretim_zamani",
+   "uretim_kodu"
+  ],
+  "dosya_gruplari": {
+   "ETOPO_####_v#_##s_N##E###_surface.tif": {
+    "adet": 84,
+    "ornek": "ETOPO_2022_v1_15s_N00E000_surface.tif",
+    "bayt_ornek": 16537721,
+    "boyut": [
+     3600,
+     3600
+    ],
+    "bant": 1,
+    "dtype": "float32",
+    "nodata": NaN,
+    "transform": [
+     0.004166666666666667,
+     0.0,
+     0.0,
+     0.0,
+     -0.004166666666666667,
+     0.0
+    ],
+    "crs": "EPSG:9518",
+    "olcek": [
+     1.0
+    ],
+    "ofset": [
+     0.0
+    ],
+    "blok": [
+     512,
+     512
+    ]
+   },
+   "ETOPO_####_v#_##s_N##W###_surface.tif": {
+    "adet": 84,
+    "ornek": "ETOPO_2022_v1_15s_N00W015_surface.tif",
+    "bayt_ornek": 11878491,
+    "boyut": [
+     3600,
+     3600
+    ],
+    "bant": 1,
+    "dtype": "float32",
+    "nodata": NaN,
+    "transform": [
+     0.004166666666666667,
+     0.0,
+     -15.0,
+     0.0,
+     -0.004166666666666667,
+     0.0
+    ],
+    "crs": "EPSG:9518",
+    "olcek": [
+     1.0
+    ],
+    "ofset": [
+     0.0
+    ],
+    "blok": [
+     512,
+     512
+    ]
+   },
+   "ETOPO_####_v#_##s_S##E###_surface.tif": {
+    "adet": 60,
+    "ornek": "ETOPO_2022_v1_15s_S15E000_surface.tif",
+    "bayt_ornek": 12219775,
+    "boyut": [
+     3600,
+     3600
+    ],
+    "bant": 1,
+    "dtype": "float32",
+    "nodata": NaN,
+    "transform": [
+     0.004166666666666667,
+     0.0,
+     0.0,
+     0.0,
+     -0.004166666666666667,
+     -15.0
+    ],
+    "crs": "EPSG:9518",
+    "olcek": [
+     1.0
+    ],
+    "ofset": [
+     0.0
+    ],
+    "blok": [
+     512,
+     512
+    ]
+   },
+   "ETOPO_####_v#_##s_S##W###_surface.tif": {
+    "adet": 60,
+    "ornek": "ETOPO_2022_v1_15s_S15W015_surface.tif",
+    "bayt_ornek": 11864441,
+    "boyut": [
+     3600,
+     3600
+    ],
+    "bant": 1,
+    "dtype": "float32",
+    "nodata": NaN,
+    "transform": [
+     0.004166666666666667,
+     0.0,
+     -15.0,
+     0.0,
+     -0.004166666666666667,
+     -15.0
+    ],
+    "crs": "EPSG:9518",
+    "olcek": [
+     1.0
+    ],
+    "ofset": [
+     0.0
+    ],
+    "blok": [
+     512,
+     512
+    ]
+   }
+  },
+  "meta_kritik": {
+   "birim": "m (EGM2008)",
+   "crs": "EPSG:9518",
+   "cozunurluk": "15 yay-saniye",
+   "olcek": 1.0,
+   "ofset": 0.0,
+   "veri_yok_kurali": "ham -99999 -> NaN",
+   "toplam_veri_yok": 0
+  }
+ },
+ "dunya/E2_mcd12c1": {
+  "meta_anahtarlar": [
+   "set",
+   "ad",
+   "doi",
+   "surum",
+   "lisans",
+   "birim",
+   "kaynak_adresleri",
+   "indirme_tarihi",
+   "ham_sha256",
+   "gercek_yer_testleri_D2",
+   "D3_testleri",
+   "crs",
+   "geotransform",
+   "cozunurluk",
+   "olcek",
+   "ofset",
+   "veri_yok_kurali",
+   "dosyalar",
+   "uretim_zamani",
+   "uretim_kodu"
+  ],
+  "dosya_gruplari": {
+   "sinif_##_yuzde.json": {
+    "adet": 17,
+    "ornek": "sinif_00_yuzde.json",
+    "bayt_ornek": 541,
+    "icerik": {
+     "kaynak": "dunya/E2_mcd12c1/MCD12C1.A2023001.061.2024251212901.hdf",
+     "alt_veri_seti": "Land_Cover_Type_1_Percent",
+     "bant": 1,
+     "sinif": 0,
+     "geotransform": [
+      -180.0,
+      0.05,
+      0.0,
+      90.0,
+      0.0,
+      -0.05
+     ],
+     "gdal_geotransform": [
+      -180.0,
+      0.05,
+      0.0,
+      90.0,
+      0.0,
+      -0.05
+     ],
+     "crs": "EPSG:4326 (CMG 0,05°)",
+     "birim": "%",
+     "olcek": 1.0,
+     "ofset": 0.0,
+     "veri_yok_ham": 255,
+     "sekil": [
+      3600,
+      7200
+     ],
+     "dtype": "float32",
+     "veri_yok": "NaN"
+    }
+   },
+   "sinif_##_yuzde.npy": {
+    "adet": 17,
+    "ornek": "sinif_00_yuzde.npy",
+    "bayt_ornek": 103680128,
+    "shape": [
+     3600,
+     7200
+    ],
+    "dtype": "float32"
+   }
+  },
+  "meta_kritik": {
+   "birim": "% (sınıf payı)",
+   "crs": "EPSG:4326 (CMG 0,05°)",
+   "geotransform": [
+    -180.0,
+    0.05,
+    0.0,
+    90.0,
+    0.0,
+    -0.05
+   ],
+   "cozunurluk": "0,05°",
+   "olcek": 1.0,
+   "ofset": 0.0,
+   "veri_yok_kurali": "ham 255 -> NaN (dosya _FillValue)"
+  }
+ },
+ "dunya/E3_glim": {
+  "meta_anahtarlar": [
+   "set",
+   "ad",
+   "doi",
+   "surum",
+   "lisans",
+   "birim",
+   "kaynak_adresleri",
+   "indirme_tarihi",
+   "ham_sha256",
+   "gercek_yer_testleri_D2",
+   "D3_testleri",
+   "crs",
+   "crs_wkt",
+   "olcek",
+   "ofset",
+   "veri_yok_kurali",
+   "kayit_sayisi",
+   "birim_sayisi",
+   "alan_km2",
+   "Shape_Area_ile_en_buyuk_goreli_fark",
+   "dosyalar",
+   "uretim_zamani",
+   "uretim_kodu"
+  ],
+  "dosya_gruplari": {
+   "glim.gpkg": {
+    "adet": 1,
+    "ornek": "glim.gpkg",
+    "bayt_ornek": 3146309632,
+    "katman": [
+     "glim"
+    ],
+    "kayit": 1235259,
+    "sutunlar": [
+     "birim",
+     "alan_km2"
+    ],
+    "crs": "PROJCS[\"World_Eckert_IV\",GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378",
+    "geometri": "MultiPolygon"
+   }
+  },
+  "meta_kritik": {
+   "birim": "sınıf (xx), km²",
+   "crs": "World Eckert IV (ham CRS korundu)",
+   "crs_wkt": "PROJCRS[\"World_Eckert_IV\",BASEGEOGCRS[\"WGS 84\",DATUM[\"World Geodetic System 1984\",ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"Degree\",0.0174532925199433]]],CONVERSION[\"unknown\",METHOD[\"Eckert IV\"],PARAMETER[\"Longitude of natural origin\",0,ANGLEUNIT[\"Degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1]],ID[\"ESRI\",54012]]",
+   "olcek": null,
+   "ofset": null,
+   "veri_yok_kurali": "vektör; boş birim kayda yazılır, NaN yok",
+   "birim_sayisi": 16
+  }
+ },
+ "dunya/E4_aster_ged": {
+  "meta_anahtarlar": [
+   "set",
+   "ad",
+   "doi",
+   "surum",
+   "lisans",
+   "birim",
+   "kaynak_adresleri",
+   "indirme_tarihi",
+   "ham_sha256",
+   "gercek_yer_testleri_D2",
+   "D3_testleri",
+   "crs",
+   "geotransform",
+   "cozunurluk",
+   "olcek",
+   "ofset",
+   "ofset_kaynagi",
+   "veri_yok_kurali",
+   "bayrak",
+   "ndvi_inceleme",
+   "ndvi_oznitelikleri",
+   "dosyalar",
+   "uretim_zamani",
+   "uretim_kodu"
+  ],
+  "dosya_gruplari": {
+   "ndvi_#######.json": {
+    "adet": 12,
+    "ornek": "ndvi_2015001.json",
+    "bayt_ornek": 496,
+    "icerik": {
+     "kaynak": "dunya/E4_aster_ged/ASTER_GEDv4.1_A2015001.h5",
+     "veri_seti": "SDS/NDVI",
+     "geotransform": [
+      -180.0,
+      0.05,
+      0.0,
+      90.0,
+      0.0,
+      -0.05
+     ],
+     "crs": "EPSG:4326 (0,05°)",
+     "birim": "NDVI",
+     "olcek": 0.001,
+     "ofset": 0.0,
+     "veri_yok_kurali": "dosyada fill yok; yayınımın 5 bandı da 0 olan piksel -> NaN",
+     "bayrak_dosyasi": "ndvi_bayrak_2015001.npy",
+     "sekil": [
+      3600,
+      7200
+     ],
+     "dtype": "float32",
+     "veri_yok": "NaN"
+    }
+   },
+   "ndvi_#######.npy": {
+    "adet": 12,
+    "ornek": "ndvi_2015001.npy",
+    "bayt_ornek": 103680128,
+    "shape": [
+     3600,
+     7200
+    ],
+    "dtype": "float32"
+   },
+   "ndvi_bayrak_#######.json": {
+    "adet": 12,
+    "ornek": "ndvi_bayrak_2015001.json",
+    "bayt_ornek": 349,
+    "icerik": {
+     "kaynak": "dunya/E4_aster_ged/ASTER_GEDv4.1_A2015001.h5",
+     "sekil": [
+      3600,
+      7200
+     ],
+     "dtype": "uint8",
+     "geotransform": [
+      -180.0,
+      0.05,
+      0.0,
+      90.0,
+      0.0,
+      -0.05
+     ],
+     "anlam": "1 = yayınım verisi olan pikselde NDVI ham 0 (bitki yok ya da kırpılmış negatif; belgelenmemiş kod); 0 = yok"
+    }
+   },
+   "ndvi_bayrak_#######.npy": {
+    "adet": 12,
+    "ornek": "ndvi_bayrak_2015001.npy",
+    "bayt_ornek": 25920128,
+    "shape": [
+     3600,
+     7200
+    ],
+    "dtype": "uint8"
+   },
+   "yayinim_b##_#######.json": {
+    "adet": 60,
+    "ornek": "yayinim_b10_2015001.json",
+    "bayt_ornek": 462,
+    "icerik": {
+     "kaynak": "dunya/E4_aster_ged/ASTER_GEDv4.1_A2015001.h5",
+     "veri_seti": "SDS/Emissivity",
+     "bant": 10,
+     "geotransform": [
+      -180.0,
+      0.05,
+      0.0,
+      90.0,
+      0.0,
+      -0.05
+     ],
+     "crs": "EPSG:4326 (0,05°)",
+     "birim": "yayınım",
+     "olcek": 0.002,
+     "ofset": 0.49,
+     "ofset_kaynagi": "dosya özniteliği (talimat 7)",
+     "veri_yok_ham": 0,
+     "sekil": [
+      3600,
+      7200
+     ],
+     "dtype": "float32",
+     "veri_yok": "NaN"
+    }
+   },
+   "yayinim_b##_#######.npy": {
+    "adet": 60,
+    "ornek": "yayinim_b10_2015001.npy",
+    "bayt_ornek": 103680128,
+    "shape": [
+     3600,
+     7200
+    ],
+    "dtype": "float32"
+   }
+  },
+  "meta_kritik": {
+   "birim": "yayınım (birimsiz), NDVI (birimsiz)",
+   "crs": "EPSG:4326 (0,05°)",
+   "geotransform": [
+    -180.0,
+    0.05,
+    0.0,
+    90.0,
+    0.0,
+    -0.05
+   ],
+   "cozunurluk": "0,05°",
+   "olcek": {
+    "yayinim": 0.002,
+    "ndvi": 0.001
+   },
+   "ofset": {
+    "yayinim": 0.49,
+    "ndvi": 0.0
+   },
+   "ofset_kaynagi": "dosya öznitelikleri: Emissivity 'Offset' = 0,49 (talimat 7); NDVI 'Offset' = 0",
+   "veri_yok_kurali": "yayınım ham 0 -> NaN (bant başına); NDVI: dosyada fill yok, yayınımın 5 bandı da 0 -> NaN"
+  }
+ },
+ "dunya/E5_myd11c3": {
+  "meta_anahtarlar": [
+   "set",
+   "ad",
+   "doi",
+   "surum",
+   "lisans",
+   "birim",
+   "kaynak_adresleri",
+   "indirme_tarihi",
+   "ham_sha256",
+   "gercek_yer_testleri_D2",
+   "D3_testleri",
+   "crs",
+   "geotransform",
+   "cozunurluk",
+   "olcek",
+   "ofset",
+   "veri_yok_kurali",
+   "valid_range_disi",
+   "dosyalar",
+   "uretim_zamani",
+   "uretim_kodu"
+  ],
+  "dosya_gruplari": {
+   "lst_gece_#######.json": {
+    "adet": 12,
+    "ornek": "lst_gece_2023001.json",
+    "bayt_ornek": 434,
+    "icerik": {
+     "kaynak": "dunya/E5_myd11c3/MYD11C3.A2023001.061.2023033164343.hdf",
+     "alt_veri_seti": "LST_Night_CMG",
+     "geotransform": [
+      -180.0,
+      0.05,
+      0.0,
+      90.0,
+      0.0,
+      -0.05
+     ],
+     "crs": "EPSG:4326 (CMG 0,05°)",
+     "birim": "K",
+     "olcek": 0.02,
+     "ofset": 0.0,
+     "veri_yok_ham": 0,
+     "valid_range": "7500, 65535",
+     "sekil": [
+      3600,
+      7200
+     ],
+     "dtype": "float32",
+     "veri_yok": "NaN"
+    }
+   },
+   "lst_gece_#######.npy": {
+    "adet": 12,
+    "ornek": "lst_gece_2023001.npy",
+    "bayt_ornek": 103680128,
+    "shape": [
+     3600,
+     7200
+    ],
+    "dtype": "float32"
+   },
+   "lst_gunduz_#######.json": {
+    "adet": 12,
+    "ornek": "lst_gunduz_2023001.json",
+    "bayt_ornek": 432,
+    "icerik": {
+     "kaynak": "dunya/E5_myd11c3/MYD11C3.A2023001.061.2023033164343.hdf",
+     "alt_veri_seti": "LST_Day_CMG",
+     "geotransform": [
+      -180.0,
+      0.05,
+      0.0,
+      90.0,
+      0.0,
+      -0.05
+     ],
+     "crs": "EPSG:4326 (CMG 0,05°)",
+     "birim": "K",
+     "olcek": 0.02,
+     "ofset": 0.0,
+     "veri_yok_ham": 0,
+     "valid_range": "7500, 65535",
+     "sekil": [
+      3600,
+      7200
+     ],
+     "dtype": "float32",
+     "veri_yok": "NaN"
+    }
+   },
+   "lst_gunduz_#######.npy": {
+    "adet": 12,
+    "ornek": "lst_gunduz_2023001.npy",
+    "bayt_ornek": 103680128,
+    "shape": [
+     3600,
+     7200
+    ],
+    "dtype": "float32"
+   }
+  },
+  "meta_kritik": {
+   "birim": "K",
+   "crs": "EPSG:4326 (CMG 0,05°)",
+   "geotransform": [
+    -180.0,
+    0.05,
+    0.0,
+    90.0,
+    0.0,
+    -0.05
+   ],
+   "cozunurluk": "0,05°",
+   "olcek": 0.02,
+   "ofset": 0.0,
+   "veri_yok_kurali": "ham 0 -> NaN (dosya _FillValue)"
+  }
+ },
+ "dunya/E6_mcd43c3": {
+  "meta_anahtarlar": [
+   "set",
+   "ad",
+   "doi",
+   "surum",
+   "lisans",
+   "birim",
+   "kaynak_adresleri",
+   "indirme_tarihi",
+   "ham_sha256",
+   "gercek_yer_testleri_D2",
+   "D3_testleri",
+   "crs",
+   "geotransform",
+   "cozunurluk",
+   "olcek",
+   "ofset",
+   "veri_yok_kurali",
+   "dosyalar",
+   "uretim_zamani",
+   "uretim_kodu"
+  ],
+  "dosya_gruplari": {
+   "albedo_wsa_#######.json": {
+    "adet": 12,
+    "ornek": "albedo_wsa_2023015.json",
+    "bayt_ornek": 445,
+    "icerik": {
+     "kaynak": "dunya/E6_mcd43c3/MCD43C3.A2023015.061.2023024104905.hdf",
+     "alt_veri_seti": "Albedo_WSA_shortwave",
+     "geotransform": [
+      -180.0,
+      0.05,
+      0.0,
+      90.0,
+      0.0,
+      -0.05
+     ],
+     "crs": "EPSG:4326 (CMG 0,05°)",
+     "birim": "albedo",
+     "olcek": 0.001,
+     "ofset": 0.0,
+     "veri_yok_ham": "0–32766 dışı (fill 32767)",
+     "sekil": [
+      3600,
+      7200
+     ],
+     "dtype": "float32",
+     "veri_yok": "NaN"
+    }
+   },
+   "albedo_wsa_#######.npy": {
+    "adet": 12,
+    "ornek": "albedo_wsa_2023015.npy",
+    "bayt_ornek": 103680128,
+    "shape": [
+     3600,
+     7200
+    ],
+    "dtype": "float32"
+   }
+  },
+  "meta_kritik": {
+   "birim": "albedo (birimsiz)",
+   "crs": "EPSG:4326 (CMG 0,05°)",
+   "geotransform": [
+    -180.0,
+    0.05,
+    0.0,
+    90.0,
+    0.0,
+    -0.05
+   ],
+   "cozunurluk": "0,05°",
+   "olcek": 0.001,
+   "ofset": 0.0,
+   "veri_yok_kurali": "ham 0–32766 dışı -> NaN (fill 32767)"
+  }
+ },
+ "dunya/E7_permafrost_kuzey": {
+  "meta_anahtarlar": [
+   "set",
+   "ad",
+   "doi",
+   "surum",
+   "lisans",
+   "birim",
+   "kaynak_adresleri",
+   "indirme_tarihi",
+   "ham_sha256",
+   "gercek_yer_testleri_D2",
+   "D3_testleri",
+   "crs",
+   "piksel",
+   "olcek",
+   "ofset",
+   "veri_yok_kurali",
+   "okuma",
+   "dosyalar",
+   "uretim_zamani",
+   "uretim_kodu"
+  ],
+  "dosya_gruplari": {
+   "perprob_kuzey.tif": {
+    "adet": 1,
+    "ornek": "perprob_kuzey.tif",
+    "bayt_ornek": 85536616,
+    "boyut": [
+     21141,
+     22425
+    ],
+    "bant": 1,
+    "dtype": "float32",
+    "nodata": NaN,
+    "transform": [
+     926.625433138333,
+     0.0,
+     -10389573.15520068,
+     0.0,
+     -926.6254331383332,
+     9200035.717118325
+    ],
+    "crs": "EPSG:3995",
+    "olcek": [
+     1.0
+    ],
+    "ofset": [
+     0.0
+    ],
+    "blok": [
+     512,
+     512
+    ]
+   }
+  },
+  "meta_kritik": {
+   "birim": "olasılık 0–1",
+   "crs": "EPSG:3995",
+   "olcek": 1.0,
+   "ofset": 0.0,
+   "veri_yok_kurali": "ham nodata (dosyadan) ve sonlu olmayan değerler -> NaN"
+  }
+ },
+ "dunya/E8_permafrost_antarktika": {
+  "meta_anahtarlar": [
+   "set",
+   "ad",
+   "doi",
+   "surum",
+   "lisans",
+   "birim",
+   "kaynak_adresleri",
+   "indirme_tarihi",
+   "ham_sha256",
+   "gercek_yer_testleri_D2",
+   "D3_testleri",
+   "crs",
+   "piksel",
+   "olcek",
+   "ofset",
+   "veri_yok_kurali",
+   "okuma",
+   "dosyalar",
+   "uretim_zamani",
+   "uretim_kodu"
+  ],
+  "dosya_gruplari": {
+   "perprob_antarktika.tif": {
+    "adet": 1,
+    "ornek": "perprob_antarktika.tif",
+    "bayt_ornek": 1525018,
+    "boyut": [
+     8678,
+     9888
+    ],
+    "bant": 1,
+    "dtype": "float32",
+    "nodata": NaN,
+    "transform": [
+     926.625433138333,
+     0.0,
+     -3489497.1746982187,
+     0.0,
+     -926.625433138333,
+     5763797.52359011
+    ],
+    "crs": "EPSG:3031",
+    "olcek": [
+     1.0
+    ],
+    "ofset": [
+     0.0
+    ],
+    "blok": [
+     512,
+     512
+    ]
+   }
+  },
+  "meta_kritik": {
+   "birim": "olasılık 0–1",
+   "crs": "EPSG:3031",
+   "olcek": 1.0,
+   "ofset": 0.0,
+   "veri_yok_kurali": "ham nodata (dosyadan) ve sonlu olmayan değerler -> NaN"
+  }
+ },
+ "dunya/E9_aridity": {
+  "meta_anahtarlar": [
+   "set",
+   "ad",
+   "doi",
+   "surum",
+   "lisans",
+   "birim",
+   "kaynak_adresleri",
+   "indirme_tarihi",
+   "ham_sha256",
+   "gercek_yer_testleri_D2",
+   "D3_testleri",
+   "crs",
+   "piksel",
+   "olcek",
+   "ofset",
+   "carpan_kaynagi",
+   "veri_yok_kurali",
+   "bayrak",
+   "inceleme",
+   "sayilar",
+   "dosyalar",
+   "uretim_zamani",
+   "uretim_kodu"
+  ],
+  "dosya_gruplari": {
+   "ai.tif": {
+    "adet": 1,
+    "ornek": "ai.tif",
+    "bayt_ornek": 538699983,
+    "boyut": [
+     18000,
+     43200
+    ],
+    "bant": 1,
+    "dtype": "float32",
+    "nodata": NaN,
+    "transform": [
+     0.008333333333,
+     0.0,
+     -180.0,
+     0.0,
+     -0.008333333333,
+     90.0
+    ],
+    "crs": "EPSG:4326",
+    "olcek": [
+     1.0
+    ],
+    "ofset": [
+     0.0
+    ],
+    "blok": [
+     512,
+     512
+    ]
+   },
+   "ai_bayrak.tif": {
+    "adet": 1,
+    "ornek": "ai_bayrak.tif",
+    "bayt_ornek": 2282651,
+    "boyut": [
+     18000,
+     43200
+    ],
+    "bant": 1,
+    "dtype": "uint8",
+    "nodata": null,
+    "transform": [
+     0.008333333333,
+     0.0,
+     -180.0,
+     0.0,
+     -0.008333333333,
+     90.0
+    ],
+    "crs": "EPSG:4326",
+    "olcek": [
+     1.0
+    ],
+    "ofset": [
+     0.0
+    ],
+    "blok": [
+     512,
+     512
+    ]
+   }
+  },
+  "meta_kritik": {
+   "birim": "AI (birimsiz)",
+   "crs": "EPSG:4326",
+   "olcek": 0.0001,
+   "ofset": 0.0,
+   "veri_yok_kurali": "dosyada nodata yok; ham 0 olan ve MCD12C1 sınıf 0 (su) %100 olan piksel -> NaN (su maskesi: temiz/dunya/E2_mcd12c1/sinif_00_yuzde.npy, 0,05° = 6 x 6 piksel)"
+  }
+ },
+ "ay/M1_lola": {
+  "meta_anahtarlar": [
+   "set",
+   "ad",
+   "doi",
+   "surum",
+   "lisans",
+   "birim",
+   "kaynak_adresleri",
+   "indirme_tarihi",
+   "ham_sha256",
+   "gercek_yer_testleri_D2",
+   "D3_testleri",
+   "crs",
+   "transform",
+   "cozunurluk",
+   "olcek",
+   "ofset",
+   "olcek_kaynagi",
+   "veri_yok_kurali",
+   "okuma",
+   "dosyalar",
+   "uretim_zamani",
+   "uretim_kodu"
+  ],
+  "dosya_gruplari": {
+   "lola_m.tif": {
+    "adet": 1,
+    "ornek": "lola_m.tif",
+    "bayt_ornek": 3604470581,
+    "boyut": [
+     46080,
+     92160
+    ],
+    "bant": 1,
+    "dtype": "float32",
+    "nodata": NaN,
+    "transform": [
+     118.4505876,
+     0.0,
+     -5458203.076608,
+     0.0,
+     -118.4505876,
+     2729101.538304
+    ],
+    "crs": "PROJCS[\"SimpleCylindrical Moon\",GEOGCS[\"GCS_Moon\",DATUM[\"D_Moon\",SPHEROID[\"Moon\"",
+    "olcek": [
+     1.0
+    ],
+    "ofset": [
+     0.0
+    ],
+    "blok": [
+     512,
+     512
+    ]
+   }
+  },
+  "meta_kritik": {
+   "birim": "m",
+   "crs": "PROJCS[\"SimpleCylindrical Moon\",GEOGCS[\"GCS_Moon\",DATUM[\"D_Moon\",SPHEROID[\"Moon\",1737400,0]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Equirectangular\"],PARAMETER[\"standard_parallel_1\",0],PARAMETER[\"central_meridian\",0],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]",
+   "cozunurluk": "256 ppd (~118 m)",
+   "olcek": 0.5,
+   "ofset": 0.0,
+   "olcek_kaynagi": "etiket Multiplier / Base",
+   "veri_yok_kurali": "ham -32768 ve dosya nodata -> NaN"
+  }
+ },
+ "ay/M2_jeoloji": {
+  "meta_anahtarlar": [
+   "set",
+   "ad",
+   "doi",
+   "surum",
+   "lisans",
+   "birim",
+   "kaynak_adresleri",
+   "indirme_tarihi",
+   "ham_sha256",
+   "gercek_yer_testleri_D2",
+   "D3_testleri",
+   "crs",
+   "olcek",
+   "ofset",
+   "veri_yok_kurali",
+   "kayit_sayisi",
+   "birim_sayisi",
+   "alan_km2",
+   "ham_shp",
+   "dosyalar",
+   "uretim_zamani",
+   "uretim_kodu"
+  ],
+  "dosya_gruplari": {
+   "ay_jeoloji.gpkg": {
+    "adet": 1,
+    "ornek": "ay_jeoloji.gpkg",
+    "bayt_ornek": 135094272,
+    "katman": [
+     "ay_jeoloji"
+    ],
+    "kayit": 12247,
+    "sutunlar": [
+     "birim",
+     "alan_km2"
+    ],
+    "crs": "PROJCS[\"Moon2000_EquidistantCylindrical_clon0\",GEOGCS[\"GCS_Moon_2000\",DATUM[\"D_M",
+    "geometri": "Polygon"
+   }
+  },
+  "meta_kritik": {
+   "birim": "sınıf (FIRST_Unit), km²",
+   "crs": "PROJCS[\"Moon2000_EquidistantCylindrical_clon0\",GEOGCS[\"GCS_Moon_2000\",DATUM[\"D_Moon_2000\",SPHEROID[\"Moon_2000_IAU_IAG\",1737400,0]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Equirectangular\"],PARAMETER[\"standard_parallel_1\",0],PARAMETER[\"central_meridian\",0],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]",
+   "olcek": null,
+   "ofset": null,
+   "veri_yok_kurali": "vektör",
+   "birim_sayisi": 49
+  }
+ },
+ "ay/M3_diviner_ghrm": {
+  "meta_anahtarlar": [
+   "set",
+   "ad",
+   "doi",
+   "surum",
+   "lisans",
+   "birim",
+   "kaynak_adresleri",
+   "indirme_tarihi",
+   "ham_sha256",
+   "gercek_yer_testleri_D2",
+   "D3_testleri",
+   "crs",
+   "cozunurluk",
+   "olcek",
+   "ofset",
+   "veri_yok_kurali",
+   "okuma",
+   "dosyalar",
+   "uretim_zamani",
+   "uretim_kodu"
+  ],
+  "dosya_gruplari": {
+   "ra_sam.tif": {
+    "adet": 1,
+    "ornek": "ra_sam.tif",
+    "bayt_ornek": 2755529982,
+    "boyut": [
+     17920,
+     46080
+    ],
+    "bant": 1,
+    "dtype": "float32",
+    "nodata": NaN,
+    "transform": [
+     0.0078125,
+     0.0,
+     -180.0,
+     0.0,
+     -0.0078125,
+     70.0
+    ],
+    "crs": "ESRI:104903",
+    "olcek": [
+     1.0
+    ],
+    "ofset": [
+     0.0
+    ],
+    "blok": [
+     512,
+     512
+    ]
+   },
+   "tbol_sam_K.tif": {
+    "adet": 1,
+    "ornek": "tbol_sam_K.tif",
+    "bayt_ornek": 2103376387,
+    "boyut": [
+     17920,
+     46080
+    ],
+    "bant": 1,
+    "dtype": "float32",
+    "nodata": NaN,
+    "transform": [
+     0.0078125,
+     0.0,
+     -180.0,
+     0.0,
+     -0.0078125,
+     70.0
+    ],
+    "crs": "ESRI:104903",
+    "olcek": [
+     1.0
+    ],
+    "ofset": [
+     0.0
+    ],
+    "blok": [
+     512,
+     512
+    ]
+   }
+  },
+  "meta_kritik": {
+   "birim": "ra: kaya bolluğu (birimsiz); tbol: K",
+   "crs": "ESRI:104903",
+   "cozunurluk": "128 ppd, 70°G–70°K",
+   "olcek": 1.0,
+   "ofset": 0.0,
+   "veri_yok_kurali": "NaN = yok; tbol >= 250 K -> NaN (belge 10.2)"
+  }
+ },
+ "ay/M4_diviner_prp_gcp": {
+  "meta_anahtarlar": [
+   "set",
+   "ad",
+   "doi",
+   "surum",
+   "lisans",
+   "birim",
+   "kaynak_adresleri",
+   "indirme_tarihi",
+   "ham_sha256",
+   "gercek_yer_testleri_D2",
+   "D3_testleri",
+   "crs",
+   "olcek",
+   "ofset",
+   "veri_yok_kurali",
+   "talimat6_sayilari",
+   "gcp",
+   "dosyalar",
+   "uretim_zamani",
+   "uretim_kodu"
+  ],
+  "dosya_gruplari": {
+   "gcp_##n##n_clat.json": {
+    "adet": 2,
+    "ornek": "gcp_70n80n_clat.json",
+    "bayt_ornek": 184,
+    "icerik": {
+     "kaynak": "ay/M4_diviner_prp_gcp/global_cumul_avg_cyl_70n80n_002.tab",
+     "sutun": "clat",
+     "veri_yok": "-9999 -> NaN",
+     "sekil": [
+      1382400
+     ],
+     "dtype": "float64"
+    }
+   },
+   "gcp_##n##n_clat.npy": {
+    "adet": 2,
+    "ornek": "gcp_70n80n_clat.npy",
+    "bayt_ornek": 11059328,
+    "shape": [
+     1382400
+    ],
+    "dtype": "float64"
+   },
+   "gcp_##n##n_clon.json": {
+    "adet": 2,
+    "ornek": "gcp_70n80n_clon.json",
+    "bayt_ornek": 184,
+    "icerik": {
+     "kaynak": "ay/M4_diviner_prp_gcp/global_cumul_avg_cyl_70n80n_002.tab",
+     "sutun": "clon",
+     "veri_yok": "-9999 -> NaN",
+     "sekil": [
+      1382400
+     ],
+     "dtype": "float64"
+    }
+   },
+   "gcp_##n##n_clon.npy": {
+    "adet": 2,
+    "ornek": "gcp_70n80n_clon.npy",
+    "bayt_ornek": 11059328,
+    "shape": [
+     1382400
+    ],
+    "dtype": "float64"
+   },
+   "gcp_##n##n_ltim.json": {
+    "adet": 2,
+    "ornek": "gcp_70n80n_ltim.json",
+    "bayt_ornek": 184,
+    "icerik": {
+     "kaynak": "ay/M4_diviner_prp_gcp/global_cumul_avg_cyl_70n80n_002.tab",
+     "sutun": "ltim",
+     "veri_yok": "-9999 -> NaN",
+     "sekil": [
+      1382400
+     ],
+     "dtype": "float64"
+    }
+   },
+   "gcp_##n##n_ltim.npy": {
+    "adet": 2,
+    "ornek": "gcp_70n80n_ltim.npy",
+    "bayt_ornek": 11059328,
+    "shape": [
+     1382400
+    ],
+    "dtype": "float64"
+   },
+   "gcp_##n##n_t#.json": {
+    "adet": 14,
+    "ornek": "gcp_70n80n_t3.json",
+    "bayt_ornek": 182,
+    "icerik": {
+     "kaynak": "ay/M4_diviner_prp_gcp/global_cumul_avg_cyl_70n80n_002.tab",
+     "sutun": "t3",
+     "veri_yok": "-9999 -> NaN",
+     "sekil": [
+      1382400
+     ],
+     "dtype": "float64"
+    }
+   },
+   "gcp_##n##n_t#.npy": {
+    "adet": 14,
+    "ornek": "gcp_70n80n_t3.npy",
+    "bayt_ornek": 11059328,
+    "shape": [
+     1382400
+    ],
+    "dtype": "float64"
+   },
+   "gcp_##n##n_tbol.json": {
+    "adet": 2,
+    "ornek": "gcp_70n80n_tbol.json",
+    "bayt_ornek": 184,
+    "icerik": {
+     "kaynak": "ay/M4_diviner_prp_gcp/global_cumul_avg_cyl_70n80n_002.tab",
+     "sutun": "tbol",
+     "veri_yok": "-9999 -> NaN",
+     "sekil": [
+      1382400
+     ],
+     "dtype": "float64"
+    }
+   },
+   "gcp_##n##n_tbol.npy": {
+    "adet": 2,
+    "ornek": "gcp_70n80n_tbol.npy",
+    "bayt_ornek": 11059328,
+    "shape": [
+     1382400
+    ],
+    "dtype": "float64"
+   },
+   "gcp_##s##s_clat.json": {
+    "adet": 2,
+    "ornek": "gcp_80s70s_clat.json",
+    "bayt_ornek": 184,
+    "icerik": {
+     "kaynak": "ay/M4_diviner_prp_gcp/global_cumul_avg_cyl_80s70s_002.tab",
+     "sutun": "clat",
+     "veri_yok": "-9999 -> NaN",
+     "sekil": [
+      1382400
+     ],
+     "dtype": "float64"
+    }
+   },
+   "gcp_##s##s_clat.npy": {
+    "adet": 2,
+    "ornek": "gcp_80s70s_clat.npy",
+    "bayt_ornek": 11059328,
+    "shape": [
+     1382400
+    ],
+    "dtype": "float64"
+   },
+   "gcp_##s##s_clon.json": {
+    "adet": 2,
+    "ornek": "gcp_80s70s_clon.json",
+    "bayt_ornek": 184,
+    "icerik": {
+     "kaynak": "ay/M4_diviner_prp_gcp/global_cumul_avg_cyl_80s70s_002.tab",
+     "sutun": "clon",
+     "veri_yok": "-9999 -> NaN",
+     "sekil": [
+      1382400
+     ],
+     "dtype": "float64"
+    }
+   },
+   "gcp_##s##s_clon.npy": {
+    "adet": 2,
+    "ornek": "gcp_80s70s_clon.npy",
+    "bayt_ornek": 11059328,
+    "shape": [
+     1382400
+    ],
+    "dtype": "float64"
+   },
+   "gcp_##s##s_ltim.json": {
+    "adet": 2,
+    "ornek": "gcp_80s70s_ltim.json",
+    "bayt_ornek": 184,
+    "icerik": {
+     "kaynak": "ay/M4_diviner_prp_gcp/global_cumul_avg_cyl_80s70s_002.tab",
+     "sutun": "ltim",
+     "veri_yok": "-9999 -> NaN",
+     "sekil": [
+      1382400
+     ],
+     "dtype": "float64"
+    }
+   },
+   "gcp_##s##s_ltim.npy": {
+    "adet": 2,
+    "ornek": "gcp_80s70s_ltim.npy",
+    "bayt_ornek": 11059328,
+    "shape": [
+     1382400
+    ],
+    "dtype": "float64"
+   },
+   "gcp_##s##s_t#.json": {
+    "adet": 14,
+    "ornek": "gcp_80s70s_t3.json",
+    "bayt_ornek": 182,
+    "icerik": {
+     "kaynak": "ay/M4_diviner_prp_gcp/global_cumul_avg_cyl_80s70s_002.tab",
+     "sutun": "t3",
+     "veri_yok": "-9999 -> NaN",
+     "sekil": [
+      1382400
+     ],
+     "dtype": "float64"
+    }
+   },
+   "gcp_##s##s_t#.npy": {
+    "adet": 14,
+    "ornek": "gcp_80s70s_t3.npy",
+    "bayt_ornek": 11059328,
+    "shape": [
+     1382400
+    ],
+    "dtype": "float64"
+   },
+   "gcp_##s##s_tbol.json": {
+    "adet": 2,
+    "ornek": "gcp_80s70s_tbol.json",
+    "bayt_ornek": 184,
+    "icerik": {
+     "kaynak": "ay/M4_diviner_prp_gcp/global_cumul_avg_cyl_80s70s_002.tab",
+     "sutun": "tbol",
+     "veri_yok": "-9999 -> NaN",
+     "sekil": [
+      1382400
+     ],
+     "dtype": "float64"
+    }
+   },
+   "gcp_##s##s_tbol.npy": {
+    "adet": 2,
+    "ornek": "gcp_80s70s_tbol.npy",
+    "bayt_ornek": 11059328,
+    "shape": [
+     1382400
+    ],
+    "dtype": "float64"
+   },
+   "prp_north_ice_depth_bayrak.json": {
+    "adet": 1,
+    "ornek": "prp_north_ice_depth_bayrak.json",
+    "bayt_ornek": 194,
+    "icerik": {
+     "anlam": "1 = -999 sansürlü (> 2,87 m); 2 = -1 belgelenmemiş (talimat 6: yüzeyde kararlı yorumu, Fisher ve ark. 2017); 0 = yok",
+     "sekil": [
+      2880000
+     ],
+     "dtype": "uint8"
+    }
+   },
+   "prp_north_ice_depth_bayrak.npy": {
+    "adet": 1,
+    "ornek": "prp_north_ice_depth_bayrak.npy",
+    "bayt_ornek": 2880128,
+    "shape": [
+     2880000
+    ],
+    "dtype": "uint8"
+   },
+   "prp_north_ice_depth_m.json": {
+    "adet": 1,
+    "ornek": "prp_north_ice_depth_m.json",
+    "bayt_ornek": 247,
+    "icerik": {
+     "kaynak": "ay/M4_diviner_prp_gcp/dlre_prp_north.tab",
+     "sutun": "ice_depth",
+     "birim": "m",
+     "veri_yok": "-999 (sansürlü, > 2,87 m) -> NaN; -1 değer olarak kalır (bayrak 2)",
+     "sekil": [
+      2880000
+     ],
+     "dtype": "float64"
+    }
+   },
+   "prp_north_ice_depth_m.npy": {
+    "adet": 1,
+    "ornek": "prp_north_ice_depth_m.npy",
+    "bayt_ornek": 23040128,
+    "shape": [
+     2880000
+    ],
+    "dtype": "float64"
+   },
+   "prp_north_temp_avg.json": {
+    "adet": 1,
+    "ornek": "prp_north_temp_avg.json",
+    "bayt_ornek": 179,
+    "icerik": {
+     "kaynak": "ay/M4_diviner_prp_gcp/dlre_prp_north.tab",
+     "sutun": "temp_avg",
+     "birim": "K",
+     "veri_yok": "yok",
+     "sekil": [
+      2880000
+     ],
+     "dtype": "float64"
+    }
+   },
+   "prp_north_temp_avg.npy": {
+    "adet": 1,
+    "ornek": "prp_north_temp_avg.npy",
+    "bayt_ornek": 23040128,
+    "shape": [
+     2880000
+    ],
+    "dtype": "float64"
+   },
+   "prp_north_temp_max.json": {
+    "adet": 1,
+    "ornek": "prp_north_temp_max.json",
+    "bayt_ornek": 179,
+    "icerik": {
+     "kaynak": "ay/M4_diviner_prp_gcp/dlre_prp_north.tab",
+     "sutun": "temp_max",
+     "birim": "K",
+     "veri_yok": "yok",
+     "sekil": [
+      2880000
+     ],
+     "dtype": "float64"
+    }
+   },
+   "prp_north_temp_max.npy": {
+    "adet": 1,
+    "ornek": "prp_north_temp_max.npy",
+    "bayt_ornek": 23040128,
+    "shape": [
+     2880000
+    ],
+    "dtype": "float64"
+   },
+   "prp_north_tri_clat.json": {
+    "adet": 1,
+    "ornek": "prp_north_tri_clat.json",
+    "bayt_ornek": 184,
+    "icerik": {
+     "kaynak": "ay/M4_diviner_prp_gcp/dlre_prp_north.tab",
+     "sutun": "tri_clat",
+     "birim": "derece",
+     "veri_yok": "yok",
+     "sekil": [
+      2880000
+     ],
+     "dtype": "float64"
+    }
+   },
+   "prp_north_tri_clat.npy": {
+    "adet": 1,
+    "ornek": "prp_north_tri_clat.npy",
+    "bayt_ornek": 23040128,
+    "shape": [
+     2880000
+    ],
+    "dtype": "float64"
+   },
+   "prp_north_tri_clon.json": {
+    "adet": 1,
+    "ornek": "prp_north_tri_clon.json",
+    "bayt_ornek": 184,
+    "icerik": {
+     "kaynak": "ay/M4_diviner_prp_gcp/dlre_prp_north.tab",
+     "sutun": "tri_clon",
+     "birim": "derece",
+     "veri_yok": "yok",
+     "sekil": [
+      2880000
+     ],
+     "dtype": "float64"
+    }
+   },
+   "prp_north_tri_clon.npy": {
+    "adet": 1,
+    "ornek": "prp_north_tri_clon.npy",
+    "bayt_ornek": 23040128,
+    "shape": [
+     2880000
+    ],
+    "dtype": "float64"
+   },
+   "prp_south_ice_depth_bayrak.json": {
+    "adet": 1,
+    "ornek": "prp_south_ice_depth_bayrak.json",
+    "bayt_ornek": 194,
+    "icerik": {
+     "anlam": "1 = -999 sansürlü (> 2,87 m); 2 = -1 belgelenmemiş (talimat 6: yüzeyde kararlı yorumu, Fisher ve ark. 2017); 0 = yok",
+     "sekil": [
+      2880000
+     ],
+     "dtype": "uint8"
+    }
+   },
+   "prp_south_ice_depth_bayrak.npy": {
+    "adet": 1,
+    "ornek": "prp_south_ice_depth_bayrak.npy",
+    "bayt_ornek": 2880128,
+    "shape": [
+     2880000
+    ],
+    "dtype": "uint8"
+   },
+   "prp_south_ice_depth_m.json": {
+    "adet": 1,
+    "ornek": "prp_south_ice_depth_m.json",
+    "bayt_ornek": 247,
+    "icerik": {
+     "kaynak": "ay/M4_diviner_prp_gcp/dlre_prp_south.tab",
+     "sutun": "ice_depth",
+     "birim": "m",
+     "veri_yok": "-999 (sansürlü, > 2,87 m) -> NaN; -1 değer olarak kalır (bayrak 2)",
+     "sekil": [
+      2880000
+     ],
+     "dtype": "float64"
+    }
+   },
+   "prp_south_ice_depth_m.npy": {
+    "adet": 1,
+    "ornek": "prp_south_ice_depth_m.npy",
+    "bayt_ornek": 23040128,
+    "shape": [
+     2880000
+    ],
+    "dtype": "float64"
+   },
+   "prp_south_temp_avg.json": {
+    "adet": 1,
+    "ornek": "prp_south_temp_avg.json",
+    "bayt_ornek": 179,
+    "icerik": {
+     "kaynak": "ay/M4_diviner_prp_gcp/dlre_prp_south.tab",
+     "sutun": "temp_avg",
+     "birim": "K",
+     "veri_yok": "yok",
+     "sekil": [
+      2880000
+     ],
+     "dtype": "float64"
+    }
+   },
+   "prp_south_temp_avg.npy": {
+    "adet": 1,
+    "ornek": "prp_south_temp_avg.npy",
+    "bayt_ornek": 23040128,
+    "shape": [
+     2880000
+    ],
+    "dtype": "float64"
+   },
+   "prp_south_temp_max.json": {
+    "adet": 1,
+    "ornek": "prp_south_temp_max.json",
+    "bayt_ornek": 179,
+    "icerik": {
+     "kaynak": "ay/M4_diviner_prp_gcp/dlre_prp_south.tab",
+     "sutun": "temp_max",
+     "birim": "K",
+     "veri_yok": "yok",
+     "sekil": [
+      2880000
+     ],
+     "dtype": "float64"
+    }
+   },
+   "prp_south_temp_max.npy": {
+    "adet": 1,
+    "ornek": "prp_south_temp_max.npy",
+    "bayt_ornek": 23040128,
+    "shape": [
+     2880000
+    ],
+    "dtype": "float64"
+   },
+   "prp_south_tri_clat.json": {
+    "adet": 1,
+    "ornek": "prp_south_tri_clat.json",
+    "bayt_ornek": 184,
+    "icerik": {
+     "kaynak": "ay/M4_diviner_prp_gcp/dlre_prp_south.tab",
+     "sutun": "tri_clat",
+     "birim": "derece",
+     "veri_yok": "yok",
+     "sekil": [
+      2880000
+     ],
+     "dtype": "float64"
+    }
+   },
+   "prp_south_tri_clat.npy": {
+    "adet": 1,
+    "ornek": "prp_south_tri_clat.npy",
+    "bayt_ornek": 23040128,
+    "shape": [
+     2880000
+    ],
+    "dtype": "float64"
+   },
+   "prp_south_tri_clon.json": {
+    "adet": 1,
+    "ornek": "prp_south_tri_clon.json",
+    "bayt_ornek": 184,
+    "icerik": {
+     "kaynak": "ay/M4_diviner_prp_gcp/dlre_prp_south.tab",
+     "sutun": "tri_clon",
+     "birim": "derece",
+     "veri_yok": "yok",
+     "sekil": [
+      2880000
+     ],
+     "dtype": "float64"
+    }
+   },
+   "prp_south_tri_clon.npy": {
+    "adet": 1,
+    "ornek": "prp_south_tri_clon.npy",
+    "bayt_ornek": 23040128,
+    "shape": [
+     2880000
+    ],
+    "dtype": "float64"
+   }
+  },
+  "meta_kritik": {
+   "birim": "K; m (ice_depth); derece",
+   "crs": "Ay coğrafi (derece)",
+   "olcek": null,
+   "ofset": null,
+   "veri_yok_kurali": "PRP ice_depth -999 -> NaN + bayrak 1; -1 değer + bayrak 2; GCP -9999 -> NaN"
+  }
+ },
+ "ay/M5_lp_grs": {
+  "meta_anahtarlar": [
+   "set",
+   "ad",
+   "doi",
+   "surum",
+   "lisans",
+   "birim",
+   "kaynak_adresleri",
+   "indirme_tarihi",
+   "ham_sha256",
+   "gercek_yer_testleri_D2",
+   "D3_testleri",
+   "crs",
+   "olcek",
+   "ofset",
+   "veri_yok_kurali",
+   "sutun_adlari",
+   "dosyalar",
+   "uretim_zamani",
+   "uretim_kodu"
+  ],
+  "dosya_gruplari": {
+   "lpgrs_tablo.json": {
+    "adet": 1,
+    "ornek": "lpgrs_tablo.json",
+    "bayt_ornek": 901,
+    "icerik": {
+     "kaynak": "ay/M5_lp_grs/lpgrs_high1_elem_abundance_2deg.tab",
+     "sutun_adlari": [
+      "pixel_index",
+      "min_lat",
+      "max_lat",
+      "min_lon",
+      "max_lon",
+      "am",
+      "neutron_den",
+      "w_mgo",
+      "w_al2o3",
+      "w_sio2",
+      "w_cao",
+      "tio2",
+      "w_feo",
+      "w_k",
+      "w_th",
+      "w_u",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e",
+      "e"
+     ],
+     "veri_yok": "tanımlı değil; ham değerler aynen",
+     "sekil": [
+      11306,
+      61
+     ],
+     "dtype": "float64"
+    }
+   },
+   "lpgrs_tablo.npy": {
+    "adet": 1,
+    "ornek": "lpgrs_tablo.npy",
+    "bayt_ornek": 5517456,
+    "shape": [
+     11306,
+     61
+    ],
+    "dtype": "float64"
+   }
+  },
+  "meta_kritik": {
+   "birim": "etiketteki sütun birimleri",
+   "crs": "Ay coğrafi, 2° eş-alanlı pikseller",
+   "olcek": null,
+   "ofset": null,
+   "veri_yok_kurali": "yok"
+  }
+ },
+ "ay/M6_lp_hidrojen": {
+  "meta_anahtarlar": [
+   "set",
+   "ad",
+   "doi",
+   "surum",
+   "lisans",
+   "birim",
+   "kaynak_adresleri",
+   "indirme_tarihi",
+   "ham_sha256",
+   "gercek_yer_testleri_D2",
+   "D3_testleri",
+   "crs",
+   "olcek",
+   "ofset",
+   "veri_yok_kurali",
+   "not",
+   "dosyalar",
+   "uretim_zamani",
+   "uretim_kodu"
+  ],
+  "dosya_gruplari": {
+   "hidrojen_tablo.json": {
+    "adet": 1,
+    "ornek": "hidrojen_tablo.json",
+    "bayt_ornek": 308,
+    "icerik": {
+     "kaynak": "ay/M6_lp_hidrojen/hydrogenhd.txt",
+     "sutunlar": [
+      "enlem_g",
+      "enlem_k",
+      "boylam_b",
+      "boylam_d",
+      "H_ppm"
+     ],
+     "veri_yok": "'**********' hücresi -> NaN (1 hücre); 4180 negatif hücre kırpılmaz",
+     "sekil": [
+      259200,
+      5
+     ],
+     "dtype": "float64"
+    }
+   },
+   "hidrojen_tablo.npy": {
+    "adet": 1,
+    "ornek": "hidrojen_tablo.npy",
+    "bayt_ornek": 10368128,
+    "shape": [
+     259200,
+     5
+    ],
+    "dtype": "float64"
+   }
+  },
+  "meta_kritik": {
+   "birim": "ppm H",
+   "crs": "Ay coğrafi, 0,5°",
+   "olcek": null,
+   "ofset": null,
+   "veri_yok_kurali": "'**********' -> NaN; negatifler kırpılmaz (belge 10.2)"
+  }
+ },
+ "ay/M7_pgda": {
+  "meta_anahtarlar": [
+   "set",
+   "ad",
+   "doi",
+   "surum",
+   "lisans",
+   "birim",
+   "kaynak_adresleri",
+   "indirme_tarihi",
+   "ham_sha256",
+   "gercek_yer_testleri_D2",
+   "D3_testleri",
+   "crs",
+   "cozunurluk",
+   "olcek",
+   "ofset",
+   "olcek_kaynagi",
+   "veri_yok_kurali",
+   "okuma",
+   "dosyalar",
+   "uretim_zamani",
+   "uretim_kodu"
+  ],
+  "dosya_gruplari": {
+   "avgvisib_##n.tif": {
+    "adet": 1,
+    "ornek": "avgvisib_65n.tif",
+    "bayt_ornek": 115830229,
+    "boyut": [
+     6420,
+     6420
+    ],
+    "bant": 1,
+    "dtype": "float32",
+    "nodata": NaN,
+    "transform": [
+     240.0,
+     0.0,
+     -770400.0,
+     0.0,
+     -240.0,
+     770400.0
+    ],
+    "crs": "PROJCS[\"Moon2000_npole\",GEOGCS[\"GCS_Moon\",DATUM[\"D_Moon_2000\",SPHEROID[\"Moon_200",
+    "olcek": [
+     1.0
+    ],
+    "ofset": [
+     0.0
+    ],
+    "blok": [
+     512,
+     512
+    ]
+   },
+   "avgvisib_##s.tif": {
+    "adet": 1,
+    "ornek": "avgvisib_65s.tif",
+    "bayt_ornek": 113817484,
+    "boyut": [
+     6420,
+     6420
+    ],
+    "bant": 1,
+    "dtype": "float32",
+    "nodata": NaN,
+    "transform": [
+     240.0,
+     0.0,
+     -770400.0,
+     0.0,
+     -240.0,
+     770400.0
+    ],
+    "crs": "PROJCS[\"Moon2000_spole\",GEOGCS[\"GCS_Moon\",DATUM[\"D_Moon_2000\",SPHEROID[\"Moon_200",
+    "olcek": [
+     1.0
+    ],
+    "ofset": [
+     0.0
+    ],
+    "blok": [
+     512,
+     512
+    ]
+   },
+   "lpsr_##n.tif": {
+    "adet": 1,
+    "ornek": "lpsr_65n.tif",
+    "bayt_ornek": 689409,
+    "boyut": [
+     6420,
+     6420
+    ],
+    "bant": 1,
+    "dtype": "float32",
+    "nodata": NaN,
+    "transform": [
+     240.0,
+     0.0,
+     -770400.0,
+     0.0,
+     -240.0,
+     770400.0
+    ],
+    "crs": "PROJCS[\"Moon2000_npole\",GEOGCS[\"GCS_Moon\",DATUM[\"D_Moon_2000\",SPHEROID[\"Moon_200",
+    "olcek": [
+     1.0
+    ],
+    "ofset": [
+     0.0
+    ],
+    "blok": [
+     512,
+     512
+    ]
+   },
+   "lpsr_##s.tif": {
+    "adet": 1,
+    "ornek": "lpsr_65s.tif",
+    "bayt_ornek": 592144,
+    "boyut": [
+     6420,
+     6420
+    ],
+    "bant": 1,
+    "dtype": "float32",
+    "nodata": NaN,
+    "transform": [
+     240.0,
+     0.0,
+     -770400.0,
+     0.0,
+     -240.0,
+     770400.0
+    ],
+    "crs": "PROJCS[\"Moon2000_spole\",GEOGCS[\"GCS_Moon\",DATUM[\"D_Moon_2000\",SPHEROID[\"Moon_200",
+    "olcek": [
+     1.0
+    ],
+    "ofset": [
+     0.0
+    ],
+    "blok": [
+     512,
+     512
+    ]
+   }
+  },
+  "meta_kritik": {
+   "birim": "oran (0–1)",
+   "crs": "dosyadaki CRS korundu; belge 10.2: kuzey CRS'i yanlış — konum x = ρ sin λ, y = ρ cos λ (ρ = 2R tan(kolatitüd/2), R = 1737,4 km) ile hesaplanır; D2'de doğrulandı",
+   "cozunurluk": "240 m, 65° kutup",
+   "olcek": {
+    "AVGVISIB": 4e-05,
+    "LPSR": 2.5e-05
+   },
+   "ofset": {
+    "AVGVISIB": 0.0,
+    "LPSR": 0.5
+   },
+   "olcek_kaynagi": "etiket SCALING_FACTOR / OFFSET",
+   "veri_yok_kurali": "dosya nodata -> NaN; anormal piksel 88,435°K 106,602°D (kuzey) -> NaN (belge 10.2)"
+  }
+ },
+ "mars/R1_mola": {
+  "meta_anahtarlar": [
+   "set",
+   "ad",
+   "doi",
+   "surum",
+   "lisans",
+   "birim",
+   "kaynak_adresleri",
+   "indirme_tarihi",
+   "ham_sha256",
+   "gercek_yer_testleri_D2",
+   "D3_testleri",
+   "crs",
+   "cozunurluk",
+   "olcek",
+   "ofset",
+   "konum_kurali",
+   "veri_yok_kurali",
+   "okuma",
+   "dosyalar",
+   "uretim_zamani",
+   "uretim_kodu"
+  ],
+  "dosya_gruplari": {
+   "mola_m.tif": {
+    "adet": 1,
+    "ornek": "mola_m.tif",
+    "bayt_ornek": 755003881,
+    "boyut": [
+     23040,
+     46080
+    ],
+    "bant": 1,
+    "dtype": "float32",
+    "nodata": NaN,
+    "transform": [
+     463.0935415503709,
+     0.0,
+     -10669675.197320545,
+     0.0,
+     -463.0935415503709,
+     5334837.598660273
+    ],
+    "crs": "PROJCS[\"Equirectangular Mars\",GEOGCS[\"GCS_Mars\",DATUM[\"D_Mars\",SPHEROID[\"Mars_lo",
+    "olcek": [
+     1.0
+    ],
+    "ofset": [
+     0.0
+    ],
+    "blok": [
+     512,
+     512
+    ]
+   }
+  },
+  "meta_kritik": {
+   "birim": "m (areoid)",
+   "crs": "PROJCS[\"Equirectangular Mars\",GEOGCS[\"GCS_Mars\",DATUM[\"D_Mars\",SPHEROID[\"Mars_localRadius\",3396190,0]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]]],PROJECTION[\"Equirectangular\"],PARAMETER[\"standard_parallel_1\",0],PARAMETER[\"central_meridian\",0],PARAMETER[\"false_easting\",0],PARAMETER[\"false_northing\",0],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]",
+   "cozunurluk": "128 ppd (463 m)",
+   "olcek": 1.0,
+   "ofset": 0.0,
+   "konum_kurali": "transform kullanılmaz: satır = ⌊(90 − φ)·128⌋, sütun = ⌊(λ + 180)·128⌋ (belge 10.3; D2 Jezero ile doğrulandı)",
+   "veri_yok_kurali": "dosya nodata -> NaN"
+  }
+ },
+ "mars/R2_sim3292": {
+  "meta_anahtarlar": [
+   "set",
+   "ad",
+   "doi",
+   "surum",
+   "lisans",
+   "birim",
+   "kaynak_adresleri",
+   "indirme_tarihi",
+   "ham_sha256",
+   "gercek_yer_testleri_D2",
+   "D3_testleri",
+   "crs",
+   "olcek",
+   "ofset",
+   "veri_yok_kurali",
+   "alan_km2",
+   "kayit_sayisi",
+   "birim_sayisi",
+   "dosyalar",
+   "uretim_zamani",
+   "uretim_kodu"
+  ],
+  "dosya_gruplari": {
+   "sim####.gpkg": {
+    "adet": 1,
+    "ornek": "sim3292.gpkg",
+    "bayt_ornek": 65032192,
+    "katman": [
+     "sim3292"
+    ],
+    "kayit": 1311,
+    "sutunlar": [
+     "birim",
+     "alan_km2"
+    ],
+    "crs": "GEOGCS[\"GCS_Mars_2000_Sphere\",DATUM[\"Mars_2000_(Sphere)\",SPHEROID[\"Mars_2000_Sph",
+    "geometri": "Polygon"
+   }
+  },
+  "meta_kritik": {
+   "birim": "sınıf (Unit), km²",
+   "crs": "GEOGCS[\"GCS_Mars_2000_Sphere\",DATUM[\"Mars_2000_(Sphere)\",SPHEROID[\"Mars_2000_Sphere_IAU_IAG\",3396190,0],AUTHORITY[\"ESRI\",\"106971\"]],PRIMEM[\"Reference_Meridian\",0],UNIT[\"Degree\",0.0174532925199433],AXIS[\"Longitude\",EAST],AXIS[\"Latitude\",NORTH]]",
+   "olcek": null,
+   "ofset": null,
+   "veri_yok_kurali": "vektör",
+   "birim_sayisi": 44
+  }
+ },
+ "mars/R3_tes_mineral": {
+  "meta_anahtarlar": [
+   "set",
+   "ad",
+   "doi",
+   "surum",
+   "lisans",
+   "birim",
+   "kaynak_adresleri",
+   "indirme_tarihi",
+   "ham_sha256",
+   "gercek_yer_testleri_D2",
+   "D3_testleri",
+   "crs",
+   "geotransform",
+   "geometri_kaynagi",
+   "bant_sirasi_kaynagi",
+   "olcek",
+   "ofset",
+   "bayt_sirasi",
+   "veri_yok_kurali",
+   "dosyalar",
+   "uretim_zamani",
+   "uretim_kodu"
+  ],
+  "dosya_gruplari": {
+   "b##_quartz.json": {
+    "adet": 1,
+    "ornek": "b01_quartz.json",
+    "bayt_ornek": 325,
+    "icerik": {
+     "kaynak": "mars/R3_tes_mineral/TES_mineral_maps_4_ppd.envi",
+     "bant": 1,
+     "bilesen": "quartz",
+     "geotransform": [
+      -180.0,
+      0.25,
+      0.0,
+      90.0,
+      0.0,
+      -0.25
+     ],
+     "veri_yok": "-1 -> NaN (belge 10.3)",
+     "dtype_ham": ">f4",
+     "sekil": [
+      720,
+      1440
+     ],
+     "dtype": "float32"
+    }
+   },
+   "b##_quartz.npy": {
+    "adet": 1,
+    "ornek": "b01_quartz.npy",
+    "bayt_ornek": 4147328,
+    "shape": [
+     720,
+     1440
+    ],
+    "dtype": "float32"
+   },
+   "b##_k_feldspar.json": {
+    "adet": 1,
+    "ornek": "b02_k_feldspar.json",
+    "bayt_ornek": 329,
+    "icerik": {
+     "kaynak": "mars/R3_tes_mineral/TES_mineral_maps_4_ppd.envi",
+     "bant": 2,
+     "bilesen": "k_feldspar",
+     "geotransform": [
+      -180.0,
+      0.25,
+      0.0,
+      90.0,
+      0.0,
+      -0.25
+     ],
+     "veri_yok": "-1 -> NaN (belge 10.3)",
+     "dtype_ham": ">f4",
+     "sekil": [
+      720,
+      1440
+     ],
+     "dtype": "float32"
+    }
+   },
+   "b##_k_feldspar.npy": {
+    "adet": 1,
+    "ornek": "b02_k_feldspar.npy",
+    "bayt_ornek": 4147328,
+    "shape": [
+     720,
+     1440
+    ],
+    "dtype": "float32"
+   },
+   "b##_plagioclase.json": {
+    "adet": 1,
+    "ornek": "b03_plagioclase.json",
+    "bayt_ornek": 330,
+    "icerik": {
+     "kaynak": "mars/R3_tes_mineral/TES_mineral_maps_4_ppd.envi",
+     "bant": 3,
+     "bilesen": "plagioclase",
+     "geotransform": [
+      -180.0,
+      0.25,
+      0.0,
+      90.0,
+      0.0,
+      -0.25
+     ],
+     "veri_yok": "-1 -> NaN (belge 10.3)",
+     "dtype_ham": ">f4",
+     "sekil": [
+      720,
+      1440
+     ],
+     "dtype": "float32"
+    }
+   },
+   "b##_plagioclase.npy": {
+    "adet": 1,
+    "ornek": "b03_plagioclase.npy",
+    "bayt_ornek": 4147328,
+    "shape": [
+     720,
+     1440
+    ],
+    "dtype": "float32"
+   },
+   "b##_amphibole.json": {
+    "adet": 1,
+    "ornek": "b04_amphibole.json",
+    "bayt_ornek": 328,
+    "icerik": {
+     "kaynak": "mars/R3_tes_mineral/TES_mineral_maps_4_ppd.envi",
+     "bant": 4,
+     "bilesen": "amphibole",
+     "geotransform": [
+      -180.0,
+      0.25,
+      0.0,
+      90.0,
+      0.0,
+      -0.25
+     ],
+     "veri_yok": "-1 -> NaN (belge 10.3)",
+     "dtype_ham": ">f4",
+     "sekil": [
+      720,
+      1440
+     ],
+     "dtype": "float32"
+    }
+   },
+   "b##_amphibole.npy": {
+    "adet": 1,
+    "ornek": "b04_amphibole.npy",
+    "bayt_ornek": 4147328,
+    "shape": [
+     720,
+     1440
+    ],
+    "dtype": "float32"
+   },
+   "b##_low_ca_pyroxene.json": {
+    "adet": 1,
+    "ornek": "b05_low_ca_pyroxene.json",
+    "bayt_ornek": 334,
+    "icerik": {
+     "kaynak": "mars/R3_tes_mineral/TES_mineral_maps_4_ppd.envi",
+     "bant": 5,
+     "bilesen": "low_ca_pyroxene",
+     "geotransform": [
+      -180.0,
+      0.25,
+      0.0,
+      90.0,
+      0.0,
+      -0.25
+     ],
+     "veri_yok": "-1 -> NaN (belge 10.3)",
+     "dtype_ham": ">f4",
+     "sekil": [
+      720,
+      1440
+     ],
+     "dtype": "float32"
+    }
+   },
+   "b##_low_ca_pyroxene.npy": {
+    "adet": 1,
+    "ornek": "b05_low_ca_pyroxene.npy",
+    "bayt_ornek": 4147328,
+    "shape": [
+     720,
+     1440
+    ],
+    "dtype": "float32"
+   },
+   "b##_high_ca_pyroxene.json": {
+    "adet": 1,
+    "ornek": "b06_high_ca_pyroxene.json",
+    "bayt_ornek": 335,
+    "icerik": {
+     "kaynak": "mars/R3_tes_mineral/TES_mineral_maps_4_ppd.envi",
+     "bant": 6,
+     "bilesen": "high_ca_pyroxene",
+     "geotransform": [
+      -180.0,
+      0.25,
+      0.0,
+      90.0,
+      0.0,
+      -0.25
+     ],
+     "veri_yok": "-1 -> NaN (belge 10.3)",
+     "dtype_ham": ">f4",
+     "sekil": [
+      720,
+      1440
+     ],
+     "dtype": "float32"
+    }
+   },
+   "b##_high_ca_pyroxene.npy": {
+    "adet": 1,
+    "ornek": "b06_high_ca_pyroxene.npy",
+    "bayt_ornek": 4147328,
+    "shape": [
+     720,
+     1440
+    ],
+    "dtype": "float32"
+   },
+   "b##_olivine.json": {
+    "adet": 1,
+    "ornek": "b07_olivine.json",
+    "bayt_ornek": 326,
+    "icerik": {
+     "kaynak": "mars/R3_tes_mineral/TES_mineral_maps_4_ppd.envi",
+     "bant": 7,
+     "bilesen": "olivine",
+     "geotransform": [
+      -180.0,
+      0.25,
+      0.0,
+      90.0,
+      0.0,
+      -0.25
+     ],
+     "veri_yok": "-1 -> NaN (belge 10.3)",
+     "dtype_ham": ">f4",
+     "sekil": [
+      720,
+      1440
+     ],
+     "dtype": "float32"
+    }
+   },
+   "b##_olivine.npy": {
+    "adet": 1,
+    "ornek": "b07_olivine.npy",
+    "bayt_ornek": 4147328,
+    "shape": [
+     720,
+     1440
+    ],
+    "dtype": "float32"
+   },
+   "b##_hematite.json": {
+    "adet": 1,
+    "ornek": "b08_hematite.json",
+    "bayt_ornek": 327,
+    "icerik": {
+     "kaynak": "mars/R3_tes_mineral/TES_mineral_maps_4_ppd.envi",
+     "bant": 8,
+     "bilesen": "hematite",
+     "geotransform": [
+      -180.0,
+      0.25,
+      0.0,
+      90.0,
+      0.0,
+      -0.25
+     ],
+     "veri_yok": "-1 -> NaN (belge 10.3)",
+     "dtype_ham": ">f4",
+     "sekil": [
+      720,
+      1440
+     ],
+     "dtype": "float32"
+    }
+   },
+   "b##_hematite.npy": {
+    "adet": 1,
+    "ornek": "b08_hematite.npy",
+    "bayt_ornek": 4147328,
+    "shape": [
+     720,
+     1440
+    ],
+    "dtype": "float32"
+   },
+   "b##_sulfates.json": {
+    "adet": 1,
+    "ornek": "b09_sulfates.json",
+    "bayt_ornek": 327,
+    "icerik": {
+     "kaynak": "mars/R3_tes_mineral/TES_mineral_maps_4_ppd.envi",
+     "bant": 9,
+     "bilesen": "sulfates",
+     "geotransform": [
+      -180.0,
+      0.25,
+      0.0,
+      90.0,
+      0.0,
+      -0.25
+     ],
+     "veri_yok": "-1 -> NaN (belge 10.3)",
+     "dtype_ham": ">f4",
+     "sekil": [
+      720,
+      1440
+     ],
+     "dtype": "float32"
+    }
+   },
+   "b##_sulfates.npy": {
+    "adet": 1,
+    "ornek": "b09_sulfates.npy",
+    "bayt_ornek": 4147328,
+    "shape": [
+     720,
+     1440
+    ],
+    "dtype": "float32"
+   },
+   "b##_carbonates.json": {
+    "adet": 1,
+    "ornek": "b10_carbonates.json",
+    "bayt_ornek": 330,
+    "icerik": {
+     "kaynak": "mars/R3_tes_mineral/TES_mineral_maps_4_ppd.envi",
+     "bant": 10,
+     "bilesen": "carbonates",
+     "geotransform": [
+      -180.0,
+      0.25,
+      0.0,
+      90.0,
+      0.0,
+      -0.25
+     ],
+     "veri_yok": "-1 -> NaN (belge 10.3)",
+     "dtype_ham": ">f4",
+     "sekil": [
+      720,
+      1440
+     ],
+     "dtype": "float32"
+    }
+   },
+   "b##_carbonates.npy": {
+    "adet": 1,
+    "ornek": "b10_carbonates.npy",
+    "bayt_ornek": 4147328,
+    "shape": [
+     720,
+     1440
+    ],
+    "dtype": "float32"
+   },
+   "b##_sheet_silicates_high_si_glass.json": {
+    "adet": 1,
+    "ornek": "b11_sheet_silicates_high_si_glass.json",
+    "bayt_ornek": 349,
+    "icerik": {
+     "kaynak": "mars/R3_tes_mineral/TES_mineral_maps_4_ppd.envi",
+     "bant": 11,
+     "bilesen": "sheet_silicates_high_si_glass",
+     "geotransform": [
+      -180.0,
+      0.25,
+      0.0,
+      90.0,
+      0.0,
+      -0.25
+     ],
+     "veri_yok": "-1 -> NaN (belge 10.3)",
+     "dtype_ham": ">f4",
+     "sekil": [
+      720,
+      1440
+     ],
+     "dtype": "float32"
+    }
+   },
+   "b##_sheet_silicates_high_si_glass.npy": {
+    "adet": 1,
+    "ornek": "b11_sheet_silicates_high_si_glass.npy",
+    "bayt_ornek": 4147328,
+    "shape": [
+     720,
+     1440
+    ],
+    "dtype": "float32"
+   },
+   "b##_surface_dust.json": {
+    "adet": 1,
+    "ornek": "b12_surface_dust.json",
+    "bayt_ornek": 332,
+    "icerik": {
+     "kaynak": "mars/R3_tes_mineral/TES_mineral_maps_4_ppd.envi",
+     "bant": 12,
+     "bilesen": "surface_dust",
+     "geotransform": [
+      -180.0,
+      0.25,
+      0.0,
+      90.0,
+      0.0,
+      -0.25
+     ],
+     "veri_yok": "-1 -> NaN (belge 10.3)",
+     "dtype_ham": ">f4",
+     "sekil": [
+      720,
+      1440
+     ],
+     "dtype": "float32"
+    }
+   },
+   "b##_surface_dust.npy": {
+    "adet": 1,
+    "ornek": "b12_surface_dust.npy",
+    "bayt_ornek": 4147328,
+    "shape": [
+     720,
+     1440
+    ],
+    "dtype": "float32"
+   },
+   "b##_rms_error.json": {
+    "adet": 1,
+    "ornek": "b13_rms_error.json",
+    "bayt_ornek": 329,
+    "icerik": {
+     "kaynak": "mars/R3_tes_mineral/TES_mineral_maps_4_ppd.envi",
+     "bant": 13,
+     "bilesen": "rms_error",
+     "geotransform": [
+      -180.0,
+      0.25,
+      0.0,
+      90.0,
+      0.0,
+      -0.25
+     ],
+     "veri_yok": "-1 -> NaN (belge 10.3)",
+     "dtype_ham": ">f4",
+     "sekil": [
+      720,
+      1440
+     ],
+     "dtype": "float32"
+    }
+   },
+   "b##_rms_error.npy": {
+    "adet": 1,
+    "ornek": "b13_rms_error.npy",
+    "bayt_ornek": 4147328,
+    "shape": [
+     720,
+     1440
+    ],
+    "dtype": "float32"
+   }
+  },
+  "meta_kritik": {
+   "birim": "bolluk (oran)",
+   "crs": "Mars 'ocentric, simple cylindrical",
+   "geotransform": [
+    -180.0,
+    0.25,
+    0.0,
+    90.0,
+    0.0,
+    -0.25
+   ],
+   "olcek": 1.0,
+   "ofset": 0.0,
+   "veri_yok_kurali": "-1 ve sonlu olmayan -> NaN"
+  }
+ },
+ "mars/R4_tes_ti_albedo": {
+  "meta_anahtarlar": [
+   "set",
+   "ad",
+   "doi",
+   "surum",
+   "lisans",
+   "birim",
+   "kaynak_adresleri",
+   "indirme_tarihi",
+   "ham_sha256",
+   "gercek_yer_testleri_D2",
+   "D3_testleri",
+   "crs",
+   "geotransform",
+   "olcek",
+   "ofset",
+   "ti_okuma",
+   "ti_baslik",
+   "veri_yok_kurali",
+   "eksik",
+   "dosyalar",
+   "uretim_zamani",
+   "uretim_kodu"
+  ],
+  "dosya_gruplari": {
+   "albedo.json": {
+    "adet": 1,
+    "ornek": "albedo.json",
+    "bayt_ornek": 356,
+    "icerik": {
+     "kaynak": "mars/R4_tes_ti_albedo/global_albedo_8ppd.img",
+     "geotransform": [
+      -180.0,
+      0.125,
+      0.0,
+      90.0,
+      0.0,
+      -0.125
+     ],
+     "birim": "bolometrik albedo",
+     "veri_yok": "sonlu olmayan ve <= 0 -> NaN (etikette veri-yok yok; proje kararı, D2 ile aynı)",
+     "sekil": [
+      1440,
+      2880
+     ],
+     "dtype": "float32"
+    }
+   },
+   "albedo.npy": {
+    "adet": 1,
+    "ornek": "albedo.npy",
+    "bayt_ornek": 16588928,
+    "shape": [
+     1440,
+     2880
+    ],
+    "dtype": "float32"
+   },
+   "ti.json": {
+    "adet": 1,
+    "ornek": "ti.json",
+    "bayt_ornek": 381,
+    "icerik": {
+     "kaynak": "mars/R4_tes_ti_albedo/ti_nmap2003.bin",
+     "geotransform": [
+      -180.0,
+      0.05,
+      0.0,
+      90.0,
+      0.0,
+      -0.05
+     ],
+     "birim": "J m-2 K-1 s-1/2",
+     "veri_yok": "ham 0 -> NaN",
+     "duzen": "ham: ilk satır -90, boylam 0–360 batı; temiz: ilk satır +90, boylam -180'den doğuya",
+     "sekil": [
+      3600,
+      7200
+     ],
+     "dtype": "float32"
+    }
+   },
+   "ti.npy": {
+    "adet": 1,
+    "ornek": "ti.npy",
+    "bayt_ornek": 103680128,
+    "shape": [
+     3600,
+     7200
+    ],
+    "dtype": "float32"
+   }
+  },
+  "meta_kritik": {
+   "birim": "TI: J m⁻² K⁻¹ s⁻½; albedo: birimsiz",
+   "crs": "Mars 'ocentric, simple cylindrical",
+   "geotransform": {
+    "ti": [
+     -180.0,
+     0.05,
+     0.0,
+     90.0,
+     0.0,
+     -0.05
+    ],
+    "albedo": [
+     -180.0,
+     0.125,
+     0.0,
+     90.0,
+     0.0,
+     -0.125
+    ]
+   },
+   "olcek": 1.0,
+   "ofset": 0.0,
+   "veri_yok_kurali": "TI 0 -> NaN; albedo sonlu olmayan ve <= 0 -> NaN"
+  }
+ },
+ "mars/R5_tes_dci": {
+  "meta_anahtarlar": [
+   "set",
+   "ad",
+   "doi",
+   "surum",
+   "lisans",
+   "birim",
+   "kaynak_adresleri",
+   "indirme_tarihi",
+   "ham_sha256",
+   "gercek_yer_testleri_D2",
+   "D3_testleri",
+   "crs",
+   "geotransform",
+   "olcek",
+   "ofset",
+   "okuma",
+   "geometri_kaynagi",
+   "veri_yok_kurali",
+   "dosyalar",
+   "uretim_zamani",
+   "uretim_kodu"
+  ],
+  "dosya_gruplari": {
+   "dci.json": {
+    "adet": 1,
+    "ornek": "dci.json",
+    "bayt_ornek": 282,
+    "icerik": {
+     "kaynak": "mars/R5_tes_dci/dci_lo_ice_dust_16ppd_shifted.pds",
+     "geotransform": [
+      -180.0,
+      0.0625,
+      0.0,
+      90.0,
+      0.0,
+      -0.0625
+     ],
+     "veri_yok": "0,85 -> NaN (belge 10.3, veriden)",
+     "sekil": [
+      2880,
+      5760
+     ],
+     "dtype": "float32"
+    }
+   },
+   "dci.npy": {
+    "adet": 1,
+    "ornek": "dci.npy",
+    "bayt_ornek": 66355328,
+    "shape": [
+     2880,
+     5760
+    ],
+    "dtype": "float32"
+   }
+  },
+  "meta_kritik": {
+   "birim": "yayınım (1350–1400 cm⁻¹ ortalaması)",
+   "crs": "Mars 'ocentric, simple cylindrical",
+   "geotransform": [
+    -180.0,
+    0.0625,
+    0.0,
+    90.0,
+    0.0,
+    -0.0625
+   ],
+   "olcek": 1.0,
+   "ofset": 0.0,
+   "veri_yok_kurali": "0,85 -> NaN"
+  }
+ },
+ "mars/R6_odyssey_grs": {
+  "meta_anahtarlar": [
+   "set",
+   "ad",
+   "doi",
+   "surum",
+   "lisans",
+   "birim",
+   "kaynak_adresleri",
+   "indirme_tarihi",
+   "ham_sha256",
+   "gercek_yer_testleri_D2",
+   "D3_testleri",
+   "crs",
+   "olcek",
+   "ofset",
+   "okuma",
+   "veri_yok_kurali",
+   "puan",
+   "elementler",
+   "dosyalar",
+   "uretim_zamani",
+   "uretim_kodu"
+  ],
+  "dosya_gruplari": {
+   "cl_tablo.json": {
+    "adet": 1,
+    "ornek": "cl_tablo.json",
+    "bayt_ornek": 466,
+    "icerik": {
+     "kaynak": "mars/R6_odyssey_grs/cl_sr_5x5.tab",
+     "sutunlar": [
+      "LATITUDE",
+      "LONGITUDE",
+      "CONCENTRATION",
+      "SIGMA",
+      "SIGMA WITH CFS"
+     ],
+     "birimler_pds3": [
+      "DEGREE",
+      "DEGREE",
+      "WEIGHT PERCENT",
+      "WEIGHT PERCENT",
+      "WEIGHT PERCENT"
+     ],
+     "veri_yok": "9999.999 -> NaN",
+     "okuma": "PDS4 etiketi: record_length 72, 2592 kayıt, alan konumları",
+     "sekil": [
+      2592,
+      5
+     ],
+     "dtype": "float64"
+    }
+   },
+   "cl_tablo.npy": {
+    "adet": 1,
+    "ornek": "cl_tablo.npy",
+    "bayt_ornek": 103808,
+    "shape": [
+     2592,
+     5
+    ],
+    "dtype": "float64"
+   },
+   "fe_tablo.json": {
+    "adet": 1,
+    "ornek": "fe_tablo.json",
+    "bayt_ornek": 466,
+    "icerik": {
+     "kaynak": "mars/R6_odyssey_grs/fe_sr_5x5.tab",
+     "sutunlar": [
+      "LATITUDE",
+      "LONGITUDE",
+      "CONCENTRATION",
+      "SIGMA",
+      "SIGMA WITH CFS"
+     ],
+     "birimler_pds3": [
+      "DEGREE",
+      "DEGREE",
+      "WEIGHT PERCENT",
+      "WEIGHT PERCENT",
+      "WEIGHT PERCENT"
+     ],
+     "veri_yok": "9999.999 -> NaN",
+     "okuma": "PDS4 etiketi: record_length 72, 2592 kayıt, alan konumları",
+     "sekil": [
+      2592,
+      5
+     ],
+     "dtype": "float64"
+    }
+   },
+   "fe_tablo.npy": {
+    "adet": 1,
+    "ornek": "fe_tablo.npy",
+    "bayt_ornek": 103808,
+    "shape": [
+     2592,
+     5
+    ],
+    "dtype": "float64"
+   },
+   "h#o_tablo.json": {
+    "adet": 1,
+    "ornek": "h2o_tablo.json",
+    "bayt_ornek": 467,
+    "icerik": {
+     "kaynak": "mars/R6_odyssey_grs/h2o_sr_5x5.tab",
+     "sutunlar": [
+      "LATITUDE",
+      "LONGITUDE",
+      "CONCENTRATION",
+      "SIGMA",
+      "SIGMA WITH CFS"
+     ],
+     "birimler_pds3": [
+      "DEGREE",
+      "DEGREE",
+      "WEIGHT PERCENT",
+      "WEIGHT PERCENT",
+      "WEIGHT PERCENT"
+     ],
+     "veri_yok": "9999.999 -> NaN",
+     "okuma": "PDS4 etiketi: record_length 72, 2592 kayıt, alan konumları",
+     "sekil": [
+      2592,
+      5
+     ],
+     "dtype": "float64"
+    }
+   },
+   "h#o_tablo.npy": {
+    "adet": 1,
+    "ornek": "h2o_tablo.npy",
+    "bayt_ornek": 103808,
+    "shape": [
+     2592,
+     5
+    ],
+    "dtype": "float64"
+   },
+   "k_tablo.json": {
+    "adet": 1,
+    "ornek": "k_tablo.json",
+    "bayt_ornek": 465,
+    "icerik": {
+     "kaynak": "mars/R6_odyssey_grs/k_sr_5x5.tab",
+     "sutunlar": [
+      "LATITUDE",
+      "LONGITUDE",
+      "CONCENTRATION",
+      "SIGMA",
+      "SIGMA WITH CFS"
+     ],
+     "birimler_pds3": [
+      "DEGREE",
+      "DEGREE",
+      "WEIGHT PERCENT",
+      "WEIGHT PERCENT",
+      "WEIGHT PERCENT"
+     ],
+     "veri_yok": "9999.999 -> NaN",
+     "okuma": "PDS4 etiketi: record_length 66, 2592 kayıt, alan konumları",
+     "sekil": [
+      2592,
+      5
+     ],
+     "dtype": "float64"
+    }
+   },
+   "k_tablo.npy": {
+    "adet": 1,
+    "ornek": "k_tablo.npy",
+    "bayt_ornek": 103808,
+    "shape": [
+     2592,
+     5
+    ],
+    "dtype": "float64"
+   },
+   "si_tablo.json": {
+    "adet": 1,
+    "ornek": "si_tablo.json",
+    "bayt_ornek": 466,
+    "icerik": {
+     "kaynak": "mars/R6_odyssey_grs/si_sr_5x5.tab",
+     "sutunlar": [
+      "LATITUDE",
+      "LONGITUDE",
+      "CONCENTRATION",
+      "SIGMA",
+      "SIGMA WITH CFS"
+     ],
+     "birimler_pds3": [
+      "DEGREE",
+      "DEGREE",
+      "WEIGHT PERCENT",
+      "WEIGHT PERCENT",
+      "WEIGHT PERCENT"
+     ],
+     "veri_yok": "9999.999 -> NaN",
+     "okuma": "PDS4 etiketi: record_length 72, 2592 kayıt, alan konumları",
+     "sekil": [
+      2592,
+      5
+     ],
+     "dtype": "float64"
+    }
+   },
+   "si_tablo.npy": {
+    "adet": 1,
+    "ornek": "si_tablo.npy",
+    "bayt_ornek": 103808,
+    "shape": [
+     2592,
+     5
+    ],
+    "dtype": "float64"
+   },
+   "th_tablo.json": {
+    "adet": 1,
+    "ornek": "th_tablo.json",
+    "bayt_ornek": 475,
+    "icerik": {
+     "kaynak": "mars/R6_odyssey_grs/th_sr_5x5.tab",
+     "sutunlar": [
+      "LATITUDE",
+      "LONGITUDE",
+      "CONCENTRATION",
+      "SIGMA",
+      "SIGMA WITH CFS"
+     ],
+     "birimler_pds3": [
+      "DEGREE",
+      "DEGREE",
+      "PARTS PER MILLION",
+      "PARTS PER MILLION",
+      "PARTS PER MILLION"
+     ],
+     "veri_yok": "9999.999 -> NaN",
+     "okuma": "PDS4 etiketi: record_length 66, 2592 kayıt, alan konumları",
+     "sekil": [
+      2592,
+      5
+     ],
+     "dtype": "float64"
+    }
+   },
+   "th_tablo.npy": {
+    "adet": 1,
+    "ornek": "th_tablo.npy",
+    "bayt_ornek": 103808,
+    "shape": [
+     2592,
+     5
+    ],
+    "dtype": "float64"
+   }
+  },
+  "meta_kritik": {
+   "birim": "ağırlık % (H2O, Fe, Si, Cl), ppm (K, Th) — PDS3 etiketleri",
+   "crs": "Mars, 5° x 5° hücre merkezleri (derece, boylam doğuya)",
+   "olcek": null,
+   "ofset": null,
+   "veri_yok_kurali": "9999.999 -> NaN (belge 10.3); H2O yalnız 57,5°G–57,5°K (D2)"
+  }
+ },
+ "mars/R7_swim": {
+  "meta_anahtarlar": [
+   "set",
+   "ad",
+   "doi",
+   "surum",
+   "lisans",
+   "birim",
+   "kaynak_adresleri",
+   "indirme_tarihi",
+   "ham_sha256",
+   "gercek_yer_testleri_D2",
+   "D3_testleri",
+   "crs",
+   "cozunurluk",
+   "olcek",
+   "ofset",
+   "veri_yok_kurali",
+   "puan_katmani",
+   "okuma",
+   "dosyalar",
+   "uretim_zamani",
+   "uretim_kodu"
+  ],
+  "dosya_gruplari": {
+   "swim#mim_ci_#_#.tif": {
+    "adet": 2,
+    "ornek": "swim4mim_ci_0_1.tif",
+    "bayt_ornek": 12518192,
+    "boyut": [
+     2400,
+     7200
+    ],
+    "bant": 1,
+    "dtype": "float32",
+    "nodata": NaN,
+    "transform": [
+     2963.735,
+     0.0,
+     -10669445.8675,
+     0.0,
+     -2963.735,
+     3556482.1175
+    ],
+    "crs": "ESRI:103885",
+    "olcek": [
+     1.0
+    ],
+    "ofset": [
+     0.0
+    ],
+    "blok": [
+     512,
+     512
+    ]
+   },
+   "swim#mim_ci_#.tif": {
+    "adet": 1,
+    "ornek": "swim4mim_ci_5.tif",
+    "bayt_ornek": 699005,
+    "boyut": [
+     2400,
+     7200
+    ],
+    "bant": 1,
+    "dtype": "float32",
+    "nodata": NaN,
+    "transform": [
+     2963.735,
+     0.0,
+     -10669445.8675,
+     0.0,
+     -2963.735,
+     3556482.1175
+    ],
+    "crs": "ESRI:103885",
+    "olcek": [
+     1.0
+    ],
+    "ofset": [
+     0.0
+    ],
+    "blok": [
+     512,
+     512
+    ]
+   }
+  },
+  "meta_kritik": {
+   "birim": "tutarlılık indeksi -1…+1 (olasılık değil)",
+   "crs": "ESRI:103885",
+   "cozunurluk": "20 ppd, 60°G–60°K",
+   "olcek": 1.0,
+   "ofset": 0.0,
+   "veri_yok_kurali": "-30 (GDAL_NODATA) -> NaN"
+  }
+ },
+ "_makine": {
+  "cpu": 12,
+  "ram_gb": 34.1,
+  "bos_ram_gb": 17.1,
+  "bos_disk_gb": 108.2
+ }
+}

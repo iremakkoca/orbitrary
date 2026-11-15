@@ -1,0 +1,110 @@
+﻿cisim,birim_kodu,birim_aciklama,grup,kaynak
+dunya,ev,,tortul,belge 6.3 (GLiM [47] sınıf → grup); Sude açıklamayı ve pb kapsamını GLiM makalesinden doğrular
+dunya,ig,,buz,belge 6.3 (GLiM [47] sınıf → grup); Sude açıklamayı ve pb kapsamını GLiM makalesinden doğrular
+dunya,mt,,metamorfik,belge 6.3 (GLiM [47] sınıf → grup); Sude açıklamayı ve pb kapsamını GLiM makalesinden doğrular
+dunya,nd,,hesap_disi,belge 6.3 (GLiM [47] sınıf → grup); Sude açıklamayı ve pb kapsamını GLiM makalesinden doğrular
+dunya,pa,,asidik_ara_plutonik,belge 6.3 (GLiM [47] sınıf → grup); Sude açıklamayı ve pb kapsamını GLiM makalesinden doğrular
+dunya,pb,,bazik_plutonik,belge 6.3 (GLiM [47] sınıf → grup); Sude açıklamayı ve pb kapsamını GLiM makalesinden doğrular
+dunya,pi,,asidik_ara_plutonik,belge 6.3 (GLiM [47] sınıf → grup); Sude açıklamayı ve pb kapsamını GLiM makalesinden doğrular
+dunya,py,,volkanik,belge 6.3 (GLiM [47] sınıf → grup); Sude açıklamayı ve pb kapsamını GLiM makalesinden doğrular
+dunya,sc,,tortul,belge 6.3 (GLiM [47] sınıf → grup); Sude açıklamayı ve pb kapsamını GLiM makalesinden doğrular
+dunya,sm,,tortul,belge 6.3 (GLiM [47] sınıf → grup); Sude açıklamayı ve pb kapsamını GLiM makalesinden doğrular
+dunya,ss,,tortul,belge 6.3 (GLiM [47] sınıf → grup); Sude açıklamayı ve pb kapsamını GLiM makalesinden doğrular
+dunya,su,,tortul,belge 6.3 (GLiM [47] sınıf → grup); Sude açıklamayı ve pb kapsamını GLiM makalesinden doğrular
+dunya,va,,volkanik,belge 6.3 (GLiM [47] sınıf → grup); Sude açıklamayı ve pb kapsamını GLiM makalesinden doğrular
+dunya,vb,,volkanik,belge 6.3 (GLiM [47] sınıf → grup); Sude açıklamayı ve pb kapsamını GLiM makalesinden doğrular
+dunya,vi,,volkanik,belge 6.3 (GLiM [47] sınıf → grup); Sude açıklamayı ve pb kapsamını GLiM makalesinden doğrular
+dunya,wb,,hesap_disi,belge 6.3 (GLiM [47] sınıf → grup); Sude açıklamayı ve pb kapsamını GLiM makalesinden doğrular
+ay,Cc,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Ccc,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Csc,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,EIp,,volkanik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Ec,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Ecc,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Em,,volkanik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Esc,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,INp,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,INt,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Ib,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Ibm,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Ic,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Ic1,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Ic2,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Icc,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Icf,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Id,,volkanik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Ig,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Iia,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Iiap,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Iic,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Iif,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Im1,,volkanik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Im2,,volkanik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Imd,,volkanik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Iohi,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Ioho,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Iohs,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Iom,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Iork,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Iorm,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Ip,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Isc,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,It,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Itd,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Nb,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Nbl,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Nbm,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Nbsc,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Nc,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Nnj,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Np,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Nt,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,Ntp,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,pNb,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,pNbm,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,pNc,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+ay,pNt,,bazik_plutonik,"belge 6.3 (mare birimleri volkanik, diğerleri bazik plütonik)"
+mars,AHi,,,
+mars,AHtu,,,
+mars,AHv,,,
+mars,ANa,,,
+mars,Aa,,,
+mars,Ap,,,
+mars,Apu,,,
+mars,Av,,,
+mars,Ave,,,
+mars,HNb,,,
+mars,HNhu,,,
+mars,HNt,,,
+mars,Hp,,,
+mars,Hpe,,,
+mars,Hpu,,,
+mars,Ht,,,
+mars,Hto,,,
+mars,Htu,,,
+mars,Hve,,,
+mars,Nhe,,,
+mars,Nhu,,,
+mars,Nve,,,
+mars,eAb,,,
+mars,eHb,,,
+mars,eHh,,,
+mars,eHt,,,
+mars,eHv,,,
+mars,eNh,,,
+mars,eNhm,,,
+mars,lAa,,,
+mars,lApc,,,
+mars,lApd,,,
+mars,lAv,,,
+mars,lAvf,,,
+mars,lHb,,,
+mars,lHl,,,
+mars,lHt,,,
+mars,lHv,,,
+mars,lHvf,,,
+mars,lNh,,,
+mars,lNv,,,
+mars,mAl,,,
+mars,mNh,,,
+mars,mNhm,,,
