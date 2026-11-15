@@ -1,0 +1,22 @@
+\begin{table}[ht]
+\centering\small
+\caption{Validation summary (values from ozet.json / dogrulama.json).}
+\label{tab:validation}
+\begin{tabular}{llll}
+\hline
+Test & Statistic & p & Reading \\
+\hline
+V1 own mission & Fisher X² = 34.4 & 0.044 & known sites above chance \\
+V1 General & X² = 38.9 & 0.015 & above chance \\
+V1 first pairs (8) & X² = 27.1 & 0.041 & above chance \\
+V2 negative controls (22) & X² = 324.6 & 1.9e-44 & controls rank low \\
+V3 AUC & 0.682 [0.49, 0.86] & 0.016 & CI includes 0.5 \\
+V4 Layer A vs B (adapted) & median Top-3 J = 0.00 & — & see text \\
+V5 prefilter recall (K = 800) & 0.013 & — & below 0.9 (rule K3) \\
+V6 max |r\_S| (off-diagonal) & 0.71 & — & no pair > 0.8 \\
+V7 noise stability & not run & — & limitation \\
+V9 per category (Holm) & Topography: 0.826, Geology: 0.002, Mineralogy: 1.000, Thermal: 1.000, Water/Ice: 0.865, Dust: 0.469, Illumination: 1.000 & — & significant: Geology \\
+V10 expert ranking & not available & — & limitation \\
+\hline
+\end{tabular}
+\end{table}

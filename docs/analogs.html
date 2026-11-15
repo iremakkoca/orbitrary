@@ -15,8 +15,8 @@
 </head>
 <body class="yildizli">
   <header class="ust">
-    <div class="ev-geri"><a href="index.html" class="btn-link">← Home</a>
-    <button class="btn-link geri-btn" onclick="history.length > 1 ? history.back() : (location.href = 'index.html')">← Back</button></div>
+    <a href="index.html" class="btn-link ev-btn">← Home</a>
+    <button class="geri-btn" onclick="history.length > 1 ? history.back() : (location.href = 'index.html')">← Back</button>
     <a href="index.html" class="logo" aria-label="Orbitrary">ORBITR<span class="ters">A</span>RY</a>
     <nav>
       <a href="explore.html">Explore</a>
@@ -97,9 +97,9 @@
       const f = F[x.id];
       const ust = f
         ? `<div class="saha-foto"><img src="img/analog/${x.id}.jpg" alt="${f.baslik}" loading="lazy"></div>`
-        : `<div class="harita" data-lat="${x.enlem}" data-lon="${x.boylam}" data-zoom="13" data-kare="0"></div>`;
-      return `<div class="saha-gorsel">${ust}<div class="harita" data-lat="${x.enlem}" data-lon="${x.boylam}" data-zoom="7" data-kare="1"></div></div>
-        <div class="foto-alt">${f ? `Photo: NASA · ${f.baslik} (${f.nasa_id}). ` : 'Top: satellite close-up of the site. '}Below: the 20 × 20 km window used in the comparison.</div>`;
+        : `<div class="harita" data-lat="${x.enlem}" data-lon="${x.boylam}" data-zoom="12" data-kare="0"></div>`;
+      return `<div class="saha-gorsel">${ust}<div class="harita" data-lat="${x.enlem}" data-lon="${x.boylam}" data-zoom="9" data-kare="1"></div></div>
+        <div class="foto-alt">${f ? `Photo: NASA · ${f.baslik} (${f.nasa_id}). ` : 'Top: satellite close-up of the site (Esri, Maxar). '}Below: where the site is, with the 20 × 20 km window used in the comparison.</div>`;
     }
     function haritalariKur(kok) {
       const io = new IntersectionObserver(es => es.forEach(e => {
@@ -129,13 +129,14 @@
     function bakisHtml(x) {
       const gec = x.ciftler.filter(c => c.sonuc && !c.sonuc.kapidan_kaldi);
       const en = [...gec].sort((a, b) => b.sonuc.Pi - a.sonuc.Pi)[0];
-      const s = en ? en.sonuc.s : null;
+      const s = (en || x.ciftler.find(c => c.sonuc) || {}).sonuc ? (en || x.ciftler.find(c => c.sonuc)).sonuc.s : null;
       const sira = s ? s.map((v, k) => ({ v, k })).filter(o => o.v != null).sort((a, b) => b.v - a.v) : [];
       return `<div class="bakis">
         <div class="etiket">At a glance</div>
         <div class="bakis-satir"><span>Location</span><b class="mono">${V.koordYazi(x.enlem, x.boylam, 2)}</b></div>
         <div class="bakis-satir"><span>Trained for</span><b>${x.ciftler.map(c => hedefAd(c.hedef_id)).filter((v, i, a) => a.indexOf(v) === i).join(', ')}</b></div>
-        <div class="bakis-satir"><span>Best rank</span><b style="color:var(--accent)">${en ? 'top ' + V.yuzde(1 - en.sonuc.Pi, 1) + ' of Earth' : 'filtered by the gate'}</b></div>
+        <div class="bakis-satir"><span>Best rank</span><b style="color:var(--accent)">${en ? 'top ' + V.yuzde(1 - en.sonuc.Pi, 1) + ' of Earth' : 'not ranked (Geology gate)'}</b></div>
+        ${en ? '' : `<div class="bakis-satir"><span>Without the gate</span><b>beats ${V.yuzde(Math.max(...x.ciftler.map(c => c.sonuc ? c.sonuc.Pi_genel : 0)))} of Earth</b></div>`}
         ${sira.length ? `<div class="etiket" style="margin-top:12px">Strongest categories</div>
           ${sira.slice(0, 4).map(o => `<div class="kat-cubuk"><span>${V.KAT_AD[o.k]}</span><div class="cubuk"><i style="width:${(100 * o.v).toFixed(1)}%"></i></div><span class="mono" style="text-align:right">${V.yuzde(o.v)}</span></div>`).join('')}` : ''}
       </div>`;

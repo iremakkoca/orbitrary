@@ -175,7 +175,7 @@ export function radar(svg, sim, { mis = true, boyut = 'normal' } = {}) {
   });
   if (sim) {
     const nokt = f => sim.map((v, i) => v == null ? null : P(i, f(v))).filter(Boolean).join(' ');
-    if (mis) s += `<polygon points="${nokt(v => 1 - v)}" fill="none" stroke="#ff9f5c" stroke-width="2" stroke-dasharray="6 5"/>`;
+    if (mis) s += `<polygon points="${nokt(v => 1 - v)}" fill="none" stroke="#8a9bb3" stroke-width="2" stroke-dasharray="6 5"/>`;
     s += `<polygon points="${nokt(v => v)}" fill="#5cc8ff" fill-opacity="0.22" stroke="#5cc8ff" stroke-width="2"/>`;
     sim.forEach((v, i) => { if (v != null) s += `<circle cx="${cx + R * v * Math.cos(aci(i))}" cy="${cy + R * v * Math.sin(aci(i))}" r="3" fill="#5cc8ff"/>`; });
   }

@@ -1,0 +1,49 @@
+{
+ "kapsama_B_ay_ortalama": 0.8625308336144375,
+ "kapsama_B_mars_ortalama": 0.8700527375268262,
+ "E_prime": 346064,
+ "dunya_pencere": 1275482,
+ "ay_pencere": 94864,
+ "mars_pencere": 360654,
+ "hedef": 26,
+ "artemis": 9,
+ "mars_hedef": 10,
+ "ay_diger": 7,
+ "V1_gecen_cift": 8,
+ "V1_gecen_Pi_ortanca": 0.8663123006149152,
+ "V1_en_iyi": [
+  0.974611632530399,
+  "Rio Grande Gorge, Taos, New Mexico",
+  "M-A15"
+ ],
+ "top1_P_ortanca": {
+  "genel": 0.9232952730264681,
+  "mobility": 0.9438195685099152,
+  "geology": 0.9260964769568767,
+  "ice": 0.8571981145582757,
+  "astro": 0.8617412896395567
+ },
+ "top3_100km_otesi": [
+  336,
+  336
+ ],
+ "eps1_hepsi_1cm_alti": false,
+ "eps1_durum_sayim": {
+  "hassasiyetten küçük": 1070,
+  "bulundu": 21
+ },
+ "V4": {
+  "tanim": "uyarlama: 26 liste hedefi × görev; Katman A (bütün E′) ile hedef koordinatının Katman B hücresi (Kön = 800); belge V4'ün 200 rastgele hedefi koşulmadı",
+  "n": 111,
+  "J_top3_ortanca": 0.0,
+  "J_top3_ort": 0.01891891891891892,
+  "J_sifir_orani": 0.918918918918919,
+  "B1_A_ilk10_orani": 0.16216216216216217,
+  "P1_fark_ortanca": 0.04812499434566253,
+  "P1_fark_y95": 0.24669759994968338,
+  "fark_s_n": 185,
+  "fark_s_ortanca": 0.006642650417418183,
+  "fark_s_y95": 0.19264612487575108
+ },
+ "sure_s": 6.6
+}

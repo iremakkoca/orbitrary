@@ -22,13 +22,5 @@
  "v-ephrata": {
   "nasa_id": "EO 92025",
   "baslik": "Potholes Coulee, Channeled Scablands (Landsat 8)"
- },
- "v-ries": {
-  "nasa_id": "EO 8554",
-  "baslik": "Ries Crater, Germany (ASTER elevation)"
- },
- "v-sudbury": {
-  "nasa_id": "EO 148844",
-  "baslik": "Sudbury Impact Structure (SRTM relief)"
  }
 }

@@ -257,6 +257,25 @@
     .topo-sag canvas { width: 100%; display: block; background: #060a13; border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 20px 60px rgba(0,0,0,0.45); }
     @media (max-width: 960px) { .topo-vitrin { grid-template-columns: 1fr; padding: 24px; } }
     .topo-noktalar { display: grid; gap: 10px; margin: 14px 0; }
+    .sonuc-blok { margin-top: 26px; }
+    .sonuc-sayilar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 22px; }
+    .sonuc-sayilar > div { padding: 26px 22px; border-right: 1px solid var(--line); }
+    .sonuc-sayilar > div:last-child { border-right: none; }
+    .sonuc-sayilar b { display: block; font-size: clamp(30px, 3.4vw, 48px); font-weight: 600; color: var(--accent); line-height: 1.05; }
+    .sonuc-sayilar span { display: block; margin-top: 8px; color: var(--muted); font-size: 14px; line-height: 1.45; }
+    .sonuc-iki { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .sonuc-kart { border: 1px solid var(--line); border-radius: 22px; padding: 32px; background: linear-gradient(160deg, #0b1424, #060a13); }
+    .sonuc-kart h3 { font-size: 26px; margin: 8px 0 14px; }
+    .sonuc-kart.vurgu-kart { border-color: rgba(92,200,255,0.4); }
+    .formul { font-size: 24px; font-weight: 600; padding: 16px 18px; border-radius: 12px; background: rgba(92,200,255,0.07); margin-bottom: 16px; }
+    .adimlar { margin: 0 0 18px 18px; display: grid; gap: 10px; color: var(--muted); font-size: 15px; line-height: 1.55; }
+    .adimlar b { color: var(--text); }
+    .dg-satir { display: grid; grid-template-columns: 150px 1fr; gap: 14px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .dg-satir b { font-size: 28px; color: var(--accent); font-weight: 600; }
+    .dg-satir span { color: var(--muted); font-size: 14.5px; }
+    #dogrulama-sonuc p { font-size: 15.5px; line-height: 1.6; margin-bottom: 8px; }
+    #dogrulama-sonuc + .cta-analiz { margin-top: 18px; }
+    @media (max-width: 960px) { .sonuc-sayilar, .sonuc-iki { grid-template-columns: 1fr 1fr; } }
     .topo-noktalar div { border-left: 2px solid var(--accent); padding: 4px 0 4px 14px; }
     .topo-noktalar b { display: block; font-size: 15px; margin-bottom: 2px; }
     .topo-noktalar span { color: var(--muted); font-size: 14px; line-height: 1.5; }
@@ -636,8 +655,33 @@
         </div>
       </div>
       <div class="kartlar" style="grid-template-columns:repeat(2,1fr)">
-        <div class="kart reveal"><div class="no">METHOD</div><h3>How the score is built</h3><p class="soluk">Per-category similarities combined with mission weights into one absolute score.</p><div class="yer-tutucu" style="text-align:left;line-height:1.6"><b style="font-size:18px">P = Gate · Σ w·s / Σ w</b><br><span class="soluk">s = similarity in one category (share of reference Earth windows that are further from the target); w = mission weight; the sum runs over categories with data on both sides.</span><br><a class="btn-link" href="target.html" style="margin-top:10px;display:inline-block">See full target analyses →</a></div></div>
-        <div class="kart reveal" id="dogrulama"><div class="no">VALIDATION</div><h3>Does it find known analogs?</h3><p class="soluk">We check whether well-studied analog sites rank high for the targets they are known to resemble.</p><div class="yer-tutucu" id="dogrulama-sonuc" style="text-align:left;line-height:1.6">Loading results…</div><a class="btn-link" href="analogs.html" style="margin-top:10px;display:inline-block">See every analog site →</a></div>
+        <div class="sonuc-blok reveal" style="grid-column:1/-1">
+          <div class="sonuc-sayilar" id="buyuk-sayilar">
+            <div><b id="bs-e">—</b><span>Earth land windows scored (20 × 20 km)</span></div>
+            <div><b id="bs-am">—</b><span>Moon and Mars windows you can click</span></div>
+            <div><b id="bs-h">26</b><span>targets analysed in full, 5 missions each</span></div>
+            <div><b id="bs-v">—</b><span>median NASA training site that meets the mission requirement beats this share of Earth</span></div>
+          </div>
+          <div class="sonuc-iki">
+            <div class="sonuc-kart">
+              <div class="no">METHOD</div>
+              <h3>How a score is built</h3>
+              <div class="formul">P = Gate × Σ<sub>k</sub> w<sub>k</sub> s<sub>k</sub> / Σ<sub>k</sub> w<sub>k</sub></div>
+              <ol class="adimlar">
+                <li><b>Gate.</b> The mission first asks a yes/no question (can a rover drive, is the rock bare, is the ground frozen, is it dry enough).</li>
+                <li><b>Eight similarities s<sub>k</sub>.</b> Each one is a percentile: the share of reference Earth windows that are further from the target.</li>
+                <li><b>Mission weights w<sub>k</sub>.</b> 80% of the weight goes to the categories that matter for the mission, 20% to the rest. Categories without data on both sides are left out.</li>
+              </ol>
+              <a class="cta-analiz" href="target.html">See the 26 target analyses →</a>
+            </div>
+            <div class="sonuc-kart vurgu-kart" id="dogrulama">
+              <div class="no">VALIDATION</div>
+              <h3>It finds NASA's own training grounds</h3>
+              <div id="dogrulama-sonuc" class="soluk">Loading results…</div>
+              <a class="cta-analiz" href="analogs.html">See every analog site →</a>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- Site v2: topoloji animasyonu (11 Kasım Hücre 32'den; yönteme bağlı sayı içermez) -->
       <script>
@@ -654,7 +698,7 @@
           for (let i = 0; i < N; i++) y[i] = (y[i] - lo) / (hi - lo);
           const sira = [...Array(N).keys()].sort((a, b) => y[a] - y[b]), ebe = new Array(N).fill(-1), dog = y.slice(), renk = new Array(N);
           const kok = a => { while (ebe[a] !== a) { ebe[a] = ebe[ebe[a]]; a = ebe[a]; } return a; };
-          const ciftler = [], RENK = ['#5cc8ff', '#7ee2a8', '#ffd36b', '#ff9f5c', '#c79bff', '#ff7aa8', '#8af0ff', '#b5e86b', '#ffb36b', '#9fb4ff'];
+          const ciftler = [], RENK = ['#5cc8ff', '#2f8fd6', '#9fdcff', '#1f5fa8', '#7cc4ef', '#3e9be0', '#c9e8fb', '#5e86b8', '#a9d8f5', '#4aa8e8'];
           for (const i of sira) {
             ebe[i] = i; renk[i] = null;
             for (const j of [i - 1, i + 1]) {
@@ -691,8 +735,8 @@
             }
             c.beginPath(); c.moveTo(px(0), prof.y + prof.h);
             for (let i = 0; i < N; i++) c.lineTo(px(i), py(y[i]));
-            c.lineTo(px(N - 1), prof.y + prof.h); c.closePath(); c.fillStyle = '#2a2f3a'; c.fill();
-            c.beginPath(); for (let i = 0; i < N; i++) (i ? c.lineTo : c.moveTo).call(c, px(i), py(y[i])); c.strokeStyle = '#c9b38f'; c.lineWidth = 2; c.stroke();
+            c.lineTo(px(N - 1), prof.y + prof.h); c.closePath(); c.fillStyle = '#1a2436'; c.fill();
+            c.beginPath(); for (let i = 0; i < N; i++) (i ? c.lineTo : c.moveTo).call(c, px(i), py(y[i])); c.strokeStyle = '#d6e6f5'; c.lineWidth = 2; c.stroke();
             c.setLineDash([6, 6]); c.strokeStyle = '#5cc8ff'; c.lineWidth = 1.2; c.beginPath(); c.moveTo(prof.x, py(L)); c.lineTo(prof.x + prof.w, py(L)); c.stroke(); c.setLineDash([]);
             c.fillStyle = '#5cc8ff'; c.font = '17px Space Grotesk, sans-serif'; c.fillText(`water level ${Math.round(Math.min(L, 1) * 100)}%`, prof.x + prof.w - 150, py(L) - 8);
             for (const m of minimumlar) if (y[m] < L) { c.beginPath(); c.arc(px(m), py(y[m]), 4, 0, 7); c.fillStyle = renk[m]; c.fill(); }
@@ -998,9 +1042,14 @@
       const c = A.filter(x => x.tur === 'validation').flatMap(x => x.ciftler.map(k => k.sonuc)).filter(Boolean);
       const gec = c.filter(k => !k.kapidan_kaldi).map(k => k.Pi).sort((a, b) => a - b), n = gec.length;
       const med = n % 2 ? gec[(n - 1) / 2] : (gec[n / 2 - 1] + gec[n / 2]) / 2;
+      document.getElementById('bs-e').textContent = O.E_prime.toLocaleString('en');
+      document.getElementById('bs-am').textContent = (O.izgara.ay + O.izgara.mars).toLocaleString('en');
+      document.getElementById('bs-v').textContent = V.yuzde(med);
       document.getElementById('dogrulama-sonuc').innerHTML =
-        `<b style="font-size:20px;color:var(--accent)">${n} of ${c.length} NASA training sites meet the mission requirement, and their median beats ${V.yuzde(med)} of Earth's land.</b><br>` +
-        `<span class="soluk">Best case: top ${V.yuzde(1 - gec[n - 1], 1)}. Counting all ${g.m} pairs (gate failures as rank 0) the median is ${V.yuzde(g.Pi_ortanca)}, Fisher p = ${g.p.toFixed(3)}; random would be 50%.</span>`;
+        `<p>We never told the method where NASA trained. It scored all of Earth's land for each Moon or Mars target, and then we looked up where NASA's sites landed.</p>
+         <div class="dg-satir"><b>top ${V.yuzde(1 - gec[n - 1], 1)}</b><span>Rio Grande Gorge for Apollo 15, the best case</span></div>
+         <div class="dg-satir"><b>${V.yuzde(med)}</b><span>median of the ${n} of ${c.length} pairs that meet the mission requirement</span></div>
+         <div class="dg-satir"><b>p = ${g.p.toFixed(3)}</b><span>all ${g.m} pairs together (Fisher test); random would sit at 50%</span></div>`;
     } catch (e) { console.warn('ozet.json yüklenemedi', e); }
   </script>
   <script>

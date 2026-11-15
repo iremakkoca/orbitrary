@@ -214,8 +214,8 @@
 <body>
   <!-- ===================== ÜST ŞERİT ===================== -->
   <header>
-    <div class="ev-geri"><a href="index.html" class="btn-link">← Home</a>
-    <button class="btn-link geri-btn" onclick="history.length > 1 ? history.back() : (location.href = 'index.html')">← Back</button></div>
+    <a href="index.html" class="btn-link ev-btn">← Home</a>
+    <button class="geri-btn" onclick="history.length > 1 ? history.back() : (location.href = 'index.html')">← Back</button>
     <span class="logo" aria-label="Orbitrary">ORBITR<span class="ters">A</span>RY</span>
 
     <!-- MOON | MARS kapsülü. data-secim: hangisi seçili (mavi hap buna göre kayar) -->
@@ -428,7 +428,7 @@
         return `<polygon points="${pts.join(' ')}" fill="${dolu ? renk : 'none'}" fill-opacity="0.22"
                   stroke="${renk}" stroke-width="2" ${dolu ? '' : 'stroke-dasharray="6 5"'}/>`;
       };
-      if (mis) s += cokgen(mis, '#ff9f5c', false);
+      if (mis) s += cokgen(mis, '#8a9bb3', false);
       if (sim) s += cokgen(sim, '#5cc8ff', true);
       svg.innerHTML = s;
     }

@@ -14,7 +14,7 @@
   --muted: #8a97ab;       /* soluk yazı */
   --accent: #5cc8ff;      /* vurgu rengi: soğuk mavi */
   --warn: #ffd36b;        /* uyarı: sarı */
-  --mismatch: #ff9f5c;    /* uyuşmazlık çizgisi: turuncu */
+  --mismatch: #8a9bb3;    /* uyuşmazlık çizgisi: soluk gri-mavi */
 
   /* MİNİK YILDIZ DESENİ (koyu bölümlerin arka planı)
      Her katman tek bir 1–2 piksellik nokta çizen bir radial-gradient; --yildiz-boyut o noktanın
