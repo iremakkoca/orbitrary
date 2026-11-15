@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- Ortak stil: renkler, butonlar, logo, MOON|MARS kapsülü -->
-  <link rel="stylesheet" href="css/style.css?v=11151316">
+  <link rel="stylesheet" href="css/style.css?v=11151332">
 
   <!-- Sadece ana sayfaya özel stiller -->
   <style>
@@ -378,7 +378,7 @@
     // Sayfa (3D sahne, yazı tipleri, kütüphaneler) yüklenince perde kalkar; en geç 6 sn
     (function () { const y = document.getElementById('yukleniyor'); let b = false;
       const bit = () => { if (b) return; b = true; y.classList.add('bitti'); setTimeout(() => y.remove(), 600); };
-      window.addEventListener('load', () => setTimeout(bit, 200)); setTimeout(bit, 6000); })();
+      window.addEventListener('load', () => setTimeout(bit, location.hash && location.hash !== '#hero' ? 0 : 200)); setTimeout(bit, location.hash && location.hash !== '#hero' ? 2500 : 6000); })();
   </script>
   <!-- ===================== ÜST ŞERİT ===================== -->
   <header id="ust">
@@ -1039,7 +1039,15 @@
     document.querySelectorAll('[data-govde]').forEach(b => b.addEventListener('click', () => { if (!liste.hidden) setTimeout(onerileriGoster, 0); }));
 
     // ===== ANİMASYONLAR =====
-    if (!azHareket) {
+    // Başka sayfadan bir bölüme gelindiyse (ör. analogs.html → index.html#yontem): animasyon beklenmez,
+    // her şey hemen görünür ve sayfa doğrudan o bölümde açılır
+    const gelinen = location.hash && location.hash !== '#hero' ? document.querySelector(location.hash) : null;
+    if (gelinen) {
+      history.scrollRestoration = 'manual';
+      const git = () => window.scrollTo(0, gelinen.getBoundingClientRect().top + window.scrollY - ust.offsetHeight);
+      git(); setTimeout(git, 250); window.addEventListener('load', () => { git(); setTimeout(git, 300); });
+    }
+    if (!azHareket && !gelinen) {
       gsap.from('.hero-icerik > *', { y: 30, opacity: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out', delay: 0.2, clearProps: 'transform' });
       // Kaydırınca .reveal öğeleri ekranın alt %85'ine girince belirsin; aynı anda girenler 0.08 sn arayla
       gsap.set('.reveal', { y: 36, opacity: 0 });
@@ -1052,10 +1060,10 @@
   </script>
 
   <!-- 3D sahne: ayrı dosya -->
-  <script type="module" src="js/scene-home.js?v=11151316"></script>
+  <script type="module" src="js/scene-home.js?v=11151332"></script>
   <script type="module">
     // Site v2: doğrulama sayıları ozet.json'dan (elle sayı yok)
-    import * as V from './js/veri.js?v=11151316';
+    import * as V from './js/veri.js?v=11151332';
     try {
       const [O, A] = await Promise.all([V.ozet(), V.analoglar()]), g = O.V1.gorev, v3 = O.V3;
       const c = A.filter(x => x.tur === 'validation').flatMap(x => x.ciftler.map(k => k.sonuc)).filter(Boolean);
