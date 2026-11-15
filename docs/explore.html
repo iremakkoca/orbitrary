@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- Ortak stil: renkler, butonlar, logo, MOON|MARS kapsülü -->
-  <link rel="stylesheet" href="css/style.css?v=11151337">
+  <link rel="stylesheet" href="css/style.css?v=11151355">
 
   <!-- Sadece keşif sayfasına özel stiller -->
   <style>
@@ -208,7 +208,7 @@
   </script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <link rel="stylesheet" href="css/analiz.css?v=11151337">
+  <link rel="stylesheet" href="css/analiz.css?v=11151355">
 </head>
 
 <body>
@@ -360,8 +360,8 @@
     import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
     import { gsap } from 'gsap';
     import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
-    import { gokyuzuEkle } from './js/gokyuzu.js?v=11151337';
-    import * as V from './js/veri.js?v=11151337';
+    import { gokyuzuEkle } from './js/gokyuzu.js?v=11151355';
+    import * as V from './js/veri.js?v=11151355';
     gsap.registerPlugin(ScrollTrigger);
 
     // ============================================================
@@ -782,12 +782,9 @@
       for (const h of hedefler) {
         const m = MESH[h.body === 'moon' ? 'ay' : 'mars']; if (!m) continue;
         const p = hedefVektor(h.lat, h.lon);
-        // İçi boş beyaz halka; dışında ince koyu kontur → açık renkli yüzeyde de görünür
-        const r = new THREE.Mesh(new THREE.RingGeometry(0.011, 0.0165, 40),
+        // İnce, içi boş beyaz halka (kontur yok)
+        const r = new THREE.Mesh(new THREE.RingGeometry(0.0085, 0.0103, 48),
           new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 1, side: THREE.DoubleSide, toneMapped: false, depthWrite: false }));
-        const kontur = new THREE.Mesh(new THREE.RingGeometry(0.0165, 0.0205, 40),
-          new THREE.MeshBasicMaterial({ color: 0x02050c, transparent: true, opacity: 0.6, side: THREE.DoubleSide, toneMapped: false, depthWrite: false }));
-        r.add(kontur);
         r.position.copy(p).multiplyScalar(1.004);
         r.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), p);
         m.add(r);
