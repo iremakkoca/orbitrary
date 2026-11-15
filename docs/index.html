@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- Ortak stil: renkler, butonlar, logo, MOON|MARS kapsülü -->
-  <link rel="stylesheet" href="css/style.css?v=11151332">
+  <link rel="stylesheet" href="css/style.css?v=11151337">
 
   <!-- Sadece ana sayfaya özel stiller -->
   <style>
@@ -188,8 +188,7 @@
     .oran-kare { aspect-ratio: 1; }
 
     /* Fotoğraf mozaiği: 1 büyük + 3 küçük */
-    .mozaik { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; gap: 14px; margin-top: 44px; height: 560px; }
-    .mozaik .foto:first-child { grid-row: 1 / 3; }
+    .mozaik { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 36px; height: 280px; }
     .mozaik-alt { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 14px; height: 260px; }
 
     /* ===== KARTLAR ===== */
@@ -230,8 +229,10 @@
     .gorev-ic { padding: 24px 26px 28px; display: flex; flex-direction: column; gap: 12px; }
     .gorev-baslik { display: flex; align-items: center; gap: 12px; }
     .gorev-baslik svg { width: 30px; height: 30px; color: var(--accent); flex: none; }
-    .gorev-baslik h3 { font-size: 22px; font-weight: 600; }
-    .soru { font-size: 17px; color: var(--text); }
+    .gorev-baslik h3 { font-size: 18px; font-weight: 600; }
+    #gorevler h2 { font-size: clamp(24px, 2.6vw, 34px); }
+    #gorevler .gorev-ic p.soluk { font-size: 14px; }
+    .soru { font-size: 15px; color: var(--text); }
     .anahtar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 4px; }
     .anahtar span { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-right: 4px; }
     .anahtar b { font-weight: 500; font-size: 13px; padding: 4px 10px; border-radius: 999px; background: rgba(92, 200, 255, 0.1); color: var(--accent); }
@@ -415,10 +416,10 @@
     <a class="bag" href="#analog">The problem <span>01</span></a>
     <a class="bag" href="#galeri">Rehearsing on Earth <span>02</span></a>
     <a class="bag" href="#nasil">How it works <span>03</span></a>
-    <a class="bag" href="#gorevler">Missions <span>04</span></a>
-    <a class="bag" href="#veri">Data <span>05</span></a>
-    <a class="bag" href="#kimler">Who it's for <span>06</span></a>
-    <a class="bag" href="#yontem">Under the hood <span>07</span></a>
+    <a class="bag" href="#yontem">Under the hood <span>04</span></a>
+    <a class="bag" href="#gorevler">Missions <span>05</span></a>
+    <a class="bag" href="#veri">Data <span>06</span></a>
+    <a class="bag" href="#kimler">Who it's for <span>07</span></a>
     <a class="bag" href="#sinirlar">Limits <span>08</span></a>
     <a class="bag" href="#ekip">Team <span>09</span></a>
     <a class="bag" href="target.html">Target analyses <span>→</span></a>
@@ -481,15 +482,11 @@
     <div class="ic">
       <div class="etiket reveal">Rehearsing on Earth</div>
       <h2 class="reveal">Underwater, in the Arctic, in the desert</h2>
-      <p class="giris soluk reveal">NASA crews and scientists have trained in analog environments since the Apollo era: astronauts learned geology in volcanic fields, aquanauts practice spacewalks on the sea floor, and rovers are driven across deserts before they are trusted on another world.</p>
+      <p class="giris soluk reveal">NASA crews and scientists have trained in analog environments since the Apollo era: astronauts learned geology in volcanic fields, aquanauts practice spacewalks on the sea floor, and rovers are driven across deserts before they are trusted on another world. The practice continues for Artemis: NASA's JETT field tests rehearsed lunar spacewalks in the volcanic terrain near Flagstaff, Arizona, and at Kilbourne Hole, New Mexico. Each of these places was chosen by experts, one at a time. Orbitrary asks the same question for the whole planet at once.</p>
       <div class="mozaik">
         <figure class="foto reveal" data-foto="galeri-1"><img src="img/galeri-1.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
         <figure class="foto reveal" data-foto="galeri-2"><img src="img/galeri-2.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
         <figure class="foto reveal" data-foto="galeri-3"><img src="img/galeri-3.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
-      </div>
-      <div class="mozaik-alt">
-        <figure class="foto reveal" data-foto="galeri-4"><img src="img/galeri-4.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
-        <figure class="foto reveal" data-foto="galeri-5"><img src="img/galeri-5.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
       </div>
     </div>
   </section>
@@ -510,142 +507,8 @@
     </div>
   </section>
 
-  <!-- ===================== 5) GÖREVLER ===================== -->
-  <section class="bolum acik" id="gorevler">
-    <div class="ic">
-      <div class="etiket reveal">Missions</div>
-      <h2 class="reveal">Four missions, four reasons to rehearse</h2>
-      <p class="giris soluk reveal">An analog is only "good" for a purpose. A flat, dusty plain is ideal for testing a rover and nearly useless for searching for traces of life. So before comparing places, you choose what you want to rehearse, and each mission puts more weight on the categories that matter for it.</p>
-
-      <div class="gorev-izgara">
-        <article class="gorev-kart reveal">
-          <figure class="foto" data-foto="gorev-hareket"><img src="img/gorev-hareket.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
-          <div class="gorev-ic">
-            <div class="gorev-baslik">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="9" width="17" height="6" rx="1.5"/><circle cx="7.5" cy="17.5" r="2"/><circle cx="16.5" cy="17.5" r="2"/><path d="M15 9V5.5"/><rect x="13.5" y="3" width="4" height="2.5" rx="0.6"/></svg>
-              <h3>Mobility test</h3>
-            </div>
-            <p class="soru">Can a rover or a crew move safely here?</p>
-            <p class="soluk">Driving, navigation and traction on loose soil, climbing slopes and steering around boulders. Mobility analogs are where wheels, autonomous navigation software and spacewalk routes are tested before they are trusted on another world.</p>
-            <div class="anahtar"><span>Key categories</span><b>Topography</b><b>Topology</b><b>Dust</b></div>
-          </div>
-        </article>
-
-        <article class="gorev-kart reveal">
-          <figure class="foto" data-foto="gorev-jeoloji"><img src="img/gorev-jeoloji.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
-          <div class="gorev-ic">
-            <div class="gorev-baslik">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17 7 9l5-3 6 2 2 7-5 4H8z"/><path d="M12 6l-1 6-7 5M11 12l9 3M11 12l4 7"/></svg>
-              <h3>Geology</h3>
-            </div>
-            <p class="soru">Can we learn to read the rocks here?</p>
-            <p class="soluk">Field geology training, choosing which samples to collect, and testing instruments on rocks that formed the way lunar or Martian rocks did: by volcanism, impacts, water or ice. Astronauts train their eyes on Earth so they recognise what matters on the surface.</p>
-            <div class="anahtar"><span>Key categories</span><b>Geology</b><b>Mineralogy</b><b>Topology</b></div>
-          </div>
-        </article>
-
-        <article class="gorev-kart reveal">
-          <figure class="foto" data-foto="gorev-buz"><img src="img/gorev-buz.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
-          <div class="gorev-ic">
-            <div class="gorev-baslik">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9"/><path d="M9.5 4.5 12 7l2.5-2.5M9.5 19.5 12 17l2.5 2.5"/></svg>
-              <h3>Ice &amp; resources</h3>
-            </div>
-            <p class="soru">Can a base live off the land here?</p>
-            <p class="soluk">Prospecting for water ice and water-bearing minerals, and testing drills and extraction methods. Using local resources, known as in-situ resource utilization, is key for a permanent base: water means drinking water, oxygen and rocket fuel.</p>
-            <div class="anahtar"><span>Key categories</span><b>Water/Ice</b><b>Thermal</b><b>Illumination</b></div>
-          </div>
-        </article>
-
-        <article class="gorev-kart reveal">
-          <figure class="foto" data-foto="gorev-yasam"><img src="img/gorev-yasam.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
-          <div class="gorev-ic">
-            <div class="gorev-baslik">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="6.5"/><circle cx="10.5" cy="11" r="2"/><circle cx="14.5" cy="14.2" r="0.9" fill="currentColor"/><path d="M12 5.5V3M18.5 12H21M12 18.5V21M5.5 12H3M16.6 7.4l1.8-1.8M7.4 16.6l-1.8 1.8"/></svg>
-              <h3>Astrobiology</h3>
-            </div>
-            <p class="soru">Could life have existed, and how would we recognise its traces?</p>
-            <p class="soluk">Extreme environments on Earth, from hyper-arid deserts to salt flats and cold springs, show where microbes survive and which minerals preserve biosignatures. They help decide where a rover should search and what its instruments must be able to detect.</p>
-            <div class="anahtar"><span>Key categories</span><b>Water/Ice</b><b>Mineralogy</b><b>Thermal</b></div>
-          </div>
-        </article>
-      </div>
-
-      <h3 class="reveal" style="font-size:24px;font-weight:600;margin-top:72px">How we chose these four</h3>
-      <div class="nasil-sectik">
-        <div class="kart reveal"><div class="no">FROM THE CHALLENGE</div><p class="soluk">NASA's challenge lists the dimensions an analog can share: geology, terrain, temperature, water and ice, dust, biology, subsurface and conditions for robotic or human operations.</p></div>
-        <div class="kart reveal"><div class="no">GROUPED BY PURPOSE</div><p class="soluk">We grouped these dimensions by what a team would actually rehearse on Earth: moving across the surface, reading its rocks, finding resources, and looking for signs of life.</p></div>
-        <div class="kart reveal"><div class="no">DIFFERENT WEIGHTS</div><p class="soluk">All four missions use the same eight categories, but weigh them differently. The exact weights will be published with the method.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== 6) VERİ: 8 KATEGORİ ===================== -->
-  <section class="bolum" id="veri">
-    <div class="ic">
-      <div class="etiket reveal">Data</div>
-      <h2 class="reveal">Eight ways two places can be alike</h2>
-      <p class="giris soluk reveal">Two places can look alike in a photo and still be very different underneath. That's why every comparison is split into eight categories. Click a category to see what it measures, which data feeds it and how we compare two places in it.</p>
-      <!-- data-kat = kategori sırası (0–7). Pencere içeriği aşağıdaki script'teki KATEGORILER listesinden gelir -->
-      <div class="kartlar" style="grid-template-columns: repeat(4, 1fr)">
-        <button class="kart kat-kart reveal" data-kat="0"><div class="no">01</div><h3>Topography</h3><p class="soluk">How high, how steep and how rough the ground is. It decides whether a rover can drive and a lander can touch down safely.</p><span class="detay">Details →</span></button>
-        <button class="kart kat-kart reveal" data-kat="1"><div class="no">02</div><h3>Topology</h3><p class="soluk">The shape structure of the terrain: its pits, rings and ridges. Two landscapes can share it even at different elevations.</p><span class="detay">Details →</span></button>
-        <button class="kart kat-kart reveal" data-kat="2"><div class="no">03</div><h3>Geology</h3><p class="soluk">What the ground is made of and how it formed: by volcanoes, impacts, water or ice.</p><span class="detay">Details →</span></button>
-        <button class="kart kat-kart reveal" data-kat="3"><div class="no">04</div><h3>Mineralogy</h3><p class="soluk">Which minerals are exposed at the surface. Some, like clays and sulfates, record a watery past.</p><span class="detay">Details →</span></button>
-        <button class="kart kat-kart reveal" data-kat="4"><div class="no">05</div><h3>Thermal</h3><p class="soluk">How hot and how cold the surface gets, and how big the swing between day and night is.</p><span class="detay">Details →</span></button>
-        <button class="kart kat-kart reveal" data-kat="5"><div class="no">06</div><h3>Water/Ice</h3><p class="soluk">Ice, permafrost and water-bearing ground: the most valuable resource for a long-term base.</p><span class="detay">Details →</span></button>
-        <button class="kart kat-kart reveal" data-kat="6"><div class="no">07</div><h3>Dust</h3><p class="soluk">Dust cover, wind and erosion: the processes that reshape the surface and wear down equipment.</p><span class="detay">Details →</span></button>
-        <button class="kart kat-kart reveal" data-kat="7"><div class="no">08</div><h3>Illumination</h3><p class="soluk">How much sunlight a site receives and how long its shadows last, which matters for power and operations.</p><span class="detay">Details →</span></button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Kategori ayrıntı penceresi (başta kapalı) -->
-  <dialog id="kat-pencere">
-    <div class="kp-izgara">
-      <div>
-        <div class="etiket" id="kp-no">Category 01 / 08</div>
-        <h3 id="kp-baslik">Topography</h3>
-        <h4>What it measures</h4>
-        <p class="soluk" id="kp-olcer"></p>
-        <h4>How we match it</h4>
-        <p class="soluk" id="kp-yontem"></p>
-        <h4>Data we use</h4>
-        <p class="soluk" id="kp-veri"></p>
-      </div>
-      <figure class="kp-foto"><img id="kp-img" alt=""><figcaption id="kp-alt"></figcaption></figure>
-    </div>
-    <div class="pencere-alt">
-      <button id="kp-onceki">← Previous</button>
-      <button id="kp-sonraki">Next →</button>
-      <button class="kapat" id="kp-kapat">Close</button>
-    </div>
-  </dialog>
-
-  <!-- ===================== 7) KİMLER İÇİN ===================== -->
-  <section class="bolum acik" id="kimler">
-    <div class="ic">
-      <div class="etiket reveal">Who it's for</div>
-      <h2 class="reveal">One map, three kinds of explorers</h2>
-      <div class="kimler">
-        <div class="kart reveal">
-          <figure class="foto" data-foto="kimler-herkes"><img src="img/kimler-herkes.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
-          <div class="kart-ic"><div class="no">CURIOUS MINDS</div><h3>For everyone</h3><p class="soluk">Spin the Moon and Mars, click any spot and discover which places on Earth come closest, and why. No background in planetary science needed.</p></div>
-        </div>
-        <div class="kart reveal">
-          <figure class="foto" data-foto="kimler-astronot"><img src="img/kimler-astronot.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
-          <div class="kart-ic"><div class="no">MISSION TEAMS</div><h3>For astronauts &amp; planners</h3><p class="soluk">Find Earth sites to rehearse driving, sampling or ice prospecting for a specific landing zone before launch, and see which conditions each site cannot reproduce.</p></div>
-        </div>
-        <div class="kart reveal">
-          <figure class="foto" data-foto="kimler-bilim"><img src="img/kimler-bilim.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
-          <div class="kart-ic"><div class="no">RESEARCH</div><h3>For scientists</h3><p class="soluk">Every score is broken down into eight categories with data coverage and warnings, so each comparison can be checked, challenged and extended.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ===================== 8) PERDE ARKASI ===================== -->
-  <section class="bolum" id="yontem">
+  <section class="bolum acik" id="yontem">
     <div class="ic">
       <div class="etiket reveal">Under the hood</div>
       <h2 class="reveal">Method, topology and validation</h2>
@@ -779,8 +642,143 @@
     </div>
   </section>
 
+  <!-- ===================== 5) GÖREVLER ===================== -->
+  <section class="bolum" id="gorevler">
+    <div class="ic">
+      <div class="etiket reveal">Missions</div>
+      <h2 class="reveal">Four missions, four reasons to rehearse</h2>
+      <p class="giris soluk reveal">An analog is only "good" for a purpose. A flat, dusty plain is ideal for testing a rover and nearly useless for searching for traces of life. So before comparing places, you choose what you want to rehearse, and each mission puts more weight on the categories that matter for it.</p>
+
+      <div class="gorev-izgara">
+        <article class="gorev-kart reveal">
+          <figure class="foto" data-foto="gorev-hareket"><img src="img/gorev-hareket.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+          <div class="gorev-ic">
+            <div class="gorev-baslik">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="9" width="17" height="6" rx="1.5"/><circle cx="7.5" cy="17.5" r="2"/><circle cx="16.5" cy="17.5" r="2"/><path d="M15 9V5.5"/><rect x="13.5" y="3" width="4" height="2.5" rx="0.6"/></svg>
+              <h3>Mobility test</h3>
+            </div>
+            <p class="soru">Can a rover or a crew move safely here?</p>
+            <p class="soluk">Driving, navigation and traction on loose soil, climbing slopes and steering around boulders. Mobility analogs are where wheels, autonomous navigation software and spacewalk routes are tested before they are trusted on another world.</p>
+            <div class="anahtar"><span>Key categories</span><b>Topography</b><b>Topology</b><b>Dust</b></div>
+          </div>
+        </article>
+
+        <article class="gorev-kart reveal">
+          <figure class="foto" data-foto="gorev-jeoloji"><img src="img/gorev-jeoloji.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+          <div class="gorev-ic">
+            <div class="gorev-baslik">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17 7 9l5-3 6 2 2 7-5 4H8z"/><path d="M12 6l-1 6-7 5M11 12l9 3M11 12l4 7"/></svg>
+              <h3>Geology</h3>
+            </div>
+            <p class="soru">Can we learn to read the rocks here?</p>
+            <p class="soluk">Field geology training, choosing which samples to collect, and testing instruments on rocks that formed the way lunar or Martian rocks did: by volcanism, impacts, water or ice. Astronauts train their eyes on Earth so they recognise what matters on the surface.</p>
+            <div class="anahtar"><span>Key categories</span><b>Geology</b><b>Mineralogy</b><b>Topology</b></div>
+          </div>
+        </article>
+
+        <article class="gorev-kart reveal">
+          <figure class="foto" data-foto="gorev-buz"><img src="img/gorev-buz.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+          <div class="gorev-ic">
+            <div class="gorev-baslik">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9"/><path d="M9.5 4.5 12 7l2.5-2.5M9.5 19.5 12 17l2.5 2.5"/></svg>
+              <h3>Ice &amp; resources</h3>
+            </div>
+            <p class="soru">Can a base live off the land here?</p>
+            <p class="soluk">Prospecting for water ice and water-bearing minerals, and testing drills and extraction methods. Using local resources, known as in-situ resource utilization, is key for a permanent base: water means drinking water, oxygen and rocket fuel.</p>
+            <div class="anahtar"><span>Key categories</span><b>Water/Ice</b><b>Thermal</b><b>Illumination</b></div>
+          </div>
+        </article>
+
+        <article class="gorev-kart reveal">
+          <figure class="foto" data-foto="gorev-yasam"><img src="img/gorev-yasam.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+          <div class="gorev-ic">
+            <div class="gorev-baslik">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="6.5"/><circle cx="10.5" cy="11" r="2"/><circle cx="14.5" cy="14.2" r="0.9" fill="currentColor"/><path d="M12 5.5V3M18.5 12H21M12 18.5V21M5.5 12H3M16.6 7.4l1.8-1.8M7.4 16.6l-1.8 1.8"/></svg>
+              <h3>Astrobiology</h3>
+            </div>
+            <p class="soru">Could life have existed, and how would we recognise its traces?</p>
+            <p class="soluk">Extreme environments on Earth, from hyper-arid deserts to salt flats and cold springs, show where microbes survive and which minerals preserve biosignatures. They help decide where a rover should search and what its instruments must be able to detect.</p>
+            <div class="anahtar"><span>Key categories</span><b>Water/Ice</b><b>Mineralogy</b><b>Thermal</b></div>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="reveal" style="font-size:24px;font-weight:600;margin-top:72px">How we chose these four</h3>
+      <div class="nasil-sectik">
+        <div class="kart reveal"><div class="no">FROM THE CHALLENGE</div><p class="soluk">NASA's challenge lists the dimensions an analog can share: geology, terrain, temperature, water and ice, dust, biology, subsurface and conditions for robotic or human operations.</p></div>
+        <div class="kart reveal"><div class="no">GROUPED BY PURPOSE</div><p class="soluk">We grouped these dimensions by what a team would actually rehearse on Earth: moving across the surface, reading its rocks, finding resources, and looking for signs of life.</p></div>
+        <div class="kart reveal"><div class="no">DIFFERENT WEIGHTS</div><p class="soluk">All four missions use the same eight categories, but weigh them differently. The exact weights will be published with the method.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 6) VERİ: 8 KATEGORİ ===================== -->
+  <section class="bolum acik" id="veri">
+    <div class="ic">
+      <div class="etiket reveal">Data</div>
+      <h2 class="reveal">Eight ways two places can be alike</h2>
+      <p class="giris soluk reveal">Two places can look alike in a photo and still be very different underneath. That's why every comparison is split into eight categories. Click a category to see what it measures, which data feeds it and how we compare two places in it.</p>
+      <!-- data-kat = kategori sırası (0–7). Pencere içeriği aşağıdaki script'teki KATEGORILER listesinden gelir -->
+      <div class="kartlar" style="grid-template-columns: repeat(4, 1fr)">
+        <button class="kart kat-kart reveal" data-kat="0"><div class="no">01</div><h3>Topography</h3><p class="soluk">How high, how steep and how rough the ground is. It decides whether a rover can drive and a lander can touch down safely.</p><span class="detay">Details →</span></button>
+        <button class="kart kat-kart reveal" data-kat="1"><div class="no">02</div><h3>Topology</h3><p class="soluk">The shape structure of the terrain: its pits, rings and ridges. Two landscapes can share it even at different elevations.</p><span class="detay">Details →</span></button>
+        <button class="kart kat-kart reveal" data-kat="2"><div class="no">03</div><h3>Geology</h3><p class="soluk">What the ground is made of and how it formed: by volcanoes, impacts, water or ice.</p><span class="detay">Details →</span></button>
+        <button class="kart kat-kart reveal" data-kat="3"><div class="no">04</div><h3>Mineralogy</h3><p class="soluk">Which minerals are exposed at the surface. Some, like clays and sulfates, record a watery past.</p><span class="detay">Details →</span></button>
+        <button class="kart kat-kart reveal" data-kat="4"><div class="no">05</div><h3>Thermal</h3><p class="soluk">How hot and how cold the surface gets, and how big the swing between day and night is.</p><span class="detay">Details →</span></button>
+        <button class="kart kat-kart reveal" data-kat="5"><div class="no">06</div><h3>Water/Ice</h3><p class="soluk">Ice, permafrost and water-bearing ground: the most valuable resource for a long-term base.</p><span class="detay">Details →</span></button>
+        <button class="kart kat-kart reveal" data-kat="6"><div class="no">07</div><h3>Dust</h3><p class="soluk">Dust cover, wind and erosion: the processes that reshape the surface and wear down equipment.</p><span class="detay">Details →</span></button>
+        <button class="kart kat-kart reveal" data-kat="7"><div class="no">08</div><h3>Illumination</h3><p class="soluk">How much sunlight a site receives and how long its shadows last, which matters for power and operations.</p><span class="detay">Details →</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kategori ayrıntı penceresi (başta kapalı) -->
+  <dialog id="kat-pencere">
+    <div class="kp-izgara">
+      <div>
+        <div class="etiket" id="kp-no">Category 01 / 08</div>
+        <h3 id="kp-baslik">Topography</h3>
+        <h4>What it measures</h4>
+        <p class="soluk" id="kp-olcer"></p>
+        <h4>How we match it</h4>
+        <p class="soluk" id="kp-yontem"></p>
+        <h4>Data we use</h4>
+        <p class="soluk" id="kp-veri"></p>
+      </div>
+      <figure class="kp-foto"><img id="kp-img" alt=""><figcaption id="kp-alt"></figcaption></figure>
+    </div>
+    <div class="pencere-alt">
+      <button id="kp-onceki">← Previous</button>
+      <button id="kp-sonraki">Next →</button>
+      <button class="kapat" id="kp-kapat">Close</button>
+    </div>
+  </dialog>
+
+  <!-- ===================== 7) KİMLER İÇİN ===================== -->
+  <section class="bolum" id="kimler">
+    <div class="ic">
+      <div class="etiket reveal">Who it's for</div>
+      <h2 class="reveal">One map, three kinds of explorers</h2>
+      <div class="kimler">
+        <div class="kart reveal">
+          <figure class="foto" data-foto="kimler-herkes"><img src="img/kimler-herkes.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+          <div class="kart-ic"><div class="no">CURIOUS MINDS</div><h3>For everyone</h3><p class="soluk">Spin the Moon and Mars, click any spot and discover which places on Earth come closest, and why. No background in planetary science needed.</p></div>
+        </div>
+        <div class="kart reveal">
+          <figure class="foto" data-foto="kimler-astronot"><img src="img/kimler-astronot.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+          <div class="kart-ic"><div class="no">MISSION TEAMS</div><h3>For astronauts &amp; planners</h3><p class="soluk">Find Earth sites to rehearse driving, sampling or ice prospecting for a specific landing zone before launch, and see which conditions each site cannot reproduce.</p></div>
+        </div>
+        <div class="kart reveal">
+          <figure class="foto" data-foto="kimler-bilim"><img src="img/kimler-bilim.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
+          <div class="kart-ic"><div class="no">RESEARCH</div><h3>For scientists</h3><p class="soluk">Every score is broken down into eight categories with data coverage and warnings, so each comparison can be checked, challenged and extended.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <!-- ===================== 9) SINIRLAR ===================== -->
-  <section class="bolum" id="sinirlar">
+  <section class="bolum acik" id="sinirlar">
     <figure class="foto arka" data-foto="sinir"><img src="img/sinir.jpg" alt="" loading="lazy"><figcaption></figcaption></figure>
     <div class="ic">
       <div class="etiket reveal">Limits</div>
@@ -796,7 +794,7 @@
   </section>
 
   <!-- ===================== 10) EKİP ===================== -->
-  <section class="bolum acik" id="ekip">
+  <section class="bolum" id="ekip">
     <div class="ic">
       <div class="etiket reveal">The team</div>
       <!-- A dikeyde ters (∀), E yatayda ayna (∃) -->
@@ -1060,10 +1058,10 @@
   </script>
 
   <!-- 3D sahne: ayrı dosya -->
-  <script type="module" src="js/scene-home.js?v=11151332"></script>
+  <script type="module" src="js/scene-home.js?v=11151337"></script>
   <script type="module">
     // Site v2: doğrulama sayıları ozet.json'dan (elle sayı yok)
-    import * as V from './js/veri.js?v=11151332';
+    import * as V from './js/veri.js?v=11151337';
     try {
       const [O, A] = await Promise.all([V.ozet(), V.analoglar()]), g = O.V1.gorev, v3 = O.V3;
       const c = A.filter(x => x.tur === 'validation').flatMap(x => x.ciftler.map(k => k.sonuc)).filter(Boolean);

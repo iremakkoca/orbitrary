@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- Ortak stil: renkler, butonlar, logo, MOON|MARS kapsülü -->
-  <link rel="stylesheet" href="css/style.css?v=11151332">
+  <link rel="stylesheet" href="css/style.css?v=11151337">
 
   <!-- Sadece keşif sayfasına özel stiller -->
   <style>
@@ -208,7 +208,7 @@
   </script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <link rel="stylesheet" href="css/analiz.css?v=11151332">
+  <link rel="stylesheet" href="css/analiz.css?v=11151337">
 </head>
 
 <body>
@@ -360,8 +360,8 @@
     import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
     import { gsap } from 'gsap';
     import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
-    import { gokyuzuEkle } from './js/gokyuzu.js?v=11151332';
-    import * as V from './js/veri.js?v=11151332';
+    import { gokyuzuEkle } from './js/gokyuzu.js?v=11151337';
+    import * as V from './js/veri.js?v=11151337';
     gsap.registerPlugin(ScrollTrigger);
 
     // ============================================================
@@ -782,8 +782,12 @@
       for (const h of hedefler) {
         const m = MESH[h.body === 'moon' ? 'ay' : 'mars']; if (!m) continue;
         const p = hedefVektor(h.lat, h.lon);
-        const r = new THREE.Mesh(new THREE.RingGeometry(0.006, 0.0085, 32),
-          new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.85, side: THREE.DoubleSide, toneMapped: false, depthWrite: false }));
+        // İçi boş beyaz halka; dışında ince koyu kontur → açık renkli yüzeyde de görünür
+        const r = new THREE.Mesh(new THREE.RingGeometry(0.011, 0.0165, 40),
+          new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 1, side: THREE.DoubleSide, toneMapped: false, depthWrite: false }));
+        const kontur = new THREE.Mesh(new THREE.RingGeometry(0.0165, 0.0205, 40),
+          new THREE.MeshBasicMaterial({ color: 0x02050c, transparent: true, opacity: 0.6, side: THREE.DoubleSide, toneMapped: false, depthWrite: false }));
+        r.add(kontur);
         r.position.copy(p).multiplyScalar(1.004);
         r.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), p);
         m.add(r);
@@ -867,18 +871,21 @@
         const d = THREE.MathUtils.radToDeg(Math.acos(Math.min(1, Math.max(-1, c))));
         if (d < enKucuk) { enKucuk = d; enIyi = h; }
       }
-      return enKucuk < 3 ? enIyi : null;
+      return enIyi ? { h: enIyi, derece: enKucuk } : null;
     }
+    const YARICAP_KM = { ay: 1737.4, mars: 3389.5 };   // belge 4.2 / makale 4.2
 
     function noktaSecildi(lat, lon) {
       secilen = { lat, lon };
       document.getElementById('giris-lat').value = lat.toFixed(4);   // Site v2: koordinat kutuları kendiliğinden dolar
       document.getElementById('giris-lon').value = lon.toFixed(4);
       document.getElementById('git-btn').disabled = true;   // SITE_V2_YAMA_3: sayı değişmedikçe Go soluk
-      const bolge = enYakinHedef(lat, lon);
-      document.getElementById('ozet-bolge').innerHTML = bolge
-        ? `${bolge.name}<br><a class="cta-analiz" style="margin-top:8px" href="target.html?id=${encodeURIComponent(bolge.id)}">Full analysis →</a>`
-        : 'Uncharted site';
+      const yakin = enYakinHedef(lat, lon);
+      const km = yakin ? Math.round(yakin.derece * Math.PI / 180 * YARICAP_KM[govde]) : null;
+      document.getElementById('ozet-bolge').innerHTML = !yakin ? '—'
+        : yakin.derece < 3
+          ? `${yakin.h.name}<br><a class="cta-analiz" style="margin-top:8px" href="target.html?id=${encodeURIComponent(yakin.h.id)}">Full analysis →</a>`
+          : `<span style="font-weight:400;font-size:13px;color:var(--muted)">Nearest listed site</span><br>${yakin.h.name} · ${km.toLocaleString('en')} km<br><a class="cta-analiz" style="margin-top:8px" href="target.html?id=${encodeURIComponent(yakin.h.id)}">Its full analysis →</a>`;
       document.getElementById('giris').hidden = true;
       document.getElementById('secim').hidden = false;
       document.getElementById('panel-baslik').textContent = `${GOK[govde].ad} · selected site`;
