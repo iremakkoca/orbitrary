@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- Ortak stil: renkler, butonlar, logo, MOON|MARS kapsülü -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=11150551">
 
   <!-- Sadece ana sayfaya özel stiller -->
   <style>
@@ -1033,10 +1033,10 @@
   </script>
 
   <!-- 3D sahne: ayrı dosya -->
-  <script type="module" src="js/scene-home.js"></script>
+  <script type="module" src="js/scene-home.js?v=11150551"></script>
   <script type="module">
     // Site v2: doğrulama sayıları ozet.json'dan (elle sayı yok)
-    import * as V from './js/veri.js';
+    import * as V from './js/veri.js?v=11150551';
     try {
       const [O, A] = await Promise.all([V.ozet(), V.analoglar()]), g = O.V1.gorev, v3 = O.V3;
       const c = A.filter(x => x.tur === 'validation').flatMap(x => x.ciftler.map(k => k.sonuc)).filter(Boolean);
