@@ -253,7 +253,7 @@ const GORUNUM = {};
 function gorunumHesapla() {
   const en = kap.clientWidth / kap.clientHeight;
   const pay = 1 / Math.min(1, en * 1.25);   // dar (dikey) ekranda kamerayı geri al, gezegen taşmasın
-  GORUNUM.dunya = { poz: V(0, 0.1, 4.4 * pay), hedef: V(0, -0.45, 0) };   // hedef aşağıda → Dünya yukarıda
+  GORUNUM.dunya = { poz: V(0, 0.1, 4.4 * pay), hedef: V(0, 0.62, 0) };   // hedef Dünya'nın üstünde → Dünya ekranın alt yarısında, alt başlığın arkasında
   for (const ad of ['ay', 'mars']) {
     const g = GOVDE[ad];
     // Gezegen ekranın üst kısmında büyük bir YARIM KÜRE olsun:

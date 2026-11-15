@@ -216,14 +216,15 @@ export function uyduHaritasi(el, lat, lon, { zoom = 10, kare = true, noktalar = 
   if (tek) {
     if (kare) {   // 20 km × 20 km pencere: ±10 km (enlem 1° ≈ 111,32 km)
       const dl = 10 / 111.32, dL = 10 / (111.32 * Math.max(0.05, Math.cos(lat * Math.PI / 180)));
-      L.rectangle([[lat - dl, lon - dL], [lat + dl, lon + dL]], { color: '#ffffff', weight: 1.5, fill: false, opacity: 0.9 }).addTo(h);
+      const kare_ = L.rectangle([[lat - dl, lon - dL], [lat + dl, lon + dL]], { color: '#ffffff', weight: 1.5, fill: false, opacity: 0 }).addTo(h);
+      h.once('moveend', () => kare_.setStyle({ opacity: 0.9 }));
     }
-    L.circleMarker([lat, lon], { radius: 5, color: '#ffffff', weight: 2, fillColor: '#5cc8ff', fillOpacity: 1 }).addTo(h);
+    L.marker([lat, lon], { icon: L.divIcon({ className: 'nokta-isaret', iconSize: [14, 14] }), interactive: false }).addTo(h);
     hareket = () => h.flyTo([lat, lon], zoom, { duration: 1.8, easeLinearity: 0.25 });
   } else {
     const grup = [];
     noktalar.forEach(n => {
-      const m = L.circleMarker([n.lat, n.lon], { radius: n.r || 6, color: '#ffffff', weight: 1.5, fillColor: n.renk || '#5cc8ff', fillOpacity: 0.95 }).addTo(h);
+      const m = L.marker([n.lat, n.lon], { icon: L.divIcon({ className: 'nokta-isaret', iconSize: [12, 12] }) }).addTo(h);
       if (n.etiket) m.bindTooltip(n.etiket);
       if (n.tikla) m.on('click', n.tikla);
       grup.push([n.lat, n.lon]);

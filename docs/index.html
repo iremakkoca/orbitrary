@@ -73,7 +73,7 @@
       position: relative; height: 100vh; min-height: 620px; overflow: hidden;
       background: radial-gradient(ellipse at 50% 45%, #0a1128 0%, #040712 55%, #010206 100%);
     }
-    #hero-sahne { position: absolute; inset: 13vh 0 -13vh 0; }
+    #hero-sahne { position: absolute; inset: 0; }
     #hero-sahne canvas { display: block; width: 100%; height: 100%; }
     .hero-icerik {
       position: absolute; left: 0; right: 0; bottom: 9vh;
@@ -244,14 +244,22 @@
     #kat-pencere h4 { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; margin: 20px 0 6px; font-weight: 500; }
     #kat-pencere p { line-height: 1.65; }
     .pencere-alt { display: flex; gap: 10px; margin-top: 28px; }
-    #topoloji { display: grid; grid-template-columns: 1fr 1.15fr; column-gap: 36px; align-items: start; padding: 34px; }
+    .topo-vitrin { display: grid; grid-template-columns: 1fr 1.1fr; gap: 40px; align-items: center; margin: 28px 0 22px; padding: 40px;
+      border-radius: 24px; border: 1px solid rgba(92,200,255,0.35);
+      background: radial-gradient(ellipse at 85% 30%, rgba(92,200,255,0.12), transparent 60%), linear-gradient(160deg, #0b1424, #060a13); }
+    .topo-baslik { font-size: clamp(28px, 3vw, 40px); line-height: 1.15; font-weight: 600; margin: 10px 0 16px; }
+    .topo-baslik em { font-style: normal; color: var(--accent); }
+    .topo-karsi { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+    .topo-karsi > div { border: 1px solid var(--line); border-radius: 14px; padding: 14px; background: rgba(3,5,12,0.4); }
+    .topo-karsi > div.vurgulu { border-color: rgba(92,200,255,0.55); background: rgba(92,200,255,0.07); }
+    .topo-karsi b { display: block; font-size: 16px; margin: 6px 0 4px; }
+    .topo-karsi span { color: var(--muted); font-size: 13.5px; line-height: 1.45; }
+    .topo-sag canvas { width: 100%; display: block; background: #060a13; border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 20px 60px rgba(0,0,0,0.45); }
+    @media (max-width: 960px) { .topo-vitrin { grid-template-columns: 1fr; padding: 24px; } }
     .topo-noktalar { display: grid; gap: 10px; margin: 14px 0; }
     .topo-noktalar div { border-left: 2px solid var(--accent); padding: 4px 0 4px 14px; }
     .topo-noktalar b { display: block; font-size: 15px; margin-bottom: 2px; }
     .topo-noktalar span { color: var(--muted); font-size: 14px; line-height: 1.5; }
-    #topoloji > * { grid-column: 1; }
-    #topoloji canvas { grid-column: 2; grid-row: 1 / span 6; max-width: 620px !important; margin: 0 !important; }
-    @media (max-width: 900px) { #topoloji { grid-template-columns: 1fr; } #topoloji canvas { grid-column: 1; grid-row: auto; } }
     .kp-izgara { display: grid; grid-template-columns: 1.05fr 1fr; gap: 30px; align-items: start; }
     .kp-foto { margin: 0; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: #070b14; position: sticky; top: 0; }
     .kp-foto img { width: 100%; height: 420px; object-fit: cover; display: block; }
@@ -603,27 +611,35 @@
     <div class="ic">
       <div class="etiket reveal">Under the hood</div>
       <h2 class="reveal">Method, topology and validation</h2>
+      <div class="topo-vitrin reveal" id="topoloji">
+        <div class="topo-sol">
+          <div class="no" style="color:var(--accent)">WHAT MAKES ORBITRARY DIFFERENT</div>
+          <h3 class="topo-baslik">We read the <em>shape</em> of a landscape, not only its numbers.</h3>
+          <p class="soluk" style="font-size:16px;line-height:1.65">Two craters can have the same height, the same slope and the same roughness, and still look nothing alike.
+            What tells them apart is how their pits, rims and ridges are arranged. Orbitrary measures that arrangement with
+            <b style="color:var(--text)">topological data analysis</b> and compares it between the Moon or Mars and every Earth candidate.</p>
+          <div class="topo-karsi">
+            <div><div class="etiket">Classic comparison</div><b>How high? How steep?</b><span>Averages of elevation and slope. Blind to layout.</span></div>
+            <div class="vurgulu"><div class="etiket" style="color:var(--accent)">Orbitrary adds</div><b>How is it shaped?</b><span>Pits, rims and ridges as a fingerprint, independent of absolute height.</span></div>
+          </div>
+          <div class="topo-noktalar">
+            <div><b>1 · Flood the terrain</b><span>Water rises slowly over each 20 × 20 km window; every pit becomes a lake.</span></div>
+            <div><b>2 · Record births and deaths</b><span>Each lake appears at one height and disappears when it merges with an older one: one point on a persistence diagram.</span></div>
+            <div><b>3 · Compare fingerprints</b><span>The diagram is the window's shape fingerprint. Target and Earth fingerprints are compared directly.</span></div>
+          </div>
+          <p class="soluk" style="font-size:13px">Computed for the 30 best Earth windows of every target and added to their score as one of the eight categories.</p>
+        </div>
+        <div class="topo-sag">
+          <canvas id="yb-tuval" width="760" height="560" aria-label="Animation of water rising over a terrain profile and the persistence diagram it builds"></canvas>
+          <p class="soluk" style="font-size:13px;margin-top:10px">Live: a slice through a terrain. As the water rises, each lake is born and dies when it merges into an older lake;
+            its (birth, death) pair appears on the persistence diagram on the right.</p>
+        </div>
+      </div>
       <div class="kartlar" style="grid-template-columns:repeat(2,1fr)">
         <div class="kart reveal"><div class="no">METHOD</div><h3>How the score is built</h3><p class="soluk">Per-category similarities combined with mission weights into one absolute score.</p><div class="yer-tutucu" style="text-align:left;line-height:1.6"><b style="font-size:18px">P = Gate · Σ w·s / Σ w</b><br><span class="soluk">s = similarity in one category (share of reference Earth windows that are further from the target); w = mission weight; the sum runs over categories with data on both sides.</span><br><a class="btn-link" href="target.html" style="margin-top:10px;display:inline-block">See full target analyses →</a></div></div>
         <div class="kart reveal" id="dogrulama"><div class="no">VALIDATION</div><h3>Does it find known analogs?</h3><p class="soluk">We check whether well-studied analog sites rank high for the targets they are known to resemble.</p><div class="yer-tutucu" id="dogrulama-sonuc" style="text-align:left;line-height:1.6">Loading results…</div><a class="btn-link" href="analogs.html" style="margin-top:10px;display:inline-block">See every analog site →</a></div>
       </div>
       <!-- Site v2: topoloji animasyonu (11 Kasım Hücre 32'den; yönteme bağlı sayı içermez) -->
-      <div class="kart reveal" id="topoloji" style="margin-top:16px">
-        <div class="no">OUR KEY IDEA · TOPOLOGY</div>
-        <h3 style="font-size:26px;line-height:1.25">We compare the <span style="color:var(--accent)">shape</span> of a landscape, not just its numbers</h3>
-        <p class="soluk" style="font-size:15.5px;line-height:1.6">Elevation and slope tell you how high and how steep a place is. They cannot tell you how its pits, rims and ridges are arranged.
-          Two craters can share the same average slope and still look nothing alike. Topology captures that arrangement.</p>
-        <div class="topo-noktalar">
-          <div><b>1 · Flood the terrain</b><span>Water rises slowly over the 20 × 20 km window. Each pit becomes a lake.</span></div>
-          <div><b>2 · Record births and deaths</b><span>Every lake is born at one height and disappears when it merges with an older one. Each lake becomes a point on a persistence diagram.</span></div>
-          <div><b>3 · Compare fingerprints</b><span>The diagram is the window's shape fingerprint. We compare the Moon or Mars fingerprint with each Earth candidate's, independent of absolute height.</span></div>
-        </div>
-        <p class="soluk" style="font-size:13px">Computed for the 30 best Earth windows of every target and added to their score as one of the eight categories.</p>
-        <canvas id="yb-tuval" width="760" height="560" style="width:100%;max-width:900px;display:block;margin:8px auto 0;background:#060a13;border:1px solid var(--line);border-radius:16px"
-                aria-label="Animation of water rising over a terrain profile and the persistence diagram it builds"></canvas>
-        <p class="soluk" style="font-size:13px">A slice through a terrain. As the water rises, each lake is born and dies when it merges into an older lake;
-          its (birth, death) pair appears on the persistence diagram. The method does this on the full grid of every window.</p>
-      </div>
       <script>
         (function () {
           const tv = document.getElementById('yb-tuval'); if (!tv) return;
@@ -722,7 +738,12 @@
       <div class="etiket reveal">The team</div>
       <!-- A dikeyde ters (∀), E yatayda ayna (∃) -->
       <h2 class="reveal logo" style="font-size:clamp(28px,3.2vw,44px)">ORBITR<span class="ters">A</span>RY T<span class="ters-e">E</span>AM</h2>
-      <div class="ekip" id="ekip-liste"></div>
+      <div class="ekip" id="ekip-liste">
+        <div class="uye2"><div class="sira">01</div><h3>İrem Akkoca</h3><p>Team Lead and Developer</p></div>
+        <div class="uye2"><div class="sira">02</div><h3>Sude Naz Özyurt</h3><p>Research Lead</p></div>
+        <div class="uye2"><div class="sira">03</div><h3>Emir Düztaş</h3><p>Math &amp; Methods Specialist</p></div>
+        <div class="uye2"><div class="sira">04</div><h3>Zeynep Zelal Bilgiç</h3><p>Data Analyst</p></div>
+      </div>
     </div>
   </section>
 
@@ -996,10 +1017,7 @@
         let z; window.addEventListener('scroll', () => { clearTimeout(z); z = setTimeout(() => sessionStorage.setItem('anaY', String(window.scrollY)), 150); }, { passive: true });
       } catch (e) {}
     })();
-    fetch('data/ekip.json').then(r => r.json()).then(E => {
-      document.getElementById('ekip-liste').innerHTML = E.map(u =>
-        `<div class="uye2"><div class="sira">0${E.indexOf(u) + 1}</div><h3>${u.ad}</h3><p>${u.gorev}</p></div>`).join('');
-    }).catch(() => {});
+
   </script>
 </body>
 </html>
