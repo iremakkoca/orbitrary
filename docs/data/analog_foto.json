@@ -1,42 +1,34 @@
 {
  "v-riogrande": {
   "nasa_id": "S71-23774",
-  "baslik": "Apollo 15 Crew - Lunar Roving Vehicle (LRV) - Simulated Extravehicular Activity (EVA) - NM",
-  "merkez": "JSC"
+  "baslik": "Apollo 15 Crew - Lunar Roving Vehicle (LRV) - Simulated Extravehicular Activity (EVA) - NM"
  },
  "v-spcrater": {
   "nasa_id": "PIA13700",
-  "baslik": "SP Crater, Arizona",
-  "merkez": "JPL"
- },
- "v-ephrata": {
-  "nasa_id": "PIA26008",
-  "baslik": "Channeled Scablands, Washington",
-  "merkez": "JPL"
+  "baslik": "SP Crater, Arizona"
  },
  "v-kilbourne": {
   "nasa_id": "PIA23065",
-  "baslik": "Potrillo Volcanic Field, New Mexico",
-  "merkez": "JPL"
+  "baslik": "Potrillo Volcanic Field, New Mexico"
  },
  "v-dumont": {
   "nasa_id": "PIA15682",
-  "baslik": "Test Rover Aids Preparations in California for Curiosity Rover on Mars",
-  "merkez": "JPL"
+  "baslik": "Test Rover Aids Preparations in California for Curiosity Rover on Mars"
  },
  "v-lcvf": {
   "nasa_id": "S72-48854",
-  "baslik": "Apollo 17 Crewmembers - Rock Specimen Exam - Geological Field Trip - NV",
-  "merkez": "JSC"
+  "baslik": "Apollo 17 Crewmembers - Rock Specimen Exam - Geological Field Trip - NV"
+ },
+ "v-ephrata": {
+  "nasa_id": "EO 92025",
+  "baslik": "Potholes Coulee, Channeled Scablands (Landsat 8)"
  },
  "v-ries": {
   "nasa_id": "EO 8554",
-  "baslik": "Ries Crater, Germany (ASTER, simulated natural color)",
-  "merkez": "NASA Earth Observatory"
+  "baslik": "Ries Crater, Germany (ASTER elevation)"
  },
  "v-sudbury": {
   "nasa_id": "EO 148844",
-  "baslik": "Sudbury Impact Structure (Landsat 8)",
-  "merkez": "NASA Earth Observatory"
+  "baslik": "Sudbury Impact Structure (SRTM relief)"
  }
 }

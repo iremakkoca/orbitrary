@@ -215,6 +215,7 @@
   <!-- ===================== ÜST ŞERİT ===================== -->
   <header>
     <a href="index.html" class="btn-link">← Home</a>
+    <button class="btn-link geri-btn" onclick="history.length > 1 ? history.back() : (location.href = 'index.html')">← Back</button>
     <span class="logo" aria-label="Orbitrary">ORBITR<span class="ters">A</span>RY</span>
 
     <!-- MOON | MARS kapsülü. data-secim: hangisi seçili (mavi hap buna göre kayar) -->
@@ -773,7 +774,7 @@
     //   cos d = sin φ₁ sin φ₂ + cos φ₁ cos φ₂ cos(λ₁ − λ₂)
     // d < 3° ise o hedefin adını yaz, değilse "Uncharted site"
     let hedefler = [];
-    const hedeflerHazir = fetch('data/targets.json').then(r => r.json()).then(v => { hedefler = v; bolgeIsaretleri(); bolgeListesi(); }).catch(() => {});
+    const hedeflerHazir = fetch('data/targets.json').then(r => r.json()).then(v => { hedefler = v; bolgeIsaretleri(); bolgeListesi(); etiketleriKur(); }).catch(() => {});
     // Hedef konumu → birim vektör (tıklamadaki dönüşümün tersi: y = sin φ, x = cos φ cos λ, z = −cos φ sin λ)
     const hedefVektor = (lat, lon) => { const f = THREE.MathUtils.degToRad(lat), l = THREE.MathUtils.degToRad(lon);
       return new THREE.Vector3(Math.cos(f) * Math.cos(l), Math.sin(f), -Math.cos(f) * Math.sin(l)); };
@@ -781,11 +782,41 @@
       for (const h of hedefler) {
         const m = MESH[h.body === 'moon' ? 'ay' : 'mars']; if (!m) continue;
         const p = hedefVektor(h.lat, h.lon);
-        const r = new THREE.Mesh(new THREE.RingGeometry(0.0055, 0.0075, 32),
+        const r = new THREE.Mesh(new THREE.RingGeometry(0.006, 0.0085, 32),
           new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.85, side: THREE.DoubleSide, toneMapped: false, depthWrite: false }));
         r.position.copy(p).multiplyScalar(1.004);
         r.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), p);
         m.add(r);
+      }
+    }
+    // Küre üstünde hedef adları: ekrana izdüşüm, arka yüzdekiler gizli, üst üste binenler atlanır
+    const ETIKET = [];
+    const etiketKutu = document.createElement('div'); etiketKutu.className = 'etiketler';
+    document.getElementById('sahne').appendChild(etiketKutu);
+    function etiketleriKur() {
+      for (const h of hedefler) {
+        const el = document.createElement('span'); el.textContent = h.name.replace(/ \(.*\)$/, '');
+        etiketKutu.appendChild(el);
+        ETIKET.push({ h, el, p: hedefVektor(h.lat, h.lon).multiplyScalar(1.006), govde: h.body === 'moon' ? 'ay' : 'mars' });
+      }
+    }
+    const _w = new THREE.Vector3(), _n = new THREE.Vector3(), _c = new THREE.Vector3();
+    function etiketleriGuncelle() {
+      if (!ETIKET.length) return;
+      const r = renderer.domElement.getBoundingClientRect(), konan = [];
+      for (const e of ETIKET) {
+        let gor = e.govde === govde && !ucusta;
+        if (gor) {
+          _w.copy(e.p).applyMatrix4(MESH[e.govde].matrixWorld);
+          _n.copy(_w).sub(MESH[e.govde].getWorldPosition(_c)).normalize();
+          gor = _n.dot(_c.copy(camera.position).sub(_w).normalize()) > 0.15;
+        }
+        if (gor) {
+          const s = _w.clone().project(camera), x = (s.x + 1) / 2 * r.width, y = (1 - s.y) / 2 * r.height;
+          gor = s.z < 1 && x > 0 && x < r.width && y > 0 && y < r.height && !konan.some(k => Math.hypot(k[0] - x, k[1] - y) < 46);
+          if (gor) { konan.push([x, y]); e.el.style.left = x + 'px'; e.el.style.top = y + 'px'; }
+        }
+        e.el.style.opacity = gor ? 1 : 0;
       }
     }
     function bolgeListesi() {
@@ -1111,6 +1142,7 @@
         halka.material.opacity = 0.65 - 0.3 * Math.sin(t * 4);
       }
       renderer.render(scene, camera);
+      etiketleriGuncelle();
     });
   </script>
 </body>

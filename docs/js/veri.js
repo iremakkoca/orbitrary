@@ -186,7 +186,7 @@ export function radar(svg, sim, { mis = true, boyut = 'normal' } = {}) {
 export const KAROLAR = {
   url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
   etiket: 'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}',
-  arazi: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+  arazi: 'https://server.arcgisonline.com/ArcGIS/rest/services/Elevation/World_Hillshade_Dark/MapServer/tile/{z}/{y}/{x}',
   atif: 'Imagery &copy; Esri, Maxar, Earthstar Geographics, and the GIS User Community'
 };
 export function uyduHaritasi(el, lat, lon, { zoom = 10, kare = true, noktalar = null } = {}) {
@@ -195,14 +195,14 @@ export function uyduHaritasi(el, lat, lon, { zoom = 10, kare = true, noktalar = 
   const sinir = L.latLngBounds([[-85, -180], [85, 180]]);
   const tek = !noktalar;
   // Bütün haritalarda aynı hareket: 4 seviye uzaktan başlar, görünür olunca 2,2 sn'de yaklaşır.
-  const bas = tek ? Math.max(3, zoom - 5) : 2;
+  const bas = tek ? Math.max(3, zoom - 2) : 2;
   const h = L.map(el, { zoomControl: true, attributionControl: true, minZoom: tek ? bas : 2, maxZoom: 17,
     maxBounds: sinir, maxBoundsViscosity: 1.0, worldCopyJump: false, scrollWheelZoom: false,
     zoomSnap: 0.25, fadeAnimation: false }).setView([lat, lon], bas);
   const ortak = { maxZoom: 17, maxNativeZoom: 17, noWrap: true, bounds: sinir, keepBuffer: 4 };
   const uydu = L.layerGroup([L.tileLayer(KAROLAR.url, { ...ortak, attribution: KAROLAR.atif }),
                              L.tileLayer(KAROLAR.etiket, { ...ortak, opacity: 0.9 })]).addTo(h);
-  const arazi = L.tileLayer(KAROLAR.arazi, { ...ortak, attribution: 'Map &copy; Esri, HERE, Garmin, USGS' });
+  const arazi = L.layerGroup([L.tileLayer(KAROLAR.arazi, { ...ortak, maxNativeZoom: 16, attribution: 'Hillshade &copy; Esri' }), L.tileLayer(KAROLAR.etiket, { ...ortak, opacity: 0.9 })]);
   L.control.layers({ 'Satellite': uydu, 'Terrain': arazi }, null, { position: 'topright' }).addTo(h);
   h.zoomControl.setPosition('bottomright');
   if (tek && kare) {
@@ -219,7 +219,7 @@ export function uyduHaritasi(el, lat, lon, { zoom = 10, kare = true, noktalar = 
       L.rectangle([[lat - dl, lon - dL], [lat + dl, lon + dL]], { color: '#ffffff', weight: 1.5, fill: false, opacity: 0.9 }).addTo(h);
     }
     L.circleMarker([lat, lon], { radius: 5, color: '#ffffff', weight: 2, fillColor: '#5cc8ff', fillOpacity: 1 }).addTo(h);
-    hareket = () => h.flyTo([lat, lon], zoom, { duration: 2.6, easeLinearity: 0.15 });
+    hareket = () => h.flyTo([lat, lon], zoom, { duration: 1.8, easeLinearity: 0.25 });
   } else {
     const grup = [];
     noktalar.forEach(n => {
@@ -228,8 +228,10 @@ export function uyduHaritasi(el, lat, lon, { zoom = 10, kare = true, noktalar = 
       if (n.tikla) m.on('click', n.tikla);
       grup.push([n.lat, n.lon]);
     });
-    hareket = () => grup.length > 1 ? h.flyToBounds(grup, { padding: [40, 40], maxZoom: 5, duration: 2.2, easeLinearity: 0.2 })
-                                     : grup.length ? h.flyTo(grup[0], 8, { duration: 2.2 }) : null;
+    // Çok noktalı harita kendi kendine hareket etmez: hemen sığdırılır
+    if (grup.length > 1) h.fitBounds(grup, { padding: [40, 40], maxZoom: 5, animate: false });
+    else if (grup.length) h.setView(grup[0], 8, { animate: false });
+    hareket = null;
   }
   // Harita ekrana girince bir kez başlar; kaydırırken yarıda başlamış animasyon görünmez
   const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { io.disconnect(); setTimeout(() => { h.invalidateSize(); hareket && hareket(); }, 250); } }, { threshold: 0.35 });

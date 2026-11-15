@@ -16,6 +16,7 @@
 <body class="yildizli">
   <header class="ust">
     <a href="index.html" class="btn-link">← Home</a>
+    <button class="btn-link geri-btn" onclick="history.length > 1 ? history.back() : (location.href = 'index.html')">← Back</button>
     <a href="index.html" class="logo" aria-label="Orbitrary">ORBITR<span class="ters">A</span>RY</a>
     <nav>
       <a href="explore.html">Explore</a>
@@ -124,10 +125,25 @@
       kok.querySelectorAll('svg.radar[data-s]').forEach(svg => V.radar(svg, JSON.parse(svg.dataset.s)));
       haritalariKur(kok);
     }
+    // Sol sütun: saha özeti (yalnız analog.json'daki değerlerden)
+    function bakisHtml(x) {
+      const gec = x.ciftler.filter(c => c.sonuc && !c.sonuc.kapidan_kaldi);
+      const en = [...gec].sort((a, b) => b.sonuc.Pi - a.sonuc.Pi)[0];
+      const s = en ? en.sonuc.s : null;
+      const sira = s ? s.map((v, k) => ({ v, k })).filter(o => o.v != null).sort((a, b) => b.v - a.v) : [];
+      return `<div class="bakis">
+        <div class="etiket">At a glance</div>
+        <div class="bakis-satir"><span>Location</span><b class="mono">${V.koordYazi(x.enlem, x.boylam, 2)}</b></div>
+        <div class="bakis-satir"><span>Trained for</span><b>${x.ciftler.map(c => hedefAd(c.hedef_id)).filter((v, i, a) => a.indexOf(v) === i).join(', ')}</b></div>
+        <div class="bakis-satir"><span>Best rank</span><b style="color:var(--accent)">${en ? 'top ' + V.yuzde(1 - en.sonuc.Pi, 1) + ' of Earth' : 'filtered by the gate'}</b></div>
+        ${sira.length ? `<div class="etiket" style="margin-top:12px">Strongest categories</div>
+          ${sira.slice(0, 4).map(o => `<div class="kat-cubuk"><span>${V.KAT_AD[o.k]}</span><div class="cubuk"><i style="width:${(100 * o.v).toFixed(1)}%"></i></div><span class="mono" style="text-align:right">${V.yuzde(o.v)}</span></div>`).join('')}` : ''}
+      </div>`;
+    }
     function kart(x) {
       return `
         <article class="saha-kart" id="${x.id}">
-          <div>${gorselHtml(x)}</div>
+          <div>${gorselHtml(x)}${bakisHtml(x)}</div>
           <div>
             <div class="etiket">Validation analog · ${V.koordYazi(x.enlem, x.boylam, 3)}</div>
             <h2 style="font-size:28px;margin:6px 0 10px">${x.ad}</h2>

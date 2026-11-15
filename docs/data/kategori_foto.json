@@ -1,42 +1,34 @@
 {
  "topografya": {
   "nasa_id": "EO 78860",
-  "baslik": "Alluvial fans in Death Valley (EO-1 ALI)",
-  "merkez": "NASA Earth Observatory"
+  "baslik": "Alluvial fans in Death Valley (EO-1 ALI)"
  },
  "topoloji": {
   "nasa_id": "EO Richat",
-  "baslik": "Richat Structure, Mauritania (Landsat)",
-  "merkez": "NASA Earth Observatory"
+  "baslik": "Richat Structure, Mauritania (Landsat)"
  },
  "jeoloji": {
   "nasa_id": "EO 154207",
-  "baslik": "Craters of the Moon lava fields, Idaho (Landsat 8)",
-  "merkez": "NASA Earth Observatory"
+  "baslik": "Craters of the Moon lava fields, Idaho (Landsat 8)"
  },
  "mineraloji": {
   "nasa_id": "PIA13700",
-  "baslik": "SP Crater, Arizona",
-  "merkez": "JPL"
+  "baslik": "SP Crater, Arizona"
  },
  "termal": {
   "nasa_id": "EO 153634",
-  "baslik": "Lut Desert, Iran, one of the hottest surfaces on Earth (MODIS)",
-  "merkez": "NASA Earth Observatory"
+  "baslik": "Lut Desert, Iran (MODIS)"
  },
  "su_buz": {
   "nasa_id": "PIA03714",
-  "baslik": "Devon Island, Haughton-Mars Project area (MISR natural color)",
-  "merkez": "NASA Earth Observatory"
+  "baslik": "Devon Island, Haughton-Mars Project area (MISR)"
  },
  "toz": {
   "nasa_id": "EO 49896",
-  "baslik": "Algodones Dunes, California (EO-1 ALI)",
-  "merkez": "NASA Earth Observatory"
+  "baslik": "Algodones Dunes, California (EO-1 ALI)"
  },
  "aydinlanma": {
   "nasa_id": "GSFC_20171208_Archive_e002006",
-  "baslik": "Ten Cool Things Seen in the First Year of LRO",
-  "merkez": "GSFC"
+  "baslik": "Ten Cool Things Seen in the First Year of LRO"
  }
 }
