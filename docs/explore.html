@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- Ortak stil: renkler, butonlar, logo, MOON|MARS kapsülü -->
-  <link rel="stylesheet" href="css/style.css?v=11150551">
+  <link rel="stylesheet" href="css/style.css?v=11151256">
 
   <!-- Sadece keşif sayfasına özel stiller -->
   <style>
@@ -208,13 +208,13 @@
   </script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <link rel="stylesheet" href="css/analiz.css?v=11150551">
+  <link rel="stylesheet" href="css/analiz.css?v=11151256">
 </head>
 
 <body>
   <!-- ===================== ÜST ŞERİT ===================== -->
   <header>
-    <a href="index.html" class="btn-link ev-btn">← Home</a>
+    <a href="index.html#hero" class="btn-link ev-btn">← Home</a>
     <button class="geri-btn" onclick="history.length > 1 ? history.back() : (location.href = 'index.html')">← Back</button>
     <span class="logo" aria-label="Orbitrary">ORBITR<span class="ters">A</span>RY</span>
 
@@ -351,7 +351,7 @@
 
   <footer>
     <button id="yukari-btn">Back to top ↑</button>
-    <a href="index.html" class="btn-link">← Home</a>
+    <a href="index.html#hero" class="btn-link">← Home</a>
     <span class="soluk">Imagery: NASA / USGS (public domain) · Code developed with assistance from Claude (Anthropic)</span>
   </footer>
 
@@ -360,8 +360,8 @@
     import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
     import { gsap } from 'gsap';
     import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
-    import { gokyuzuEkle } from './js/gokyuzu.js?v=11150551';
-    import * as V from './js/veri.js?v=11150551';
+    import { gokyuzuEkle } from './js/gokyuzu.js?v=11151256';
+    import * as V from './js/veri.js?v=11151256';
     gsap.registerPlugin(ScrollTrigger);
 
     // ============================================================
@@ -428,7 +428,7 @@
         return `<polygon points="${pts.join(' ')}" fill="${dolu ? renk : 'none'}" fill-opacity="0.22"
                   stroke="${renk}" stroke-width="2" ${dolu ? '' : 'stroke-dasharray="6 5"'}/>`;
       };
-      if (mis) s += cokgen(mis, '#8a9bb3', false);
+      if (mis) s += cokgen(mis, '#f2c94c', false);
       if (sim) s += cokgen(sim, '#5cc8ff', true);
       svg.innerHTML = s;
     }
@@ -774,7 +774,7 @@
     //   cos d = sin φ₁ sin φ₂ + cos φ₁ cos φ₂ cos(λ₁ − λ₂)
     // d < 3° ise o hedefin adını yaz, değilse "Uncharted site"
     let hedefler = [];
-    const hedeflerHazir = fetch('data/targets.json').then(r => r.json()).then(v => { hedefler = v; bolgeIsaretleri(); bolgeListesi(); etiketleriKur(); }).catch(() => {});
+    const hedeflerHazir = fetch('data/targets.json').then(r => r.json()).then(v => { hedefler = v; bolgeIsaretleri(); bolgeListesi(); }).catch(() => {});
     // Hedef konumu → birim vektör (tıklamadaki dönüşümün tersi: y = sin φ, x = cos φ cos λ, z = −cos φ sin λ)
     const hedefVektor = (lat, lon) => { const f = THREE.MathUtils.degToRad(lat), l = THREE.MathUtils.degToRad(lon);
       return new THREE.Vector3(Math.cos(f) * Math.cos(l), Math.sin(f), -Math.cos(f) * Math.sin(l)); };
@@ -937,6 +937,7 @@
             <div><div class="etiket">${n === 1 ? 'Best match' : 'Match'} · Earth analog · ${V.GOREV_AD[g]}</div>
             <div class="hedef-ozet soluk">For ${koordYazi(secilen.lat, secilen.lon)} on ${GOK[govde].ile}</div></div></div>
           <h2 class="esles-ad">Earth site ${koordYazi(e.earth.enlem, e.earth.boylam)}</h2>
+          <div class="yer-adi"></div>
           ${et ? `<span class="rozet rozet-${et.tur}" title="${et.aciklama}">${et.ad} · ${V.saha(e.earth.analog_id)} · ${e.earth.analog_km.toFixed(0)} km</span>` : ''}
           <div class="puan-satir">
             <div><div class="puan-sayi">${V.puanYuzde(e.P)}</div><div class="etiket">match score</div>
@@ -952,6 +953,7 @@
           <button class="ac-ok" data-ac="${n}" aria-label="Open the full explanation for match #${n}">→</button>
         </div>`;
       V.radar(kok.querySelector('.radar'), e.s);
+      V.yerYaz(kok.querySelector('.yer-adi'), e.earth.enlem, e.earth.boylam);
       kok.querySelectorAll('[data-ac]').forEach(b => b.addEventListener('click', () => cekmeceAc(Number(b.dataset.ac))));
       V.uyduHaritasi(kok.querySelector('.harita'), e.earth.enlem, e.earth.boylam, { zoom: 11 });
     }
@@ -968,6 +970,7 @@
     async function cekmeceDoldur(n) {
       const e = SON && SON[n - 1], kutu = document.getElementById('ck-tablo');
       document.getElementById('ck-baslik').textContent = e ? `Earth site ${koordYazi(e.earth.enlem, e.earth.boylam)}` : 'No result yet';
+      if (e) V.yerAdi(e.earth.enlem, e.earth.boylam).then(s => { if (s && SON && SON[n - 1] === e) document.getElementById('ck-baslik').textContent += ` · ${s}`; });
       if (!e) { kutu.innerHTML = '<p class="soluk">Select a point on the globe first.</p>'; return; }
       const g = V.SITE_GOREV[gorev], w = await V.agirliklar(g), T = await V.metin();
       const W = w.reduce((a, x, k) => a + (e.s[k] != null ? x : 0), 0);
@@ -1030,8 +1033,8 @@
       const eksen = cB.clone().sub(cA).normalize();
       const yon = camera.position.clone().sub(cA).normalize();
       yon.addScaledVector(eksen, -yon.dot(eksen));
-      if (yon.lengthSq() < 0.01) yon.set(1, 0, 0);
-      yon.normalize();
+      // Varışta 0° boylam ve ekvator ekranın ortasında, meridyenler dik dursun: bakış yönü her zaman +x
+      yon.set(1, 0, 0);
 
       const P0 = camera.position.clone();
       const P3 = cB.clone().addScaledVector(yon, NORMAL_UZAKLIK);
@@ -1048,13 +1051,13 @@
       // Yeni gezegen uçuşun ilk yarısında belirir, eskisi son yarısında kaybolur (3 sn'lik uçuş)
       yeniMesh.material.opacity = 0;
       saydamlik(yeniMesh, 1, 1.2, 0.2);
-      saydamlik(eskiMesh, 0, 1.0, 1.6);
+      saydamlik(eskiMesh, 0, 1.0, 1.9);
       ucusta = true;
       controls.enabled = false;                    // uçuş sırasında fareyle oynanmasın
       controls.minDistance = 0; controls.maxDistance = 1000;
       const durum = { t: 0 };
       gecis = gsap.to(durum, {
-        t: 1, duration: 3.0, ease: 'power2.inOut',
+        t: 1, duration: 3.4, ease: 'power2.inOut',
         onUpdate: () => {
           const t = durum.t, u = 1 - t;
           camera.position.set(0, 0, 0)

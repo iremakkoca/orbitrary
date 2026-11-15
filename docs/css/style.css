@@ -14,7 +14,7 @@
   --muted: #8a97ab;       /* soluk yazı */
   --accent: #5cc8ff;      /* vurgu rengi: soğuk mavi */
   --warn: #ffd36b;        /* uyarı: sarı */
-  --mismatch: #8a9bb3;    /* uyuşmazlık çizgisi: soluk gri-mavi */
+  --mismatch: #f2c94c;    /* uyuşmazlık çizgisi: sarı */
 
   /* MİNİK YILDIZ DESENİ (koyu bölümlerin arka planı)
      Her katman tek bir 1–2 piksellik nokta çizen bir radial-gradient; --yildiz-boyut o noktanın
@@ -133,3 +133,7 @@ button:disabled:hover { border-color: var(--line); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }
+
+/* Yer adı satırı (OpenStreetMap) */
+.yer-adi { font-size: 14px; color: var(--muted); margin: 2px 0 8px; min-height: 1em; }
+.yer-adi .osm { font-size: 10.5px; color: var(--muted); opacity: 0.7; text-decoration: none; margin-left: 4px; }

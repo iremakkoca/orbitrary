@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- Ortak stil: renkler, butonlar, logo, MOON|MARS kapsülü -->
-  <link rel="stylesheet" href="css/style.css?v=11150551">
+  <link rel="stylesheet" href="css/style.css?v=11151256">
 
   <!-- Sadece ana sayfaya özel stiller -->
   <style>
@@ -76,14 +76,16 @@
     #hero-sahne { position: absolute; inset: 0; }
     #hero-sahne canvas { display: block; width: 100%; height: 100%; }
     .hero-icerik {
-      position: absolute; left: 0; right: 0; bottom: 9vh;
+      position: absolute; left: 0; right: 0; bottom: 3.5vh;
       display: flex; flex-direction: column; align-items: center; gap: 18px;
       text-align: center; padding: 0 6vw;
       pointer-events: none;
     }
     .hero-icerik > * { pointer-events: auto; }
+    #ust .segment { transition: opacity 0.35s, visibility 0.35s; }
+    #ust .segment.gizli { opacity: 0; visibility: hidden; pointer-events: none; }
     .hero-icerik { gap: 16px; }
-    .hero-icerik h1 { font-size: clamp(28px, 3.8vw, 50px); font-weight: 600; line-height: 1.08; max-width: 900px; }
+    .hero-icerik h1 { font-size: clamp(26px, 3.2vw, 44px); font-weight: 600; line-height: 1.08; max-width: 900px; }
     .hero-icerik p { max-width: 640px; font-size: 17px; }
     .hero-icerik > * { text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85); }
     #hero-etiket { color: #b8c4d6; }
@@ -316,6 +318,8 @@
     .ekip .uye2:last-child { border-right: none; margin-right: 0; }
     .ekip .uye2 .sira { font-size: 12px; color: var(--muted); letter-spacing: 0.14em; }
     .ekip .uye2 h3 { font-size: 22px; font-weight: 600; margin: 14px 0 8px; line-height: 1.2; }
+    .ekip .uye2 p .ters { transform: translateY(-0.06em) scaleY(-1); }
+    .ekip .uye2 p .ters-e { margin-right: 0.12em; }
     .ekip .uye2 p { font-size: 12.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
     @media (max-width: 900px) { .ekip { grid-template-columns: 1fr 1fr; } .ekip .uye2 { border-right: none; } }
     .uye { text-align: left; padding: 24px 22px; }
@@ -397,7 +401,7 @@
     <a class="bag" href="#galeri">Rehearsing on Earth <span>02</span></a>
     <a class="bag" href="#nasil">How it works <span>03</span></a>
     <a class="bag" href="#gorevler">Missions <span>04</span></a>
-    <a class="bag" href="#veri">The data <span>05</span></a>
+    <a class="bag" href="#veri">Data <span>05</span></a>
     <a class="bag" href="#kimler">Who it's for <span>06</span></a>
     <a class="bag" href="#yontem">Under the hood <span>07</span></a>
     <a class="bag" href="#sinirlar">Limits <span>08</span></a>
@@ -564,7 +568,7 @@
   <!-- ===================== 6) VERİ: 8 KATEGORİ ===================== -->
   <section class="bolum" id="veri">
     <div class="ic">
-      <div class="etiket reveal">The data</div>
+      <div class="etiket reveal">Data</div>
       <h2 class="reveal">Eight ways two places can be alike</h2>
       <p class="giris soluk reveal">Two places can look alike in a photo and still be very different underneath. That's why every comparison is split into eight categories. Click a category to see what it measures, which data feeds it and how we compare two places in it.</p>
       <!-- data-kat = kategori sırası (0–7). Pencere içeriği aşağıdaki script'teki KATEGORILER listesinden gelir -->
@@ -698,7 +702,7 @@
           for (let i = 0; i < N; i++) y[i] = (y[i] - lo) / (hi - lo);
           const sira = [...Array(N).keys()].sort((a, b) => y[a] - y[b]), ebe = new Array(N).fill(-1), dog = y.slice(), renk = new Array(N);
           const kok = a => { while (ebe[a] !== a) { ebe[a] = ebe[ebe[a]]; a = ebe[a]; } return a; };
-          const ciftler = [], RENK = ['#5cc8ff', '#2f8fd6', '#9fdcff', '#1f5fa8', '#7cc4ef', '#3e9be0', '#c9e8fb', '#5e86b8', '#a9d8f5', '#4aa8e8'];
+          const ciftler = [], RENK = ['#5cc8ff', '#f2c94c', '#e8577a', '#6fd3a0', '#b18cff', '#4fd1c5', '#ff8ac4', '#c3e88d', '#8fa8ff', '#e0e0e0'];
           for (const i of sira) {
             ebe[i] = i; renk[i] = null;
             for (const j of [i - 1, i + 1]) {
@@ -781,12 +785,12 @@
     <div class="ic">
       <div class="etiket reveal">The team</div>
       <!-- A dikeyde ters (∀), E yatayda ayna (∃) -->
-      <h2 class="reveal logo" style="font-size:clamp(28px,3.2vw,44px)">ORBITR<span class="ters">A</span>RY T<span class="ters-e">E</span>AM</h2>
+      <h2 class="reveal logo" style="font-size:clamp(28px,3.2vw,44px)">ORBITR<span class="ters">A</span>RY T<span class="ters-e">E</span><span class="ters">A</span>M</h2>
       <div class="ekip" id="ekip-liste">
-        <div class="uye2"><div class="sira">01</div><h3>İrem Akkoca</h3><p>Team Lead and Developer</p></div>
-        <div class="uye2"><div class="sira">02</div><h3>Sude Naz Özyurt</h3><p>Research Lead</p></div>
-        <div class="uye2"><div class="sira">03</div><h3>Emir Düztaş</h3><p>Math &amp; Methods Specialist</p></div>
-        <div class="uye2"><div class="sira">04</div><h3>Zeynep Zelal Bilgiç</h3><p>Data Analyst</p></div>
+        <div class="uye2"><div class="sira">01</div><h3>İrem Akkoca</h3><p>T<span class="ters-e">e</span><span class="ters">a</span>m L<span class="ters-e">e</span><span class="ters">a</span>d <span class="ters">a</span>nd D<span class="ters-e">e</span>v<span class="ters-e">e</span>lop<span class="ters-e">e</span>r</p></div>
+        <div class="uye2"><div class="sira">02</div><h3>Sude Naz Özyurt</h3><p>R<span class="ters-e">e</span>s<span class="ters-e">e</span><span class="ters">a</span>rch L<span class="ters-e">e</span><span class="ters">a</span>d</p></div>
+        <div class="uye2"><div class="sira">03</div><h3>Emir Düztaş</h3><p>M<span class="ters">a</span>th &amp; M<span class="ters-e">e</span>thods Sp<span class="ters-e">e</span>ci<span class="ters">a</span>list</p></div>
+        <div class="uye2"><div class="sira">04</div><h3>Zeynep Zelal Bilgiç</h3><p>D<span class="ters">a</span>t<span class="ters">a</span> <span class="ters">A</span>n<span class="ters">a</span>lyst</p></div>
       </div>
     </div>
   </section>
@@ -1033,10 +1037,10 @@
   </script>
 
   <!-- 3D sahne: ayrı dosya -->
-  <script type="module" src="js/scene-home.js?v=11150551"></script>
+  <script type="module" src="js/scene-home.js?v=11151256"></script>
   <script type="module">
     // Site v2: doğrulama sayıları ozet.json'dan (elle sayı yok)
-    import * as V from './js/veri.js?v=11150551';
+    import * as V from './js/veri.js?v=11151256';
     try {
       const [O, A] = await Promise.all([V.ozet(), V.analoglar()]), g = O.V1.gorev, v3 = O.V3;
       const c = A.filter(x => x.tur === 'validation').flatMap(x => x.ciftler.map(k => k.sonuc)).filter(Boolean);
@@ -1053,6 +1057,12 @@
     } catch (e) { console.warn('ozet.json yüklenemedi', e); }
   </script>
   <script>
+    // MOON | MARS kapsülü yalnız giriş ekranındayken görünür (aşağıda bir işe yaramıyor)
+    (function () {
+      const seg = document.querySelector('#ust .segment'), hero = document.getElementById('hero');
+      if (seg && hero) new IntersectionObserver(([g]) => seg.classList.toggle('gizli', g.intersectionRatio < 0.35),
+        { threshold: [0, 0.35, 1] }).observe(hero);
+    })();
     // Başka sayfadan "Home" ile dönünce kalınan yere git (sekme oturumu boyunca saklanır)
     (function () {
       try {

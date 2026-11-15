@@ -10,12 +10,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <link rel="stylesheet" href="css/style.css?v=11150551">
-  <link rel="stylesheet" href="css/analiz.css?v=11150551">
+  <link rel="stylesheet" href="css/style.css?v=11151256">
+  <link rel="stylesheet" href="css/analiz.css?v=11151256">
 </head>
 <body class="yildizli">
   <header class="ust">
-    <a href="index.html" class="btn-link ev-btn">← Home</a>
+    <a href="index.html#hero" class="btn-link ev-btn">← Home</a>
     <button class="geri-btn" onclick="history.length > 1 ? history.back() : (location.href = 'index.html')">← Back</button>
     <a href="index.html" class="logo" aria-label="Orbitrary">ORBITR<span class="ters">A</span>RY</a>
     <nav>
@@ -55,7 +55,7 @@
   </footer>
 
   <script type="module">
-    import * as V from './js/veri.js?v=11150551';
+    import * as V from './js/veri.js?v=11151256';
     const $ = s => document.querySelector(s);
     const [T, O, A, H, F, M] = await Promise.all([V.metin(), V.ozet(), V.analoglar(), V.hedefler(), V.fotolar(), V.meta()]);
     const hedefAd = id => (H.find(h => h.kimlik === id) || {}).ad || id;

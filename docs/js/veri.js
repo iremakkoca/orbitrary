@@ -159,7 +159,7 @@ export async function eksikNotlari(eksik) {
 }
 
 // ---------- Radar (8-gen) ----------
-// sim: 8 değer (null = veri yok, eksen gri-noktalı; çokgen o ekseni atlar). mis = 1 − sim (turuncu kesikli)
+// sim: 8 değer (null = veri yok, eksen gri-noktalı; çokgen o ekseni atlar). mis = 1 − sim (sarı kesikli)
 export function radar(svg, sim, { mis = true, boyut = 'normal' } = {}) {
   const cx = 160, cy = 160, R = 110;
   svg.setAttribute('viewBox', '-55 0 430 320');
@@ -175,11 +175,39 @@ export function radar(svg, sim, { mis = true, boyut = 'normal' } = {}) {
   });
   if (sim) {
     const nokt = f => sim.map((v, i) => v == null ? null : P(i, f(v))).filter(Boolean).join(' ');
-    if (mis) s += `<polygon points="${nokt(v => 1 - v)}" fill="none" stroke="#8a9bb3" stroke-width="2" stroke-dasharray="6 5"/>`;
+    if (mis) s += `<polygon points="${nokt(v => 1 - v)}" fill="none" stroke="#f2c94c" stroke-width="2" stroke-dasharray="6 5"/>`;
     s += `<polygon points="${nokt(v => v)}" fill="#5cc8ff" fill-opacity="0.22" stroke="#5cc8ff" stroke-width="2"/>`;
     sim.forEach((v, i) => { if (v != null) s += `<circle cx="${cx + R * v * Math.cos(aci(i))}" cy="${cy + R * v * Math.sin(aci(i))}" r="3" fill="#5cc8ff"/>`; });
   }
   svg.innerHTML = s;
+}
+
+// ---------- Yer adı (ülke, şehir) ----------
+// OpenStreetMap Nominatim ters kodlama. Kullanım kuralı: en fazla saniyede 1 istek → istekler sıraya girer,
+// sonuç tarayıcıda saklanır (aynı nokta ikinci kez sorulmaz). Bulunamazsa (okyanus, buz) boş döner.
+const YER = new Map(); let yerSira = Promise.resolve();
+export function yerAdi(lat, lon) {
+  const k = `${lat.toFixed(2)},${lon.toFixed(2)}`;
+  if (YER.has(k)) return YER.get(k);
+  let s = null; try { s = localStorage.getItem('yer:' + k); } catch (e) {}
+  if (s !== null) { const p = Promise.resolve(s); YER.set(k, p); return p; }
+  const p = yerSira = yerSira.then(() => new Promise(t => setTimeout(t, 1100)))
+    .then(() => fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}&zoom=8&accept-language=en`)
+      .then(x => x.ok ? x.json() : null).catch(() => null))
+    .then(j => {
+      const a = (j && j.address) || {};
+      const yer = a.city || a.town || a.village || a.county || a.state_district || a.state || a.region || '';
+      const sonuc = [yer, a.country || ''].filter(Boolean).filter((v, i, d) => d.indexOf(v) === i).join(', ');
+      try { localStorage.setItem('yer:' + k, sonuc); } catch (e) {}
+      return sonuc;
+    });
+  YER.set(k, p);
+  return p;
+}
+// Bir öğeye "Near <yer>, <ülke>" yazar; bulunamazsa öğe boş kalır
+export function yerYaz(el, lat, lon) {
+  if (!el) return;
+  yerAdi(lat, lon).then(s => { if (s) el.innerHTML = `Near ${s} <a class="osm" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener" title="Place names: OpenStreetMap (Nominatim)">© OSM</a>`; });
 }
 
 // ---------- Uydu haritası (Leaflet, sayfada global L) ----------
@@ -196,8 +224,9 @@ export function uyduHaritasi(el, lat, lon, { zoom = 10, kare = true, noktalar = 
   const tek = !noktalar;
   // Bütün haritalarda aynı hareket: 4 seviye uzaktan başlar, görünür olunca 2,2 sn'de yaklaşır.
   const bas = tek ? Math.max(3, zoom - 2) : 2;
-  const h = L.map(el, { zoomControl: true, attributionControl: true, minZoom: tek ? bas : 2, maxZoom: 17,
-    maxBounds: sinir, maxBoundsViscosity: 1.0, worldCopyJump: false, scrollWheelZoom: false,
+  const enAz = tek ? Math.max(2, zoom - 6) : 2, enCok = tek ? Math.min(17, zoom + 4) : 12;   // tekerlekle bu aralıkta
+  const h = L.map(el, { zoomControl: true, attributionControl: true, minZoom: enAz, maxZoom: enCok,
+    maxBounds: sinir, maxBoundsViscosity: 1.0, worldCopyJump: false, scrollWheelZoom: true, wheelPxPerZoomLevel: 120,
     zoomSnap: 0.25, fadeAnimation: false }).setView([lat, lon], bas);
   const ortak = { maxZoom: 17, maxNativeZoom: 17, noWrap: true, bounds: sinir, keepBuffer: 4 };
   const uydu = L.layerGroup([L.tileLayer(KAROLAR.url, { ...ortak, attribution: KAROLAR.atif }),
@@ -210,8 +239,6 @@ export function uyduHaritasi(el, lat, lon, { zoom = 10, kare = true, noktalar = 
     lejant.onAdd = () => { const d = L.DomUtil.create('div', 'harita-lejant'); d.innerHTML = '<i></i>20 × 20 km comparison window'; return d; };
     lejant.addTo(h);
   }
-  h.on('click', () => h.scrollWheelZoom.enable());
-  h.on('mouseout', () => h.scrollWheelZoom.disable());
   let hareket;
   if (tek) {
     if (kare) {   // 20 km × 20 km pencere: ±10 km (enlem 1° ≈ 111,32 km)

@@ -78,7 +78,7 @@ const VS = /* glsl */`
 // ---------------------------------------------------------------------
 const GOVDE = {
   dunya: { merkez: V(0, 0, 0),      R: 1.0  },
-  ay:    { merkez: V(-7, 1.4, -9),  R: 0.7  },   // gerçek ölçek değil, estetik kompozisyon
+  ay:    { merkez: V(-5.2, 1.5, -9), R: 0.7  },   // gerçek ölçek değil, estetik kompozisyon
   mars:  { merkez: V(9, -1.2, -16), R: 0.95 }
 };
 
@@ -253,7 +253,7 @@ const GORUNUM = {};
 function gorunumHesapla() {
   const en = kap.clientWidth / kap.clientHeight;
   const pay = 1 / Math.min(1, en * 1.25);   // dar (dikey) ekranda kamerayı geri al, gezegen taşmasın
-  GORUNUM.dunya = { poz: V(0, 0.1, 4.4 * pay), hedef: V(0, 0, 0) };   // hedef Dünya'nın üstünde → Dünya ekranın alt yarısında, alt başlığın arkasında
+  GORUNUM.dunya = { poz: V(0, 0.1, 4.4 * pay), hedef: V(0, -0.22, 0) };   // hedef Dünya'nın üstünde → Dünya ekranın alt yarısında, alt başlığın arkasında
   for (const ad of ['ay', 'mars']) {
     const g = GOVDE[ad];
     // Gezegen ekranın üst kısmında büyük bir YARIM KÜRE olsun:
@@ -313,7 +313,7 @@ function ucus(hedefAd) {
   if (ucusTween) ucusTween.kill();
   ucusTween = gsap.to(durum, {
     t: 1,
-    duration: azHareket ? 0.01 : 2.8,   // uçuş süresi (saniye)
+    duration: azHareket ? 0.01 : 3.2,   // uçuş süresi (saniye)
     ease: 'power2.inOut',
     onUpdate() {
       const t = durum.t, u = 1 - t;
@@ -362,7 +362,7 @@ function arayuz(ad) {
       document.getElementById('hero-etiket').textContent = METIN[ad].etiket;
       document.getElementById('hero-baslik').textContent = METIN[ad].baslik;
       document.getElementById('hero-aciklama').textContent = METIN[ad].aciklama;
-      gsap.fromTo(metinler, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.07, delay: azHareket ? 0 : 1.4 });
+      gsap.fromTo(metinler, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.07, delay: azHareket ? 0 : 1.8 });
     }
   });
 }

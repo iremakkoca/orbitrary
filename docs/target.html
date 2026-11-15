@@ -10,12 +10,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <link rel="stylesheet" href="css/style.css?v=11150551">
-  <link rel="stylesheet" href="css/analiz.css?v=11150551">
+  <link rel="stylesheet" href="css/style.css?v=11151256">
+  <link rel="stylesheet" href="css/analiz.css?v=11151256">
 </head>
 <body class="yildizli">
   <header class="ust">
-    <a href="index.html" class="btn-link ev-btn">← Home</a>
+    <a href="index.html#hero" class="btn-link ev-btn">← Home</a>
     <button class="geri-btn" onclick="history.length > 1 ? history.back() : (location.href = 'index.html')">← Back</button>
     <a href="index.html" class="logo" aria-label="Orbitrary">ORBITR<span class="ters">A</span>RY</a>
     <nav>
@@ -38,13 +38,13 @@
   <main class="sayfa" id="icerik"></main>
 
   <footer style="padding:30px 5vw;border-top:1px solid var(--line);display:flex;gap:18px;flex-wrap:wrap;align-items:center">
-    <a href="index.html" class="btn-link">← Home</a>
+    <a href="index.html#hero" class="btn-link">← Home</a>
     <button class="btn-link" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top ↑</button>
     <span class="soluk" style="font-size:13px">NASA Space Apps Challenge 2026 project. Not an official NASA website. Every number on this page is read from the project's result files. Code developed with assistance from Claude (Anthropic).</span>
   </footer>
 
   <script type="module">
-    import * as V from './js/veri.js?v=11150551';
+    import * as V from './js/veri.js?v=11151256';
     const $ = s => document.querySelector(s);
     const PARAM = new URLSearchParams(location.search);
     const id = PARAM.get('id');
@@ -174,10 +174,11 @@
         const kaps = r.s.filter(x => x != null).length;
         tb.insertAdjacentHTML('beforeend', `<tr class="satir" data-i="${i}">
           <td class="mono">${i + 1}</td>
-          <td><span class="mono">${V.koordYazi(r.enlem, r.boylam)}</span>${et ? `<br><span class="rozet rozet-${et.tur}" style="margin-top:4px" title="${et.aciklama}">${et.ad} · ${V.saha(r.en_yakin_analog.id)}</span>` : ''}</td>
+          <td><span class="mono">${V.koordYazi(r.enlem, r.boylam)}</span><div class="yer-adi" style="margin:2px 0 0;font-size:12.5px" data-i="${i}"></div>${et ? `<br><span class="rozet rozet-${et.tur}" style="margin-top:4px" title="${et.aciklama}">${et.ad} · ${V.saha(r.en_yakin_analog.id)}</span>` : ''}</td>
           <td><div class="mono">${V.puanYuzde(r.P)}</div><div class="cubuk"><i style="width:${(100 * r.P).toFixed(1)}%"></i></div></td>
           <td class="mono">${kaps}/8</td></tr>`);
       }
+      ilk.forEach((r, i) => V.yerYaz(tb.querySelector(`.yer-adi[data-i="${i}"]`), r.enlem, r.boylam));
       let harita = null;
       async function detay(i) {
         const r = ilk[i];
@@ -189,6 +190,7 @@
         $('#ozet-sag').innerHTML = `
           <div class="etiket">Earth site #${i + 1} · ${T.gorev[g].ad}</div>
           <h2 style="margin:6px 0 2px">${V.koordYazi(r.enlem, r.boylam)}</h2>
+          <div class="yer-adi" id="ozet-yer"></div>
           ${et ? `<span class="rozet rozet-${et.tur}" title="${et.aciklama}">${et.ad} · ${V.saha(r.en_yakin_analog.id)} · ${r.en_yakin_analog.km.toFixed(0)} km</span>` : ''}
           <div style="display:flex;align-items:baseline;gap:12px;margin-top:10px"><span class="buyuk-puan">${V.puanYuzde(r.P)}</span><span class="soluk">match for ${h.ad}</span></div>
           <svg class="radar radar-buyuk" id="d-radar"></svg>
@@ -206,6 +208,7 @@
           <h3>Mission requirement</h3><p><span class="rozet ${r.kapi_durumu === 'passed' ? 'rozet-gecti' : ''}">${r.kapi_durumu}</span> <span class="soluk" style="font-size:13px">${durumAd ? durumAd.aciklama : ''}</span></p>
           ${notlar.map(t => `<p class="soluk" style="font-size:13px">${t}</p>`).join('')}`;
         V.radar($('#d-radar'), r.s);
+        V.yerYaz($('#ozet-yer'), r.enlem, r.boylam);
         harita = V.uyduHaritasi($('#harita'), r.enlem, r.boylam, { zoom: 11 });
       }
       document.querySelectorAll('#tablo tr.satir').forEach(t => t.addEventListener('click', () => { detay(Number(t.dataset.i)); $('#harita').scrollIntoView({ behavior: 'smooth', block: 'center' }); }));
