@@ -137,3 +137,8 @@ button:disabled:hover { border-color: var(--line); }
 /* Yer adı satırı (OpenStreetMap) */
 .yer-adi { font-size: 14px; color: var(--muted); margin: 2px 0 8px; min-height: 1em; }
 .yer-adi .osm { font-size: 10.5px; color: var(--muted); opacity: 0.7; text-decoration: none; margin-left: 4px; }
+/* Hedef sayfası ayrıntı kartında alt başlıklar */
+#detay h3 { font-size: 12.5px; font-weight: 600; margin: 18px 0 4px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+#detay h3:first-child { margin-top: 0; }
+/* Explore: hedef noktasının üstüne gelince çıkan ad */
+.nokta-ipucu { position: absolute; z-index: 4; pointer-events: none; opacity: 0; transition: opacity 0.15s; background: rgba(10,15,25,0.92); border: 1px solid var(--line); border-radius: 8px; padding: 5px 10px; font-size: 13px; white-space: nowrap; }

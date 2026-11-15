@@ -189,16 +189,17 @@ const YER = new Map(); let yerSira = Promise.resolve();
 export function yerAdi(lat, lon) {
   const k = `${lat.toFixed(2)},${lon.toFixed(2)}`;
   if (YER.has(k)) return YER.get(k);
-  let s = null; try { s = localStorage.getItem('yer:' + k); } catch (e) {}
+  let s = null; try { s = localStorage.getItem('yer2:' + k); } catch (e) {}
   if (s !== null) { const p = Promise.resolve(s); YER.set(k, p); return p; }
   const p = yerSira = yerSira.then(() => new Promise(t => setTimeout(t, 1100)))
     .then(() => fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}&zoom=8&accept-language=en`)
       .then(x => x.ok ? x.json() : null).catch(() => null))
     .then(j => {
       const a = (j && j.address) || {};
-      const yer = a.city || a.town || a.village || a.county || a.state_district || a.state || a.region || '';
-      const sonuc = [yer, a.country || ''].filter(Boolean).filter((v, i, d) => d.indexOf(v) === i).join(', ');
-      try { localStorage.setItem('yer:' + k, sonuc); } catch (e) {}
+      const yer = a.city || a.town || a.village || '';
+      const bolge = a.state || a.region || a.province || a.state_district || a.county || '';
+      const sonuc = [yer, bolge, a.country || ''].filter(Boolean).filter((v, i, d) => d.indexOf(v) === i).join(', ');
+      try { localStorage.setItem('yer2:' + k, sonuc); } catch (e) {}
       return sonuc;
     });
   YER.set(k, p);

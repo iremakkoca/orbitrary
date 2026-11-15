@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- Ortak stil: renkler, butonlar, logo, MOON|MARS kapsülü -->
-  <link rel="stylesheet" href="css/style.css?v=11151256">
+  <link rel="stylesheet" href="css/style.css?v=11151316">
 
   <!-- Sadece keşif sayfasına özel stiller -->
   <style>
@@ -145,7 +145,7 @@
     .esles-ust { display: flex; align-items: center; gap: 16px; }
     .sira-buyuk { font-size: 54px; font-weight: 700; color: var(--accent); line-height: 1; }
     .esles-ad { font-size: 28px; font-weight: 600; }
-    .esles-kart h3 { font-size: 15px; font-weight: 600; margin-top: 6px; }
+    .esles-kart h3 { font-size: 12.5px; font-weight: 600; margin: 14px 0 2px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
     .puan-satir { display: flex; gap: 32px; }
     .puan-sayi { font-size: 34px; font-weight: 600; }
     .puan-sayi.kucuk { font-size: 24px; color: var(--muted); }
@@ -208,7 +208,7 @@
   </script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <link rel="stylesheet" href="css/analiz.css?v=11151256">
+  <link rel="stylesheet" href="css/analiz.css?v=11151316">
 </head>
 
 <body>
@@ -334,7 +334,7 @@
     <h3>2. What each number means</h3>
     <ul>
       <li><b>Similarity (blue shape)</b> is a rank, not a percent of sameness: the share of reference Earth windows that are further from the selected spot than this site in that category.</li>
-      <li><b>Mismatch (orange dashed line)</b> = 1 − similarity. It shows the same information from the other side.</li>
+      <li><b>Mismatch (yellow dashed line)</b> = 1 − similarity. It shows the same information from the other side.</li>
       <li><b>Match score</b>: the weighted average of the category similarities. It is absolute: it is not stretched so that the best site gets 100%.</li>
       <li><b>Categories compared</b>: categories with data on both sides. Missing ones are left out, not counted as zero, and the remaining weights are rescaled.</li>
     </ul>
@@ -360,8 +360,8 @@
     import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
     import { gsap } from 'gsap';
     import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
-    import { gokyuzuEkle } from './js/gokyuzu.js?v=11151256';
-    import * as V from './js/veri.js?v=11151256';
+    import { gokyuzuEkle } from './js/gokyuzu.js?v=11151316';
+    import * as V from './js/veri.js?v=11151316';
     gsap.registerPlugin(ScrollTrigger);
 
     // ============================================================
@@ -819,6 +819,35 @@
         e.el.style.opacity = gor ? 1 : 0;
       }
     }
+    // Hedef noktası (beyaz halka) üstüne gelince adı farenin yanında görünür. Ekranda 14 px'ten yakın,
+    // kameraya bakan en yakın hedef seçilir. Sürüklerken ve uçuşta gizli.
+    const noktaIpucu = document.createElement('div'); noktaIpucu.className = 'nokta-ipucu';
+    document.getElementById('sahne').appendChild(noktaIpucu);
+    const _hw = new THREE.Vector3(), _hc = new THREE.Vector3();
+    renderer.domElement.addEventListener('pointermove', e => {
+      if (ucusta || parmak > 0 || !hedefler.length) { noktaIpucu.style.opacity = 0; return; }
+      const r = renderer.domElement.getBoundingClientRect(), sr = document.getElementById('sahne').getBoundingClientRect();
+      const mx = e.clientX - r.left, my = e.clientY - r.top, g = govde === 'ay' ? 'moon' : 'mars';
+      gezegen.getWorldPosition(_hc);
+      let en = null, enD = 14;
+      for (const h of hedefler) {
+        if (h.body !== g) continue;
+        _hw.copy(hedefVektor(h.lat, h.lon)).applyMatrix4(gezegen.matrixWorld);
+        if (_hw.clone().sub(_hc).normalize().dot(camera.position.clone().sub(_hw).normalize()) < 0.1) continue;
+        const s = _hw.clone().project(camera), x = (s.x + 1) / 2 * r.width, y = (1 - s.y) / 2 * r.height;
+        const d = Math.hypot(x - mx, y - my);
+        if (d < enD) { enD = d; en = h; }
+      }
+      if (en) {
+        noktaIpucu.textContent = en.name;
+        noktaIpucu.style.left = (e.clientX - sr.left + 14) + 'px';
+        noktaIpucu.style.top = (e.clientY - sr.top + 12) + 'px';
+        noktaIpucu.style.opacity = 1;
+        renderer.domElement.style.cursor = 'pointer';
+      } else { noktaIpucu.style.opacity = 0; renderer.domElement.style.cursor = ''; }
+    });
+    renderer.domElement.addEventListener('pointerleave', () => { noktaIpucu.style.opacity = 0; });
+
     function bolgeListesi() {
       const kok = document.getElementById('bolge-liste'); if (!kok) return;
       const g = govde === 'ay' ? 'moon' : 'mars';

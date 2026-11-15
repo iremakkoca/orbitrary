@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- Ortak stil: renkler, butonlar, logo, MOON|MARS kapsülü -->
-  <link rel="stylesheet" href="css/style.css?v=11151256">
+  <link rel="stylesheet" href="css/style.css?v=11151316">
 
   <!-- Sadece ana sayfaya özel stiller -->
   <style>
@@ -68,6 +68,14 @@
     #cekmece .btn-ana { margin-top: 22px; justify-content: center; }
     #cekmece .alt-not { margin-top: auto; padding-top: 24px; font-size: 12px; }
 
+    /* ===== YÜKLENİYOR PERDESİ ===== */
+    #yukleniyor { position: fixed; inset: 0; z-index: 9999; background: #03050c; display: grid; place-items: center; align-content: center; gap: 22px; transition: opacity 0.5s; }
+    #yukleniyor.bitti { opacity: 0; pointer-events: none; }
+    #yukleniyor .logo { font-size: 26px; }
+    #yukleniyor i { width: 34px; height: 34px; border: 3px solid rgba(92,200,255,0.2); border-top-color: var(--accent); border-radius: 50%; animation: yukle-don 0.9s linear infinite; }
+    #yukleniyor small { color: var(--muted); letter-spacing: 0.2em; font-size: 11px; }
+    @keyframes yukle-don { to { transform: rotate(360deg); } }
+
     /* ===== GİRİŞ EKRANI (HERO) ===== */
     #hero {
       position: relative; height: 100vh; min-height: 620px; overflow: hidden;
@@ -76,7 +84,7 @@
     #hero-sahne { position: absolute; inset: 0; }
     #hero-sahne canvas { display: block; width: 100%; height: 100%; }
     .hero-icerik {
-      position: absolute; left: 0; right: 0; bottom: 3.5vh;
+      position: absolute; left: 0; right: 0; bottom: max(64px, 7vh);
       display: flex; flex-direction: column; align-items: center; gap: 18px;
       text-align: center; padding: 0 6vw;
       pointer-events: none;
@@ -132,7 +140,7 @@
     .filtreler button.secili { background: var(--accent); }
 
     #kaydir-isaret {
-      position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%);
+      position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%);
       font-size: 12px; color: var(--muted); letter-spacing: 0.2em; text-decoration: none;
       animation: suzul 2.4s ease-in-out infinite;
     }
@@ -365,6 +373,13 @@
 </head>
 
 <body>
+  <div id="yukleniyor" aria-hidden="true"><span class="logo">ORBITR<span class="ters">A</span>RY</span><i></i><small>LOADING</small></div>
+  <script>
+    // Sayfa (3D sahne, yazı tipleri, kütüphaneler) yüklenince perde kalkar; en geç 6 sn
+    (function () { const y = document.getElementById('yukleniyor'); let b = false;
+      const bit = () => { if (b) return; b = true; y.classList.add('bitti'); setTimeout(() => y.remove(), 600); };
+      window.addEventListener('load', () => setTimeout(bit, 200)); setTimeout(bit, 6000); })();
+  </script>
   <!-- ===================== ÜST ŞERİT ===================== -->
   <header id="ust">
     <button class="menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -785,12 +800,12 @@
     <div class="ic">
       <div class="etiket reveal">The team</div>
       <!-- A dikeyde ters (∀), E yatayda ayna (∃) -->
-      <h2 class="reveal logo" style="font-size:clamp(28px,3.2vw,44px)">ORBITR<span class="ters">A</span>RY T<span class="ters-e">E</span><span class="ters">A</span>M</h2>
+      <h2 class="reveal logo" style="font-size:clamp(28px,3.2vw,44px)">ORBITR<span class="ters">A</span>RY T<span class="ters-e">E</span>AM</h2>
       <div class="ekip" id="ekip-liste">
-        <div class="uye2"><div class="sira">01</div><h3>İrem Akkoca</h3><p>T<span class="ters-e">e</span><span class="ters">a</span>m L<span class="ters-e">e</span><span class="ters">a</span>d <span class="ters">a</span>nd D<span class="ters-e">e</span>v<span class="ters-e">e</span>lop<span class="ters-e">e</span>r</p></div>
-        <div class="uye2"><div class="sira">02</div><h3>Sude Naz Özyurt</h3><p>R<span class="ters-e">e</span>s<span class="ters-e">e</span><span class="ters">a</span>rch L<span class="ters-e">e</span><span class="ters">a</span>d</p></div>
-        <div class="uye2"><div class="sira">03</div><h3>Emir Düztaş</h3><p>M<span class="ters">a</span>th &amp; M<span class="ters-e">e</span>thods Sp<span class="ters-e">e</span>ci<span class="ters">a</span>list</p></div>
-        <div class="uye2"><div class="sira">04</div><h3>Zeynep Zelal Bilgiç</h3><p>D<span class="ters">a</span>t<span class="ters">a</span> <span class="ters">A</span>n<span class="ters">a</span>lyst</p></div>
+        <div class="uye2"><div class="sira">01</div><h3>İrem Akkoca</h3><p>Team Lead and Developer</p></div>
+        <div class="uye2"><div class="sira">02</div><h3>Sude Naz Özyurt</h3><p>Research Lead</p></div>
+        <div class="uye2"><div class="sira">03</div><h3>Emir Düztaş</h3><p>Math &amp; Methods Specialist</p></div>
+        <div class="uye2"><div class="sira">04</div><h3>Zeynep Zelal Bilgiç</h3><p>Data Analyst</p></div>
       </div>
     </div>
   </section>
@@ -1037,10 +1052,10 @@
   </script>
 
   <!-- 3D sahne: ayrı dosya -->
-  <script type="module" src="js/scene-home.js?v=11151256"></script>
+  <script type="module" src="js/scene-home.js?v=11151316"></script>
   <script type="module">
     // Site v2: doğrulama sayıları ozet.json'dan (elle sayı yok)
-    import * as V from './js/veri.js?v=11151256';
+    import * as V from './js/veri.js?v=11151316';
     try {
       const [O, A] = await Promise.all([V.ozet(), V.analoglar()]), g = O.V1.gorev, v3 = O.V3;
       const c = A.filter(x => x.tur === 'validation').flatMap(x => x.ciftler.map(k => k.sonuc)).filter(Boolean);
